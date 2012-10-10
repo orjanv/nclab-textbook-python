@@ -1,3 +1,282 @@
+\documentclass[article,A4,12pt]{llncs}
+
+% Conditional compilation.
+% NOTE: If you set fullversionfalse, just compile ONCE so that TOC stays unchanged.
+\newif\iffullversion
+\fullversiontrue
+%\fullversionfalse
+
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{amsfonts}
+\usepackage{mathrsfs, bm}
+
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{subfig}
+\usepackage{epsf,times}
+\usepackage{color}
+\usepackage{wrapfig}
+\usepackage{cases}
+\usepackage{multicol}
+\usepackage[usenames,dvipsnames]{xcolor}
+
+\usepackage{palatino}
+
+\usepackage[T1]{fontenc}
+%\newcommand{\tmname}[1]{\textsc{#1}}
+%\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+%\newcommand{\tmsamp}[1]{\textsf{#1}}
+%\newcommand{\tmtextsc}[1]{{\scshape{#1}}}
+%\newcommand{\tmtextsl}[1]{{\slshape{#1}}}
+%\newcommand{\tmtexttt}[1]{{\ttfamily{#1}}}
+
+\leftmargin=0.0cm
+\oddsidemargin=0.5cm
+\evensidemargin=0.5cm
+\topmargin=0cm
+\textwidth=16.0cm
+%\textheight=21.5cm
+\textheight=20.0cm
+\pagestyle{plain}
+\setlength{\columnsep}{20pt}
+
+\def\m{\mathbf{m}}
+\def\H{\mathbf{H}}
+\def\E{\mathbf{E}}
+\newcommand{\vepsi}{{\varepsilon}}
+\def\hnorm#1#2{\vert\,#1\,\vert_{#2}}
+\newcommand{\R}{{\mathbb R}}
+\newcommand{\Sph}{{\mathbb S}}
+\def\x{\mathbf{x}}
+\def\hvec{\overline{\mathbf{h}}}
+\def\evec{\overline{\mathbf{e}}}
+
+\newcommand{ \etal}{\mbox{\emph{et al. }}}
+
+\newcommand\vect[1]{\mbf{#1}}
+\newcommand{\mbf}[1]{\mbox{\boldmath$#1$}} 
+\newcommand{\RC}[1]{#1 $\times$ #1 $\times$ #1}
+\def\um{$\mu$m}
+\def\C{$^{\circ}\mathrm{C}$}
+
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+
+% DEFINITION OF CUSTOM FONT SIZE
+\newcommand{\customfontA}{\fontsize{50}{55}\selectfont}
+\newcommand{\customfontB}{\fontsize{14.4}{20}\selectfont}
+\newcommand{\customfontC}{\fontsize{30}{35}\selectfont}
+
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+
+\def\clovek#1{\noindent\bgroup\vbox{\noindent#1}\egroup\vskip1em}
+
+% TO INPUT BACKGROUND IMAGE
+%\usepackage{eso-pic}
+%\newcommand\BackgroundPic{
+%\put(0,0){
+%\parbox[b][\paperheight]{\paperwidth}{
+%\vfill
+%\centering
+%\includegraphics[width=\paperwidth,height=\paperheight]{img/karel-frontpage.png}
+%%\includegraphics[width=\paperwidth,height=\paperheight]{img/background.jpg}
+%\vfill
+%}}}
+
+\usepackage{fancyvrb}
+
+\newenvironment{bluecode}{\VerbatimEnvironment \color{blue} \begin{Verbatim}}
+{\end{Verbatim}}
+\newenvironment{greencode}{\VerbatimEnvironment \color{ForestGreen} \begin{Verbatim}}
+{\end{Verbatim}}
+\newenvironment{redcode}{\VerbatimEnvironment \color{Red} \begin{Verbatim}}
+{\end{Verbatim}}
+
+
+\begin{document}
+
+% INPUTTING BACKGROUND IMAGE
+%\AddToShipoutPicture{\BackgroundPic}
+%\vbox{}
+%\pagestyle{empty}
+%\newpage
+%\textwidth=15.5cm
+%\ClearShipoutPicture
+%\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{empty}
+
+\vbox{}
+\begin{figure}[!ht]
+%\hspace{-4mm}
+\includegraphics[width=8cm]{imgp/logo.png}
+\vspace{10mm}
+\end{figure}
+\vbox{}
+\vspace{0.5cm}
+
+%\begin{center}
+%{\huge \bf First Course in Programming}
+%\end{center}
+
+\begin{figure}[!ht]
+\begin{center}
+\vspace{-6mm}
+%\includegraphics[width=0.26\textheight]{imgp/karel-logo.png}\ \ \ \ \ \ 
+\includegraphics[width=0.3\textheight]{imgp/python-logo.png}
+\vbox{}
+\vspace{-9mm}
+\end{center}
+\end{figure}
+\begin{center}
+\vspace{2cm}
+{\huge \bf Introduction to Python\\ Programming}
+\end{center}
+
+\begin{center}
+%{\Large Part II - Python}
+\end{center}
+\vbox{}
+\vspace{5mm}
+\begin{center}
+\iffullversion
+\else
+\centerline{\huge \color{red}{PREVIEW}}
+\fi
+\vfill
+%{\large
+%{\bf Pavel Solin \& Salih Dede}
+%Contribute and become a co-author!
+%}
+\end{center}
+\vfill
+\vfill
+\begin{center}
+Revision Oct-10-2012. Copyright 2012 FEMhub Inc. All rights reserved.
+\end{center}
+\newpage
+\vbox{}
+\vfill
+{
+\noindent
+{\bf About this Textbook}\\[4mm]
+This free textbook is provided as a courtesy to NCLab users. 
+It will help you discover the elegance and power of procedural and 
+object-oriented programming with Karel the Robot and Python. The former 
+is a famous educational language created and still used at the Stanford University, 
+the latter is a modern high-level dynamical programming language that is used
+in many areas of business, engineering, and science today. After taking 
+this course, you will have solid theoretical knowledge and vast
+practical experience with computer programming. \\[4mm]
+
+\noindent
+{\bf Become a Co-Author}\\[4mm]
+We do not wish to publish the textbook at a commercial publishing house since this 
+would make it unnecessarily expensive. Feel free to contribute to the textbook in any way 
+-- all contributors become automatically co-authors. The is never enough illustrations 
+and exercises, and there always are bugs to report. Instructions for contributors 
+can be found below.\\[4mm]
+
+\noindent
+{\bf How to Contribute (for \LaTeX \ and Git users)}\\[4mm]
+\noindent
+The textbook is written in \LaTeX, a high-quality professional-level typesetting system that 
+you can learn and use in NCLab. In the future it will be possible to contribute to 
+the textbook directly in NCLab, but at this time, the sources are stored 
+in a public Git repository at Github (http://github.com). Standard Git workflow is 
+followed: If you are interested in contributing, create a free account at Github and 
+fork the public repository {\tt nclab-textbook-python}. Then clone your fork into 
+your computer, make local changes, commit them, push them into your Github fork, 
+and send us a pull request. We are looking forward! \\[4mm]
+
+\noindent
+{\bf How to Contribute (for all others)}\\[4mm]
+\noindent
+We will gladly accept new interesting exercises for Karel and/or Python, as well as
+new images of good quality that make the textbook more interesting to students. You
+can send those at any time via email to {\tt pavel@femhub.com}.\\[4mm]
+
+\newpage
+\noindent
+{\bf List of Authors and Contributors}
+\begin{itemize}
+\item Pavel Solin, University of Nevada, Reno (main author). 
+\item Martin Novak, Czech Technical University, Prague, Czech Republic.
+\item Salih Dede, Coral Academy of Science High School, Reno, NV.
+\item Nazhmiddin Shapoatov, Sonoran Science Academy, Phoenix, AZ.
+\item Artur Skonecki, Warsaw University of Technology, Warsaw, Poland.
+\end{itemize}
+
+\vspace{6mm}
+\noindent
+{\bf For Instructors}\\[4mm]
+Review Book and Exercise Book containing 
+hundreds of review questions with answers and programming exercises with
+solutions, respectively, are part of the NCLab-powered course 
+{\em Intro to Programming with Karel the Robot and Python} that is 
+available at \\[4mm]
+
+{\color{blue}
+\centerline{\tt http://introtoprogramming.net}
+}
+\vspace{5mm}
+
+\noindent
+for a small subscription fee. The fee is used to cover cloud computing resources, 
+development, maintenance, and user support. 
+
+The course is completely web-browser based, no installation of anything at your school 
+or home is needed. You and your students can access the course from anywhere and at any 
+time. Instructor's workflow includes downloading assignments and review
+question worksheets from the database, sending them to the students 
+via one mouse click, and collecting them back, automatically graded. 
+The course is scheduled to open in January 2013. In the meantime, enjoy 
+Karel and Python, and let us know with any questions at {\tt support@nclab.com}!
+}
+\vspace{8mm}
+
+
+
+\newpage
+%{\ }
+\setcounter{tocdepth}{2}
+\tableofcontents
+%\pagestyle{plain}
+
+\newpage
+
+\pagestyle{plain}
+\setcounter{page}{1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{plain}
+\setcounter{page}{1}
+\section*{Foreword}
+This course provides a gentle yet efficient introduction to Python -- 
+a modern high-level dynamical programming language that is widely used in business, 
+science, and engineering applications. If this is your first time learning 
+a programming language, then we recommend that you spend a few days with 
+Karel the Robot before diving into Python. Karel the Robot is also available 
+in NCLab (http://nclab.com) and it will teach you important principles of algorithmic 
+thinking. Once you learn that, your efficiency in acquiring new programming languages 
+will improve dramatically. Moreover, Karel's syntax is very similar to Python, 
+so transition to Python is seamless, and you hit the ground running.
+
+In Python you will continue building your skills in the same way you did in Karel. 
+You will learn more advanced concepts including mathematical operations and functions, 
+2D and 3D plotting, local and global variables, strings, tuples, lists, dictionaries, 
+exceptions, object-oriented programming, and more. 
+
+A strong companion of Python are its libraries. Besides the Standard Library that
+contains many build-in functions not present in lower-level languages such as 
+Java, C, C++ or Fortran, Python also has powerful scientific libraries including 
+Scipy, Numpy, Matplotlib, Pylab, Sympy and others. With these, you will be able to 
+solve entry-level scientific and engineering problems. These libraries are discussed
+at the end of the course.  
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setcounter{section}{0}
 \section{Introduction}
@@ -78,7 +357,6 @@ the {\em Programming} menu or via File Manager $\rightarrow$
 Project $\rightarrow$ New $\rightarrow$ Python. An empty Python worksheet
 is shown in Fig. \ref{fig:python}.
 
-\newpage
 \begin{figure}[!ht]
 \begin{center}
 \includegraphics[width=0.9\textwidth]{imgp/python.png}
@@ -95,8 +373,6 @@ Click into the code cell and type {\tt print "Hello, World!"}.
 Then click on {\tt run} link under the code cell, and the text 
 "Hello, World!" will be displayed 
 in a new yellow {\em output cell} as shown in Fig. \ref{fig:python-2}.
-
-\newpage
 
 \begin{figure}[!ht]
 \begin{center}
@@ -1171,15 +1447,12 @@ x0 = 0.0
 x1 = 10.0
 y0 = 0.0
 y1 = 10.0
-
 # Define the corresponding divisions.
 nx = 100
 ny = 100
-
 # Define the function:
 def f(x, y):
     return sin(sqrt(x**2 + y**2))
-
 # Render the surface using WebGL.
 lab.surface((x0, x1, nx), (y0, y1, ny), f)
 \end{bluecode}
@@ -1192,8 +1465,9 @@ The output is shown in Fig. \ref{fig:webgl}.
 \vspace{-2mm}
 \caption{Plotting functions of two variables with WebGL.}
 \label{fig:webgl}
-%\vspace{-1cm}
+\vspace{-1cm}
 \end{figure}
+\newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1337,7 +1611,7 @@ TypeError: cannot concatenate 'str' and 'float' objects
 
 \subsection{Local and global variables} \label{subsec:pythonlocvar}
 
-As we know from Part I, Subsection \ref{subsec:karellocvar}, a variable defined 
+As we know from the Karel course, a variable defined 
 inside a function is {\em local} to that function. If we try to access 
 the variable outside the function, even though the function was 
 already called, the variable is  unknown. Look at the following 
@@ -1831,10 +2105,11 @@ legend()
 lab.show()
 \end{bluecode}
 The output is shown in Fig. \ref{fig:xcosx}.
+\newpage
 
 \begin{figure}[!ht]
 \begin{center}
-\includegraphics[width=0.8\textwidth]{imgp/xcosx.png}
+\includegraphics[width=0.6\textwidth]{imgp/xcosx.png}
 \end{center}
 \vspace{-2mm}
 \caption{Graphs of the functions $\cos(x)$ and $x$ in the interval $(0, \pi/2)$.}
@@ -2259,8 +2534,8 @@ Output:
 
 \subsection{Lists}
 
-We first encountered lists in Karel (Part I, Section \ref{sec:var}). What we
-learned there will hold true in Python, but Python lists have many additional 
+We first encountered lists in Level 3 of Karel the Robot. What we
+learned there will hold true in Python without changes, but Python lists have many additional 
 useful functions that we will learn here. Let us start by reviewing the basics.
   
 Lists are similar to tuples, and all indexing and slicing works in the same way. 
@@ -2986,7 +3261,7 @@ Area and perimeter of circle 3: 0.196349540849 1.57079632679
 
 \begin{figure}[!ht]
 \begin{center}
-\includegraphics[width=0.8\textwidth]{imgp/3circ.png}
+\includegraphics[width=0.6\textwidth]{imgp/3circ.png}
 \end{center}
 \vspace{-2mm}
 \caption{Three instances of the class {\tt circle}.}
@@ -3544,7 +3819,7 @@ The graphical output is shown in Fig. \ref{fig:classes2}.
 
 \begin{figure}[!ht]
 \begin{center}
-\includegraphics[width=0.82\textwidth]{imgp/classes2.png}
+\includegraphics[width=0.6\textwidth]{imgp/classes2.png}
 \end{center}
 \vspace{-2mm}
 \caption{Visualization of the instances created above.}
@@ -3644,3 +3919,33 @@ your nexr resource should be the original Python tutorial at
 
 
 
+
+
+\section{What next?}
+
+Congratulations, you made it! We hope that you enjoyed the textbook and the 
+exercises. If you can think of any way to improve the application Karel the 
+Robot or this tutorial, we would be very happy to hear from you. If you 
+have an interesting new game or exercises for Karel, please let us know as well. 
+
+Although you may feel like an Almighty Programmer right now, we would
+recommend staying humble. Even the most experienced programmers are
+learning new things all the time. There is much more to Python that 
+we managed to cover in this introductory textbook. You already know 
+about the Internet resources where you can learn more.  
+
+Alternatively, you may dive into a next programming language! We would 
+recommend Javascript since this is the most popular language for web 
+development. Of course there are many more languages to explore, including 
+C/C++, Java, Perl, Ruby, Lua and others.\\
+
+\noindent
+In any case, our team wishes you good luck, and keep us in your 
+favorite bookmarks! \\
+
+\hbox{} \hfill{} Your Authors
+
+
+
+
+\end{document}

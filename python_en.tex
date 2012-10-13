@@ -2293,177 +2293,180 @@ as well as various operations that we can do with them.
 Let us first understand how to use quotes in strings. The safest way is to use 
 them with a backslash:
 
-\begin{bluecode}
-print "I said \"yes\"."
-\end{bluecode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{print} \PY{l+s}{"}\PY{l+s}{I said }\PY{l+s+se}{\PYZbs{}"}\PY{l+s}{yes}\PY{l+s+se}{\PYZbs{}"}\PY{l+s}{.}\PY{l+s}{"}
+\end{Verbatim}
 Output:
 
-\begin{greencode}
-'I said "yes".'
-\end{greencode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{l+s}{'}\PY{l+s}{I said }\PY{l+s}{"}\PY{l+s}{yes}\PY{l+s}{"}\PY{l+s}{.}\PY{l+s}{'}
+\end{Verbatim}
 Another example:
 
-\begin{bluecode}
-print "It doesn\'t matter."
-\end{bluecode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{print} \PY{l+s}{"}\PY{l+s}{It doesn}\PY{l+s+se}{\PYZbs{}'}\PY{l+s}{t matter.}\PY{l+s}{"}
+\end{Verbatim}
 Output:
 
-\begin{greencode}
-"It doesn't matter."
-\end{greencode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{l+s}{"}\PY{l+s}{It doesn}\PY{l+s}{'}\PY{l+s}{t matter.}\PY{l+s}{"}
+\end{Verbatim}
 
 \subsection{Multiline strings and backslashes}
 
 If we want to use multiline strings, the best way is to enclose them 
 in triple quotes: 
 
-\begin{bluecode}
-edgar = """
-Once upon a midnight dreary, while I pondered weak and weary,
-Over many a quaint and curious volume of forgotten lore,
-While I nodded, nearly napping, suddenly there came a tapping,
-As of some one gently rapping, rapping at my chamber door.
-`'Tis some visitor,' I muttered, `tapping at my chamber door -
-Only this, and nothing more.'
-"""
-print edgar
-\end{bluecode}
-Output:
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{edgar} \PY{o}{=} \PY{l+s}{"""}
+\PY{l+s}{Once upon a midnight dreary, while I pondered weak and weary,}
+\PY{l+s}{Over many a quaint and curious volume of forgotten lore,}
+\PY{l+s}{While I nodded, nearly napping, suddenly there came a tapping,}
+\PY{l+s}{As of some one gently rapping, rapping at my chamber door.}
+\PY{l+s}{`}\PY{l+s}{'}\PY{l+s}{Tis some visitor,}\PY{l+s}{'}\PY{l+s}{ I muttered, `tapping at my chamber door -}
+\PY{l+s}{Only this, and nothing more.}\PY{l+s}{'}
+\PY{l+s}{"""}
+\PY{k}{print} \PY{n}{edgar}
+\end{Verbatim}
+\newpage
+\noindent
+Output:\\
 
-\begin{greencode}
+\begin{Verbatim}[commandchars=\\\{\}]
 
-Once upon a midnight dreary, while I pondered weak and weary,
-Over many a quaint and curious volume of forgotten lore,
-While I nodded, nearly napping, suddenly there came a tapping,
-As of some one gently rapping, rapping at my chamber door.
-`'Tis some visitor,' I muttered, `tapping at my chamber door -
-Only this, and nothing more.'
+\PY{n}{Once} \PY{n}{upon} \PY{n}{a} \PY{n}{midnight} \PY{n}{dreary}\PY{p}{,} \PY{n}{while} \PY{n}{I} \PY{n}{pondered} \PY{n}{weak} \PY{n}{and} \PY{n}{weary}\PY{p}{,}
+\PY{n}{Over} \PY{n}{many} \PY{n}{a} \PY{n}{quaint} \PY{n}{and} \PY{n}{curious} \PY{n}{volume} \PY{n}{of} \PY{n}{forgotten} \PY{n}{lore}\PY{p}{,}
+\PY{n}{While} \PY{n}{I} \PY{n}{nodded}\PY{p}{,} \PY{n}{nearly} \PY{n}{napping}\PY{p}{,} \PY{n}{suddenly} \PY{n}{there} \PY{n}{came} \PY{n}{a} \PY{n}{tapping}\PY{p}{,}
+\PY{n}{As} \PY{n}{of} \PY{n}{some} \PY{n}{one} \PY{n}{gently} \PY{n}{rapping}\PY{p}{,} \PY{n}{rapping} \PY{n}{at} \PY{n}{my} \PY{n}{chamber} \PY{n}{door}\PY{o}{.}
+\PY{n}{`'Tis some visitor,' I muttered, `}\PY{n}{tapping} \PY{n}{at} \PY{n}{my} \PY{n}{chamber} \PY{n}{door} \PY{o}{-}
+\PY{n}{Only} \PY{n}{this}\PY{p}{,} \PY{n}{and} \PY{n}{nothing} \PY{n}{more}\PY{o}{.}\PY{n}{'}
 
-\end{greencode}
-Yes, there is one empty line on top and one on bottom. The reason is that 
+\end{Verbatim}
+\vspace{4mm}
+There is one empty line on top and one on bottom since  
 Python inserted newline symbols there. If we want to avoid these empty lines, 
 we have to include a backslash after the first triple quote, and also at the 
 end of the last line before the closing triple quote. The backslash prevents 
 Python from inserting a newline symbol into the string. Let us show one more 
 example on backslashes. The string 
 
-\begin{bluecode}
-"""\
-This is the first line,
-and this is the second line.\
-""" 
-\end{bluecode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{l+s+sd}{"""\PYZbs{}}
+\PY{l+s+sd}{This is the first line,}
+\PY{l+s+sd}{and this is the second line.\PYZbs{}}
+\PY{l+s+sd}{"""} 
+\end{Verbatim}
 will render as
 
-\begin{greencode}
+\begin{verbatim}
 'This is the first line,\nand this is the second line.' 
-\end{greencode}
+\end{verbatim}
 When a backslash is included at the end of the first line of text,
 
-\begin{bluecode}
-"""\
-This is the first line,\
-and this is the second line.\
-""" 
-\end{bluecode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{l+s+sd}{"""\PYZbs{}}
+\PY{l+s+sd}{This is the first line,\PYZbs{}}
+\PY{l+s+sd}{and this is the second line.\PYZbs{}}
+\PY{l+s+sd}{"""} 
+\end{Verbatim}
 we obtain 
 
-\begin{greencode}
+\begin{verbatim}
 'This is the first line,and this is the second line.'
-\end{greencode}
-Yes we need to watch for empty characters! Inserting one before the second 
+\end{verbatim}
+As we see, we need to watch for empty characters. Inserting one before the second 
 backslash,
 
-\begin{bluecode}
-"""\
-This is the first line, \
-and this is the second line.\
-""" 
-\end{bluecode}
-we finally obtain 
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{l+s+sd}{"""\PYZbs{}}
+\PY{l+s+sd}{This is the first line, \PYZbs{}}
+\PY{l+s+sd}{and this is the second line.\PYZbs{}}
+\PY{l+s+sd}{"""} 
+\end{Verbatim}
+we finally obtain what we wanted:
 
-\begin{greencode}
+\begin{verbatim}
 'This is the first line, and this is the second line.'
-\end{greencode}
+\end{verbatim}
 
 
 \subsection{Concatenation and repetition}
 
-Strings can be concatenated (glued together) with the '{\tt +}' operator, and repeated with '{\tt *}':
+Strings can be concatenated (glued together) with the '{\tt +}' operator, and repeated 
+with the '{\tt *}' operator. For example,
 
-\begin{bluecode}
-word = 'Help' + 'me!'
-print "I yelled" + 3 * word
-\end{bluecode}
-Output:
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{word} \PY{o}{=} \PY{l+s}{'}\PY{l+s}{Help}\PY{l+s}{'} \PY{o}{+} \PY{l+s}{'}\PY{l+s}{me!}\PY{l+s}{'}
+\PY{k}{print} \PY{l+s}{"}\PY{l+s}{I yelled}\PY{l+s}{"} \PY{o}{+} \PY{l+m+mi}{3} \PY{o}{*} \PY{n}{word}
+\end{Verbatim}
+yiels
 
-\begin{greencode}
+\begin{verbatim}
 I yelledHelpme!Helpme!Helpme!
-\end{greencode}
-You can see that empty spaces matter. Let's try again:
+\end{verbatim}
+Again, empty spaces matter. Let's try again:
 
-\begin{bluecode}
-word = '\"Help' + ' me!\" '
-print "I yelled " + 3 * word
-\end{bluecode}
-Output:
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{word} \PY{o}{=} \PY{l+s}{'}\PY{l+s+se}{\PYZbs{}"}\PY{l+s}{Help}\PY{l+s}{'} \PY{o}{+} \PY{l+s}{'}\PY{l+s}{ me!}\PY{l+s+se}{\PYZbs{}"}\PY{l+s}{ }\PY{l+s}{'}
+\PY{k}{print} \PY{l+s}{"}\PY{l+s}{I yelled }\PY{l+s}{"} \PY{o}{+} \PY{l+m+mi}{3} \PY{o}{*} \PY{n}{word}
+\end{Verbatim}
+will render
 
-\begin{greencode}
+\begin{verbatim}
 I yelled "Help me!" "Help me!" "Help me!"
-\end{greencode}
+\end{verbatim}
 
 \subsection{Referring to letters by their indices}\label{subsec:ind}
 
 Individual letters forming a string can be accessed via indices. The indices 
 start from zero. It is also handy to use the index {\tt -1} 
-for the last index, {\tt -2} for the one-before-last etc.
+for the last index, {\tt -2} for the one-before-last etc. Typing
 
-\begin{bluecode}
-word = "breakfast"
-print "First character:", word[0]
-print "Second character:", word[1]
-print "Last character:", word[-1]
-print "One-before-last character:", word[-2]
-\end{bluecode}
-Output:
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{word} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{breakfast}\PY{l+s}{"}
+\PY{k}{print} \PY{l+s}{"}\PY{l+s}{First character:}\PY{l+s}{"}\PY{p}{,} \PY{n}{word}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+\PY{k}{print} \PY{l+s}{"}\PY{l+s}{Second character:}\PY{l+s}{"}\PY{p}{,} \PY{n}{word}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}
+\PY{k}{print} \PY{l+s}{"}\PY{l+s}{Last character:}\PY{l+s}{"}\PY{p}{,} \PY{n}{word}\PY{p}{[}\PY{o}{-}\PY{l+m+mi}{1}\PY{p}{]}
+\PY{k}{print} \PY{l+s}{"}\PY{l+s}{One-before-last character:}\PY{l+s}{"}\PY{p}{,} \PY{n}{word}\PY{p}{[}\PY{o}{-}\PY{l+m+mi}{2}\PY{p}{]}
+\end{Verbatim}
+produces the following output:
 
-\begin{greencode}
+\begin{verbatim}
 First character: b
 Second character: r
 Last character: t
 One-before-last character: s
-\end{greencode}
+\end{verbatim}
 
 \subsection{Parsing strings with the {\tt for} loop}\label{subsec:forstr} 
 
 The length of a string is obtained using the function {\tt len()}.
-Example:
+The code
 
-\begin{bluecode}
-word = "breakfast"
-n = len(word)
-print "Length of the string:", n
-\end{bluecode}
-Output:
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{word} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{breakfast}\PY{l+s}{"}
+\PY{n}{n} \PY{o}{=} \PY{n+nb}{len}\PY{p}{(}\PY{n}{word}\PY{p}{)}
+\PY{k}{print} \PY{l+s}{"}\PY{l+s}{Length of the string:}\PY{l+s}{"}\PY{p}{,} \PY{n}{n}
+\end{Verbatim}
+yields
 
-\begin{greencode}
+\begin{verbatim}
 Length of the string: 9
-\end{greencode}
+\end{verbatim}
 In order to parse strings, it is practical to introduce the Python counting 
 ({\tt for}) loop. We do this ahead of time, more on the {\tt for} loop will 
-be said in Section \ref{sec:forloop}. Let us begin with an example again: The
-following code parses the string {\tt word} letter by letter and prints all
-the letters:
+be said in Section \ref{sec:forloop}. Let us begin with a code that parses 
+the string {\tt word} letter by letter and prints all the letters:
 
-\begin{bluecode}
-word = "breakfast"
-n = len(word)
-for i in range(n):
-    print word[i]
-\end{bluecode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{word} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{breakfast}\PY{l+s}{"}
+\PY{n}{n} \PY{o}{=} \PY{n+nb}{len}\PY{p}{(}\PY{n}{word}\PY{p}{)}
+\PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{n}\PY{p}{)}\PY{p}{:}
+    \PY{k}{print} \PY{n}{word}\PY{p}{[}\PY{n}{i}\PY{p}{]}
+\end{Verbatim}
 Output:
 
-\begin{greencode}
+\begin{verbatim}
 b
 r
 e
@@ -2473,39 +2476,39 @@ f
 a
 s
 t
-\end{greencode}
+\end{verbatim}
 This deserves some explanation. Calling the function {\tt range(n)} generates 
 a sequence of integers that goes from zero to {\tt n-1}. Let's try this:
 
-\begin{bluecode}
-print range(3)
-\end{bluecode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{print} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{3}\PY{p}{)}
+\end{Verbatim}
 Output:
 
-\begin{greencode}
+\begin{verbatim}
 [0, 1, 2]
-\end{greencode}
+\end{verbatim}
 Another example:
 
-\begin{bluecode}
-print range(10)
-\end{bluecode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{print} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{)}
+\end{Verbatim}
 Output:
 
-\begin{greencode}
+\begin{verbatim}
 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-\end{greencode}
+\end{verbatim}
 When called with two arguments, {\tt range(n1, n2)} will generate 
 a sequence {\tt [n1, n1+1, n1+2, ..., n2-1]}. Example:
 
-\begin{bluecode}
-print range(4, 10)
-\end{bluecode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{print} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{4}\PY{p}{,} \PY{l+m+mi}{10}\PY{p}{)}
+\end{Verbatim}
 Output:
 
-\begin{greencode}
+\begin{verbatim}
 [4, 5, 6, 7, 8, 9]
-\end{greencode}
+\end{verbatim}
 The {\tt for} loop goes through the sequence generated by the {\tt range()} function, 
 taking one element per cycle. So in the first cycle, the variable {\tt i}
 has the value {\tt 0}, in the second cycle {\tt i} is {\tt 1}, in the third cycle 
@@ -2518,42 +2521,43 @@ makes perfect sense!
 
 \subsection{Slicing strings}
 
-We can also access substrings, this is called {\em slicing}:
+Python makes it easy to access substrings -- this is called {\em slicing}:
 
-\begin{bluecode}
-w1 = "bicycle"
-w2 = w1[0:3]
-print w2
-\end{bluecode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{w1} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{bicycle}\PY{l+s}{"}
+\PY{n}{w2} \PY{o}{=} \PY{n}{w1}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{:}\PY{l+m+mi}{3}\PY{p}{]}
+\PY{k}{print} \PY{n}{w2}
+\end{Verbatim}
 Output:
 
-\begin{greencode}
+\begin{verbatim}
 bic
-\end{greencode}
-An omitted first index in a slice defaults to zero:
+\end{verbatim}
+Omitting first index in a slice defaults to zero:
 
-\begin{bluecode}
-w3 = w1[0:2]
-print w3
-\end{bluecode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{w3} \PY{o}{=} \PY{n}{w1}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{:}\PY{l+m+mi}{2}\PY{p}{]}
+\PY{k}{print} \PY{n}{w3}
+\end{Verbatim}
 Output:
 
-\begin{greencode}
+\begin{verbatim}
 bi
-\end{greencode}
-An omitted second index defaults to the length of the string:
+\end{verbatim}
+Omitting the second index defaults to the length of the string:
 
-\begin{bluecode}
-w4 = w1[2:]
-print w4
-\end{bluecode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{w4} \PY{o}{=} \PY{n}{w1}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{:}\PY{p}{]}
+\PY{k}{print} \PY{n}{w4}
+\end{Verbatim}
 Output:
 
-\begin{greencode}
+\begin{verbatim}
 cycle
-\end{greencode}
-This is enough for now but hold on -- many wonderful operations one 
-can do with text strings will be shown in Subsection \ref{subsec:textstrclass}
+\end{verbatim}
+This is enough for now, but we will return to strings again later.
+Python provides many built-in operations with text strings that 
+will be shown in Subsection \ref{subsec:textstrclass}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2580,10 +2584,10 @@ of data that does not change in time - such as
 the names of weekdays, or names of months. To define a tuple, 
 enclose comma-separated items in round brackets:
 
-\begin{bluecode}
-months = ('January', 'February', 'March', 'April', 'May', 'June',\
-'July', 'August', 'September', 'October', 'November', 'December')
-\end{bluecode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{months} \PY{o}{=} \PY{p}{(}\PY{l+s}{'}\PY{l+s}{January}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{February}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{March}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{April}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{May}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{June}\PY{l+s}{'}\PY{p}{,}\PYZbs{}
+\PY{l+s}{'}\PY{l+s}{July}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{August}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{September}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{October}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{November}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{December}\PY{l+s}{'}\PY{p}{)}
+\end{Verbatim}
 The items in the tuple {\tt months} are all strings, but they do not
 have to be. A tuple can be very heterogeneous -- it can contain strings,
 numbers, other tuples, etc. Although -- in simplicity is beauty, we
@@ -2596,52 +2600,52 @@ Items in a tuple are referenced by indices, in the same way as individual
 characters are referenced in a text string. Remember that indices always 
 start from zero:
 
-\begin{bluecode}
-print "First month:", months[0]
-print "Second month:", months[1]
-print "Third month:", months[2]
-\end{bluecode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{print} \PY{l+s}{"}\PY{l+s}{First month:}\PY{l+s}{"}\PY{p}{,} \PY{n}{months}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+\PY{k}{print} \PY{l+s}{"}\PY{l+s}{Second month:}\PY{l+s}{"}\PY{p}{,} \PY{n}{months}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}
+\PY{k}{print} \PY{l+s}{"}\PY{l+s}{Third month:}\PY{l+s}{"}\PY{p}{,} \PY{n}{months}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}
+\end{Verbatim}
 Output:
 
-\begin{greencode}
+\begin{verbatim}
 First month: January
 Second month: February
 Third month: March
-\end{greencode}
+\end{verbatim}
 Index {\tt -1} refers to the last item, {\tt -2} to the one before last, etc.:
 
-\begin{bluecode}
-print "One before last month:", months[-2]
-print "Last month:", months[-1]
-\end{bluecode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{print} \PY{l+s}{"}\PY{l+s}{One before last month:}\PY{l+s}{"}\PY{p}{,} \PY{n}{months}\PY{p}{[}\PY{o}{-}\PY{l+m+mi}{2}\PY{p}{]}
+\PY{k}{print} \PY{l+s}{"}\PY{l+s}{Last month:}\PY{l+s}{"}\PY{p}{,} \PY{n}{months}\PY{p}{[}\PY{o}{-}\PY{l+m+mi}{1}\PY{p}{]}
+\end{Verbatim}
 Output:
 
-\begin{greencode}
+\begin{verbatim}
 One before last month: November
 Last month: December
-\end{greencode}
+\end{verbatim}
 
 \noindent
 We can {\em slice} tuples similarly to how we sliced strings:
 
-\begin{bluecode}
-months[2:5]
-\end{bluecode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{months}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{:}\PY{l+m+mi}{5}\PY{p}{]}
+\end{Verbatim}
 Output:
 
-\begin{greencode}
-('March', 'April', 'May')
-\end{greencode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{p}{(}\PY{l+s}{'}\PY{l+s}{March}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{April}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{May}\PY{l+s}{'}\PY{p}{)}\PY{l+s}{'}
+\end{Verbatim}
 The length of a tuple is obtained using the function {\tt len()}:
 
-\begin{bluecode}
-len(months)
-\end{bluecode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n+nb}{len}\PY{p}{(}\PY{n}{months}\PY{p}{)}
+\end{Verbatim}
 Output:
 
-\begin{greencode}
+\begin{verbatim}
 12
-\end{greencode}
+\end{verbatim}
 
 \subsection{Lists}
 
@@ -2652,141 +2656,141 @@ useful functions that we will learn here. Let us start by reviewing the basics.
 Lists are similar to tuples, and all indexing and slicing works in the same way. 
 Empty list {\tt L} is defined as follows:
 
-\begin{bluecode}
-L = []
-\end{bluecode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{L} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+\end{Verbatim}
 The biggest difference between a tuple 
 and a list is that {\bf items in a list can be changed}. So, we use
 lists for items that can change in time. Let's say that there are 
 10 people in a school class {\tt cls}:
 
-\begin{bluecode}
-cls = ['John', 'Pam', 'Emily', 'Jessie', 'Brian', \
-'Sam', 'Jim', 'Tom', 'Jerry', 'Alex']
-\end{bluecode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{cls} \PY{o}{=} \PY{p}{[}\PY{l+s}{'}\PY{l+s}{John}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Pam}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Emily}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Jessie}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Brian}\PY{l+s}{'}\PY{p}{,} \PYZbs{}
+\PY{l+s}{'}\PY{l+s}{Sam}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Jim}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Tom}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Jerry}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Alex}\PY{l+s}{'}\PY{p}{]}
+\end{Verbatim}
 Then however, Emily moves to a different city:
 
-\begin{bluecode}
-del cls[2]
-print cls
-\end{bluecode}
-Output
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{del} \PY{n}{cls}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}
+\PY{k}{print} \PY{n}{cls}
+\end{Verbatim}
+Output:
 
-\begin{greencode}
-['John', 'Pam', 'Jessie', 'Brian', 'Sam', 'Jim', 
-'Tom', 'Jerry', 'Alex']
-\end{greencode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{p}{[}\PY{l+s}{'}\PY{l+s}{John}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Pam}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Jessie}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Brian}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Sam}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Jim}\PY{l+s}{'}\PY{p}{,} 
+\PY{l+s}{'}\PY{l+s}{Tom}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Jerry}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Alex}\PY{l+s}{'}\PY{p}{]}
+\end{Verbatim}
 After some time, a new student Jack moves in:
 
-\begin{bluecode}
-cls.append('Jack')
-print cls
-\end{bluecode}
-Output
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{cls}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s}{'}\PY{l+s}{Jack}\PY{l+s}{'}\PY{p}{)}
+\PY{k}{print} \PY{n}{cls}
+\end{Verbatim}
+Output:
 
-\begin{greencode}
-['John', 'Pam', 'Jessie', 'Brian', 'Sam', 'Jim', 
-'Tom', 'Jerry', 'Alex', 'Jack']
-\end{greencode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{p}{[}\PY{l+s}{'}\PY{l+s}{John}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Pam}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Jessie}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Brian}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Sam}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Jim}\PY{l+s}{'}\PY{p}{,} 
+\PY{l+s}{'}\PY{l+s}{Tom}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Jerry}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Alex}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Jack}\PY{l+s}{'}\PY{p}{]}
+\end{Verbatim}
 Useful can be the function {\tt pop()} that deletes an item and returns it for further
 use (as opposed to {\tt del} which just deletes the item):
 
-\begin{bluecode}
-name = cls.pop(2)
-print name 
-print cls
-\end{bluecode}
-Output
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{name} \PY{o}{=} \PY{n}{cls}\PY{o}{.}\PY{n}{pop}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{)}
+\PY{k}{print} \PY{n}{name} 
+\PY{k}{print} \PY{n}{cls}
+\end{Verbatim}
+Output:
 
-\begin{greencode}
-Jessie
-['John', 'Pam', 'Brian', 'Sam', 'Jim', 
-'Tom', 'Jerry', 'Alex', 'Jack']
-\end{greencode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{Jessie}
+\PY{p}{[}\PY{l+s}{'}\PY{l+s}{John}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Pam}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Brian}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Sam}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Jim}\PY{l+s}{'}\PY{p}{,} 
+\PY{l+s}{'}\PY{l+s}{Tom}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Jerry}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Alex}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Jack}\PY{l+s}{'}\PY{p}{]}
+\end{Verbatim}
 New item can be inserted at an arbitrary position using the function {\tt insert()}:
 
-\begin{bluecode}
-cls.insert(3, 'Daniel')
-print cls
-\end{bluecode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{cls}\PY{o}{.}\PY{n}{insert}\PY{p}{(}\PY{l+m+mi}{3}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Daniel}\PY{l+s}{'}\PY{p}{)}
+\PY{k}{print} \PY{n}{cls}
+\end{Verbatim}
 Output:
 
-\begin{greencode}
-['John', 'Pam', 'Brian', 'Daniel', 'Sam', 'Jim', 
-'Tom', 'Jerry', 'Alex', 'Jack']
-\end{greencode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{p}{[}\PY{l+s}{'}\PY{l+s}{John}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Pam}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Brian}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Daniel}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Sam}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Jim}\PY{l+s}{'}\PY{p}{,} 
+\PY{l+s}{'}\PY{l+s}{Tom}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Jerry}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Alex}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Jack}\PY{l+s}{'}\PY{p}{]}
+\end{Verbatim}
 A list can be sorted via the function {\tt sort()}:
 
-\begin{bluecode}
-cls.sort()
-print cls
-\end{bluecode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{cls}\PY{o}{.}\PY{n}{sort}\PY{p}{(}\PY{p}{)}
+\PY{k}{print} \PY{n}{cls}
+\end{Verbatim}
 Output:
 
-\begin{greencode}
-['Alex', 'Brian', 'Daniel', 'Jack', 
-'Jerry', 'Jim', 'John', 'Pam', 'Sam', 'Tom']
-\end{greencode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{p}{[}\PY{l+s}{'}\PY{l+s}{Alex}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Brian}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Daniel}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Jack}\PY{l+s}{'}\PY{p}{,} 
+\PY{l+s}{'}\PY{l+s}{Jerry}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Jim}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{John}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Pam}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Sam}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Tom}\PY{l+s}{'}\PY{p}{]}
+\end{Verbatim}
 The function {\tt reverse()} reverses a list:
 
-\begin{bluecode}
-cls.reverse()
-print cls
-\end{bluecode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{cls}\PY{o}{.}\PY{n}{reverse}\PY{p}{(}\PY{p}{)}
+\PY{k}{print} \PY{n}{cls}
+\end{Verbatim}
 Output:
 
-\begin{greencode}
-['Tom', 'Sam', 'Pam', 'John', 'Jim', 
-'Jerry', 'Jack', 'Daniel', 'Brian', 'Alex']
-\end{greencode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{p}{[}\PY{l+s}{'}\PY{l+s}{Tom}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Sam}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Pam}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{John}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Jim}\PY{l+s}{'}\PY{p}{,} 
+\PY{l+s}{'}\PY{l+s}{Jerry}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Jack}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Daniel}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Brian}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Alex}\PY{l+s}{'}\PY{p}{]}
+\end{Verbatim}
 The function {\tt count()} counts the number of occurences of an item
 in the list:
 
-\begin{bluecode}
-cls.count('Jerry')
-\end{bluecode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{cls}\PY{o}{.}\PY{n}{count}\PY{p}{(}\PY{l+s}{'}\PY{l+s}{Jerry}\PY{l+s}{'}\PY{p}{)}
+\end{Verbatim}
 Output:
 
-\begin{greencode}
+\begin{verbatim}
 1
-\end{greencode}
+\end{verbatim}
 The function {\tt index()} returns the index of the first occurence 
 of an item. If the item is not found, error is thrown:
 
-\begin{bluecode}
-cls.index('Jerry')
-\end{bluecode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{cls}\PY{o}{.}\PY{n}{index}\PY{p}{(}\PY{l+s}{'}\PY{l+s}{Jerry}\PY{l+s}{'}\PY{p}{)}
+\end{Verbatim}
 Output:
 
-\begin{greencode}
+\begin{verbatim}
 5
-\end{greencode}
+\end{verbatim}
 Another useful operation with lists is their {\em zipping}. The {\tt zip} command takes two lists as arguments 
 and creates a new list of pairs. Example:
 
-\begin{bluecode}
-A = [1, 2, 3]
-B = ['x', 'y', 'z']
-print zip(A, B)
-\end{bluecode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{A} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{]}
+\PY{n}{B} \PY{o}{=} \PY{p}{[}\PY{l+s}{'}\PY{l+s}{x}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{y}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{z}\PY{l+s}{'}\PY{p}{]}
+\PY{k}{print} \PY{n+nb}{zip}\PY{p}{(}\PY{n}{A}\PY{p}{,} \PY{n}{B}\PY{p}{)}
+\end{Verbatim}
 Output:
 
-\begin{greencode}
-[(1, 'x'), (2, 'y'), (3, 'z')]
-\end{greencode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{p}{[}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{x}\PY{l+s}{'}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mi}{2}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{y}\PY{l+s}{'}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mi}{3}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{z}\PY{l+s}{'}\PY{p}{)}\PY{p}{]}
+\end{Verbatim}
 If the lists are not equally-long, the superfluous items in the longer list 
 are skipped:
 
-\begin{bluecode}
-A = [1, 2, 3, 4, 5]
-B = ['x', 'y', 'z']
-print zip(A, B)
-\end{bluecode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{A} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{,} \PY{l+m+mi}{4}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{]}
+\PY{n}{B} \PY{o}{=} \PY{p}{[}\PY{l+s}{'}\PY{l+s}{x}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{y}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{z}\PY{l+s}{'}\PY{p}{]}
+\PY{k}{print} \PY{n+nb}{zip}\PY{p}{(}\PY{n}{A}\PY{p}{,} \PY{n}{B}\PY{p}{)}
+\end{Verbatim}
 Output:
 
-\begin{greencode}
-[(1, 'x'), (2, 'y'), (3, 'z')]
-\end{greencode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{p}{[}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{x}\PY{l+s}{'}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mi}{2}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{y}\PY{l+s}{'}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mi}{3}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{z}\PY{l+s}{'}\PY{p}{)}\PY{p}{]}
+\end{Verbatim}
 
 \subsection{Dictionaries}
 
@@ -2805,86 +2809,86 @@ corresponding Spanish translations.
 The data structure containing keys and values is called a {\em dictionary}. 
 An empty dictionary {\tt D} is defined as follows:
 
-\begin{bluecode}
-D = {}
-\end{bluecode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{D} \PY{o}{=} \PY{p}{\PYZob{}}\PY{p}{\PYZcb{}}
+\end{Verbatim}
 An example of a phone book would be:
 
-\begin{bluecode}
-phonebook = {'Peter Parson': 8806336, 'Emily Everett': 6784346, \
-'Lewis Lame': 1122345}
-\end{bluecode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{phonebook} \PY{o}{=} \PY{p}{\PYZob{}}\PY{l+s}{'}\PY{l+s}{Peter Parson}\PY{l+s}{'}\PY{p}{:} \PY{l+m+mi}{8806336}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Emily Everett}\PY{l+s}{'}\PY{p}{:} \PY{l+m+mi}{6784346}\PY{p}{,} \PYZbs{}
+\PY{l+s}{'}\PY{l+s}{Lewis Lame}\PY{l+s}{'}\PY{p}{:} \PY{l+m+mi}{1122345}\PY{p}{\PYZcb{}}
+\end{Verbatim}
 {\bf Note the curly brackets.} 
 Once we have created a new phone book, we may want to add a new person to it:
 
-\begin{bluecode}
-phonebook['Silly Sam'] = 1234567
-print phonebook
-\end{bluecode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{phonebook}\PY{p}{[}\PY{l+s}{'}\PY{l+s}{Silly Sam}\PY{l+s}{'}\PY{p}{]} \PY{o}{=} \PY{l+m+mi}{1234567}
+\PY{k}{print} \PY{n}{phonebook}
+\end{Verbatim}
 Output:
 
-\begin{greencode}
-{'Peter Parson': 8806336, 'Emily Everett': 6784346,
-'Lewis Lame': 1122345, 'Silly Sam': 1234567}
-\end{greencode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{p}{\PYZob{}}\PY{l+s}{'}\PY{l+s}{Peter Parson}\PY{l+s}{'}\PY{p}{:} \PY{l+m+mi}{8806336}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Emily Everett}\PY{l+s}{'}\PY{p}{:} \PY{l+m+mi}{6784346}\PY{p}{,}
+\PY{l+s}{'}\PY{l+s}{Lewis Lame}\PY{l+s}{'}\PY{p}{:} \PY{l+m+mi}{1122345}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Silly Sam}\PY{l+s}{'}\PY{p}{:} \PY{l+m+mi}{1234567}\PY{p}{\PYZcb{}}
+\end{Verbatim}
 And we can also delete a person from the phonebook:
 
-\begin{bluecode}
-del phonebook['Peter Parson']
-print phonebook
-\end{bluecode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{del} \PY{n}{phonebook}\PY{p}{[}\PY{l+s}{'}\PY{l+s}{Peter Parson}\PY{l+s}{'}\PY{p}{]}
+\PY{k}{print} \PY{n}{phonebook}
+\end{Verbatim}
 Output:
 
-\begin{greencode}
-{'Emily Everett': 6784346, 'Lewis Lame': 1122345, 
-'Silly Sam': 1234567}
-\end{greencode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{p}{\PYZob{}}\PY{l+s}{'}\PY{l+s}{Emily Everett}\PY{l+s}{'}\PY{p}{:} \PY{l+m+mi}{6784346}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Lewis Lame}\PY{l+s}{'}\PY{p}{:} \PY{l+m+mi}{1122345}\PY{p}{,} 
+\PY{l+s}{'}\PY{l+s}{Silly Sam}\PY{l+s}{'}\PY{p}{:} \PY{l+m+mi}{1234567}\PY{p}{\PYZcb{}}
+\end{Verbatim}
 We can check if a key is in the dictionary:
 
-\begin{bluecode}
-if phonebook.has_key('Silly Sam'):
-    print "Silly Sam's phone number is", phonebook['Silly Sam']
-else:
-    print "Silly Sam is not in the phonebook."
-\end{bluecode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{if} \PY{n}{phonebook}\PY{o}{.}\PY{n}{has\PYZus{}key}\PY{p}{(}\PY{l+s}{'}\PY{l+s}{Silly Sam}\PY{l+s}{'}\PY{p}{)}\PY{p}{:}
+    \PY{k}{print} \PY{l+s}{"}\PY{l+s}{Silly Sam}\PY{l+s}{'}\PY{l+s}{s phone number is}\PY{l+s}{"}\PY{p}{,} \PY{n}{phonebook}\PY{p}{[}\PY{l+s}{'}\PY{l+s}{Silly Sam}\PY{l+s}{'}\PY{p}{]}
+\PY{k}{else}\PY{p}{:}
+    \PY{k}{print} \PY{l+s}{"}\PY{l+s}{Silly Sam is not in the phonebook.}\PY{l+s}{"}
+\end{Verbatim}
 Output:
 
-\begin{greencode}
+\begin{verbatim}
 Silly Sam's phone number is 1234567
-\end{greencode}
+\end{verbatim}
 To get the list of all keys, we type:
 
-\begin{bluecode}
-phonebook.keys()
-\end{bluecode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{phonebook}\PY{o}{.}\PY{n}{keys}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
 Output:
 
-\begin{greencode}
-['Emily Everett', 'Lewis Lame', 'Silly Sam']
-\end{greencode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{p}{[}\PY{l+s}{'}\PY{l+s}{Emily Everett}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Lewis Lame}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Silly Sam}\PY{l+s}{'}\PY{p}{]}
+\end{Verbatim}
 Similarly, we can also get the list of all values:
 
-\begin{bluecode}
-phonebook.values()
-\end{bluecode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{phonebook}\PY{o}{.}\PY{n}{values}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
 Output:
 
-\begin{greencode}
-[6784346, 1122345, 1234567]
-\end{greencode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{p}{[}\PY{l+m+mi}{6784346}\PY{p}{,} \PY{l+m+mi}{1122345}\PY{p}{,} \PY{l+m+mi}{1234567}\PY{p}{]}
+\end{Verbatim}
 It is important to remember that {\bf dictionaries are not ordered} in any 
 special way. While a list can be sorted, a dictionary can not. They are only 
 designed to get you the value for a given key. 
 The length of a dictionary can be obtained using the function {\tt len()}:
 
-\begin{bluecode}
-len(phonebook)
-\end{bluecode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n+nb}{len}\PY{p}{(}\PY{n}{phonebook}\PY{p}{)}
+\end{Verbatim}
 Output:
 
-\begin{greencode}
+\begin{verbatim}
 3
-\end{greencode}
+\end{verbatim}
 There are additional functions that one can use with dictionaries. However, 
 what we mentioned so far is enough for an introductory course and we refer 
 to the Python tutorial\footnote{http://docs.python.org/tutorial} for more 
@@ -2907,24 +2911,24 @@ learning about tuples, lists and dictionaries in Section \ref{sec:lists}, the
 reader will not be surprized when we state that this function produces 
 a Python list of integer numbers. For example:
 
-\begin{bluecode}
-range(10)
-\end{bluecode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{)}
+\end{Verbatim}
 produces the following output:
 
-\begin{greencode}
-[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-\end{greencode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{,} \PY{l+m+mi}{4}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{,} \PY{l+m+mi}{6}\PY{p}{,} \PY{l+m+mi}{7}\PY{p}{,} \PY{l+m+mi}{8}\PY{p}{,} \PY{l+m+mi}{9}\PY{p}{]}
+\end{Verbatim}
 It is possible to start from a different number:
 
-\begin{bluecode}
-range(3, 10)
-\end{bluecode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{3}\PY{p}{,} \PY{l+m+mi}{10}\PY{p}{)}
+\end{Verbatim}
 Output:
 
-\begin{greencode}
-[3, 4, 5, 6, 7, 8, 9]
-\end{greencode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{p}{[}\PY{l+m+mi}{3}\PY{p}{,} \PY{l+m+mi}{4}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{,} \PY{l+m+mi}{6}\PY{p}{,} \PY{l+m+mi}{7}\PY{p}{,} \PY{l+m+mi}{8}\PY{p}{,} \PY{l+m+mi}{9}\PY{p}{]}
+\end{Verbatim}
 The {\tt for} loop in Python is a {\em counting loop} analogous to the {\tt repeat}
 loop in Karel the Robot. Thus it should be used when we know how many repetitions there 
 will be. However, in Python, the counting loop is not restricted to integer numbers 
@@ -2935,13 +2939,13 @@ only. It is much more general -- {\em it goes over the items of aa arbitrary lis
 When used in combination with the {\tt range()} function, it goes over integer indices. 
 Example:
 
-\begin{bluecode}
-for i in range(10):
-    print i
-\end{bluecode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{)}\PY{p}{:}
+    \PY{k}{print} \PY{n}{i}
+\end{Verbatim}
 Output:
 
-\begin{greencode}
+\begin{verbatim}
 0
 1
 2
@@ -2952,7 +2956,7 @@ Output:
 7
 8
 9
-\end{greencode}
+\end{verbatim}
 As usual, note indentation of the body of the loop, which has the same 
 purpose as indentation in the {\tt while} loop. 
 
@@ -2960,13 +2964,13 @@ purpose as indentation in the {\tt while} loop.
 
 Remember our tuple of months? We can use the {\tt for} loop to print them as well:
 
-\begin{bluecode}
-for m in months:
-    print m
-\end{bluecode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{for} \PY{n}{m} \PY{o+ow}{in} \PY{n}{months}\PY{p}{:}
+    \PY{k}{print} \PY{n}{m}
+\end{Verbatim}
 Output:
 
-\begin{greencode}
+\begin{verbatim}
 January
 February
 March
@@ -2979,7 +2983,7 @@ September
 October
 November
 December
-\end{greencode}
+\end{verbatim}
 The {\tt for} loop works in the same way with lists -- it does not distinguish between these 
 two data types at all.
 
@@ -2990,22 +2994,22 @@ Remember that it is easy to extract keys and values from a dictionary using the
 is a {\em Python list}, which in turn can be used with the {\tt for} loop. That was easy. Let us do something more interesting -- 
 perhaps convert an English-Spanish dictionary into a Spanish-English one? 
 
-\begin{bluecode}
-ES = {'city': 'ciudad', 'fire': 'fuego', 'sun': 'sol'}
-SE = {}
-for english_word in D:
-    spanish_word = D[english_word]
-    SE[spanish_word] = english_word
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{ES} \PY{o}{=} \PY{p}{\PYZob{}}\PY{l+s}{'}\PY{l+s}{city}\PY{l+s}{'}\PY{p}{:} \PY{l+s}{'}\PY{l+s}{ciudad}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{fire}\PY{l+s}{'}\PY{p}{:} \PY{l+s}{'}\PY{l+s}{fuego}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{sun}\PY{l+s}{'}\PY{p}{:} \PY{l+s}{'}\PY{l+s}{sol}\PY{l+s}{'}\PY{p}{\PYZcb{}}
+\PY{n}{SE} \PY{o}{=} \PY{p}{\PYZob{}}\PY{p}{\PYZcb{}}
+\PY{k}{for} \PY{n}{english\PYZus{}word} \PY{o+ow}{in} \PY{n}{D}\PY{p}{:}
+    \PY{n}{spanish\PYZus{}word} \PY{o}{=} \PY{n}{D}\PY{p}{[}\PY{n}{english\PYZus{}word}\PY{p}{]}
+    \PY{n}{SE}\PY{p}{[}\PY{n}{spanish\PYZus{}word}\PY{p}{]} \PY{o}{=} \PY{n}{english\PYZus{}word}
     
-print "Spanish-English dictionary:"
-print SE
-\end{bluecode}
+\PY{k}{print} \PY{l+s}{"}\PY{l+s}{Spanish-English dictionary:}\PY{l+s}{"}
+\PY{k}{print} \PY{n}{SE}
+\end{Verbatim}
 The output of this program is:
 
-\begin{greencode}
-Spanish-English dictionary:
-{'ciudad': 'city', 'sol': 'sun', 'fuego': 'fire'}
-\end{greencode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{Spanish}\PY{o}{-}\PY{n}{English} \PY{n}{dictionary}\PY{p}{:}
+\PY{p}{\PYZob{}}\PY{l+s}{'}\PY{l+s}{ciudad}\PY{l+s}{'}\PY{p}{:} \PY{l+s}{'}\PY{l+s}{city}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{sol}\PY{l+s}{'}\PY{p}{:} \PY{l+s}{'}\PY{l+s}{sun}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{fuego}\PY{l+s}{'}\PY{p}{:} \PY{l+s}{'}\PY{l+s}{fire}\PY{l+s}{'}\PY{p}{\PYZcb{}}
+\end{Verbatim}
 Isn't Python beautifully simple?
 
 
@@ -3028,18 +3032,18 @@ f(x) = \frac{1}{9 - x^2}.
 $$
 Of course, this is simple!
 
-\begin{bluecode}
-def f(x):
-    return 1. / (9 - x**2)
-\end{bluecode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{def} \PY{n+nf}{f}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{p}{:}
+    \PY{k}{return} \PY{l+m+mf}{1.} \PY{o}{/} \PY{p}{(}\PY{l+m+mi}{9} \PY{o}{-} \PY{n}{x}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}
+\end{Verbatim}
 But we can almost guarantee that the first user will call the 
 function with $x = 3$ or $x = -3$. What will happen?
 
-\begin{redcode}
-Traceback (most recent call last):
-  File "<nclab>", line 1, in <module>
-ZeroDivisionError: float division by zero
-\end{redcode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{Traceback} \PY{p}{(}\PY{n}{most} \PY{n}{recent} \PY{n}{call} \PY{n}{last}\PY{p}{)}\PY{p}{:}
+  \PY{n}{File} \PY{l+s}{"}\PY{l+s}{<nclab>}\PY{l+s}{"}\PY{p}{,} \PY{n}{line} \PY{l+m+mi}{1}\PY{p}{,} \PY{o+ow}{in} \PY{o}{<}\PY{n}{module}\PY{o}{>}
+\PY{n+ne}{ZeroDivisionError}\PY{p}{:} \PY{n+nb}{float} \PY{n}{division} \PY{n}{by} \PY{n}{zero}
+\end{Verbatim}
 
 \subsection{Never underestimate the user}
 
@@ -3050,24 +3054,24 @@ But most of the time they do it without bad intentions -- they are just learning
 program, not knowing what they are not supposed to do, stepping over boundaries that we would 
 never cross. For example, the author of the function 
 
-\begin{bluecode}
-from numpy import sqrt
-def invsqrt(x):
-    return 1./sqrt(x)
-\end{bluecode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kn}{from} \PY{n+nn}{numpy} \PY{k+kn}{import} \PY{n}{sqrt}
+\PY{k}{def} \PY{n+nf}{invsqrt}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{p}{:}
+    \PY{k}{return} \PY{l+m+mf}{1.}\PY{o}{/}\PY{n}{sqrt}\PY{p}{(}\PY{n}{x}\PY{p}{)}
+\end{Verbatim}
 would hardly call it with {\tt x = 0}, or even {\tt x = -1}. {\em The function 
 was not designed for that!} But the user did not know it.
 
 Here is an alternative version of the above function {\tt f(x)} that will not crash:
 
-\begin{bluecode}
-def f(x):
-    if x != 3 and x != -3:
-        return 1. / (9 - x**2)
-    else:
-        print "Division by zero detected, returning 0."
-        return 0
-\end{bluecode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{def} \PY{n+nf}{f}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{p}{:}
+    \PY{k}{if} \PY{n}{x} \PY{o}{!=} \PY{l+m+mi}{3} \PY{o+ow}{and} \PY{n}{x} \PY{o}{!=} \PY{o}{-}\PY{l+m+mi}{3}\PY{p}{:}
+        \PY{k}{return} \PY{l+m+mf}{1.} \PY{o}{/} \PY{p}{(}\PY{l+m+mi}{9} \PY{o}{-} \PY{n}{x}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}
+    \PY{k}{else}\PY{p}{:}
+        \PY{k}{print} \PY{l+s}{"}\PY{l+s}{Division by zero detected, returning 0.}\PY{l+s}{"}
+        \PY{k}{return} \PY{l+m+mi}{0}
+\end{Verbatim}
 However, it is useful to slow down here and look at what we have. The fact that
 the warning sentence is printed is not very useful, because it is printed as output for 
 the human eye only. What if there is nobody to read it? Even if division by zero 
@@ -3083,22 +3087,24 @@ to {\em predicting} what possibily could go wrong and including conditions to de
 input, we do not check the input and let it simply happen. Does it sound careless? Let us 
 return to the original simple form of the function {\tt f(x)}:
 
-\begin{bluecode}
-def f(x):
-    return 1. / (9 - x**2)
-\end{bluecode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{def} \PY{n+nf}{f}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{p}{:}
+    \PY{k}{return} \PY{l+m+mf}{1.} \PY{o}{/} \PY{p}{(}\PY{l+m+mi}{9} \PY{o}{-} \PY{n}{x}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}
+\end{Verbatim}
 This is the function that we will use. However, we will call it in such a way that 
 an exceptional situation (here division by zero) is captured. For this we use the 
 {\tt try} command:
  
-\begin{bluecode}
-try:
-    result = f(a)
-except ZeroDivisionError:
-    print "Division by zero detected, performing emergency scenario!"
-else:
-    print "Evaluation of f(a) was successful, going on normally."
-\end{bluecode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{try}\PY{p}{:}
+    \PY{n}{result} \PY{o}{=} \PY{n}{f}\PY{p}{(}\PY{n}{a}\PY{p}{)}
+\PY{k}{except} \PY{n+ne}{ZeroDivisionError}\PY{p}{:}
+    \PY{k}{print} \PY{l+s}{"}\PY{l+s}{Division by zero detected, performing emergency }\PY{l+s+se}{\PYZbs{}}
+\PY{l+s}{    scenario!}\PY{l+s}{"}
+\PY{k}{else}\PY{p}{:}
+    \PY{k}{print} \PY{l+s}{"}\PY{l+s}{Evaluation of f(a) was successful, going on }\PY{l+s+se}{\PYZbs{}}
+\PY{l+s}{    normally.}\PY{l+s}{"}
+\end{Verbatim}
 Before continuing, we recommend that you type this code into the code cell,
 including the definition of the function {\tt f(x)}, and run it with values
 that crash the function {\tt f(x)} and with values that do not. If you are a newcomer to
@@ -3112,53 +3118,53 @@ statement used as its argument is {\tt False}. This is a powerful tool to raise 
 exceptions. These exceptions can be caught using the {\tt try} command 
 as all other exceptions:
 
-\begin{bluecode}
-def f(x):
-    assert(x != 3 and x != -3)
-    return 1. / (9 - x**2)
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{def} \PY{n+nf}{f}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{p}{:}
+    \PY{k}{assert}\PY{p}{(}\PY{n}{x} \PY{o}{!=} \PY{l+m+mi}{3} \PY{o+ow}{and} \PY{n}{x} \PY{o}{!=} \PY{o}{-}\PY{l+m+mi}{3}\PY{p}{)}
+    \PY{k}{return} \PY{l+m+mf}{1.} \PY{o}{/} \PY{p}{(}\PY{l+m+mi}{9} \PY{o}{-} \PY{n}{x}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}
 
-try:
-    result = f(a)
-except AssertionError:
-    print "Assertion failed, performing emergency scenario!"
-else:
-    print "Assertion passed, going on normally."
-\end{bluecode}
+\PY{k}{try}\PY{p}{:}
+    \PY{n}{result} \PY{o}{=} \PY{n}{f}\PY{p}{(}\PY{n}{a}\PY{p}{)}
+\PY{k}{except} \PY{n+ne}{AssertionError}\PY{p}{:}
+    \PY{k}{print} \PY{l+s}{"}\PY{l+s}{Assertion failed, performing emergency scenario!}\PY{l+s}{"}
+\PY{k}{else}\PY{p}{:}
+    \PY{k}{print} \PY{l+s}{"}\PY{l+s}{Assertion passed, going on normally.}\PY{l+s}{"}
+\end{Verbatim}
 When called with {\tt a} equal to {\tt 1}, this code gives:
 
-\begin{bluecode}
+\begin{verbatim}
 Assertion passed, going on normally.
-\end{bluecode}
+\end{verbatim}
 When called with {\tt a} equal to {\tt 3}, this is what happens:
 
-\begin{bluecode}
+\begin{verbatim}
 Assertion failed, performing emergency scenario!
-\end{bluecode}
+\end{verbatim}
 
 \subsection{The {\tt raise} statement}
 
 Python does not have a command to stop program execution. Sometimes this is
-need though, such as when the user calls our function with incorrect data. 
+needed though, such as when the user calls our function with incorrect data. 
 To illustrate this, let us return to the function {\tt invsqrt()} that was 
 defined above, but now we include a {\tt raise} command in it:
  
-\begin{bluecode}
-from numpy import sqrt
-def invsqrt(x):
-    if x <= 0:
-      raise ValueError("Please do not call the invsqrt() \
-function when x is zero or negative.")
-    return 1./sqrt(x)
-\end{bluecode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kn}{from} \PY{n+nn}{numpy} \PY{k+kn}{import} \PY{n}{sqrt}
+\PY{k}{def} \PY{n+nf}{invsqrt}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{p}{:}
+    \PY{k}{if} \PY{n}{x} \PY{o}{<}\PY{o}{=} \PY{l+m+mi}{0}\PY{p}{:}
+      \PY{k}{raise} \PY{n+ne}{ValueError}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{Please do not call the invsqrt() }\PY{l+s+se}{\PYZbs{}}
+\PY{l+s}{function when x is zero or negative.}\PY{l+s}{"}\PY{p}{)}
+    \PY{k}{return} \PY{l+m+mf}{1.}\PY{o}{/}\PY{n}{sqrt}\PY{p}{(}\PY{n}{x}\PY{p}{)}
+\end{Verbatim}
 Now the output of {\tt invsqrt(-5)} is:
 
-\begin{redcode}
-Traceback (most recent call last):
-  File "<string>", line 1, in <module>
-  File "<nclab>", line 4, in invsqrt
-ValueError: Please do not call the invsqrt() 
-function when x is zero or negative.
-\end{redcode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{Traceback} \PY{p}{(}\PY{n}{most} \PY{n}{recent} \PY{n}{call} \PY{n}{last}\PY{p}{)}\PY{p}{:}
+  \PY{n}{File} \PY{l+s}{"}\PY{l+s}{<string>}\PY{l+s}{"}\PY{p}{,} \PY{n}{line} \PY{l+m+mi}{1}\PY{p}{,} \PY{n}{in} \PY{o}{<}\PY{n}{module}\PY{o}{>}
+  \PY{n}{File} \PY{l+s}{"}\PY{l+s}{<nclab>}\PY{l+s}{"}\PY{p}{,} \PY{n}{line} \PY{l+m+mi}{4}\PY{p}{,} \PY{n}{in} \PY{n}{invsqrt}
+\PY{n+ne}{ValueError}\PY{p}{:} \PY{n}{Please} \PY{n}{do} \PY{n}{not} \PY{n}{call} \PY{n}{the} \PY{n}{invsqrt}\PY{p}{(}\PY{p}{)} 
+\PY{n}{function} \PY{n}{when} \PY{n}{x} \PY{n}{is} \PY{n}{zero} \PY{n}{or} \PY{n}{negative}\PY{o}{.}
+\end{Verbatim}
 Incorrect values of user input are the most common cause for raising 
 exceptions on our own. Any other exception type can be raised as well
 if needed.
@@ -3305,70 +3311,70 @@ the compiler.
 
 This is how the class {\tt circle} is defined in Python:
 
-\begin{bluecode}
-from numpy import pi, cos, sin
-from pylab import clf, plot, legend, axis
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kn}{from} \PY{n+nn}{numpy} \PY{k+kn}{import} \PY{n}{pi}\PY{p}{,} \PY{n}{cos}\PY{p}{,} \PY{n}{sin}
+\PY{k+kn}{from} \PY{n+nn}{pylab} \PY{k+kn}{import} \PY{n}{clf}\PY{p}{,} \PY{n}{plot}\PY{p}{,} \PY{n}{legend}\PY{p}{,} \PY{n}{axis}
 
-class circle:
-    # Constructor:
-    def __init__(self, r, cx, cy, n = 100):
-        self.R = r
-        self.Cx = cx
-        self.Cy = cy
-        self.n = n
-        # And now the points for plotting:
-        self.ptsx = []
-        self.ptsy = []
-        da = 2*pi/self.n
-        for i in range(n):
-            self.ptsx.append(self.Cx + self.R * cos(i * da))
-            self.ptsy.append(self.Cy + self.R * sin(i * da))
-        self.ptsx.append(self.Cx + self.R)
-        self.ptsy.append(self.Cy + 0)
+\PY{k}{class} \PY{n+nc}{circle}\PY{p}{:}
+    \PY{c}{\PYZsh{} Constructor:}
+    \PY{k}{def} \PY{n+nf}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{r}\PY{p}{,} \PY{n}{cx}\PY{p}{,} \PY{n}{cy}\PY{p}{,} \PY{n}{n} \PY{o}{=} \PY{l+m+mi}{100}\PY{p}{)}\PY{p}{:}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{R} \PY{o}{=} \PY{n}{r}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{Cx} \PY{o}{=} \PY{n}{cx}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{Cy} \PY{o}{=} \PY{n}{cy}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{n} \PY{o}{=} \PY{n}{n}
+        \PY{c}{\PYZsh{} And now the points for plotting:}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ptsx} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ptsy} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+        \PY{n}{da} \PY{o}{=} \PY{l+m+mi}{2}\PY{o}{*}\PY{n}{pi}\PY{o}{/}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{n}
+        \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{n}\PY{p}{)}\PY{p}{:}
+            \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ptsx}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{Cx} \PY{o}{+} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{R} \PY{o}{*} \PY{n}{cos}\PY{p}{(}\PY{n}{i} \PY{o}{*} \PY{n}{da}\PY{p}{)}\PY{p}{)}
+            \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ptsy}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{Cy} \PY{o}{+} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{R} \PY{o}{*} \PY{n}{sin}\PY{p}{(}\PY{n}{i} \PY{o}{*} \PY{n}{da}\PY{p}{)}\PY{p}{)}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ptsx}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{Cx} \PY{o}{+} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{R}\PY{p}{)}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ptsy}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{Cy} \PY{o}{+} \PY{l+m+mi}{0}\PY{p}{)}
             
-    # Method to return circle area:
-    def area(self):
-        return pi * self.R**2
+    \PY{c}{\PYZsh{} Method to return circle area:}
+    \PY{k}{def} \PY{n+nf}{area}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+        \PY{k}{return} \PY{n}{pi} \PY{o}{*} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{R}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}
       
-    # Method to return perimeter:
-    def perimeter(self):
-        return 2 * pi * self.R
+    \PY{c}{\PYZsh{} Method to return perimeter:}
+    \PY{k}{def} \PY{n+nf}{perimeter}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+        \PY{k}{return} \PY{l+m+mi}{2} \PY{o}{*} \PY{n}{pi} \PY{o}{*} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{R}
       
-    # Method to plot the circle:
-    def draw(self, label):
-        axis('equal')
-        plot(self.ptsx, self.ptsy, label = label)
-        legend()
-\end{bluecode}
+    \PY{c}{\PYZsh{} Method to plot the circle:}
+    \PY{k}{def} \PY{n+nf}{draw}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{label}\PY{p}{)}\PY{p}{:}
+        \PY{n}{axis}\PY{p}{(}\PY{l+s}{'}\PY{l+s}{equal}\PY{l+s}{'}\PY{p}{)}
+        \PY{n}{plot}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ptsx}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ptsy}\PY{p}{,} \PY{n}{label} \PY{o}{=} \PY{n}{label}\PY{p}{)}
+        \PY{n}{legend}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
 Notice how the variables owned by the class are always used with the 
 prefix {\tt self}.
 
 With such a nice class in hand, it is easy to draw various circles,
 and calculate their areas and perimeters:
-\begin{bluecode}        
-# Create an instance:
-C1 = circle(1, 0, 0)
-print "Are and perimeter of circle 1:", \
-C1.area(), C1.perimeter()
-C2 = circle(0.5, 1, 0)
-print "Are and perimeter of circle 2:", \
-C2.area(), C2.perimeter()
-C3 = circle(0.25, 1.5, 0)
-print "Are and perimeter of circle 3:", \
-C3.area(), C3.perimeter()
-clf()
-C1.draw("First circle")
-C2.draw("Second circle")
-C3.draw("Third circle")
-lab.show()
-\end{bluecode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c}{\PYZsh{} Create an instance:}
+\PY{n}{C1} \PY{o}{=} \PY{n}{circle}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{)}
+\PY{k}{print} \PY{l+s}{"}\PY{l+s}{Are and perimeter of circle 1:}\PY{l+s}{"}\PY{p}{,} \PYZbs{}
+\PY{n}{C1}\PY{o}{.}\PY{n}{area}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{C1}\PY{o}{.}\PY{n}{perimeter}\PY{p}{(}\PY{p}{)}
+\PY{n}{C2} \PY{o}{=} \PY{n}{circle}\PY{p}{(}\PY{l+m+mf}{0.5}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{)}
+\PY{k}{print} \PY{l+s}{"}\PY{l+s}{Are and perimeter of circle 2:}\PY{l+s}{"}\PY{p}{,} \PYZbs{}
+\PY{n}{C2}\PY{o}{.}\PY{n}{area}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{C2}\PY{o}{.}\PY{n}{perimeter}\PY{p}{(}\PY{p}{)}
+\PY{n}{C3} \PY{o}{=} \PY{n}{circle}\PY{p}{(}\PY{l+m+mf}{0.25}\PY{p}{,} \PY{l+m+mf}{1.5}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{)}
+\PY{k}{print} \PY{l+s}{"}\PY{l+s}{Are and perimeter of circle 3:}\PY{l+s}{"}\PY{p}{,} \PYZbs{}
+\PY{n}{C3}\PY{o}{.}\PY{n}{area}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{C3}\PY{o}{.}\PY{n}{perimeter}\PY{p}{(}\PY{p}{)}
+\PY{n}{clf}\PY{p}{(}\PY{p}{)}
+\PY{n}{C1}\PY{o}{.}\PY{n}{draw}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{First circle}\PY{l+s}{"}\PY{p}{)}
+\PY{n}{C2}\PY{o}{.}\PY{n}{draw}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{Second circle}\PY{l+s}{"}\PY{p}{)}
+\PY{n}{C3}\PY{o}{.}\PY{n}{draw}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{Third circle}\PY{l+s}{"}\PY{p}{)}
+\PY{n}{lab}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
 The output (text and Fig. \ref{fig:3circ}) is shown below.
 
-\begin{greencode}
+\begin{verbatim}
 Area and perimeter of circle 1: 3.14159265359 6.28318530718
 Area and perimeter of circle 2: 0.785398163397 3.14159265359
 Area and perimeter of circle 3: 0.196349540849 1.57079632679
-\end{greencode}
+\end{verbatim}
 
 \begin{figure}[!ht]
 \begin{center}
@@ -3395,15 +3401,15 @@ and if they are used, then without the brackets:\\
 Return a copy of the string with only its first character capitalized.\\
 
 \noindent
-\underline{Example}:
-\begin{bluecode}
-str = "sentences should start with a capital letter."
-print str.capitalize()
-\end{bluecode}
-\underline{Output}:
-\begin{greencode}
+Example:
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n+nb}{str} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{sentences should start with a capital letter.}\PY{l+s}{"}
+\PY{k}{print} \PY{n+nb}{str}\PY{o}{.}\PY{n}{capitalize}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+Output:
+\begin{verbatim}
 Sentences should start with a capital letter.
-\end{greencode}
+\end{verbatim}
 \vspace{4mm}
 
 \noindent
@@ -3414,15 +3420,15 @@ Return the number of occurrences of substring sub in string S[start:end].
 Optional arguments start and end are interpreted as in slice notation.\\
 
 \noindent
-\underline{Example}:
-\begin{bluecode}
-str = "John Stevenson, John Lennon, and John Wayne."
-print str.count("John")
-\end{bluecode}
-\underline{Output}:
-\begin{greencode}
+Example:
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n+nb}{str} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{John Stevenson, John Lennon, and John Wayne.}\PY{l+s}{"}
+\PY{k}{print} \PY{n+nb}{str}\PY{o}{.}\PY{n}{count}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{John}\PY{l+s}{"}\PY{p}{)}
+\end{Verbatim}
+Output:
+\begin{verbatim}
 3
-\end{greencode}
+\end{verbatim}
 \vspace{4mm}
 
 \noindent
@@ -3434,15 +3440,15 @@ sub is contained in the range {\tt [start, end]}. Optional arguments {\tt start}
 are interpreted as in slice notation. Return {\tt -1} if {\tt sub} is not found.\\
 
 \noindent
-\underline{Example}:
-\begin{bluecode}
-str = "This happened during the summer."
-print str.find("sum")
-\end{bluecode}
-\underline{Output}:
-\begin{greencode}
+Example:
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n+nb}{str} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{This happened during the summer.}\PY{l+s}{"}
+\PY{k}{print} \PY{n+nb}{str}\PY{o}{.}\PY{n}{find}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{sum}\PY{l+s}{"}\PY{p}{)}
+\end{Verbatim}
+Output:
+\begin{verbatim}
 25
-\end{greencode}
+\end{verbatim}
 \vspace{4mm}
 
 \noindent
@@ -3459,24 +3465,24 @@ Return true if all characters in the string are alphanumeric and
 there is at least one character, false otherwise.\\
 
 \noindent
-\underline{Example}:
-\begin{bluecode}
-str1 = "mypassword123"
-if str1.isalnum():
-    print str1, "is alphanumeric."
-else: 
-    print str1, "is not alphanumeric."
-str2 = "mypassword123+"
-if str2.isalnum():
-    print str2, "is alphanumeric."
-else: 
-    print str2, "is not alphanumeric."
-\end{bluecode}
-\underline{Output}:
-\begin{greencode}
+Example:
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{str1} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{mypassword123}\PY{l+s}{"}
+\PY{k}{if} \PY{n}{str1}\PY{o}{.}\PY{n}{isalnum}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+    \PY{k}{print} \PY{n}{str1}\PY{p}{,} \PY{l+s}{"}\PY{l+s}{is alphanumeric.}\PY{l+s}{"}
+\PY{k}{else}\PY{p}{:} 
+    \PY{k}{print} \PY{n}{str1}\PY{p}{,} \PY{l+s}{"}\PY{l+s}{is not alphanumeric.}\PY{l+s}{"}
+\PY{n}{str2} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{mypassword123+}\PY{l+s}{"}
+\PY{k}{if} \PY{n}{str2}\PY{o}{.}\PY{n}{isalnum}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+    \PY{k}{print} \PY{n}{str2}\PY{p}{,} \PY{l+s}{"}\PY{l+s}{is alphanumeric.}\PY{l+s}{"}
+\PY{k}{else}\PY{p}{:} 
+    \PY{k}{print} \PY{n}{str2}\PY{p}{,} \PY{l+s}{"}\PY{l+s}{is not alphanumeric.}\PY{l+s}{"}
+\end{Verbatim}
+Output:
+\begin{verbatim}
 mypassword123 is alphanumeric.
 mypassword123+ is not alphanumeric.
-\end{greencode}
+\end{verbatim}
 \vspace{4mm}
 
 \noindent
@@ -3487,24 +3493,24 @@ Return true if all characters in the string are alphabetic and
 there is at least one character, false otherwise.\\
 
 \noindent
-\underline{Example}:
-\begin{bluecode}
-str1 = "John"
-if str1.isalpha():
-    print str1, "is alphabetic."
-else: 
-    print str1, "is not alphabetic."
-str2 = "My name is John"
-if str2.isalpha():
-    print str2, "is alphabetic."
-else: 
-    print str2, "is not alphabetic."
-\end{bluecode}
-\underline{Output}:
-\begin{greencode}
+Example:
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{str1} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{John}\PY{l+s}{"}
+\PY{k}{if} \PY{n}{str1}\PY{o}{.}\PY{n}{isalpha}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+    \PY{k}{print} \PY{n}{str1}\PY{p}{,} \PY{l+s}{"}\PY{l+s}{is alphabetic.}\PY{l+s}{"}
+\PY{k}{else}\PY{p}{:} 
+    \PY{k}{print} \PY{n}{str1}\PY{p}{,} \PY{l+s}{"}\PY{l+s}{is not alphabetic.}\PY{l+s}{"}
+\PY{n}{str2} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{My name is John}\PY{l+s}{"}
+\PY{k}{if} \PY{n}{str2}\PY{o}{.}\PY{n}{isalpha}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+    \PY{k}{print} \PY{n}{str2}\PY{p}{,} \PY{l+s}{"}\PY{l+s}{is alphabetic.}\PY{l+s}{"}
+\PY{k}{else}\PY{p}{:} 
+    \PY{k}{print} \PY{n}{str2}\PY{p}{,} \PY{l+s}{"}\PY{l+s}{is not alphabetic.}\PY{l+s}{"}
+\end{Verbatim}
+Output:
+\begin{verbatim}
 John is alphabetic.
 My name is John is not alphabetic.
-\end{greencode}
+\end{verbatim}
 \vspace{4mm}
 
 \noindent
@@ -3514,24 +3520,24 @@ My name is John is not alphabetic.
 Return true if all characters in the string are digits and there is at least one character, false otherwise.\\
 
 \noindent
-\underline{Example}:
-\begin{bluecode}
-str1 = "2012"
-if str1.isdigit():
-    print str1, "is a number."
-else: 
-    print str1, "is not a number."
-str2 = "Year 2012"
-if str2.isdigit():
-    print str2, "is a number."
-else: 
-    print str2, "is not a number."
-\end{bluecode}
-\underline{Output}:
-\begin{greencode}
+Example:
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{str1} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{2012}\PY{l+s}{"}
+\PY{k}{if} \PY{n}{str1}\PY{o}{.}\PY{n}{isdigit}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+    \PY{k}{print} \PY{n}{str1}\PY{p}{,} \PY{l+s}{"}\PY{l+s}{is a number.}\PY{l+s}{"}
+\PY{k}{else}\PY{p}{:} 
+    \PY{k}{print} \PY{n}{str1}\PY{p}{,} \PY{l+s}{"}\PY{l+s}{is not a number.}\PY{l+s}{"}
+\PY{n}{str2} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{Year 2012}\PY{l+s}{"}
+\PY{k}{if} \PY{n}{str2}\PY{o}{.}\PY{n}{isdigit}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+    \PY{k}{print} \PY{n}{str2}\PY{p}{,} \PY{l+s}{"}\PY{l+s}{is a number.}\PY{l+s}{"}
+\PY{k}{else}\PY{p}{:} 
+    \PY{k}{print} \PY{n}{str2}\PY{p}{,} \PY{l+s}{"}\PY{l+s}{is not a number.}\PY{l+s}{"}
+\end{Verbatim}
+Output:
+\begin{verbatim}
 2012 is a number.
 Year 2012 is a number.
-\end{greencode}
+\end{verbatim}
 \vspace{4mm}
 
 \noindent
@@ -3542,19 +3548,19 @@ Return a string which is the concatenation of the strings in the sequence seq. T
 base string (onject whose method is used as separator).\\
 
 \noindent
-\underline{Example}:
-\begin{bluecode}
-str = "..."
-str1 = "This"
-str2 = "is"
-str3 = "the"
-str4 = "movie."
-print str.join([str1, str2, str3, str4])
-\end{bluecode}
-\underline{Output}:
-\begin{greencode}
+Example:
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n+nb}{str} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{...}\PY{l+s}{"}
+\PY{n}{str1} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{This}\PY{l+s}{"}
+\PY{n}{str2} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{is}\PY{l+s}{"}
+\PY{n}{str3} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{the}\PY{l+s}{"}
+\PY{n}{str4} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{movie.}\PY{l+s}{"}
+\PY{k}{print} \PY{n+nb}{str}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{p}{[}\PY{n}{str1}\PY{p}{,} \PY{n}{str2}\PY{p}{,} \PY{n}{str3}\PY{p}{,} \PY{n}{str4}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+Output:
+\begin{verbatim}
 This...is...the...movie.
-\end{greencode}
+\end{verbatim}
 \vspace{4mm}
 
 \noindent
@@ -3564,15 +3570,15 @@ This...is...the...movie.
 Return a copy of the string converted to lowercase.\\
 
 \noindent
-\underline{Example}:
-\begin{bluecode}
-str = "She lives in New Orleans."
-print str.lower()
-\end{bluecode}
-\underline{Output}:
-\begin{greencode}
+Example:
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n+nb}{str} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{She lives in New Orleans.}\PY{l+s}{"}
+\PY{k}{print} \PY{n+nb}{str}\PY{o}{.}\PY{n}{lower}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+Output:
+\begin{verbatim}
 she lives in new orleans.
-\end{greencode}
+\end{verbatim}
 \vspace{4mm}
 
 \noindent
@@ -3583,15 +3589,15 @@ Return a copy of the string with all occurrences of substring old replaced by ne
 If the optional argument count is given, only the first count occurrences are replaced.\\
 
 \noindent
-\underline{Example}:
-\begin{bluecode}
-str = "First word, second word, and third word."
-print str.replace("word", "thing")
-\end{bluecode}
-\underline{Output}:
-\begin{greencode}
+Example:
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n+nb}{str} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{First word, second word, and third word.}\PY{l+s}{"}
+\PY{k}{print} \PY{n+nb}{str}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{word}\PY{l+s}{"}\PY{p}{,} \PY{l+s}{"}\PY{l+s}{thing}\PY{l+s}{"}\PY{p}{)}
+\end{Verbatim}
+Output:
+\begin{verbatim}
 First thing, second thing, and third thing.
-\end{greencode}
+\end{verbatim}
 \vspace{4mm}
 
 \noindent
@@ -3601,15 +3607,15 @@ First thing, second thing, and third thing.
 Return a copy of the string with uppercase characters converted to lowercase and vice versa.\\
 
 \noindent
-\underline{Example}:
-\begin{bluecode}
-str = "The abbreviation is MENSA"
-print str.swapcase()
-\end{bluecode}
-\underline{Output}:
-\begin{greencode}
+Example:
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n+nb}{str} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{The abbreviation is MENSA}\PY{l+s}{"}
+\PY{k}{print} \PY{n+nb}{str}\PY{o}{.}\PY{n}{swapcase}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+Output:
+\begin{verbatim}
 tHE ABBREVIATION IS mensa
-\end{greencode}
+\end{verbatim}
 \vspace{4mm}
 
 \noindent
@@ -3620,15 +3626,15 @@ Return a titlecased version of the string: Words start with uppercase characters
 all remaining cased characters are lowercase.\\
 
 \noindent
-\underline{Example}:
-\begin{bluecode}
-str = "this is the title of my new book"
-print str.title()
-\end{bluecode}
-\underline{Output}:
-\begin{greencode}
+Example:
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n+nb}{str} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{this is the title of my new book}\PY{l+s}{"}
+\PY{k}{print} \PY{n+nb}{str}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+Output:
+\begin{verbatim}
 This Is The Title Of My New Book
-\end{greencode}
+\end{verbatim}
 \vspace{4mm}
 
 \noindent
@@ -3636,15 +3642,15 @@ This Is The Title Of My New Book
 Return a copy of the string converted to uppercase.\\
 
 \noindent
-\underline{Example}:
-\begin{bluecode}
-str = "this is the title of my new book"
-print str.upper()
-\end{bluecode}
-\underline{Output}:
-\begin{greencode}
-'THIS IS THE TITLE OF MY NEW BOOK'
-\end{greencode}
+Example:
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n+nb}{str} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{this is the title of my new book}\PY{l+s}{"}
+\PY{k}{print} \PY{n+nb}{str}\PY{o}{.}\PY{n}{upper}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+Output:
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{THIS IS THE TITLE OF MY NEW BOOK}
+\end{Verbatim}
 \vspace{4mm}
 
 \noindent
@@ -3690,22 +3696,22 @@ handy.
 Instead of repeating the same drawing functionality in all classes, we create 
 a base class {\tt geometry} as follows:
 
-\begin{bluecode}
-from pylab import clf, plot, legend, axis
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kn}{from} \PY{n+nn}{pylab} \PY{k+kn}{import} \PY{n}{clf}\PY{p}{,} \PY{n}{plot}\PY{p}{,} \PY{n}{legend}\PY{p}{,} \PY{n}{axis}
 
-# Base class:
-class geometry:
-    # Constructor:
-    def __init__(self):
-        self.ptsx = []
-        self.ptsy = []
+\PY{c}{\PYZsh{} Base class:}
+\PY{k}{class} \PY{n+nc}{geometry}\PY{p}{:}
+    \PY{c}{\PYZsh{} Constructor:}
+    \PY{k}{def} \PY{n+nf}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ptsx} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ptsy} \PY{o}{=} \PY{p}{[}\PY{p}{]}
       
-    # Plotting method:
-    def draw(self, label):
-        axis('equal')
-        plot(self.ptsx, self.ptsy, label = label)
-        legend()
-\end{bluecode}
+    \PY{c}{\PYZsh{} Plotting method:}
+    \PY{k}{def} \PY{n+nf}{draw}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{label}\PY{p}{)}\PY{p}{:}
+        \PY{n}{axis}\PY{p}{(}\PY{l+s}{'}\PY{l+s}{equal}\PY{l+s}{'}\PY{p}{)}
+        \PY{n}{plot}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ptsx}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ptsy}\PY{p}{,} \PY{n}{label} \PY{o}{=} \PY{n}{label}\PY{p}{)}
+        \PY{n}{legend}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
 This base class really cannot do much, but this is fine. We will use it to 
 derive several new (descendant) classes. The benefit of inheritance is that if 
 we decide in the future to change the plotting mechanism, we will just have to change it at 
@@ -3722,48 +3728,48 @@ of the base class {\tt geometry}. This class will represent general non-convex
 counter-clockwise (CCW) oriented polygons. Notice the syntax of the inheritance -- 
 one types {\tt class polygon(geometry):} instead of just {\tt class polygon}:
 
-\begin{bluecode}
-# Class polygon derived from class geometry, 
-# represents general, possibly non-convex 
-# polygon. Boundary needs to be CCW oriented.
-class polygon(geometry):
-    # Constructor (here L is list of vertices):
-    def __init__(self, L):
-        self.ptsx = []
-        self.ptsy = []
-        # Convert L into plotting arrays:
-        for pt in L:
-            self.ptsx.append(pt[0])
-            self.ptsy.append(pt[1])
-        # To close the loop in plotting:
-        self.ptsx.append(L[0][0])
-        self.ptsy.append(L[0][1])
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c}{\PYZsh{} Class polygon derived from class geometry, }
+\PY{c}{\PYZsh{} represents general, possibly non-convex }
+\PY{c}{\PYZsh{} polygon. Boundary needs to be CCW oriented.}
+\PY{k}{class} \PY{n+nc}{polygon}\PY{p}{(}\PY{n}{geometry}\PY{p}{)}\PY{p}{:}
+    \PY{c}{\PYZsh{} Constructor (here L is list of vertices):}
+    \PY{k}{def} \PY{n+nf}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{L}\PY{p}{)}\PY{p}{:}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ptsx} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ptsy} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+        \PY{c}{\PYZsh{} Convert L into plotting arrays:}
+        \PY{k}{for} \PY{n}{pt} \PY{o+ow}{in} \PY{n}{L}\PY{p}{:}
+            \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ptsx}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{pt}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+            \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ptsy}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{pt}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+        \PY{c}{\PYZsh{} To close the loop in plotting:}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ptsx}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{L}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ptsy}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{L}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
          
-    # Method to calculate area of a general 
-    # oriented polygon:
-    def area(self):
-        # Calculate minimum y-coordinate:
-        ymin = min(self.ptsy)
-        # The area of an oriented polygon is the sum of 
-        # areas of oriented trapezoids under its edges:
-        m = len(self.ptsx) - 1   # Number of trapezoids.
-        s = 0
-        for i in range(m):
-            s += (self.ptsx[i+1] - self.ptsx[i]) \
-                 * (self.ptsy[i+1] + self.ptsy[i] \
-                 - 2*ymin) / 2.
-        return -s
+    \PY{c}{\PYZsh{} Method to calculate area of a general }
+    \PY{c}{\PYZsh{} oriented polygon:}
+    \PY{k}{def} \PY{n+nf}{area}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+        \PY{c}{\PYZsh{} Calculate minimum y-coordinate:}
+        \PY{n}{ymin} \PY{o}{=} \PY{n+nb}{min}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ptsy}\PY{p}{)}
+        \PY{c}{\PYZsh{} The area of an oriented polygon is the sum of }
+        \PY{c}{\PYZsh{} areas of oriented trapezoids under its edges:}
+        \PY{n}{m} \PY{o}{=} \PY{n+nb}{len}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ptsx}\PY{p}{)} \PY{o}{-} \PY{l+m+mi}{1}   \PY{c}{\PYZsh{} Number of trapezoids.}
+        \PY{n}{s} \PY{o}{=} \PY{l+m+mi}{0}
+        \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{m}\PY{p}{)}\PY{p}{:}
+            \PY{n}{s} \PY{o}{+}\PY{o}{=} \PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ptsx}\PY{p}{[}\PY{n}{i}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{]} \PY{o}{-} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ptsx}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)} \PYZbs{}
+                 \PY{o}{*} \PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ptsy}\PY{p}{[}\PY{n}{i}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{]} \PY{o}{+} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ptsy}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PYZbs{}
+                 \PY{o}{-} \PY{l+m+mi}{2}\PY{o}{*}\PY{n}{ymin}\PY{p}{)} \PY{o}{/} \PY{l+m+mf}{2.}
+        \PY{k}{return} \PY{o}{-}\PY{n}{s}
 
-    # Method to calculate perimeter of a general
-    # oriented polygon:
-    def perimeter(self):
-        l = 0
-        m = len(self.ptsx) - 1
-        for i in range(m):
-            l += sqrt((self.ptsx[i+1] - self.ptsx[i])**2 
-                 + (self.ptsy[i+1] - self.ptsy[i])**2)
-        return l
-\end{bluecode}
+    \PY{c}{\PYZsh{} Method to calculate perimeter of a general}
+    \PY{c}{\PYZsh{} oriented polygon:}
+    \PY{k}{def} \PY{n+nf}{perimeter}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+        \PY{n}{l} \PY{o}{=} \PY{l+m+mi}{0}
+        \PY{n}{m} \PY{o}{=} \PY{n+nb}{len}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ptsx}\PY{p}{)} \PY{o}{-} \PY{l+m+mi}{1}
+        \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{m}\PY{p}{)}\PY{p}{:}
+            \PY{n}{l} \PY{o}{+}\PY{o}{=} \PY{n}{sqrt}\PY{p}{(}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ptsx}\PY{p}{[}\PY{n}{i}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{]} \PY{o}{-} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ptsx}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2} 
+                 \PY{o}{+} \PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ptsy}\PY{p}{[}\PY{n}{i}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{]} \PY{o}{-} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ptsy}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}
+        \PY{k}{return} \PY{n}{l}
+\end{Verbatim}
 Notice that we did not have to define the method {\tt draw()} here. 
 
 \subsection{Deriving {\tt circle} from {\tt geometry}}
@@ -3771,34 +3777,34 @@ Notice that we did not have to define the method {\tt draw()} here.
 Next let us derive the class {\tt circle} from the class {\tt geometry}. Obviously it cannot be derived
 from {\tt polygon} because circles are not polygonal geometries:
 
-\begin{bluecode}
-# Class circle derived from class geometry:
-class circle(geometry):
-    # Constructor (here r is radius, (cx, cy) the center point,
-    # and n plotting subdivision):
-    def __init__(self, r, cx, cy, n = 100):
-        self.R = r
-        self.Cx = cx
-        self.Cy = cy
-        self.n = n
-        # Create array of points for plotting:
-        self.ptsx = []
-        self.ptsy = []
-        da = 2*pi/self.n
-        for i in range(n):
-            self.ptsx.append(self.Cx + self.R * cos(i * da))
-            self.ptsy.append(self.Cy + self.R * sin(i * da))
-        self.ptsx.append(self.Cx + self.R)
-        self.ptsy.append(self.Cy + 0)
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c}{\PYZsh{} Class circle derived from class geometry:}
+\PY{k}{class} \PY{n+nc}{circle}\PY{p}{(}\PY{n}{geometry}\PY{p}{)}\PY{p}{:}
+    \PY{c}{\PYZsh{} Constructor (here r is radius, (cx, cy) the center point,}
+    \PY{c}{\PYZsh{} and n plotting subdivision):}
+    \PY{k}{def} \PY{n+nf}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{r}\PY{p}{,} \PY{n}{cx}\PY{p}{,} \PY{n}{cy}\PY{p}{,} \PY{n}{n} \PY{o}{=} \PY{l+m+mi}{100}\PY{p}{)}\PY{p}{:}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{R} \PY{o}{=} \PY{n}{r}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{Cx} \PY{o}{=} \PY{n}{cx}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{Cy} \PY{o}{=} \PY{n}{cy}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{n} \PY{o}{=} \PY{n}{n}
+        \PY{c}{\PYZsh{} Create array of points for plotting:}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ptsx} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ptsy} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+        \PY{n}{da} \PY{o}{=} \PY{l+m+mi}{2}\PY{o}{*}\PY{n}{pi}\PY{o}{/}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{n}
+        \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{n}\PY{p}{)}\PY{p}{:}
+            \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ptsx}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{Cx} \PY{o}{+} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{R} \PY{o}{*} \PY{n}{cos}\PY{p}{(}\PY{n}{i} \PY{o}{*} \PY{n}{da}\PY{p}{)}\PY{p}{)}
+            \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ptsy}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{Cy} \PY{o}{+} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{R} \PY{o}{*} \PY{n}{sin}\PY{p}{(}\PY{n}{i} \PY{o}{*} \PY{n}{da}\PY{p}{)}\PY{p}{)}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ptsx}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{Cx} \PY{o}{+} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{R}\PY{p}{)}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ptsy}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{Cy} \PY{o}{+} \PY{l+m+mi}{0}\PY{p}{)}
             
-    # Method to calculate circle area:
-    def area(self):
-        return pi * self.R**2
+    \PY{c}{\PYZsh{} Method to calculate circle area:}
+    \PY{k}{def} \PY{n+nf}{area}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+        \PY{k}{return} \PY{n}{pi} \PY{o}{*} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{R}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}
       
-    # Method to calculate perimeter:
-    def perimeter(self):
-        return 2 * pi * self.R
-\end{bluecode}
+    \PY{c}{\PYZsh{} Method to calculate perimeter:}
+    \PY{k}{def} \PY{n+nf}{perimeter}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+        \PY{k}{return} \PY{l+m+mi}{2} \PY{o}{*} \PY{n}{pi} \PY{o}{*} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{R}
+\end{Verbatim}
 Again, notice that we did not have to define the method {\tt draw()}.
 
 \subsection{Deriving {\tt triangle} and {\tt quad} from {\tt polygon}}
@@ -3814,53 +3820,53 @@ constructor of the parent class {\tt polygon}. Notice the way the constructor of
 the {\tt polygon} class is called from its descendant {\tt triangle} via 
 {\tt polygon.\_\_init\_\_(self, L)}:
 
-\begin{bluecode}
-# Class triangle derived from class polygon:
-class triangle(polygon):
-    # Constructor (here a, b, c are the vertices):
-    def __init__(self, a, b, c):
-        L = [a, b, c]
-        polygon.__init__(self, L)
-\end{bluecode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c}{\PYZsh{} Class triangle derived from class polygon:}
+\PY{k}{class} \PY{n+nc}{triangle}\PY{p}{(}\PY{n}{polygon}\PY{p}{)}\PY{p}{:}
+    \PY{c}{\PYZsh{} Constructor (here a, b, c are the vertices):}
+    \PY{k}{def} \PY{n+nf}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{a}\PY{p}{,} \PY{n}{b}\PY{p}{,} \PY{n}{c}\PY{p}{)}\PY{p}{:}
+        \PY{n}{L} \PY{o}{=} \PY{p}{[}\PY{n}{a}\PY{p}{,} \PY{n}{b}\PY{p}{,} \PY{n}{c}\PY{p}{]}
+        \PY{n}{polygon}\PY{o}{.}\PY{n}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{L}\PY{p}{)}
+\end{Verbatim}
 Class {\tt quad} is created analogously:
 
-\begin{bluecode}
-# Class quad derived from class polygon:
-class quad(polygon):
-    # Constructor (here a, b, c, d are the vertices
-    # in CCW orientation):
-    def __init__(self, a, b, c, d):
-        L = [a, b, c, d]
-        polygon.__init__(self, L)
-\end{bluecode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c}{\PYZsh{} Class quad derived from class polygon:}
+\PY{k}{class} \PY{n+nc}{quad}\PY{p}{(}\PY{n}{polygon}\PY{p}{)}\PY{p}{:}
+    \PY{c}{\PYZsh{} Constructor (here a, b, c, d are the vertices}
+    \PY{c}{\PYZsh{} in CCW orientation):}
+    \PY{k}{def} \PY{n+nf}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{a}\PY{p}{,} \PY{n}{b}\PY{p}{,} \PY{n}{c}\PY{p}{,} \PY{n}{d}\PY{p}{)}\PY{p}{:}
+        \PY{n}{L} \PY{o}{=} \PY{p}{[}\PY{n}{a}\PY{p}{,} \PY{n}{b}\PY{p}{,} \PY{n}{c}\PY{p}{,} \PY{n}{d}\PY{p}{]}
+        \PY{n}{polygon}\PY{o}{.}\PY{n}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{L}\PY{p}{)}
+\end{Verbatim}
 
 \subsection{Deriving {\tt rectangle} from {\tt quad}}
 
 Next, rectangle is a special case of quad, so let us derive the 
 {\tt rectangle} class from the {\tt quad} class:
 
-\begin{bluecode}
-# Class rectangle derived from class quad.
-# Represents rectangle (0, a) x (0, b):
-class rectangle(quad):
-    # Constructor:
-    def __init__(self, a, b):
-        quad.__init__(self, [0, 0], [a, 0], [a, b], [0, b])
-\end{bluecode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c}{\PYZsh{} Class rectangle derived from class quad.}
+\PY{c}{\PYZsh{} Represents rectangle (0, a) x (0, b):}
+\PY{k}{class} \PY{n+nc}{rectangle}\PY{p}{(}\PY{n}{quad}\PY{p}{)}\PY{p}{:}
+    \PY{c}{\PYZsh{} Constructor:}
+    \PY{k}{def} \PY{n+nf}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{a}\PY{p}{,} \PY{n}{b}\PY{p}{)}\PY{p}{:}
+        \PY{n}{quad}\PY{o}{.}\PY{n}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{n}{a}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{n}{a}\PY{p}{,} \PY{n}{b}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{b}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
 
 \subsection{Deriving {\tt square} from {\tt rectangle}}
 
 Taking this one step further, square is a special case of rectangle. Therefore 
 we can derive the {\tt square} class from the {\tt rectangle} class:
 
-\begin{bluecode}
-# Class square derived from class rectangle.
-# Represents square (0, a) x (0, a):
-class square(rectangle):
-    # Constructor. Here a is the edge length:
-    def __init__(self, a):
-        rectangle.__init__(self, a, a)
-\end{bluecode}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c}{\PYZsh{} Class square derived from class rectangle.}
+\PY{c}{\PYZsh{} Represents square (0, a) x (0, a):}
+\PY{k}{class} \PY{n+nc}{square}\PY{p}{(}\PY{n}{rectangle}\PY{p}{)}\PY{p}{:}
+    \PY{c}{\PYZsh{} Constructor. Here a is the edge length:}
+    \PY{k}{def} \PY{n+nf}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{a}\PY{p}{)}\PY{p}{:}
+        \PY{n}{rectangle}\PY{o}{.}\PY{n}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{a}\PY{p}{,} \PY{n}{a}\PY{p}{)}
+\end{Verbatim}
 
 \subsection{Diagram of class structure}
 
@@ -3880,52 +3886,52 @@ The inheritance structure of our classes is depicted in Fig. \ref{fig:classes}.
 Finally let us create sample instances of the classes defined above, inquire
 about their areas and perimeters, and let them plot themselves:
 
-\begin{bluecode}
-# Create a triangle:
-T = triangle([-2, -0.5], [0, -0.5], [-1, 2])
-print "Area and perimeter of the triangle:", \
-T.area(), T.perimeter()
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c}{\PYZsh{} Create a triangle:}
+\PY{n}{T} \PY{o}{=} \PY{n}{triangle}\PY{p}{(}\PY{p}{[}\PY{o}{-}\PY{l+m+mi}{2}\PY{p}{,} \PY{o}{-}\PY{l+m+mf}{0.5}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{o}{-}\PY{l+m+mf}{0.5}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{o}{-}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}
+\PY{k}{print} \PY{l+s}{"}\PY{l+s}{Area and perimeter of the triangle:}\PY{l+s}{"}\PY{p}{,} \PYZbs{}
+\PY{n}{T}\PY{o}{.}\PY{n}{area}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{T}\PY{o}{.}\PY{n}{perimeter}\PY{p}{(}\PY{p}{)}
 
-# Create a quad:
-Q = quad([-3, -1], [0, -1], [-1, 1], [-2, 1])
-print "Area and perimeter of the quad:", \
-Q.area(), Q.perimeter()
+\PY{c}{\PYZsh{} Create a quad:}
+\PY{n}{Q} \PY{o}{=} \PY{n}{quad}\PY{p}{(}\PY{p}{[}\PY{o}{-}\PY{l+m+mi}{3}\PY{p}{,} \PY{o}{-}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{o}{-}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{o}{-}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{o}{-}\PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+\PY{k}{print} \PY{l+s}{"}\PY{l+s}{Area and perimeter of the quad:}\PY{l+s}{"}\PY{p}{,} \PYZbs{}
+\PY{n}{Q}\PY{o}{.}\PY{n}{area}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{Q}\PY{o}{.}\PY{n}{perimeter}\PY{p}{(}\PY{p}{)}
  
-# Create a rectangle:
-R = rectangle(3, 1)
-print "Area and perimeter of the rectangle:", \
-R.area(), R.perimeter()
+\PY{c}{\PYZsh{} Create a rectangle:}
+\PY{n}{R} \PY{o}{=} \PY{n}{rectangle}\PY{p}{(}\PY{l+m+mi}{3}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{)}
+\PY{k}{print} \PY{l+s}{"}\PY{l+s}{Area and perimeter of the rectangle:}\PY{l+s}{"}\PY{p}{,} \PYZbs{}
+\PY{n}{R}\PY{o}{.}\PY{n}{area}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{R}\PY{o}{.}\PY{n}{perimeter}\PY{p}{(}\PY{p}{)}
 
-# Create a square:
-S = square(1.5)
-print "Area and perimeter of the square:", \
-S.area(), S.perimeter()
+\PY{c}{\PYZsh{} Create a square:}
+\PY{n}{S} \PY{o}{=} \PY{n}{square}\PY{p}{(}\PY{l+m+mf}{1.5}\PY{p}{)}
+\PY{k}{print} \PY{l+s}{"}\PY{l+s}{Area and perimeter of the square:}\PY{l+s}{"}\PY{p}{,} \PYZbs{}
+\PY{n}{S}\PY{o}{.}\PY{n}{area}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{S}\PY{o}{.}\PY{n}{perimeter}\PY{p}{(}\PY{p}{)}
  
-# Create a circle:
-C = circle(2.5, 0, 0.5)
-print "Area and perimeter of the circle:", \
-C.area(), C.perimeter()
+\PY{c}{\PYZsh{} Create a circle:}
+\PY{n}{C} \PY{o}{=} \PY{n}{circle}\PY{p}{(}\PY{l+m+mf}{2.5}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mf}{0.5}\PY{p}{)}
+\PY{k}{print} \PY{l+s}{"}\PY{l+s}{Area and perimeter of the circle:}\PY{l+s}{"}\PY{p}{,} \PYZbs{}
+\PY{n}{C}\PY{o}{.}\PY{n}{area}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{C}\PY{o}{.}\PY{n}{perimeter}\PY{p}{(}\PY{p}{)}
 
-# Plot the geometries:
-clf()
-T.draw("Triangle")
-Q.draw("Quad")
-R.draw("Rectangle")
-S.draw("Square")
-C.draw("Circle")
-ylim(-3, 4)
-legend()
-lab.show()
-\end{bluecode}
+\PY{c}{\PYZsh{} Plot the geometries:}
+\PY{n}{clf}\PY{p}{(}\PY{p}{)}
+\PY{n}{T}\PY{o}{.}\PY{n}{draw}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{Triangle}\PY{l+s}{"}\PY{p}{)}
+\PY{n}{Q}\PY{o}{.}\PY{n}{draw}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{Quad}\PY{l+s}{"}\PY{p}{)}
+\PY{n}{R}\PY{o}{.}\PY{n}{draw}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{Rectangle}\PY{l+s}{"}\PY{p}{)}
+\PY{n}{S}\PY{o}{.}\PY{n}{draw}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{Square}\PY{l+s}{"}\PY{p}{)}
+\PY{n}{C}\PY{o}{.}\PY{n}{draw}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{Circle}\PY{l+s}{"}\PY{p}{)}
+\PY{n}{ylim}\PY{p}{(}\PY{o}{-}\PY{l+m+mi}{3}\PY{p}{,} \PY{l+m+mi}{4}\PY{p}{)}
+\PY{n}{legend}\PY{p}{(}\PY{p}{)}
+\PY{n}{lab}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
 First, here is the textual output:
 
-\begin{greencode}
+\begin{verbatim}
 Area and perimeter of the triangle: 2.5 7.38516480713
 Area and perimeter of the quad: 4.0 8.472135955
 Area and perimeter of the rectangle: 3.0 8.0
 Area and perimeter of the square: 2.25 6.0
 Area and perimeter of the circle: 19.6349540849 15.7079632679
-\end{greencode}
+\end{verbatim}
 The graphical output is shown in Fig. \ref{fig:classes2}.
 
 \begin{figure}[!ht]

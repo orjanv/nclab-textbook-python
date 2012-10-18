@@ -253,7 +253,7 @@
 \vfill
 \vfill
 \begin{center}
-Revision Oct-10-2012. Copyright 2012 FEMhub Inc. All rights reserved.
+Revision Oct-17-2012. Copyright 2012 FEMhub Inc. All rights reserved.
 \end{center}
 \newpage
 \vbox{}
@@ -506,11 +506,14 @@ under it.
 \subsection{Objectives}
 
 \begin{itemize}
-\item Learn how to use Python for advanced math operations.
-\item Plot graphs of functions of one and two variables, as well as parametric 2D and 3D curves.
+\item Learn how to use Python for elementary as well as advanced math operations.
+\item Plot graphs of functions of one and two variables, 2D and 
+      3D curves, surfaces, and charts.
 \end{itemize}
-The Python worksheet can be used as a powerful calculator and graphing utility. 
-Let us begin with the simplest math operations.
+Python can be used as an advanced scientific calculator -- no need to own a TI-89 (\$150 value). 
+As a matter of fact, a TI-89 hardly could compete with hundreds of processors under NCLab's hood. 
+In this section we will learn how to use this computing power. Let us begin with the simplest math 
+operations and work our way to the more complex ones, to graphing, and more. 
 
 \subsection{Addition, subtraction}
 
@@ -732,6 +735,54 @@ tanh($x$) & hyperbolic tangent of $x$ \\
 %}
 \vspace{4mm}
 \noindent
+
+\subsection{\ \ Fractions}
+
+Python makes operation with fractions very simple via the {\tt Fraction}
+function that is imported from the {\tt fractions} library:
+
+\begin{bluecode}
+from fractions import Fraction
+\end{bluecode}
+A fraction such as 4/7 can be defined simply as {\tt Fraction(4, 7)}. 
+Fractions can be used with the same operations as numbers, and the result 
+of such an operation is a {\tt Fraction}. For example
+
+\begin{bluecode}
+Fraction(2, 6) + Fraction(2, 3)
+\end{bluecode}
+yields
+
+\begin{greencode}
+Fraction(1, 1)
+\end{greencode}
+Another example: 
+
+\begin{bluecode}
+Fraction(2, 6) / Fraction(2, 3)
+\end{bluecode}
+results into 
+
+\begin{greencode}
+Fraction(1, 2)
+\end{greencode}
+The {\tt fractions} library also provides the function {\tt gcd()} that 
+calculates the Greatest Common Divisor (GCD) of two integers. It is imported via 
+
+\begin{bluecode}
+from fractions import gcd
+\end{bluecode}
+For illustration let us calculate the GCD of 867 and 629:
+
+\begin{bluecode}
+gcd(867, 629)
+\end{bluecode}
+The output is 
+
+\begin{greencode}
+17
+\end{greencode}
+
 
 \subsection{\ \ Complex numbers}
 Complex numbers are always represented as two floating point numbers, the 

@@ -357,23 +357,22 @@ This course provides a gentle yet efficient introduction to Python --
 a modern high-level dynamical programming language that is widely used in business, 
 science, and engineering applications. If this is your first time learning 
 a programming language, then we recommend that you spend a few days with 
-Karel the Robot before diving into Python. Karel the Robot is also available 
-in NCLab (http://nclab.com) and it will teach you important principles of algorithmic 
-thinking. Once you learn that, your efficiency in acquiring new programming languages 
+Karel the Robot before diving into Python. Karel the Robot is available 
+in NCLab (http://nclab.com) and it will teach you what you will need most --
+{\em algorithmic 
+thinking}. Once you learn that, your efficiency in acquiring any new programming language
 will improve dramatically. Moreover, Karel's syntax is very similar to Python, 
-so transition to Python is seamless, and you hit the ground running.
+so the transition from Karel to Python is truly seamless.
 
-In Python you will continue building your skills in the same way you did in Karel. 
-You will learn more advanced concepts including mathematical operations and functions, 
-2D and 3D plotting, local and global variables, strings, tuples, lists, dictionaries, 
+In Python you will learn more applied concepts including mathematical operations
+and functions, 2D and 3D plotting, local and global variables, strings, tuples, lists, dictionaries, 
 exceptions, object-oriented programming, and more. 
-
 A strong companion of Python are its libraries. Besides the Standard Library that
 contains many build-in functions not present in lower-level languages such as 
 Java, C, C++ or Fortran, Python also has powerful scientific libraries including 
 Scipy, Numpy, Matplotlib, Pylab, Sympy and others. With these, you will be able to 
-solve entry-level scientific and engineering problems. These libraries are discussed
-at the end of the course.  
+solve entry-level scientific and engineering problems. These libraries are used
+throughout the course.  
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setcounter{section}{0}
@@ -383,7 +382,7 @@ at the end of the course.
 
 \begin{itemize}
 \item Learn the difference between compiled and interpreted programming languages.
-\item Learn basic facts about Python and its powerful accompanying libraries.
+\item Learn basic facts about Python and its powerful companion libraries.
 \item Understand how Python programming works in the cloud setting.
 \item Write and run your first Python program.
 \end{itemize}
@@ -401,7 +400,7 @@ not compiled and there are no binaries. Programs
 written using compiled languages are usually more efficient than programs written using the interpreted 
 ones because the former take better advantage of the underlying hardware. On the other hand,
 interpreted languages are usually more universal and easier to use. Compiled 
-programming languages include Pascal, C, C++, Fortran, and many others. Few examples of interpreted 
+programming languages include Pascal, C, C++, Fortran, Java and many others. Examples of interpreted 
 languages are Python, Lua, Perl and Ruby. 
 
 \subsection{Basic facts about Python}
@@ -411,7 +410,7 @@ engineering, and science. Its interpreted character along with a very intuitive 
 ideal language for beginners. 
 
 Python was conceived in the late 1980s and its implementation was started in December 1989
-by Guido van Rossum at CWI in the Netherlands. Rossum also gave it a name originated
+by Guido van Rossum in the Netherlands. Rossum also gave it a name originated
 in his favorite television series {\em Monty Python's Flying Circus}.
 Python 2.0 was released in October 2000 and Python 3.0 in December 2008. Python was
 awarded the TIOBE {\em Programming Language of the Year} award twice (2007, 2010), which is 
@@ -430,29 +429,30 @@ We hope that you will like Python and want to learn more -- and there is much
 more to learn out there. References to materials covering more advanced topics 
 and object-oriented programming are given in Section \ref{sec:adv}.
 
-\subsection{Libraries - Python programmer's strong companion}
+\subsection{Python programming in NCLab}
 
-Python comes with a powerful {\em standard library} that contains plentiful functionality
-to ease work with constants, types, functions, exceptions, strings, data, 
-mathematics, cryptography, parallel processing and other things. 
-Python also has a number of scientific libraries. Most important of them are Scipy, 
-Numpy, Pylab, Matplotlib, and Sympy.
-
-\subsection{How does Python programming work in the cloud environment?}
-
-In the browser, Python code is typed into one or more code cells in the {\em Python worksheet}. 
-The code is sent (as a text string) to a remote server where it is interpreted, and the 
+In NCLab's Python Worksheet, Python code is typed into one or more code cells. 
+The code is then sent as a text string to a remote server where it is interpreted, and the 
 results are sent back to your computer / laptop / tablet, and displayed in your web 
-browser.  Let's try this!
+browser.
+
 
 \subsection{Launching a Python project}
+
 
 There are multiple ways to launch a Python project. First, it is 
 possible to clone and experiment with many existing displayed Python 
 projects via File Manager $\rightarrow$ 
-Project $\rightarrow$ Clone. New (empty) Python project can be launched via 
+Project $\rightarrow$ Clone. 
+
+New Python worksheet can be launched via 
 the {\em Programming} menu or via File Manager $\rightarrow$ 
-Project $\rightarrow$ New $\rightarrow$ Python. An empty Python worksheet
+Project $\rightarrow$ New $\rightarrow$ Python. Python worksheet
+launched in this way will contain a {\em welcome script} -- simple Python 
+program that can be run instantly by pressing the blue arrow button. 
+The welcome script is meant to get you started quickly, and it can 
+be turned off in Setting. Once turned off, next time you launch the 
+Python worksheet, it will be empty. An empty Python worksheet
 is shown in Fig. \ref{fig:python}.
 
 \begin{figure}[!ht]
@@ -471,7 +471,7 @@ Click into the code cell and type {\tt print "Hello, World!"}.
 Then click on the green arrow under the cell, and the text 
 "Hello, World!" will be displayed 
 in a new yellow {\em output cell} as shown in Fig. \ref{fig:python-2}.
-
+\newpage
 \begin{figure}[!ht]
 \begin{center}
 \includegraphics[width=0.9\textwidth]{img/python-2.png}
@@ -480,24 +480,22 @@ in a new yellow {\em output cell} as shown in Fig. \ref{fig:python-2}.
 \caption{Response received from the cloud is shown in a yellow output cell.}
 \label{fig:python-2}
 \end{figure}
+\noindent
+The blue and red labels on the left-hand side of cells can be turned
+off in Settings, allowing a bit more space for editing.
 
 \subsection{Code, output and text cells}
 
 As in Karel, there are three types of cells in the Python worksheet - code cells, output cells, 
-and descriptive text cells. code cells as well as text cells can be added via 
+and descriptive text cells. Code cells as well as text cells can be added via 
 the {\em Edit} menu. New code cells can be also added easily by clicking on {\tt add} under
 an existing code cell. code cells and text cells can be removed by clicking on 
 {\tt remove} under them. The easiest way to remove a selected output cell is to 
-click on it with the mouse and press DELETE on the keyboard. 
-All output cells can be removed at once via {\em Remove all output} in the {\em Edit} menu. 
+click on {\tt remove} under it.  
+All output cells can be removed at once via {\em Remove all output} in the Edit menu. 
 
-\subsection{Various ways to run programs}
-
-Pressing the green arrow button will run all code cells in the project. Clicking 
-on the green arrow under an code cell will run only the contents of that code cell. 
-Same effect can be achieved by holding CTRL and pressing ENTER. Holding SHIFT
-and pressing ENTER will evaluate the current code cell and create an additional one
-under it.
+Pressing the green arrow button in the upper menu will run all code cells in the project. 
+Clicking on the green arrow under a code cell will run only the contents of that code cell. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -507,15 +505,17 @@ under it.
 
 \begin{itemize}
 \item Learn how to use Python for elementary as well as advanced math operations.
-\item Plot graphs of functions of one and two variables, 2D and 
-      3D curves, surfaces, and charts.
+\item Learn how to work with mathematical functions, fractions, random numbers 
+      and complex numbers.
 \end{itemize}
 Python can be used as an advanced scientific calculator -- no need to own a TI-89 (\$150 value). 
-As a matter of fact, a TI-89 hardly could compete with hundreds of processors under NCLab's hood. 
-In this section we will learn how to use this computing power. Let us begin with the simplest math 
-operations and work our way to the more complex ones, to graphing, and more. 
+As a matter of fact, NCLab is much more powerful -- a TI-89 hardly could compete with thousands 
+of processors under NCLab's hood. 
+In this textbook we will learn how to use this computing power. Let us begin with the simplest math 
+operations. The rest of this section is fairly slow, so feel free to skip to Section 3
+should it be too boring -- you can always return to it later.
 
-\subsection{Addition, subtraction}
+\subsection{Addition and subtraction}
 
 Launch a new Python project and in the code cell type:
 
@@ -527,7 +527,7 @@ Then click on the green arrow under the cell. The output should be displayed qui
 \begin{greencode}
 9
 \end{greencode}
-You can add real numbers too,
+Of course you can add real numbers too:
 \begin{bluecode}
 3.2 + 6.31
 \end{bluecode}
@@ -536,7 +536,7 @@ Output:
 \begin{greencode}
 9.51
 \end{greencode}
-Two numbers can be subtracted as follows,
+Two numbers can be subtracted using the minus sign:
 
 \begin{bluecode}
 7.5 - 2.1
@@ -548,7 +548,7 @@ Output:
 \end{greencode}
 
 \subsection{Multiplication}
-Multiplication is done using the '{\tt *}' symbol as in
+Multiplication is done using the asterisk  '{\tt *}' symbol as in
 
 \begin{bluecode}
 3 * 12
@@ -558,7 +558,7 @@ Output:
 \begin{greencode}
 36
 \end{greencode}
-Of course, real numbers can be multiplied as well:
+Indeed, real numbers can be multiplied as well:
 
 \begin{bluecode}
 3.7 * 12.17
@@ -569,7 +569,7 @@ Output:
 45.029
 \end{greencode}
 \subsection{Division}
-With division, we need to be a bit careful. Look at this:
+The forward slash '{\tt /}' symbol is used for division:
 
 \begin{bluecode}
 30 / 5
@@ -579,7 +579,7 @@ Output:
 \begin{greencode}
 6
 \end{greencode}
-And then look at this:
+However, we need to be careful. Look at this:
 
 \begin{bluecode}
 33 / 5
@@ -589,41 +589,63 @@ Output:
 \begin{greencode}
 6
 \end{greencode}
-In all major computer languages including C, C++, Fortran, Python and 
-others:\\
+This is not correct! But why? The answer is that since the numbers {\tt 33} and {\tt 5}
+are both integers, the result is automatically converted to an integer. This is how it works 
+in all major computer languages including C, C++, Fortran, Python and others. The
+correct way of using division is to represent at least one of the numbers as a real number.
+Adding a decimal point is enough for that. Then the result is automatically converted 
+to a real number:
 
-\begin{center}
-\framebox{\color{red}\bf The result of division of two integers is an integer!}
-\end{center}
-
-\vspace{4mm}
-\noindent
-So, when dividing two integers, everything behind the decimal point is lost.
-In order to stay on the safe side, 
-before you perform division of two numbers, always convert at least one of them
-to a real number. This is simple: While {\tt 5} is an integer, {\tt 5.}
-and {\tt 5.0} are reals. It is also possible to 
-say {\tt float(5)}. In fact this is the best way since it also works for 
-variables. Such as, when we are dividing {\tt a / b}, to make sure that 
-the result will be correct also for integers, we type {\tt float(a) / b}. 
-When at least one number is a real, then the result of the division is a real.   
-Variables will be discussed shortly.
-
-\subsection{Powers}
-Sometimes we need to use exponents, such as in $2^4$. Python has a double-star
-symbol {\tt **} for this:
 
 \begin{bluecode}
-2**4
+33. / 5
+\end{bluecode}
+yields 
+
+\begin{greencode}
+6.6
+\end{greencode}
+An alternative way of turning an integer into a real number, which 
+also works for variables, is using the function {\tt float()}. Then
+the above division could be done as follows:
+
+\begin{bluecode}
+float(33) / 5
 \end{bluecode}
 Output:
 
 \begin{greencode}
-16
+6.6
 \end{greencode}
+Once we understand the behavior, we can use it to our advantage. For example,
+we can calculate how many times a dozen fits into a thousand:
+
+\begin{bluecode}
+1000 / 12
+\end{bluecode}
+Output:
+
+\begin{greencode}
+83
+\end{greencode}
+By calculating {\tt 1000 - 83 * 12} we obtain {\tt 4} which is the remainder of the 
+integer division. In fact the remainder can be calculated in a simpler way
+using the modulo operator, as will be shown in the next paragraph. But before we 
+move there, let's summarize:\\
+
+\noindent
+{\em Failure to convert at least one operand in division 
+to a real number can be a source of mistakes that are extremely hard to find.} 
+Therefore, do not forget that\\
+
+\begin{center}
+{\color{red}\bf The result of division of two integers always is an integer.}
+\vspace{4mm}
+\end{center}
+
 \subsection{Modulo}
-The last of the common arithmetic operations is {\em modulo}. Recall that this is the remainder 
-after integer division. In Python modulo is done using the per cent symbol:
+The last of the common arithmetic operations is {\em modulo} (remainder 
+after integer division). In Python modulo is represented via the percent symbol '{\tt \%}':
 
 \begin{bluecode}
 6 % 4
@@ -633,29 +655,65 @@ Output:
 \begin{greencode}
 2
 \end{greencode}
-Of course, one can use brackets:
+Modulo can be applied to real numbers as well:
 
 \begin{bluecode}
-5 * (7 - 3)
+12.5 % 2.0 
 \end{bluecode}
 Output:
 
 \begin{greencode}
-20
+0.5
 \end{greencode}
-\subsection{Order of operations}
-Python respects the standard order of operations:
+
+\subsection{Powers}
+For exponents, such as in $2^4$, Python has a double-star
+symbol \ '{\tt **}':
+
+\begin{bluecode}
+2**4
+\end{bluecode}
+Output:
+
+\begin{greencode}
+16
+\end{greencode}
+Both the base and the exponent can be real numbers:
+
+\begin{bluecode}
+3.2**2.5
+\end{bluecode}
+Output:
+
+\begin{greencode}
+18.31786887167828
+\end{greencode}
+But we have to be careful with negative numbers:
+
+\begin{bluecode}
+(-3.2)**2.5
+\end{bluecode}
+Output:
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{Traceback} \PY{p}{(}\PY{n}{most} \PY{n}{recent} \PY{n}{call} \PY{n}{last}\PY{p}{)}\PY{p}{:}
+  \PY{n}{File} \PY{l+s}{"}\PY{l+s}{<nclab>}\PY{l+s}{"}\PY{p}{,} \PY{n}{line} \PY{l+m+mi}{1}\PY{p}{,} \PY{n}{in} \PY{o}{<}\PY{n}{module}\PY{o}{>}
+\PY{n+ne}{ValueError}\PY{p}{:} \PY{n}{negative} \PY{n}{number} \PY{n}{cannot} \PY{n}{be} \PY{n}{raised} \PY{n}{to} \PY{n}{a} \PY{n}{fractional} \PY{n}{power}
+\end{Verbatim}
+
+
+\subsection{Priority of operators}
+Python respects the standard priority of operators:
 
 \begin{itemize} 
-\item Round brackets have the highest priority,
-\item then exponentiation, 
-\item then multiplication and division (same priority),
-\item the lowest priority have addition and subtraction.
+\item Round brackets '{\tt (...)}'have the highest priority,
+\item then exponentiation '{\tt **}', 
+\item then multiplication '{\tt *}', division '{\tt /}' and modulo '{\tt \%}', 
+\item the lowest priority have addition '{\tt +}' and subtraction '{\tt -}'.
 \end{itemize}
 Note that no other brackets such as {\tt \{ \}} and {\tt [ ]} are 
-admissible in mathematical expressions since they have a different 
+admissible in mathematical expressions. The reason is that they have a different 
 function in the programming language.
-
 To illustrate the priority of operations, we can try the following:
 
 \begin{bluecode}
@@ -666,6 +724,7 @@ Output:
 \begin{greencode}
 30
 \end{greencode}
+
 \subsection{Using empty characters makes you code better readable}
 Your code will be much better readable if you use empty
 characters on either side of arithmetic symbols, as well as 
@@ -674,7 +733,7 @@ after commas. Hence, you should never write things like
 \begin{bluecode}
 sin(x+y)+f(x,y,z)*5-2.4.
 \end{bluecode}
-Instead, this can be written in a much more reader-friendly form as
+Instead, the same can be written in a much more reader-friendly form as
 
 \begin{bluecode}
 sin(x + y) + f(x, y, z) * 5 - 2.4.
@@ -738,7 +797,7 @@ tanh($x$) & hyperbolic tangent of $x$ \\
 
 \subsection{\ \ Fractions}
 
-Python makes operation with fractions very simple via the {\tt Fraction}
+Python makes operation with fractions easy via the {\tt Fraction}
 function that is imported from the {\tt fractions} library:
 
 \begin{bluecode}
@@ -766,7 +825,7 @@ results into
 \begin{greencode}
 Fraction(1, 2)
 \end{greencode}
-The {\tt fractions} library also provides the function {\tt gcd()} that 
+The {\tt fractions} library also provides the useful function {\tt gcd()} that 
 calculates the Greatest Common Divisor (GCD) of two integers. It is imported via 
 
 \begin{bluecode}
@@ -782,6 +841,36 @@ The output is
 \begin{greencode}
 17
 \end{greencode}
+
+\subsection{\ \ Random numbers}
+
+Python provides a random number generator via the {\tt random()} function that 
+can be imported from the {\tt random} library:
+
+\begin{bluecode}
+from random import random
+\end{bluecode}
+This function returns a random real number between 0 and 1. For 
+example,
+
+\begin{bluecode}
+random()
+\end{bluecode}
+yields
+
+\begin{greencode}
+0.871979925682207
+\end{greencode}
+Sometimes we need to generate random integers rather than real numbers.
+This is easy. For illustration, a random integer {\tt n} between 1 and 3 can be 
+generated via the code
+
+\begin{bluecode}
+a = random()
+n = int(3*a + 1)
+\end{bluecode}
+Here the function {\tt int()} will erase the decimal part of the real number, converting 
+it to an integer.
 
 
 \subsection{\ \ Complex numbers}
@@ -851,17 +940,17 @@ Output:
 \subsection{Objectives}
 
 \begin{itemize}
-\item Review and refine your knowledge of functions.
+\item Review and refine your knowledge of custom functions.
 \item Learn to use default arguments and return multiple values.
 \end{itemize}
 Custom {\em functions} in Python are the same thing as in Karel, 
-but in Python they can moreover {\em accept arguments}. Recall that 
+but in Python they can moreover accept {\em input arguments}. Recall that 
 functions in Karel were defined to make some functionality easily 
 reusable -- in Python they are defined for the same reason.
 
 \subsection{Defining new functions}
 
-Definition of a new function begins with the keyword {\tt def} as in Karel. In Python,
+The definition of a new function begins with the keyword {\tt def} as in Karel. In Python,
 we moreover use round brackets for arguments and a colon at the end of the line. 
 For example, the following function adds two numbers
 and returns the result:
@@ -870,11 +959,11 @@ and returns the result:
 \PY{k}{def} \PY{n+nf}{add}\PY{p}{(}\PY{n}{a}\PY{p}{,} \PY{n}{b}\PY{p}{)}\PY{p}{:}
     \PY{k}{return} \PY{n}{a} \PY{o}{+} \PY{n}{b}
 \end{Verbatim}
-The round brackets in the function definition are mandatory even if no arguments are passed,
-and the {\tt return} statement can be omitted if not needed.
+The round brackets in the function definition are mandatory even if no arguments are passed
+but  the {\tt return} statement can be omitted if not needed.
 The two lines of code above 
-are a {\em function declaration} -- they do not produce any output.
-In order to call the function, we need to write one additional line, such as:
+are a {\em function declaration} only -- the function is not called. 
+In order to call the function, we need to write one additional line:
 
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k}{print} \PY{l+s}{"}\PY{l+s}{5 + 3 is}\PY{l+s}{"}\PY{p}{,} \PY{n}{add}\PY{p}{(}\PY{l+m+mi}{5}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{)}
@@ -884,11 +973,13 @@ This will produce the following output:
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{l+m+mi}{5} \PY{o}{+} \PY{l+m+mi}{3} \PY{l+m+mi}{is} \PY{l+m+mi}{8}
 \end{Verbatim}
-To show another example, the following function does not take any arguments 
-and it does not return any results:
+In most cases, functions are defined to process some input arguments 
+and to return some output values. However, this does not apply always.
+The following function does not take any arguments 
+and it does not return anything:
 
 \begin{Verbatim}[commandchars=\\\{\}]
-\PY{k}{def} \PY{n+nf}{hello}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+\PY{k}{def} \PY{n+nf}{print_hello}\PY{p}{(}\PY{p}{)}\PY{p}{:}
     \PY{k}{print} \PY{l+s}{"}\PY{l+s}{Hello!}\PY{l+s}{"}
 \end{Verbatim}
 
@@ -912,11 +1003,10 @@ Output:
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{Good} \PY{n}{Evening!}
 \end{Verbatim}
-Compared to other computer languages, 
-Python is very intuitive and easy to use. For example, to do the 
-same as above, in C/C++ we would have to introduce different functions 
+This makes Python very intuitive and easy to use compared to other languages. 
+For example, to do the same as above, in C/C++ we would have to introduce different functions 
 for real numbers, for complex numbers, for strings, and any other data 
-types. They would be as follows:
+types. They would look as follows:
 
 \begin{verbatim}
 double add(double a, double b)
@@ -943,6 +1033,8 @@ void add(const char* a_in, const char* b_in, char* c_out)
   return;
 }
 \end{verbatim}
+While C++ is a great language, technical details like this 
+make it more difficult for beginners.
 
 \subsection{Returning multiple values}
 
@@ -977,7 +1069,9 @@ Output:
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{Powers} \PY{n}{are} \PY{l+m+mi}{9} \PY{l+m+mi}{27} \PY{l+m+mi}{81}
 \end{Verbatim}
-For comparison, this is how how complicated the same program would be in C/C++:
+Again, for comparison let's see how this would be handled in C/C++. The asterisks
+in the code below are {\em pointers}, an additional programming concept that 
+one needs to learn and utilize here:
 
 \begin{verbatim}
 void powers(double a, double* p2, double* p2, double* p3)
@@ -999,8 +1093,8 @@ int main()
 
 \subsection{Using default arguments}
 
-Holland is the most bicycle friendly country in the world. Imagine that you 
-work for the Holland Census Bureau. Your task is to ask 10000 
+Have you ever been to Holland? It is the most bicycle friendly country in the world. Imagine that you 
+work for the Holland Census Bureau. Your job is to ask 10000 
 people how they go to work, and enter their answers into a database. 
 The program for entering data into the database was written by one of 
 your colleagues, and it can be used as follows:
@@ -1019,7 +1113,7 @@ or
 etc. Since you are in Holland, it can be expected that $99 \%$ of people 
 are using the bicycle. In principle you could call the function {\tt add\_database\_entry()} 
 to enter each answer, but with 9900 bicyclists out of 10000 respondents you would have to 
-type {\tt "bicycle"} MANY times. 
+type the word {\tt "bicycle"} MANY times. 
 
 Fortunately, Python offers a smarter way to do this. We can define a new function 
 
@@ -1027,7 +1121,7 @@ Fortunately, Python offers a smarter way to do this. We can define a new functio
 \PY{k}{def} \PY{n+nf}{enter}\PY{p}{(}\PY{n}{first}\PY{p}{,} \PY{n}{last}\PY{p}{,} \PY{n}{transport} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{bicycle}\PY{l+s}{"}\PY{p}{)}\PY{p}{:}
     \PY{n}{enter\PYZus{}into\PYZus{}database}\PY{p}{(}\PY{n}{first}\PY{p}{,} \PY{n}{last}\PY{p}{,} \PY{n}{transport}\PY{p}{)}
 \end{Verbatim}
-This is a simple ({\em "thin"}) {\em wrapper} to the function {\tt add\_database\_entry()} 
+This is a simple ({"thin"}) {\em wrapper} to the function {\tt add\_database\_entry()} 
 that allows us to omit the third argument in the function call and autocomplete 
 it with a {\em default argument} {\tt "bicycle"}. In other words, now we do not have to 
 type {\tt "bicycle"} for Louis Armstrong or any other bicyclist:
@@ -1072,51 +1166,86 @@ Output:
 \underline{A few rules to remember}:
 \begin{itemize}
 \item Default arguments need to be introduced {\bf after} standard (non-default) arguments. In other words, the 
-      following code will result into an error:
+      following code will result into an error:\\
+
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k}{def} \PY{n+nf}{add}\PY{p}{(}\PY{n}{a} \PY{o}{=} \PY{l+m+mi}{5}\PY{p}{,} \PY{n}{b}\PY{p}{)}\PY{p}{:}
     \PY{k}{return} \PY{n}{a} \PY{o}{+} \PY{n}{b}
 \end{Verbatim}
-This is the error message:
+\vbox{}
+\vspace{2mm}
+This is the error message:\\
+\vbox{}
+\vspace{2mm}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{File} \PY{l+s}{"}\PY{l+s}{<nclab>}\PY{l+s}{"}\PY{p}{,} \PY{n}{line} \PY{l+m+mi}{1}
 \PY{n+ne}{SyntaxError}\PY{p}{:} \PY{n}{non}\PY{o}{-}\PY{n}{default} \PY{n}{argument} \PY{n}{follows} \PY{n}{default} \PY{n}{argument}\PY{o}{.}
 \end{Verbatim}
+\vbox{}
+\vspace{2mm}
 \item If multiple default arguments are present, they have to follow the non-default ones.
       If the number of arguments in the function call is less than the total number of default and non-default
       arguments, then first all non-default arguments are assigned, and then the default ones from 
-      left to right. To illustrate this, assume the function:
+      left to right. To illustrate this, assume the function:\\
+\vbox{}
+\vspace{2mm}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k}{def} \PY{n+nf}{add}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{a} \PY{o}{=} \PY{l+m+mi}{2}\PY{p}{,} \PY{n}{b} \PY{o}{=} \PY{l+m+mi}{3}\PY{p}{)}\PY{p}{:}
     \PY{k}{return} \PY{n}{x} \PY{o}{+} \PY{n}{a} \PY{o}{+} \PY{n}{b}
 \end{Verbatim}
+\vbox{}
+\vspace{2mm}
 This function can be called as follows:
+\vbox{}
+\vspace{2mm}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k}{print} \PY{n}{add}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{)}
 \end{Verbatim}
+\vbox{}
+\vspace{2mm}
 In this case, the value {\tt 1} is assigned to {\tt x} and {\tt a} and {\tt b} take the default values.
-The output will be 
+The output is \\
+\vbox{}
+\vspace{2mm}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{l+m+mi}{6}
 \end{Verbatim}
-When the function is called with just two values,
+\vbox{}
+\vspace{2mm}
+When the function is called with just two values,\\
+\vbox{}
+\vspace{2mm}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k}{print} \PY{n}{add}\PY{p}{(}\PY{l+m+mi}{5}\PY{p}{,} \PY{l+m+mi}{6}\PY{p}{)}
 \end{Verbatim}
+\vbox{}
+\vspace{2mm}
 then the value {\tt 5} is assigned to {\tt x}, {\tt 6} to {\tt a}, and {\tt b} takes the default value {\tt 3}.
-The output is
+The output is\\
+\vbox{}
+\vspace{2mm}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{l+m+mi}{14}
 \end{Verbatim}
-However, it is always a good idea to be as transparent as possible. Therefore a better code is 
+\vbox{}
+\vspace{2mm}
+However, it is always a good idea to be as transparent as possible. Therefore a better code is \\
+\vbox{}
+\vspace{2mm}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k}{print} \PY{n}{add}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{a} \PY{o}{=} \PY{l+m+mi}{6}\PY{p}{)}
 \end{Verbatim}
+\vbox{}
+\vspace{2mm}
 Then the result is the same, {\tt 14}, but it is clear even to non-experts what is going on. Moreover,
-in this way we can also define the value of {\tt b} without having to define the value of {\tt a}:
+in this way we can also define the value of {\tt b} without having to define the value of {\tt a}:\\
+\vbox{}
+\vspace{2mm}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k}{print} \PY{n}{add}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{b} \PY{o}{=} \PY{l+m+mi}{6}\PY{p}{)}
 \end{Verbatim}
+\vbox{}
+\vspace{2mm}
 Now {\tt x} is {\tt 1}, {\tt a} has the default value {\tt 2} and the result is {\tt 9}.
 \end{itemize}
 
@@ -1124,7 +1253,25 @@ Now {\tt x} is {\tt 1}, {\tt a} has the default value {\tt 2} and the result is 
 
 \section{Colors and Plotting} \label{sec:plotting}
 
-\subsection{\ \ Plotting functions of one variable}\label{plotting}
+\subsection{Objectives}
+
+\begin{itemize}
+\item Understand how colors are composed in a computer.
+\item Learn how to plot polygons, graphs of functions of one and two variables.
+\item Learn how to plot 2D and 3D curves and surfaces.
+\item Learn how to plot pie charts and bar charts.
+\end{itemize}
+
+
+\subsection{RGB colors}
+
+
+\subsection{Plotting simple objects}
+
+
+
+
+\subsection{Plotting functions of one variable}\label{plotting}
 
 Plotting can be done via the Pylab library. The Pylab {\tt plot} command takes two
 arrays: $x$-coordinates and $y$-coordinates of points on a curve. Between the 
@@ -1192,7 +1339,7 @@ The output is shown in Fig. \ref{fig:plot1}.\\[-7mm]
 \end{figure}
 \noindent
 
-\subsection{\ \ Labels, colors, and styles}
+\subsection{Labels, colors, and styles}
 
 The plot can be made nicer by adding a label, and also the color 
 and the line style can be changed. Let us start with adding a label:
@@ -1282,7 +1429,7 @@ The output is shown in Fig. \ref{fig:plot5}.
 \end{figure}
 \noindent
 
-\subsection{\ \ Scaling axes and showing grid}
+\subsection{Scaling axes and showing grid}
 
 In the previous plots, function graphs were fitted into the 
 display window, which means that the horizontal and vertical 
@@ -1319,7 +1466,7 @@ The output is shown in Fig. \ref{fig:plot8}.
 The scaling of axes can be returned to the automatic fit option via
 {\tt axis('auto')} if needed.
 
-\subsection{\ \ Adjusting plot limits}
+\subsection{Adjusting plot limits}
 
 Plot limits can be set using the {\tt xlim()} and {\tt ylim()}
 functions after {\tt plot()}. For example, we can stretch the sine
@@ -1355,7 +1502,7 @@ The output is shown in Fig. \ref{fig:plot9}.
 \noindent
 
 
-\subsection{\ \ Plotting multiple functions at once}
+\subsection{Plotting multiple functions at once}
 
 This can be done very easily, just do not use the {\tt clf()}
 command between the plots and you can have as many graphs 
@@ -1394,7 +1541,7 @@ The {\tt plot()} command in Pylab is much more powerful, we just saw a small
 fraction of its functionality. For a complete list of options 
 visit the Pylab page {\tt http:// www.scipy.org/PyLab}.
 
-\subsection{\ \ Plotting parametric 2D curves}\label{subsec:planarcurves}
+\subsection{Plotting parametric 2D curves}\label{subsec:planarcurves}
 
 The concept of plotting based on two arrays of $x$ and $y$ coordinates
 allows us to do much more than only plot graphs of functions of one variable.
@@ -1430,7 +1577,7 @@ The output is shown in Fig. \ref{fig:plot6}.
 \end{figure}
 \noindent
 
-\subsection{\ \ Plotting parametric 3D curves}
+\subsection[\ \ Plotting parametric 3D curves]{Plotting parametric 3D curves}
 
 For 3D plots it is practical to use the {\tt mplot3d} toolkit of the 
 Python library Matplotlib. Let us begin with 
@@ -1487,7 +1634,7 @@ The output is shown in Fig. \ref{fig:plot3d-1}.
 \end{figure}
 
 
-\subsection{\ \ Plotting functions of two variables}
+\subsection[\ \ Plotting functions of two variables]{Plotting functions of two variables}
 
 There are several ways to plot graphs of functions of two variables, 
 first let us do this with Matplotlib's {\tt mplot3d} toolkit, then we will
@@ -1586,7 +1733,7 @@ we refer to the tutorial
 at {\tt http://matplotlib.sourceforge.net/mpl\_toolkits/ mplot3d}.
 
 
-\subsection{\ \ Plotting functions of two variables with WebGL}
+\subsection[\ \ Plotting functions of two variables with WebGL]{Plotting functions of two variables with WebGL}
 
 For this functionality, your browser has to support WebGL (most of modern browsers do, 
 with the exception of Internet Explorer). See the introductory tutorial {\em Welcome to NCLab}

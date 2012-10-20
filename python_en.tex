@@ -253,7 +253,7 @@
 \vfill
 \vfill
 \begin{center}
-Revision Oct-17-2012. Copyright 2012 FEMhub Inc. All rights reserved.
+Revision Oct-19-2012. Copyright 2012 FEMhub Inc. All rights reserved.
 \end{center}
 \newpage
 \vbox{}
@@ -1256,7 +1256,7 @@ Now {\tt x} is {\tt 1}, {\tt a} has the default value {\tt 2} and the result is 
 \subsection{Objectives}
 
 \begin{itemize}
-\item Understand how colors are composed in a computer.
+\item Understand how colors are composed of Red, Green and Blue components.
 \item Learn how to plot polygons, graphs of functions of one and two variables.
 \item Learn how to plot 2D and 3D curves and surfaces.
 \item Learn how to plot pie charts and bar charts.
@@ -1265,30 +1265,90 @@ Now {\tt x} is {\tt 1}, {\tt a} has the default value {\tt 2} and the result is 
 
 \subsection{RGB colors}
 
+According to the {\em additive color model} which is based on the human perception of colors,
+every color can be obtained by mixing the shades of Red, Green and Blue. These are 
+called {\em additive primary colors} or just {\em primary colors}. The resulting color depends on the proportions of the 
+primary colors in the mix. It is customary to define these proportions by a number 
+between 0 and 1 for each primary color. So, the resulting color is a triplet of 
+real numbers between 0 and 1. For the primary colors we have\\
 
-\subsection{Plotting simple objects}
+\begin{center}
+\begin{tabular}{|c||c|c|c|}
+\hline
+Color & R & G & B \\
+\hline
+\hline
+Red & 1 & 0 & 0\\
+\hline
+Green & 0 & 1 & 0\\
+\hline
+Blue & 0 & 0 & 1\\
+\hline
+\end{tabular}
+\end{center}
+These colors are shown in the following Fig. \ref{fig:rgb}.
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=0.7\textwidth]{img/rgb.png}
+\end{center}
+\vspace{-2mm}
+\caption{Left: pure red color [1, 0, 0]. Middle: pure green color [0, 1, 0]. Right; pure blue color [0, 0, 1].}
+\label{fig:rgb}
+\end{figure}
+\noindent
+When the proportions of all three primary colors are the same, the result is a shade of grey.
+With [0, 0, 0] one obtains black, with [1, 1, 1] white. This is illustrated in Fig. \ref{fig:rgb2}.
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=0.7\textwidth]{img/rgb2.png}
+\end{center}
+\vspace{-2mm}
+\caption{Left: black color [0, 0, 0]. Middle: dark grey color [0.5, 0.5, 0.5]. Right; light grey color [0.9, 0.9, 0.9].}
+\vspace{-1cm}
+\label{fig:rgb2}
+\end{figure}
+\noindent
+\noindent
+Guessing RGB codes is not easy. If you need to find the numbers representing your favorite color, 
+the best way is to Google for "rgb color palette". You will find many pages that translate
+colors into RGB codes. Most of them will have the colors represented by integer numbers 
+between 0 and 255 (as opposed to the 0 to 1 scale). This is because these integers are easier 
+to represent using bits and Bytes. However, it is sufficient to divide all three numbers by 255
+to translate the color into the original unit scale. Fig. \ref{fig:rgb3} shows three "easy" colors
+cyan, pink and yellow along with their RGB codes.
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=0.7\textwidth]{img/rgb3.png}
+\end{center}
+\vspace{-2mm}
+\caption{Left: cyan color [0, 1, 1]. Middle: pink color [1, 0, 1]. Right; yellow color [1, 1, 0].}
+\label{fig:rgb3}
+\end{figure}
 
 
 
+\subsection{Plotting polylines and polygons}
 
-\subsection{Plotting functions of one variable}\label{plotting}
-
-Plotting can be done via the Pylab library. The Pylab {\tt plot} command takes two
-arrays: $x$-coordinates and $y$-coordinates of points on a curve. Between the 
+In Python, plotting is done via the Pylab library. The Pylab {\tt plot()} function takes 
+two arrays: $x$-coordinates and $y$-coordinates of points in the $xy$ plane. Between the 
 points, the curve is interpolated linearly. Let us illustrate this on a simple 
 example with just five points [0, 0], [1, 2], [2, 0.5], [3, 2.5] and [4, 0]:
 
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k+kn}{from} \PY{n+nn}{pylab} \PY{k+kn}{import} \PY{o}{*}
-\PY{n}{x} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mf}{1.0}\PY{p}{,} \PY{l+m+mf}{2.0}\PY{p}{,} \PY{l+m+mf}{3.0}\PY{p}{,} \PY{l+m+mf}{4.0}\PY{p}{]}
-\PY{n}{y} \PY{o}{=} \PY{p}{[}\PY{l+m+mf}{0.0}\PY{p}{,} \PY{l+m+mf}{2.0}\PY{p}{,} \PY{l+m+mf}{0.5}\PY{p}{,} \PY{l+m+mf}{2.5}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{]}
+\PY{n}{x} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{.}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mf}{1.0}\PY{p}{,} \PY{l+m+mf}{2.0}\PY{p}{,} \PY{l+m+mf}{3.0}\PY{p}{,} \PY{l+m+mf}{4.0}\PY{p}{]}
+\PY{n}{y} \PY{o}{=} \PY{p}{[}\PY{l+m+mf}{0.0}\PY{p}{,} \PY{l+m+mf}{2.0}\PY{p}{,} \PY{l+m+mf}{0.5}\PY{p}{,} \PY{l+m+mf}{2.5}\PY{p}{,} \PY{l+m+mi}{0.0}\PY{p}{]}
 \PY{n}{clf}\PY{p}{(}\PY{p}{)}
 \PY{n}{plot}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{y}\PY{p}{)}
 \PY{n}{lab}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
 The commands {\tt clf()}, {\tt plot()} and {\tt lab.show()} do clear the canvas, 
-plot the graph, and show the graph, respectively.
+plot the graph, and fetch the image from server, respectively.
 The output is shown in Fig. \ref{fig:plot}.
+\newpage
 
 \begin{figure}[!ht]
 \begin{center}
@@ -1297,15 +1357,39 @@ The output is shown in Fig. \ref{fig:plot}.
 \includegraphics[width=0.56\textwidth]{img/plot.png}
 \end{center}
 \vspace{-2mm}
-\caption{Piecewise-linear curve with five points.}
+\caption{Polyline with five points.}
 \label{fig:plot}
 %\vspace{-1cm}
 \end{figure}
 \noindent
+If the first and last points were the same,
+then the polyline would form a closed loop and one would obtain a polygon.
+The above plot was done using a default blue color. The color can be 
+set by passing an optional parameter {\tt color = [R, G, B]} into the {\tt plot()}
+function. For illustration, changing the fifth line in the last script to {\tt plot(x, y, color = [1, 0, 1])},
+we obtain a pink polyline shown in Fig. \ref{fig:pinkplot}.
+
+\begin{figure}[!ht]
+\begin{center}
+\hbox{}
+\hspace{-6mm}
+\includegraphics[width=0.56\textwidth]{img/pinkplot.png}
+\end{center}
+\vspace{-2mm}
+\caption{Setting custom color.}
+\label{fig:pinkplot}
+\vspace{-1cm}
+\end{figure}
+\newpage
+
+
+\subsection{Plotting functions of one variable}\label{plotting}
+
+
 In the following we will discuss more options and show some useful techniques.
 Let's say, for example, that we want to plot the function $f(x) = \sin(x)$
 in the interval $(0, 2\pi)$. The array of $x$-coordinates of equidistant points 
-between 0 and $\pi$ can be created easily using the command {\tt linspace}:
+between 0 and $\pi$ can be created easily using the function {\tt linspace()}:
 
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k+kn}{from} \PY{n+nn}{numpy} \PY{k+kn}{import} \PY{o}{*}
@@ -1360,7 +1444,6 @@ The output is shown in Fig. \ref{fig:plot2}.\\[-7mm]
 \label{fig:plot2}
 %\vspace{-1cm}
 \end{figure}
-\newpage
 \noindent
 Next let us change the color to red and line style to dashed: 
 
@@ -1371,6 +1454,7 @@ Next let us change the color to red and line style to dashed:
 \PY{n}{lab}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
 The output is shown in Fig. \ref{fig:plot3}.\\[-7mm]
+\newpage
 
 
 \begin{figure}[!ht]
@@ -1379,10 +1463,9 @@ The output is shown in Fig. \ref{fig:plot3}.\\[-7mm]
 \end{center}
 \vspace{-6mm}
 \caption{Same graph using dashed red line.}
-\vspace{-1cm}
+\vspace{-6mm}
 \label{fig:plot3}
 \end{figure}
-\newpage
 \noindent
 The graph can be plotted using green color and small dots rather than 
 a solid or dashed line:
@@ -1402,9 +1485,10 @@ The output is shown in Fig. \ref{fig:plot4}.
 \vspace{-6mm}
 \caption{Same graph using dotted green line.}
 \label{fig:plot4}
-%\vspace{-5mm}
+\vspace{-1cm}
 \end{figure}
 \noindent
+\newpage
 \noindent
 Last let us stay with green color but make the dots larger:
 
@@ -1416,7 +1500,6 @@ Last let us stay with green color but make the dots larger:
 \end{Verbatim}
 \noindent
 The output is shown in Fig. \ref{fig:plot5}.
-\newpage
 
 \begin{figure}[!ht]
 \begin{center}
@@ -1451,7 +1534,6 @@ grid can be displayed by using the {\tt grid()} command:
 \end{Verbatim}
 \noindent
 The output is shown in Fig. \ref{fig:plot8}.
-\newpage
 
 \begin{figure}[!ht]
 \begin{center}
@@ -1488,7 +1570,6 @@ canvas as follows:
 \end{Verbatim}
 \noindent
 The output is shown in Fig. \ref{fig:plot9}.
-\newpage
 
 \begin{figure}[!ht]
 \begin{center}
@@ -1525,7 +1606,6 @@ in one figure as needed. Let us do three:
 \end{Verbatim}
 \noindent
 The output is shown in Fig. \ref{fig:plot7}.
-\newpage
 
 \begin{figure}[!ht]
 \begin{center}
@@ -1564,6 +1644,8 @@ in the interval $(0, 10)$ for $t$. The complete code is
 \PY{n}{plot}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{y}\PY{p}{)}
 \PY{n}{lab}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
+\newpage
+\noindent
 The output is shown in Fig. \ref{fig:plot6}.
 
 \begin{figure}[!ht]
@@ -1614,11 +1696,9 @@ and where the parameter $t$ lies in the interval $(-2, 2)$.
 \PY{n}{y} \PY{o}{=} \PY{p}{(}\PY{l+m+mi}{1} \PY{o}{+} \PY{n}{t}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)} \PY{o}{*} \PY{n}{cos}\PY{p}{(}\PY{l+m+mi}{2} \PY{o}{*} \PY{n}{pi} \PY{o}{*} \PY{n}{t}\PY{p}{)}
 \PY{n}{z} \PY{o}{=} \PY{n}{t}
 
-\PY{c}{\PYZsh{} Plot the curve}
+\PY{c}{\PYZsh{} Plot the curve and show the plot:}
 \PY{n}{ax}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{n}{z}\PY{p}{,} \PY{n}{label}\PY{o}{=}\PY{l+s}{'}\PY{l+s}{Parametric 3D curve}\PY{l+s}{'}\PY{p}{)}
 \PY{n}{ax}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{)}
-
-\PY{c}{\PYZsh{} Show the plot:}
 \PY{n}{lab}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
 The output is shown in Fig. \ref{fig:plot3d-1}.
@@ -1630,9 +1710,9 @@ The output is shown in Fig. \ref{fig:plot3d-1}.
 \vspace{-4mm}
 \caption{Plotting a parametric 3D curve.}
 \label{fig:plot3d-1}
-%\vspace{-1cm}
+\vspace{-1cm}
 \end{figure}
-
+\newpage
 
 \subsection[\ \ Plotting functions of two variables]{Plotting functions of two variables}
 
@@ -1779,7 +1859,30 @@ The output is shown in Fig. \ref{fig:webgl}.
 
 Pie charts are an elegant way to report the breakdown of an ensemble 
 into parts (percentages). We use the Pylab's function {\tt pie} for that.
-Let us show an example showing the production of an electronic company that 
+The simplest example of a pie chart involves seven lines of code:
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kn}{from} \PY{n+nn}{pylab} \PY{k+kn}{import} \PY{o}{*}
+\PY{n}{data} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{450}\PY{p}{,} \PY{l+m+mi}{550}\PY{p}{,} \PY{l+m+mi}{300}\PY{p}{]}
+\PY{n}{labels} \PY{o}{=} \PY{p}{[}\PY{l+s}{'}\PY{l+s}{cats}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{dogs}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{mice}\PY{l+s}{'}\PY{p}{]}
+\PY{n}{clf}\PY{p}{(}\PY{p}{)}
+\PY{n}{axis}\PY{p}{(}\PY{l+s}{'}\PY{l+s}{equal}\PY{l+s}{'}\PY{p}{)}
+\PY{n}{pie}\PY{p}{(}\PY{n}{data}\PY{p}{,} \PY{n}{labels}\PY{o}{=}\PY{n}{labels}\PY{p}{)}
+\PY{n}{lab}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+\noindent
+The output is shown in Fig. \ref{fig:mice}.
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=0.51\textwidth]{img/mice.png}
+\end{center}
+\vspace{-2mm}
+\caption{Basic pie chart.}
+\label{fig:mice}
+\end{figure}
+\noindent
+Next let us present a more advanced variant showing the production of an electronic company that 
 sells TVs, computer monitors, cameras, printers and scanners. The script contains 
 comments and additional details are explained under the code.
 
@@ -1815,6 +1918,8 @@ comments and additional details are explained under the code.
 \PY{c}{\PYZsh{} Fetch the plot from the server:}
 \PY{n}{lab}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
+\noindent
+The output is shown in Fig. \ref{fig:piech}.
 
 \newpage
 \begin{figure}[!ht]
@@ -1839,7 +1944,30 @@ which are between 0 (darkest) and 1 (lightest). The parameter {\tt pad} defines 
 Bar charts are a great way to visualize time-dependent data such as, for 
 example, the yearly growth of a company's revenues, 
 number of daily visits to a web page, weekly rate of unemployment 
-in the state, etc. Below we present sample bar chart that 
+in the state, etc. The simplest bar chart involves 5 lines of code:
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kn}{from} \PY{n+nn}{pylab} \PY{k+kn}{import} \PY{o}{*}
+\PY{n}{data} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{450}\PY{p}{,} \PY{l+m+mi}{550}\PY{p}{,} \PY{l+m+mi}{300}\PY{p}{]}
+\PY{n}{clf}\PY{p}{(}\PY{p}{)}
+\PY{n}{bar}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{]}\PY{p}{,} \PY{n}{data}\PY{p}{)}
+\PY{n}{lab}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+The array {\tt [1, 2, 3]} specifies the positions on the horizontal 
+axis where the bars begin. The default width of the bars is 0.8 and it can be 
+adjusted via the parameter {\tt width} of the {\tt bar()} function.
+The output is shown in Fig. \ref{fig:mice2}.
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=0.7\textwidth]{img/mice2.png}
+\end{center}
+\vspace{-2mm}
+\caption{Basic bar chart.}
+\label{fig:mice2}
+\end{figure}
+\noindent
+Next let us present a more advanced bar chart that 
 shows a company's growth both in the total number of 
 employees and the yearly increments.
 
@@ -1887,22 +2015,23 @@ employees and the yearly increments.
 \PY{c}{\PYZsh{} Fetch image from server:}
 \PY{n}{lab}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
-
-
-
+The output is shown in Fig. \ref{fig:barch}.
 \newpage
+
 \begin{figure}[!ht]
 \begin{center}
-\includegraphics[width=0.7\textwidth]{img/barchart.png}
+\includegraphics[width=0.68\textwidth]{img/barchart.png}
 \end{center}
 \vspace{-2mm}
-\caption{Sample bar chart showing a company's growth.}
+\caption{Bar chart showing a company's growth.}
+%\vspace{-1cm}
 \label{fig:barch}
 \end{figure}
 \noindent
-The bar chart functionality provided by Pylab/Matplotlib is very rich --
-we encourage the reader to explore the tutorial page at {\tt http://matplotlib.org}
-to learn more.
+Let us stop here for the moment, so that we can explore other aspects of Python programming. 
+The functionality provided by Pylab/Matplotlib is so extensive that we could spend  easily several 
+months experimenting with it. Many tutorials and examples are available online. In particular, 
+we encourage the reader to explore the original tutorial page at {\tt http://matplotlib.org}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

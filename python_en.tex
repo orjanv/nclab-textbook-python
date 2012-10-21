@@ -190,8 +190,30 @@
 \makeatother
 % End of Pygments inputs.
 
+% Define color boxes:
+\definecolor{MyGreen}{rgb}{0.9, 1, 0.9}
+\makeatletter\newenvironment{gbox}{%
+   \begin{lrbox}{\@tempboxa}\begin{minipage}{0.985\columnwidth}}{\end{minipage}\end{lrbox}%
+   \noindent
+   \colorbox{MyGreen}{\usebox{\@tempboxa}}
+}\makeatother
 
+%\definecolor{MyYellow}{rgb}{0.98, 0.98, 0.824}
+\definecolor{MyYellow}{rgb}{1, 0.99, 0.8}
+\makeatletter\newenvironment{ybox}{%
+   \begin{lrbox}{\@tempboxa}\begin{minipage}{0.985\columnwidth}}
+   {\end{minipage}\end{lrbox}%
+   \noindent
+   \colorbox{MyYellow}{\usebox{\@tempboxa}}
+}\makeatother
 
+\definecolor{MyBlue}{rgb}{0.88, 0.95, 1}
+\makeatletter\newenvironment{bbox}{%
+   \begin{lrbox}{\@tempboxa}\begin{minipage}{0.985\columnwidth}}
+   {\end{minipage}\end{lrbox}%
+   \noindent
+   \colorbox{MyBlue}{\usebox{\@tempboxa}}
+}\makeatother
 
 \begin{document}
 
@@ -253,7 +275,7 @@
 \vfill
 \vfill
 \begin{center}
-Revision Oct-19-2012. Copyright 2012 FEMhub Inc. All rights reserved.
+Revision Oct-20-2012. Copyright 2012 FEMhub Inc. All rights reserved.
 \end{center}
 \newpage
 \vbox{}
@@ -511,190 +533,336 @@ should it be too boring -- you can always return to it later.
 
 \subsection{Addition and subtraction}
 
-Launch a new Python project and in the code cell type:
+Launch a new Python project and in the code cell type:\\
 
-\begin{bluecode}
+\begin{bbox}
+\begin{verbatim}
 3 + 6
-\end{bluecode}
-Then click on the green arrow under the cell. The output should be displayed quickly:
+\end{verbatim}
+\end{bbox}
+\vspace{6mm}
 
-\begin{greencode}
+\noindent
+Then click on the green arrow under the cell. The output should be displayed quickly:\\
+
+\begin{ybox}
+\begin{verbatim}
 9
-\end{greencode}
-Of course you can add real numbers too:
-\begin{bluecode}
+\end{verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
+Of course you can add real numbers too:\\
+
+\begin{bbox}
+\begin{verbatim}
 3.2 + 6.31
-\end{bluecode}
-Output:
+\end{verbatim}
+\end{bbox}
+\vspace{6mm}
 
-\begin{greencode}
+\noindent
+Output:\\
+
+\begin{ybox}
+\begin{verbatim}
 9.51
-\end{greencode}
-Two numbers can be subtracted using the minus sign:
+\end{verbatim}
+\end{ybox}
+\vspace{6mm}
 
-\begin{bluecode}
+\noindent
+Two numbers can be subtracted using the minus sign:\\
+
+\begin{bbox}
+\begin{verbatim}
 7.5 - 2.1
-\end{bluecode}
-Output:
+\end{verbatim}
+\end{bbox}
+\vspace{6mm}
 
-\begin{greencode}
+\noindent
+Output:\\
+
+\begin{ybox}
+\begin{verbatim}
 5.4
-\end{greencode}
+\end{verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
 
 \subsection{Multiplication}
-Multiplication is done using the asterisk  '{\tt *}' symbol as in
+Multiplication is done using the asterisk  '{\tt *}' symbol as in\\
 
-\begin{bluecode}
+\begin{bbox}
+\begin{verbatim}
 3 * 12
-\end{bluecode}
-Output:
+\end{verbatim}
+\end{bbox}
+\vspace{6mm}
 
-\begin{greencode}
+\noindent
+Output:\\
+
+\begin{ybox}
+\begin{verbatim}
 36
-\end{greencode}
-Indeed, real numbers can be multiplied as well:
+\end{verbatim}
+\end{ybox}
+\vspace{6mm}
 
-\begin{bluecode}
+\noindent
+Indeed, real numbers can be multiplied as well:\\
+
+\begin{bbox}
+\begin{verbatim}
 3.7 * 12.17
-\end{bluecode}
-Output:
+\end{verbatim}
+\end{bbox}
+\vspace{6mm}
 
-\begin{greencode}
+\noindent
+Output:\\
+
+\begin{ybox}
+\begin{verbatim}
 45.029
-\end{greencode}
+\end{verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
+
 \subsection{Division}
-The forward slash '{\tt /}' symbol is used for division:
+The forward slash '{\tt /}' symbol is used for division:\\
 
-\begin{bluecode}
+\begin{bbox}
+\begin{verbatim}
 30 / 5
-\end{bluecode}
-Output:
+\end{verbatim}
+\end{bbox}
+\vspace{6mm}
 
-\begin{greencode}
+\noindent
+Output:\\
+
+\begin{ybox}
+\begin{verbatim}
 6
-\end{greencode}
-However, we need to be careful. Look at this:
+\end{verbatim}
+\end{ybox}
+\vspace{6mm}
 
-\begin{bluecode}
+\noindent
+However, we need to be careful. Look at this:\\
+
+\begin{bbox}
+\begin{verbatim}
 33 / 5
-\end{bluecode}
-Output:
+\end{verbatim}
+\end{bbox}
+\vspace{6mm}
 
-\begin{greencode}
+\noindent
+Output:\\
+
+\begin{ybox}
+\begin{verbatim}
 6
-\end{greencode}
+\end{verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
 This is not correct! But why? The answer is that since the numbers {\tt 33} and {\tt 5}
 are both integers, the result is automatically converted to an integer. This is how it works 
 in all major computer languages including C, C++, Fortran, Python and others. The
 correct way of using division is to represent at least one of the numbers as a real number.
 Adding a decimal point is enough for that. Then the result is automatically converted 
-to a real number:
+to a real number:\\
 
-
-\begin{bluecode}
+\begin{bbox}
+\begin{verbatim}
 33. / 5
-\end{bluecode}
-yields 
+\end{verbatim}
+\end{bbox}
+\vspace{6mm}
 
-\begin{greencode}
+\noindent
+yields\\
+
+\begin{ybox}
+\begin{verbatim}
 6.6
-\end{greencode}
+\end{verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
 An alternative way of turning an integer into a real number, which 
 also works for variables, is using the function {\tt float()}. Then
-the above division could be done as follows:
+the above division could be done as follows:\\
 
-\begin{bluecode}
+\begin{bbox}
+\begin{verbatim}
 float(33) / 5
-\end{bluecode}
-Output:
+\end{verbatim}
+\end{bbox}
+\vspace{6mm}
 
-\begin{greencode}
+\noindent
+Output:\\
+
+\begin{ybox}
+\begin{verbatim}
 6.6
-\end{greencode}
+\end{verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
 Once we understand the behavior, we can use it to our advantage. For example,
-we can calculate how many times a dozen fits into a thousand:
+we can calculate how many times a dozen fits into a thousand:\\
 
-\begin{bluecode}
+\begin{bbox}
+\begin{verbatim}
 1000 / 12
-\end{bluecode}
-Output:
+\end{verbatim}
+\end{bbox}
+\vspace{6mm}
 
-\begin{greencode}
+\noindent
+Output:\\
+
+\begin{ybox}
+\begin{verbatim}
 83
-\end{greencode}
+\end{verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
 By calculating {\tt 1000 - 83 * 12} we obtain {\tt 4} which is the remainder of the 
 integer division. In fact the remainder can be calculated in a simpler way
 using the modulo operator, as will be shown in the next paragraph. But before we 
 move there, let's summarize:\\
 
-\noindent
-{\em Failure to convert at least one operand in division 
-to a real number can be a source of mistakes that are extremely hard to find.} 
-Therefore, do not forget that\\
-
+\begin{gbox}
 \begin{center}
-{\color{red}\bf The result of division of two integers always is an integer.}
-\vspace{4mm}
+{Failure to convert at least one operand in division 
+to a real number can be\\ a source of mistakes that are extremely hard to find.}
 \end{center}
+\end{gbox}
 
 \subsection{Modulo}
 The last of the common arithmetic operations is {\em modulo} (remainder 
-after integer division). In Python modulo is represented via the percent symbol '{\tt \%}':
+after integer division). In Python modulo is represented via the percent symbol '{\tt \%}':\\
 
-\begin{bluecode}
+\begin{bbox}
+\begin{verbatim}
 6 % 4
-\end{bluecode}
-Output:
+\end{verbatim}
+\end{bbox}
+\vspace{6mm}
 
-\begin{greencode}
+\noindent
+Output:\\
+
+\begin{ybox}
+\begin{verbatim}
 2
-\end{greencode}
-Modulo can be applied to real numbers as well:
+\end{verbatim}
+\end{ybox}
+\vspace{6mm}
 
-\begin{bluecode}
+\noindent
+Modulo can be applied to real numbers as well:\\
+
+\begin{bbox}
+\begin{verbatim}
 12.5 % 2.0 
-\end{bluecode}
-Output:
+\end{verbatim}
+\end{bbox}
+\vspace{6mm}
 
-\begin{greencode}
+\noindent
+Output:\\
+
+\begin{ybox}
+\begin{verbatim}
 0.5
-\end{greencode}
+\end{verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
 
 \subsection{Powers}
 For exponents, such as in $2^4$, Python has a double-star
-symbol \ '{\tt **}':
+symbol \ '{\tt **}':\\
 
-\begin{bluecode}
+\begin{bbox}
+\begin{verbatim}
 2**4
-\end{bluecode}
-Output:
+\end{verbatim}
+\end{bbox}
+\vspace{6mm}
 
-\begin{greencode}
+\noindent
+Output:\\
+
+\begin{ybox}
+\begin{verbatim}
 16
-\end{greencode}
-Both the base and the exponent can be real numbers:
+\end{verbatim}
+\end{ybox}
+\vspace{6mm}
 
-\begin{bluecode}
+\noindent
+Both the base and the exponent can be real numbers:\\
+
+\begin{bbox}
+\begin{verbatim}
 3.2**2.5
-\end{bluecode}
-Output:
+\end{verbatim}
+\end{bbox}
+\vspace{6mm}
 
-\begin{greencode}
+\noindent
+Output:\\
+
+\begin{ybox}
+\begin{verbatim}
 18.31786887167828
-\end{greencode}
-But we have to be careful with negative numbers:
+\end{verbatim}
+\end{ybox}
+\vspace{6mm}
 
-\begin{bluecode}
+\noindent
+But we have to be careful with negative numbers:\\
+
+\begin{bbox}
+\begin{verbatim}
 (-3.2)**2.5
-\end{bluecode}
-Output:
+\end{verbatim}
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{Traceback} \PY{p}{(}\PY{n}{most} \PY{n}{recent} \PY{n}{call} \PY{n}{last}\PY{p}{)}\PY{p}{:}
   \PY{n}{File} \PY{l+s}{"}\PY{l+s}{<nclab>}\PY{l+s}{"}\PY{p}{,} \PY{n}{line} \PY{l+m+mi}{1}\PY{p}{,} \PY{n}{in} \PY{o}{<}\PY{n}{module}\PY{o}{>}
-\PY{n+ne}{ValueError}\PY{p}{:} \PY{n}{negative} \PY{n}{number} \PY{n}{cannot} \PY{n}{be} \PY{n}{raised} \PY{n}{to} \PY{n}{a} \PY{n}{fractional} \PY{n}{power}
+\PY{n+ne}{ValueError}\PY{p}{:} \PY{n}{negative} \PY{n}{number} \PY{n}{cannot} \PY{n}{be} \PY{n}{raised} \PY{n}{to} \PY{n}{a} \PY{n}{fractional} 
+\PY{n}{power}
 \end{Verbatim}
-
+\end{ybox}
+\vspace{6mm}
 
 \subsection{Priority of operators}
 Python respects the standard priority of operators:
@@ -708,80 +876,116 @@ Python respects the standard priority of operators:
 Note that no other brackets such as {\tt \{ \}} and {\tt [ ]} are 
 admissible in mathematical expressions. The reason is that they have a different 
 function in the programming language.
-To illustrate the priority of operations, we can try the following:
+To illustrate the priority of operations, we can try the following:\\
 
-\begin{bluecode}
+\begin{bbox}
+\begin{verbatim}
 3**4 / 27 * 5 + 3 * 5
-\end{bluecode}
-Output:
+\end{verbatim}
+\end{bbox}
+\vspace{6mm}
 
-\begin{greencode}
+\noindent
+Output:\\
+
+\begin{ybox}
+\begin{verbatim}
 30
-\end{greencode}
+\end{verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
 
 \subsection{Using empty characters makes you code better readable}
 Your code will be much better readable if you use empty
 characters on either side of arithmetic symbols, as well as 
-after commas. Hence, you should never write things like 
+after commas. Hence, you should never write things like \\
 
-\begin{bluecode}
+\begin{bbox}
+\begin{verbatim}
 sin(x+y)+f(x,y,z)*5-2.4.
-\end{bluecode}
-Instead, the same can be written in a much more reader-friendly form as
+\end{verbatim}
+\end{bbox}
+\vspace{6mm}
 
-\begin{bluecode}
+\noindent
+Instead, the same can be written in a much more reader-friendly form as\\
+
+\begin{bbox}
+\begin{verbatim}
 sin(x + y) + f(x, y, z) * 5 - 2.4.
-\end{bluecode}
+\end{verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 
 \subsection{Using mathematical functions}
 
 In order to calculate square roots, exponentials, sines, cosines, tangents, and many other 
 math functions, the best way is to import Numpy. Numpy is a powerful Python library 
 for numerical computations. To import it, just include the following 
-line in your code:
+line in your code:\\
 
-\begin{bluecode}
+\begin{bbox}
+\begin{verbatim}
 from numpy import *
-\end{bluecode}
+\end{verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 Here the symbol '{\tt *}' stands for "everything". If you wanted to import just one or two 
 functions, you could do that as well by just giving their names, separated by commas. 
+After Numpy is imported, we can calculate, for example, $e^2$:\\
 
-After Numpy is imported, we can calculate, for example, $e^2$:
-
-\begin{bluecode}
+\begin{bbox}
+\begin{verbatim}
 exp(2)
-\end{bluecode}
-Output:
-\begin{greencode}
+\end{verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+Output:\\
+
+\begin{ybox}
+\begin{verbatim}
 7.3890560989306504
-\end{greencode}
+\end{verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
 Elementary functions (and constants) that one can import from Numpy are listed
 below. We also show their arguments for clarity, but the functions are imported without 
 them. For example, the absolute value function is imported via {\tt from numpy import abs}.\\
+\newpage
 
 %{\small
 \begin{center}
 \begin{tabular}{|l|l|}
 \hline
-pi &  $\pi$\\
-abs($x$) &  absolute value of $x$\\
-arccos($x$) &  inverse cosine of $x$ \\
-arccosh($x$) &  inverse hyperbolic cosine of $x$ \\
-arcsin($x$) & inverse sine of $x$ \\
-arcsinh($x$) & inverse hyperbolic sine of $x$ \\
-arctan($x$) & inverse tangent of $x$ \\
-arctanh($x$) & inverse hyperbolic tangent of $x$ \\
-arctan2($x_1$, $x_2$) & arc tangent of $x_1/x_2$ choosing the quadrant correctly \\
-cos($x$) & cosine of $x$ \\
-cosh($x$) & hyperbolic tangent of $x$ \\
-exp($x$) & $e^x$ \\
-log($x$) & natural logarithm of $x$ \\
-pow($a$, $b$) & $a^b$ (same as "a**b")\\
-sin($x$) & sine of $x$ \\
-sinh($x$) & hyperbolic sine of $x$ \\
-sqrt($x$) & square root of $x$ \\
-tan($x$) & tangent of $x$\\
-tanh($x$) & hyperbolic tangent of $x$ \\
+\ pi &  \ $\pi$\\
+\ abs($x$) &\   absolute value of $x$\\
+\ arccos($x$) &\   inverse cosine of $x$ \\
+\ arccosh($x$) &\   inverse hyperbolic cosine of $x$ \\
+\ arcsin($x$) &\  inverse sine of $x$ \\
+\ arcsinh($x$) &\  inverse hyperbolic sine of $x$ \\
+\ arctan($x$) &\  inverse tangent of $x$ \\
+\ arctanh($x$) &\  inverse hyperbolic tangent of $x$ \\
+\ arctan2($x_1$, $x_2$) \ \ \ &\  arc tangent of $x_1/x_2$ choosing the quadrant correctly \\
+\ cos($x$) &\  cosine of $x$ \\
+\ cosh($x$) &\  hyperbolic tangent of $x$ \\
+\ exp($x$) &\  $e^x$ \\
+\ log($x$) &\  natural logarithm of $x$ \\
+\ pow($a$, $b$) &\  $a^b$ (same as "a**b")\\
+\ sin($x$) &\  sine of $x$ \\
+\ sinh($x$) &\  hyperbolic sine of $x$ \\
+\ sqrt($x$) &\  square root of $x$ \\
+\ tan($x$) &\  tangent of $x$\\
+\ tanh($x$) &\  hyperbolic tangent of $x$ \\
 \hline
 \end{tabular}
 \end{center}
@@ -792,140 +996,252 @@ tanh($x$) & hyperbolic tangent of $x$ \\
 \subsection{\ \ Fractions}
 
 Python makes operation with fractions easy via the {\tt Fraction}
-function that is imported from the {\tt fractions} library:
+function that is imported from the {\tt fractions} library:\\
 
-\begin{bluecode}
+\begin{bbox}
+\begin{verbatim}
 from fractions import Fraction
-\end{bluecode}
+\end{verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 A fraction such as 4/7 can be defined simply as {\tt Fraction(4, 7)}. 
 Fractions can be used with the same operations as numbers, and the result 
-of such an operation is a {\tt Fraction}. For example
+of such an operation is a {\tt Fraction}. For example\\
 
-\begin{bluecode}
+\begin{bbox}
+\begin{verbatim}
 Fraction(2, 6) + Fraction(2, 3)
-\end{bluecode}
-yields
+\end{verbatim}
+\end{bbox}
+\vspace{6mm}
 
-\begin{greencode}
+\noindent
+yields\\
+
+\begin{ybox}
+\begin{verbatim}
 Fraction(1, 1)
-\end{greencode}
-Another example: 
+\end{verbatim}
+\end{ybox}
+\vspace{6mm}
 
-\begin{bluecode}
+\noindent
+Another example: \\
+
+\begin{bbox}
+\begin{verbatim}
 Fraction(2, 6) / Fraction(2, 3)
-\end{bluecode}
-results into 
+\end{verbatim}
+\end{bbox}
+\vspace{6mm}
 
-\begin{greencode}
+\noindent
+results into\\
+
+\begin{ybox}
+\begin{verbatim}
 Fraction(1, 2)
-\end{greencode}
+\end{verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
 The {\tt fractions} library also provides the useful function {\tt gcd()} that 
-calculates the Greatest Common Divisor (GCD) of two integers. It is imported via 
+calculates the Greatest Common Divisor (GCD) of two integers. It is imported via \\
 
-\begin{bluecode}
+\begin{bbox}
+\begin{verbatim}
 from fractions import gcd
-\end{bluecode}
-For illustration let us calculate the GCD of 867 and 629:
+\end{verbatim}
+\end{bbox}
+\vspace{6mm}
 
-\begin{bluecode}
+\noindent
+For illustration let us calculate the GCD of 867 and 629:\\
+
+\begin{bbox}
+\begin{verbatim}
 gcd(867, 629)
-\end{bluecode}
-The output is 
+\end{verbatim}
+\end{bbox}
+\vspace{6mm}
 
-\begin{greencode}
+\noindent
+The output is \\
+
+\begin{ybox}
+\begin{verbatim}
 17
-\end{greencode}
+\end{verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
 
 \subsection{\ \ Random numbers}
 
 Python provides a random number generator via the {\tt random()} function that 
-can be imported from the {\tt random} library:
+can be imported from the {\tt random} library:\\
 
-\begin{bluecode}
+\begin{bbox}
+\begin{verbatim}
 from random import random
-\end{bluecode}
+\end{verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 This function returns a random real number between 0 and 1. For 
-example,
+example,\\
 
-\begin{bluecode}
+\begin{bbox}
+\begin{verbatim}
 random()
-\end{bluecode}
-yields
+\end{verbatim}
+\end{bbox}
+\vspace{6mm}
 
-\begin{greencode}
+\noindent
+yields\\
+
+\begin{ybox}
+\begin{verbatim}
 0.871979925682207
-\end{greencode}
+\end{verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
 Sometimes we need to generate random integers rather than real numbers.
 This is easy. For illustration, a random integer {\tt n} between 1 and 3 can be 
-generated via the code
+generated via the code\\
 
-\begin{bluecode}
+\begin{bbox}
+\begin{verbatim}
 a = random()
 n = int(3*a + 1)
-\end{bluecode}
+\end{verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 Here the function {\tt int()} will erase the decimal part of the real number, converting 
 it to an integer.
 
 
 \subsection{\ \ Complex numbers}
+
 Complex numbers are always represented as two floating point numbers, the 
 real and imaginary part. Appending '{\tt j}' or  '{\tt J}' to a real number
-makes it imaginary:
+makes it imaginary:\\
 
-\begin{bluecode}
+\begin{bbox}
+\begin{verbatim}
 1j * 1J
-\end{bluecode}
-Output:
+\end{verbatim}
+\end{bbox}
+\vspace{6mm}
 
-\begin{greencode}
+\noindent
+Output:\\
+
+\begin{ybox}
+\begin{verbatim}
 (-1+0j)
-\end{greencode}
-This is one way to define complex numbers:
-\begin{bluecode}
+\end{verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
+This is one way to define complex numbers:\\
+
+\begin{bbox}
+\begin{verbatim}
 1 + 3j
-\end{bluecode}
-Output:
+\end{verbatim}
+\end{bbox}
+\vspace{6mm}
 
-\begin{greencode}
+\noindent
+Output:\\
+
+\begin{ybox}
+\begin{verbatim}
 (1+3j)
-\end{greencode}
-Another way is to use the command {\tt complex}:
+\end{verbatim}
+\end{ybox}
+\vspace{6mm}
 
-\begin{bluecode}
+\noindent
+Another way is to use the command {\tt complex}:\\
+
+\begin{bbox}
+\begin{verbatim}
 complex(1, 3)
-\end{bluecode}
-Output:
+\end{verbatim}
+\end{bbox}
+\vspace{6mm}
 
-\begin{greencode}
+\noindent
+Output:\\
+
+\begin{ybox}
+\begin{verbatim}
 (1+3j)
-\end{greencode}
+\end{verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
 All arithmetic operations that are used for real numbers can be 
-used for complex numbers as well, for example:
+used for complex numbers as well, for example:\\
 
-\begin{bluecode}
+\begin{bbox}
+\begin{verbatim}
 (1 + 2j) / (1 + 1j)
-\end{bluecode}
-Output:
+\end{verbatim}
+\end{bbox}
+\vspace{6mm}
 
-\begin{greencode}
+\noindent
+Output:\\
+
+\begin{ybox}
+\begin{verbatim}
 (1.5+0.5j)
-\end{greencode}
-To extract the real and imaginary parts of a complex number {\tt z}, use {\tt z.real}
-and {\tt z.imag}. Use {\tt abs()} to get the absolute value:
+\end{verbatim}
+\end{ybox}
+\vspace{6mm}
 
-\begin{bluecode}
+\noindent
+To extract the real and imaginary parts of a complex number {\tt z}, use {\tt z.real}
+and {\tt z.imag}. Use {\tt abs()} to get the absolute value:\\
+
+\begin{bbox}
+\begin{verbatim}
 a = 3 + 4j
 a.real
 a.imag
 abs(a)
-\end{bluecode}
-Output:
+\end{verbatim}
+\end{bbox}
+\vspace{6mm}
 
-\begin{greencode}
+\noindent
+Output:\\
+
+\begin{ybox}
+\begin{verbatim}
 3
 4
 5
-\end{greencode}
+\end{verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -947,43 +1263,64 @@ reusable -- in Python they are defined for the same reason.
 The definition of a new function begins with the keyword {\tt def} as in Karel. In Python,
 we moreover use round brackets for arguments and a colon at the end of the line. 
 For example, the following function adds two numbers
-and returns the result:
+and returns the result:\\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k}{def} \PY{n+nf}{add}\PY{p}{(}\PY{n}{a}\PY{p}{,} \PY{n}{b}\PY{p}{)}\PY{p}{:}
     \PY{k}{return} \PY{n}{a} \PY{o}{+} \PY{n}{b}
 \end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 The round brackets in the function definition are mandatory even if no arguments are passed
 but  the {\tt return} statement can be omitted if not needed.
 The two lines of code above 
 are a {\em function declaration} only -- the function is not called. 
-In order to call the function, we need to write one additional line:
+In order to call the function, we need to write one additional line:\\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k}{print} \PY{l+s}{"}\PY{l+s}{5 + 3 is}\PY{l+s}{"}\PY{p}{,} \PY{n}{add}\PY{p}{(}\PY{l+m+mi}{5}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{)}
 \end{Verbatim}
-This will produce the following output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+This will produce the following output:\\
+
+\begin{ybox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{l+m+mi}{5} \PY{o}{+} \PY{l+m+mi}{3} \PY{l+m+mi}{is} \PY{l+m+mi}{8}
 \end{Verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
 In most cases, functions are defined to process some input arguments 
 and to return some output values. However, this does not apply always.
 The following function does not take any arguments 
-and it does not return anything:
+and it does not return anything:\\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k}{def} \PY{n+nf}{print_hello}\PY{p}{(}\PY{p}{)}\PY{p}{:}
     \PY{k}{print} \PY{l+s}{"}\PY{l+s}{Hello!}\PY{l+s}{"}
 \end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 
 \subsection{Passing arbitrary arguments}
 
 Python does not require that we specify the type of function arguments. 
 What does it mean? The above function {\tt add(a, b)} works for real
 numbers, complex numbers, vectors, strings, and any other 
-objects where the operation '+' is defined. Let's try this:
+objects where the operation '+' is defined. Let's try this:\\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k}{def} \PY{n+nf}{add}\PY{p}{(}\PY{n}{a}\PY{p}{,} \PY{n}{b}\PY{p}{)}\PY{p}{:}
     \PY{k}{return} \PY{n}{a} \PY{o}{+} \PY{n}{b}
@@ -992,24 +1329,39 @@ objects where the operation '+' is defined. Let's try this:
 \PY{n}{word2} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{Evening!}\PY{l+s}{"}
 \PY{k}{print} \PY{n}{add}\PY{p}{(}\PY{n}{word1}\PY{p}{,} \PY{n}{word2}\PY{p}{)}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{Good} \PY{n}{Evening!}
 \end{Verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
 This makes Python very intuitive and easy to use compared to other languages. 
 For example, to do the same as above, in C/C++ we would have to introduce different functions 
 for real numbers, for complex numbers, for strings, and any other data 
-types. They would look as follows:
+types. They would look as follows:\\
 
+\begin{bbox}
 \begin{verbatim}
 double add(double a, double b)
 {
   return a + b;
 }
 \end{verbatim}
-and
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+and\\
+
+\begin{bbox}
 \begin{verbatim}
 # include <complex.h>
 complex add(complex a, complex b)
@@ -1017,8 +1369,13 @@ complex add(complex a, complex b)
   return a + b;
 }
 \end{verbatim}
-and 
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+and \\
+
+\begin{bbox}
 \begin{verbatim}
 void add(const char* a_in, const char* b_in, char* c_out)
 {
@@ -1026,47 +1383,81 @@ void add(const char* a_in, const char* b_in, char* c_out)
   strcat(c_out, b_in);
   return;
 }
+\end{ybox}
+\vspace{6mm}
+
+\noindent
 \end{verbatim}
-While C++ is a great language, technical details like this 
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+etc. While C++ is a great language, technical details like this 
 make it more difficult for beginners.
 
 \subsection{Returning multiple values}
 
 Python functions can return multiple values which often comes handy.
 For example, the following function returns the 
-second, third, and fourth powers of a number:
+second, third, and fourth powers of a number:\\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k}{def} \PY{n+nf}{powers}\PY{p}{(}\PY{n}{a}\PY{p}{)}\PY{p}{:}
     \PY{k}{return} \PY{n}{a}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{,} \PY{n}{a}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{3}\PY{p}{,} \PY{n}{a}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{4}
 \end{Verbatim}
-This is how the function is used:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+This is how the function is used:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{var1} \PY{o}{=} \PY{l+m+mi}{2}
 \PY{k}{print} \PY{l+s}{"}\PY{l+s}{Powers are}\PY{l+s}{"}\PY{p}{,} \PY{n}{powers}\PY{p}{(}\PY{n}{var1}\PY{p}{)}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{Powers} \PY{n}{are} \PY{p}{(}\PY{l+m+mi}{4}\PY{p}{,} \PY{l+m+mi}{8}\PY{p}{,} \PY{l+m+mi}{16}\PY{p}{)}
 \end{Verbatim}
-We can also store the returned values in three separate variables:
+\end{ybox}
+\vspace{6mm}
 
+\noindent
+We can also store the returned values in three separate variables:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{var1} \PY{o}{=} \PY{l+m+mi}{3}
 \PY{n}{p2}\PY{p}{,} \PY{n}{p3}\PY{p}{,} \PY{n}{p4} \PY{o}{=} \PY{n}{powers}\PY{p}{(}\PY{n}{var1}\PY{p}{)}
 \PY{k}{print} \PY{l+s}{"}\PY{l+s}{Powers are}\PY{l+s}{"}\PY{p}{,} \PY{n}{p2}\PY{p}{,} \PY{n}{p3}\PY{p}{,} \PY{n}{p4}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{Powers} \PY{n}{are} \PY{l+m+mi}{9} \PY{l+m+mi}{27} \PY{l+m+mi}{81}
 \end{Verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
 Again, for comparison let's see how this would be handled in C/C++. The asterisks
 in the code below are {\em pointers}, an additional programming concept that 
-one needs to learn and utilize here:
+one needs to learn and utilize here:\\
 
+\begin{bbox}
 \begin{verbatim}
 void powers(double a, double* p2, double* p2, double* p3)
 {
@@ -1084,6 +1475,10 @@ int main()
   printf("Powers are %g, %g, %g.\n", p2, p3, p4);
 }
 \end{verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 
 \subsection{Using default arguments}
 
@@ -1091,157 +1486,234 @@ Have you ever been to Holland? It is the most bicycle friendly country in the wo
 work for the Holland Census Bureau. Your job is to ask 10000 
 people how they go to work, and enter their answers into a database. 
 The program for entering data into the database was written by one of 
-your colleagues, and it can be used as follows:
+your colleagues, and it can be used as follows:\\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{add\PYZus{}database\PYZus{}entry}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{John}\PY{l+s}{"}\PY{p}{,} \PY{l+s}{"}\PY{l+s}{Smith}\PY{l+s}{"}\PY{p}{,} \PY{l+s}{"}\PY{l+s}{walks}\PY{l+s}{"}\PY{p}{)}
 \end{Verbatim}
-or 
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+or \\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{add\PYZus{}database\PYZus{}entry}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{Louis}\PY{l+s}{"}\PY{p}{,} \PY{l+s}{"}\PY{l+s}{Armstrong}\PY{l+s}{"}\PY{p}{,} \PY{l+s}{"}\PY{l+s}{bicycle}\PY{l+s}{"}\PY{p}{)}
 \end{Verbatim}
-or
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+or\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{add\PYZus{}database\PYZus{}entry}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{Jim}\PY{l+s}{"}\PY{p}{,} \PY{l+s}{"}\PY{l+s}{Bridger}\PY{l+s}{"}\PY{p}{,} \PY{l+s}{"}\PY{l+s}{horse}\PY{l+s}{"}\PY{p}{)}
 \end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 etc. Since you are in Holland, it can be expected that $99 \%$ of people 
 are using the bicycle. In principle you could call the function {\tt add\_database\_entry()} 
 to enter each answer, but with 9900 bicyclists out of 10000 respondents you would have to 
 type the word {\tt "bicycle"} MANY times. 
 
-Fortunately, Python offers a smarter way to do this. We can define a new function 
+Fortunately, Python offers a smarter way to do this. We can define a new function \\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k}{def} \PY{n+nf}{enter}\PY{p}{(}\PY{n}{first}\PY{p}{,} \PY{n}{last}\PY{p}{,} \PY{n}{transport} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{bicycle}\PY{l+s}{"}\PY{p}{)}\PY{p}{:}
     \PY{n}{enter\PYZus{}into\PYZus{}database}\PY{p}{(}\PY{n}{first}\PY{p}{,} \PY{n}{last}\PY{p}{,} \PY{n}{transport}\PY{p}{)}
 \end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 This is a simple ({"thin"}) {\em wrapper} to the function {\tt add\_database\_entry()} 
 that allows us to omit the third argument in the function call and autocomplete 
 it with a {\em default argument} {\tt "bicycle"}. In other words, now we do not have to 
-type {\tt "bicycle"} for Louis Armstrong or any other bicyclist:
+type {\tt "bicycle"} for Louis Armstrong or any other bicyclist:\\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{enter}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{Louis}\PY{l+s}{"}\PY{p}{,} \PY{l+s}{"}\PY{l+s}{Armstrong}\PY{l+s}{"}\PY{p}{)}
 \end{Verbatim}
-Only if we meet a rare someone who uses a car, we type 
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Only if we meet a rare someone who uses a car, we type \\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{enter}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{Niki}\PY{l+s}{"}\PY{p}{,} \PY{l+s}{"}\PY{l+s}{Lauda}\PY{l+s}{"}\PY{p}{,} \PY{l+s}{"}\PY{l+s}{car}\PY{l+s}{"}\PY{p}{)}
 \end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 Another example: Let us return to the function {\tt add()}, and let us 
 imagine that very often (but not always) the second number that we
 are adding is 10. Then it makes sense to write the function {\tt add()}
-as follows:
+as follows:\\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k}{def} \PY{n+nf}{add}\PY{p}{(}\PY{n}{a}\PY{p}{,} \PY{n}{b} \PY{o}{=} \PY{l+m+mi}{10}\PY{p}{)}\PY{p}{:}
     \PY{k}{return} \PY{n}{a} \PY{o}{+} \PY{n}{b}
 \end{Verbatim}
-The function will work as before when called with two arguments: 
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+The function will work as before when called with two arguments: \\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{A} \PY{o}{=} \PY{l+m+mi}{5}
 \PY{n}{B} \PY{o}{=} \PY{l+m+mi}{1}
 \PY{n}{add}\PY{p}{(}\PY{n}{A}\PY{p}{,} \PY{n}{B}\PY{p}{)}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{l+m+mi}{6}
 \end{Verbatim}
-But it can also be called with the second argument omitted:
+\end{ybox}
+\vspace{6mm}
+
+\noindent
+But it can also be called with the second argument omitted:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{A} \PY{o}{=} \PY{l+m+mi}{5}
 \PY{n}{add}\PY{p}{(}\PY{n}{A}\PY{p}{)}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{l+m+mi}{15}
 \end{Verbatim}
-\underline{A few rules to remember}:
-\begin{itemize}
-\item Default arguments need to be introduced {\bf after} standard (non-default) arguments. In other words, the 
+\end{ybox}
+
+\subsection*{Few rules to remember}
+
+
+(1) Default arguments need to be introduced {\bf after} standard (non-default) arguments. In other words, the 
       following code will result into an error:\\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k}{def} \PY{n+nf}{add}\PY{p}{(}\PY{n}{a} \PY{o}{=} \PY{l+m+mi}{5}\PY{p}{,} \PY{n}{b}\PY{p}{)}\PY{p}{:}
     \PY{k}{return} \PY{n}{a} \PY{o}{+} \PY{n}{b}
 \end{Verbatim}
-\vbox{}
-\vspace{2mm}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 This is the error message:\\
-\vbox{}
-\vspace{2mm}
+
+\begin{ybox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{File} \PY{l+s}{"}\PY{l+s}{<nclab>}\PY{l+s}{"}\PY{p}{,} \PY{n}{line} \PY{l+m+mi}{1}
 \PY{n+ne}{SyntaxError}\PY{p}{:} \PY{n}{non}\PY{o}{-}\PY{n}{default} \PY{n}{argument} \PY{n}{follows} \PY{n}{default} \PY{n}{argument}\PY{o}{.}
 \end{Verbatim}
-\vbox{}
-\vspace{2mm}
-\item If multiple default arguments are present, they have to follow the non-default ones.
+\end{ybox}
+\vspace{6mm}
+
+\noindent
+(2) If multiple default arguments are present, they have to follow the non-default ones.
       If the number of arguments in the function call is less than the total number of default and non-default
       arguments, then first all non-default arguments are assigned, and then the default ones from 
       left to right. To illustrate this, assume the function:\\
-\vbox{}
-\vspace{2mm}
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k}{def} \PY{n+nf}{add}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{a} \PY{o}{=} \PY{l+m+mi}{2}\PY{p}{,} \PY{n}{b} \PY{o}{=} \PY{l+m+mi}{3}\PY{p}{)}\PY{p}{:}
     \PY{k}{return} \PY{n}{x} \PY{o}{+} \PY{n}{a} \PY{o}{+} \PY{n}{b}
 \end{Verbatim}
-\vbox{}
-\vspace{2mm}
-This function can be called as follows:
-\vbox{}
-\vspace{2mm}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+This function can be called as follows:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k}{print} \PY{n}{add}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{)}
 \end{Verbatim}
-\vbox{}
-\vspace{2mm}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 In this case, the value {\tt 1} is assigned to {\tt x} and {\tt a} and {\tt b} take the default values.
 The output is \\
-\vbox{}
-\vspace{2mm}
+
+\begin{ybox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{l+m+mi}{6}
 \end{Verbatim}
-\vbox{}
-\vspace{2mm}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
 When the function is called with just two values,\\
-\vbox{}
-\vspace{2mm}
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k}{print} \PY{n}{add}\PY{p}{(}\PY{l+m+mi}{5}\PY{p}{,} \PY{l+m+mi}{6}\PY{p}{)}
 \end{Verbatim}
-\vbox{}
-\vspace{2mm}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 then the value {\tt 5} is assigned to {\tt x}, {\tt 6} to {\tt a}, and {\tt b} takes the default value {\tt 3}.
 The output is\\
-\vbox{}
-\vspace{2mm}
+
+\begin{ybox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{l+m+mi}{14}
 \end{Verbatim}
-\vbox{}
-\vspace{2mm}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
 However, it is always a good idea to be as transparent as possible. Therefore a better code is \\
-\vbox{}
-\vspace{2mm}
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k}{print} \PY{n}{add}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{a} \PY{o}{=} \PY{l+m+mi}{6}\PY{p}{)}
 \end{Verbatim}
-\vbox{}
-\vspace{2mm}
-Then the result is the same, {\tt 14}, but it is clear even to non-experts what is going on. Moreover,
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+The result is the same, {\tt 14}, but it is clear even to non-experts what is going on. Moreover,
 in this way we can also define the value of {\tt b} without having to define the value of {\tt a}:\\
-\vbox{}
-\vspace{2mm}
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k}{print} \PY{n}{add}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{b} \PY{o}{=} \PY{l+m+mi}{6}\PY{p}{)}
 \end{Verbatim}
-\vbox{}
-\vspace{2mm}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 Now {\tt x} is {\tt 1}, {\tt a} has the default value {\tt 2} and the result is {\tt 9}.
-\end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1293,6 +1765,7 @@ These colors are shown in the following Fig. \ref{fig:rgb}.
 \noindent
 When the proportions of all three primary colors are the same, the result is a shade of grey.
 With [0, 0, 0] one obtains black, with [1, 1, 1] white. This is illustrated in Fig. \ref{fig:rgb2}.
+\newpage
 
 \begin{figure}[!ht]
 \begin{center}
@@ -1300,7 +1773,7 @@ With [0, 0, 0] one obtains black, with [1, 1, 1] white. This is illustrated in F
 \end{center}
 \vspace{-2mm}
 \caption{Left: black color [0, 0, 0]. Middle: dark grey color [0.5, 0.5, 0.5]. Right; light grey color [0.9, 0.9, 0.9].}
-\vspace{-1cm}
+%\vspace{-1cm}
 \label{fig:rgb2}
 \end{figure}
 \noindent
@@ -1329,8 +1802,9 @@ cyan, pink and yellow along with their RGB codes.
 In Python, plotting is done via the Pylab library. The Pylab {\tt plot()} function takes 
 two arrays: $x$-coordinates and $y$-coordinates of points in the $xy$ plane. Between the 
 points, the curve is interpolated linearly. Let us illustrate this on a simple 
-example with just five points [0, 0], [1, 2], [2, 0.5], [3, 2.5] and [4, 0]:
+example with just five points [0, 0], [1, 2], [2, 0.5], [3, 2.5] and [4, 0]:\\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k+kn}{from} \PY{n+nn}{pylab} \PY{k+kn}{import} \PY{o}{*}
 \PY{n}{x} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{.}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mf}{1.0}\PY{p}{,} \PY{l+m+mf}{2.0}\PY{p}{,} \PY{l+m+mf}{3.0}\PY{p}{,} \PY{l+m+mf}{4.0}\PY{p}{]}
@@ -1339,10 +1813,13 @@ example with just five points [0, 0], [1, 2], [2, 0.5], [3, 2.5] and [4, 0]:
 \PY{n}{plot}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{y}\PY{p}{)}
 \PY{n}{lab}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 The commands {\tt clf()}, {\tt plot()} and {\tt lab.show()} do clear the canvas, 
 plot the graph, and fetch the image from server, respectively.
 The output is shown in Fig. \ref{fig:plot}.
-\newpage
 
 \begin{figure}[!ht]
 \begin{center}
@@ -1362,6 +1839,7 @@ The above plot was done using a default blue color. The color can be
 set by passing an optional parameter {\tt color = [R, G, B]} into the {\tt plot()}
 function. For illustration, changing the fifth line in the last script to {\tt plot(x, y, color = [1, 0, 1])},
 we obtain a pink polyline shown in Fig. \ref{fig:pinkplot}.
+\newpage
 
 \begin{figure}[!ht]
 \begin{center}
@@ -1372,9 +1850,9 @@ we obtain a pink polyline shown in Fig. \ref{fig:pinkplot}.
 \vspace{-2mm}
 \caption{Setting custom color.}
 \label{fig:pinkplot}
-\vspace{-1cm}
+%\vspace{-1cm}
 \end{figure}
-\newpage
+
 
 
 \subsection{Plotting functions of one variable}\label{plotting}
@@ -1383,26 +1861,41 @@ we obtain a pink polyline shown in Fig. \ref{fig:pinkplot}.
 In the following we will discuss more options and show some useful techniques.
 Let's say, for example, that we want to plot the function $f(x) = \sin(x)$
 in the interval $(0, 2\pi)$. The array of $x$-coordinates of equidistant points 
-between 0 and $\pi$ can be created easily using the function {\tt linspace()}:
+between 0 and $\pi$ can be created easily using the function {\tt linspace()}:\\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k+kn}{from} \PY{n+nn}{numpy} \PY{k+kn}{import} \PY{o}{*}
 \PY{n}{x} \PY{o}{=} \PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{2}\PY{o}{*}\PY{n}{pi}\PY{p}{,} \PY{l+m+mi}{100}\PY{p}{)}
 \end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 Here 100 means the number of points in the division (including endpoints).
 Increasing this number will improve the resolution and vice versa. 
-Next, the array of $y$-coordinates of the points is obtained via
+Next, the array of $y$-coordinates of the points is obtained via\\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{y} \PY{o}{=} \PY{n}{sin}\PY{p}{(}\PY{n}{x}\PY{p}{)}
 \end{Verbatim}
-The last part we already know:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+The last part we already know:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{clf}\PY{p}{(}\PY{p}{)}
 \PY{n}{plot}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{y}\PY{p}{)}
 \PY{n}{lab}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 \noindent
 The output is shown in Fig. \ref{fig:plot1}.\\[-7mm]
 
@@ -1420,14 +1913,20 @@ The output is shown in Fig. \ref{fig:plot1}.\\[-7mm]
 \subsection{Labels, colors, and styles}
 
 The plot can be made nicer by adding a label, and also the color 
-and the line style can be changed. Let us start with adding a label:
+and the line style can be changed. Let us start with adding a label:\\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{plot}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{b-}\PY{l+s}{'}\PY{p}{,} \PY{n}{label} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{Solid blue line}\PY{l+s}{"}\PY{p}{)}
 \PY{n}{legend}\PY{p}{(}\PY{p}{)}
 \PY{n}{lab}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
-The output is shown in Fig. \ref{fig:plot2}.\\[-7mm]
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+The output is shown in Fig. \ref{fig:plot2}.
+\newpage
 
 \begin{figure}[!ht]
 \begin{center}
@@ -1436,20 +1935,23 @@ The output is shown in Fig. \ref{fig:plot2}.\\[-7mm]
 \vspace{-6mm}
 \caption{Adding a label.}
 \label{fig:plot2}
-%\vspace{-1cm}
+\vspace{-4mm}
 \end{figure}
 \noindent
-Next let us change the color to red and line style to dashed: 
+Next let us change the color to red and line style to dashed: \\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{clf}\PY{p}{(}\PY{p}{)}
 \PY{n}{plot}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{r--}\PY{l+s}{'}\PY{p}{,} \PY{n}{label} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{Dashed red line}\PY{l+s}{"}\PY{p}{)}
 \PY{n}{legend}\PY{p}{(}\PY{p}{)}
 \PY{n}{lab}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
-The output is shown in Fig. \ref{fig:plot3}.\\[-7mm]
-\newpage
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+The output is shown in Fig. \ref{fig:plot3}.\\[-7mm]
 
 \begin{figure}[!ht]
 \begin{center}
@@ -1457,19 +1959,25 @@ The output is shown in Fig. \ref{fig:plot3}.\\[-7mm]
 \end{center}
 \vspace{-6mm}
 \caption{Same graph using dashed red line.}
-\vspace{-6mm}
+\vspace{-1cm}
 \label{fig:plot3}
 \end{figure}
+\newpage
 \noindent
 The graph can be plotted using green color and small dots rather than 
-a solid or dashed line:
+a solid or dashed line:\\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{clf}\PY{p}{(}\PY{p}{)}
 \PY{n}{plot}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{g.}\PY{l+s}{'}\PY{p}{,} \PY{n}{label} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{Dotted green line}\PY{l+s}{"}\PY{p}{)}
 \PY{n}{legend}\PY{p}{(}\PY{p}{)}
 \PY{n}{lab}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 The output is shown in Fig. \ref{fig:plot4}.
 
 \begin{figure}[!ht]
@@ -1479,21 +1987,25 @@ The output is shown in Fig. \ref{fig:plot4}.
 \vspace{-6mm}
 \caption{Same graph using dotted green line.}
 \label{fig:plot4}
-\vspace{-1cm}
+%\vspace{-1cm}
 \end{figure}
 \noindent
-\newpage
-\noindent
-Last let us stay with green color but make the dots larger:
+Last let us stay with green color but make the dots larger:\\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{clf}\PY{p}{(}\PY{p}{)}
 \PY{n}{plot}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{go}\PY{l+s}{'}\PY{p}{,} \PY{n}{label} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{Bigger green dots}\PY{l+s}{"}\PY{p}{)}
 \PY{n}{legend}\PY{p}{(}\PY{p}{)}
 \PY{n}{lab}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 \noindent
 The output is shown in Fig. \ref{fig:plot5}.
+\newpage
 
 \begin{figure}[!ht]
 \begin{center}
@@ -1512,8 +2024,9 @@ In the previous plots, function graphs were fitted into the
 display window, which means that the horizontal and vertical 
 axes were scaled differently. This can be changed by including the 
 {\tt axis('equal')} command after calling {\tt plot()}. Also, 
-grid can be displayed by using the {\tt grid()} command:
+grid can be displayed by using the {\tt grid()} command:\\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{cfrom} \PY{n}{numpy} \PY{k+kn}{import} \PY{o}{*}
 \PY{k+kn}{from} \PY{n+nn}{pylab} \PY{k+kn}{import} \PY{o}{*}
@@ -1526,8 +2039,13 @@ grid can be displayed by using the {\tt grid()} command:
 \PY{n}{legend}\PY{p}{(}\PY{p}{)}
 \PY{n}{lab}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 \noindent
 The output is shown in Fig. \ref{fig:plot8}.
+\newpage
 
 \begin{figure}[!ht]
 \begin{center}
@@ -1547,8 +2065,9 @@ The scaling of axes can be returned to the automatic fit option via
 Plot limits can be set using the {\tt xlim()} and {\tt ylim()}
 functions after {\tt plot()}. For example, we can stretch the sine
 function from Fig. \ref{fig:plot8} to span the entire width of the 
-canvas as follows:
+canvas as follows:\\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k+kn}{from} \PY{n+nn}{numpy} \PY{k+kn}{import} \PY{o}{*}
 \PY{k+kn}{from} \PY{n+nn}{pylab} \PY{k+kn}{import} \PY{o}{*}
@@ -1562,6 +2081,10 @@ canvas as follows:
 \PY{n}{legend}\PY{p}{(}\PY{p}{)}
 \PY{n}{lab}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 \noindent
 The output is shown in Fig. \ref{fig:plot9}.
 
@@ -1581,8 +2104,9 @@ The output is shown in Fig. \ref{fig:plot9}.
 
 This can be done very easily, just do not use the {\tt clf()}
 command between the plots and you can have as many graphs 
-in one figure as needed. Let us do three:
+in one figure as needed. Let us do three:\\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k+kn}{from} \PY{n+nn}{numpy} \PY{k+kn}{import} \PY{o}{*}
 \PY{k+kn}{from} \PY{n+nn}{pylab} \PY{k+kn}{import} \PY{o}{*}
@@ -1598,8 +2122,13 @@ in one figure as needed. Let us do three:
 \PY{n}{legend}\PY{p}{(}\PY{p}{)}
 \PY{n}{lab}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 \noindent
 The output is shown in Fig. \ref{fig:plot7}.
+\newpage
 
 \begin{figure}[!ht]
 \begin{center}
@@ -1626,8 +2155,9 @@ $$
 x(t) = t \cos(t), \ \ \ \ 
 y(t) = t \sin(t)
 $$ 
-in the interval $(0, 10)$ for $t$. The complete code is
+in the interval $(0, 10)$ for $t$. The complete code is\\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k+kn}{from} \PY{n+nn}{pylab} \PY{k+kn}{import} \PY{o}{*}
 \PY{k+kn}{from} \PY{n+nn}{numpy} \PY{k+kn}{import} \PY{o}{*}
@@ -1638,7 +2168,9 @@ in the interval $(0, 10)$ for $t$. The complete code is
 \PY{n}{plot}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{y}\PY{p}{)}
 \PY{n}{lab}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
-\newpage
+\end{bbox}
+\vspace{6mm}
+
 \noindent
 The output is shown in Fig. \ref{fig:plot6}.
 
@@ -1665,8 +2197,9 @@ example we will plot the curve $x(t), y(t), z(t)$ where
 $$
 x(t) = (1 + t^2) \sin(2 \pi t), \ \ \ y(t) = (1 + t^2) \cos(2 \pi t), \ \ \ z(t) = t,
 $$
-and where the parameter $t$ lies in the interval $(-2, 2)$.
+and where the parameter $t$ lies in the interval $(-2, 2)$.\\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c}{\PYZsh{} Import Numpy and Matplotlib:}
 \PY{k+kn}{from} \PY{n+nn}{numpy} \PY{k+kn}{import} \PY{o}{*}
@@ -1680,7 +2213,14 @@ and where the parameter $t$ lies in the interval $(-2, 2)$.
 \PY{c}{\PYZsh{} Setup the 3D plot:}
 \PY{n}{fig} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{p}{)}
 \PY{n}{ax} \PY{o}{=} \PY{n}{fig}\PY{o}{.}\PY{n}{gca}\PY{p}{(}\PY{n}{projection}\PY{o}{=}\PY{l+s}{'}\PY{l+s}{3d}\PY{l+s}{'}\PY{p}{)}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
 \PY{c}{\PYZsh{} Define interval for parameter 't' and its}
 \PY{c}{\PYZsh{} division:}
 \PY{n}{t} \PY{o}{=} \PY{n}{linspace}\PY{p}{(}\PY{o}{-}\PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{100}\PY{p}{)}
@@ -1695,6 +2235,10 @@ and where the parameter $t$ lies in the interval $(-2, 2)$.
 \PY{n}{ax}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{)}
 \PY{n}{lab}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 The output is shown in Fig. \ref{fig:plot3d-1}.
 
 \begin{figure}[!ht]
@@ -1717,8 +2261,9 @@ use WebGL. We will plot the graph of the function
 $$
   f(x, y) = \sin(x) \sin(y)
 $$
-in the square $(-\pi, \pi) \times (-\pi, \pi)$.
+in the square $(-\pi, \pi) \times (-\pi, \pi)$.\\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c}{\PYZsh{} Import Numpy and Matplotlib:}
 \PY{k+kn}{from} \PY{n+nn}{numpy} \PY{k+kn}{import} \PY{o}{*}
@@ -1746,6 +2291,10 @@ in the square $(-\pi, \pi) \times (-\pi, \pi)$.
 \PY{c}{\PYZsh{} Show the plot:}
 \PY{n}{lab}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 The parameters {\tt rstride} (row stride) and {\tt cstride} (column stride)
 can be used to make the plot coarser when they are set to 2, 3, etc.
 The output is shown in Fig. \ref{fig:plot3d-2}.
@@ -1778,17 +2327,27 @@ The output is shown in Fig. \ref{fig:plot3d-3}.
 
 \noindent
 Contour plot can be obtained by replacing in the above code 
-the line 
+the line \\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{ax}\PY{o}{.}\PY{n}{plot\PYZus{}wireframe}\PY{p}{(}\PY{n}{X}\PY{p}{,} \PY{n}{Y}\PY{p}{,} \PY{n}{Z}\PY{p}{,} \PY{n}{rstride}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{cstride}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
 \end{Verbatim}
-with 
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+with \\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{cset} \PY{o}{=} \PY{n}{ax}\PY{o}{.}\PY{n}{contour}\PY{p}{(}\PY{n}{X}\PY{p}{,} \PY{n}{Y}\PY{p}{,} \PY{n}{Z}\PY{p}{,} \PY{n}{num\PYZus{}contours}\PY{p}{)}
 \PY{n}{ax}\PY{o}{.}\PY{n}{clabel}\PY{p}{(}\PY{n}{cset}\PY{p}{)}
 \end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 where {\tt num\_contours} is the number of contours to be shown.
 The output is shown in Fig. \ref{fig:plot3d-4}.
 
@@ -1815,10 +2374,11 @@ on the page {\tt http://femhub.com/nclab-tutorials/} for detailed instructions o
 In the following example, we plot the graph of the function 
 
 $$
-  f(x, y) = \sin(\sqrt{x^2 + y^2})
+  f(x, y) = \sin\left(\sqrt{x^2 + y^2}\right)
 $$
-in the square $(0, 10) \times (0, 10)$.
+in the square $(0, 10) \times (0, 10)$.\\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k+kn}{from} \PY{n+nn}{numpy} \PY{k+kn}{import} \PY{n}{sin}\PY{p}{,} \PY{n}{sqrt}\PY{p}{,} \PY{n}{arctan}
 
@@ -1836,6 +2396,10 @@ in the square $(0, 10) \times (0, 10)$.
 \PY{c}{\PYZsh{} Render the surface using WebGL.}
 \PY{n}{lab}\PY{o}{.}\PY{n}{surface}\PY{p}{(}\PY{p}{(}\PY{n}{x0}\PY{p}{,} \PY{n}{x1}\PY{p}{,} \PY{n}{nx}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{n}{y0}\PY{p}{,} \PY{n}{y1}\PY{p}{,} \PY{n}{ny}\PY{p}{)}\PY{p}{,} \PY{n}{f}\PY{p}{)}
 \end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 The output is shown in Fig. \ref{fig:webgl}.
 
 \begin{figure}[!ht]
@@ -1853,8 +2417,9 @@ The output is shown in Fig. \ref{fig:webgl}.
 
 Pie charts are an elegant way to report the breakdown of an ensemble 
 into parts (percentages). We use the Pylab's function {\tt pie} for that.
-The simplest example of a pie chart involves seven lines of code:
+The simplest example of a pie chart involves seven lines of code:\\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k+kn}{from} \PY{n+nn}{pylab} \PY{k+kn}{import} \PY{o}{*}
 \PY{n}{data} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{450}\PY{p}{,} \PY{l+m+mi}{550}\PY{p}{,} \PY{l+m+mi}{300}\PY{p}{]}
@@ -1864,6 +2429,10 @@ The simplest example of a pie chart involves seven lines of code:
 \PY{n}{pie}\PY{p}{(}\PY{n}{data}\PY{p}{,} \PY{n}{labels}\PY{o}{=}\PY{n}{labels}\PY{p}{)}
 \PY{n}{lab}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 \noindent
 The output is shown in Fig. \ref{fig:mice}.
 
@@ -1878,9 +2447,9 @@ The output is shown in Fig. \ref{fig:mice}.
 \noindent
 Next let us present a more advanced variant showing the production of an electronic company that 
 sells TVs, computer monitors, cameras, printers and scanners. The script contains 
-comments and additional details are explained under the code.
+comments and additional details are explained under the code.\\
 
-
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c}{\PYZsh{} Import libraries:}
 \PY{k+kn}{from} \PY{n+nn}{pylab} \PY{k+kn}{import} \PY{o}{*}
@@ -1913,6 +2482,10 @@ comments and additional details are explained under the code.
 \PY{n}{lab}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
 \noindent
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 The output is shown in Fig. \ref{fig:piech}.
 
 \newpage
@@ -1938,8 +2511,9 @@ which are between 0 (darkest) and 1 (lightest). The parameter {\tt pad} defines 
 Bar charts are a great way to visualize time-dependent data such as, for 
 example, the yearly growth of a company's revenues, 
 number of daily visits to a web page, weekly rate of unemployment 
-in the state, etc. The simplest bar chart involves 5 lines of code:
+in the state, etc. The simplest bar chart involves 5 lines of code:\\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k+kn}{from} \PY{n+nn}{pylab} \PY{k+kn}{import} \PY{o}{*}
 \PY{n}{data} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{450}\PY{p}{,} \PY{l+m+mi}{550}\PY{p}{,} \PY{l+m+mi}{300}\PY{p}{]}
@@ -1947,6 +2521,10 @@ in the state, etc. The simplest bar chart involves 5 lines of code:
 \PY{n}{bar}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{]}\PY{p}{,} \PY{n}{data}\PY{p}{)}
 \PY{n}{lab}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 The array {\tt [1, 2, 3]} specifies the positions on the horizontal 
 axis where the bars begin. The default width of the bars is 0.8 and it can be 
 adjusted via the parameter {\tt width} of the {\tt bar()} function.
@@ -1963,9 +2541,9 @@ The output is shown in Fig. \ref{fig:mice2}.
 \noindent
 Next let us present a more advanced bar chart that 
 shows a company's growth both in the total number of 
-employees and the yearly increments.
+employees and the yearly increments.\\
 
-
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c}{\PYZsh{} Import libraries:}
 \PY{k+kn}{from} \PY{n+nn}{numpy} \PY{k+kn}{import} \PY{n+nb}{max}
@@ -1977,7 +2555,14 @@ employees and the yearly increments.
 \PY{c}{\PYZsh{} Totals and increments:}
 \PY{n}{total} \PY{o}{=} \PY{p}{(}\PY{l+m+mi}{20}\PY{p}{,} \PY{l+m+mi}{25}\PY{p}{,} \PY{l+m+mi}{32}\PY{p}{,} \PY{l+m+mi}{42}\PY{p}{,} \PY{l+m+mi}{61}\PY{p}{)}
 \PY{n}{increment} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{5}\PY{p}{,} \PY{l+m+mi}{7}\PY{p}{,} \PY{l+m+mi}{10}\PY{p}{,} \PY{l+m+mi}{19}\PY{p}{,} \PY{l+m+mi}{30}\PY{p}{]}
- 
+\end{Verbatim}
+ \end{bbox}
+\vspace{6mm}
+
+\noindent
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
 \PY{c}{\PYZsh{} X-locations and width of the bars:}
 \PY{n}{ind} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{arange}\PY{p}{(}\PY{n}{N}\PY{p}{)}   
 \PY{n}{width} \PY{o}{=} \PY{l+m+mf}{0.4}
@@ -2009,6 +2594,10 @@ employees and the yearly increments.
 \PY{c}{\PYZsh{} Fetch image from server:}
 \PY{n}{lab}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 The output is shown in Fig. \ref{fig:barch}.
 \newpage
 
@@ -2035,42 +2624,27 @@ we encourage the reader to explore the original tutorial page at {\tt http://mat
 \subsection{Objectives}
 
 \begin{itemize}
-\item Review and refine your knowledge of variables.
+\item Learn to assign values to variables.
 \item Understand dynamic type interpretation.
-\item Learn about {\em local} and {\em global} variables.
+\item Learn more about {\em local} and {\em global} variables.
 \item Understand why global variables should be avoided.
 \item Learn about {\em shadowing} of variables.
 \end{itemize}
-The reason why we use variables is the same in Karel the Robot, Python, and all other programming 
-languages -- to store useful information for later use. Also the way we work with variables is almost the 
-same, so we will just mention a few aspects that are new in Python.
+The reason for using variables is to store useful information for later use. This is the same across
+all programming languages. The way we work with 
+variables in Python is almost the same as in Karel the Robot -- all that we learned 
+about variables with Karel applies here. Moreover, Python has interesting new features 
+that we will explore in this section. 
 
-\subsection{Assigning values to variables}
+\subsection{Creating variables}
 
-In Python, several variables can be initialized at the same time:
+Variables can store Boolean values (True of False), text strings, 
+integers, real numbers, and more. In Python, the type of a variable does not have to 
+be indicated in advance (such as for example in C/C++). The type of a variable will
+be figured out at runtime based on the value that is stored in it. This is called 
+{\em dynamic type interpretation}. Let us look at the following code:\\
 
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{x} \PY{o}{=} \PY{n}{y} \PY{o}{=} \PY{n}{z} \PY{o}{=} \PY{l+m+mf}{0.0}
-\PY{k}{print} \PY{l+s}{"}\PY{l+s}{x =}\PY{l+s}{"}\PY{p}{,} \PY{n}{x}
-\PY{k}{print} \PY{l+s}{"}\PY{l+s}{y =}\PY{l+s}{"}\PY{p}{,} \PY{n}{y}
-\PY{k}{print} \PY{l+s}{"}\PY{l+s}{z =}\PY{l+s}{"}\PY{p}{,} \PY{n}{z}
-\end{Verbatim}
-Output:
-
-\begin{verbatim}
-x = 0.0
-y = 0.0
-z = 0.0
-\end{verbatim}
-As in Karel, variables must be defined (have a value assigned) before they can be 
-used. 
-
-\subsection{Dynamic type interpretation}
-
-Python is very generous with the types of variables -- it will figure out the type of a variable 
-at runtime, depending on the value that we store in it. The type can even change at runtime.
-For example, let us look at the following code:
-
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{a} \PY{o}{=} \PY{l+m+mi}{5}
 \PY{k}{print} \PY{n}{a}
@@ -2079,66 +2653,216 @@ For example, let us look at the following code:
 \PY{n}{a} \PY{o}{=} \PY{n+nb+bp}{True}
 \PY{k}{print} \PY{n}{a}
 \end{Verbatim}
-The output is 
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+The output is \\
+
+\begin{ybox}
 \begin{verbatim}
 5
 Hi!
 True
 \end{verbatim}
-This is very different from compiled languages such as C, C++ where one needs to declare the type 
-of every variable before its first use, and the type then cannot be changed. 
+\end{ybox}
+\vspace{6mm}
+
+\noindent
+Initially, the type of the variable {\tt a} was an integer, then it was changed 
+to a text string, and finally it became a Boolean variable. Being able to do things 
+like this makes Python programming very flezible. However, we should not abuse our 
+freedoms unless there is a valid reason for it. \\
+
+\begin{gbox}
+\noindent
+{\bf It is a good programming practice to}:
+\begin{itemize}
+\item {\em Have names of variables reflect their contents}. 
+      For example, {\tt phone\_number} is a good name 
+      for a variable where phone numbers are stored. Using the name 
+      {\tt x17} for such a variable is not against any rules, but your code 
+      becomes unreadable.
+\item {\em Avoid abuse of dynamic type interpretation}. A variable, once
+      created for a purpose, should serve that purpose. If you need another 
+      variable for something else, just create another variable.\\
+\end{itemize}
+\end{gbox}
+\vspace{4mm}
+
+\noindent
+In general, do not be too inventive with names of variables nor with 
+algorithms. Make sure that your code is crystal clear. Write comments 
+as much as you can. You should not leave anything for the reader to 
+figure out by himself/herself. Otherwise no one will understand your 
+code -- not even yourself when you return to it after some time.
+
+\subsection{Initializing multiple variables at once}
+
+In Python, several variables can be created at the same time and
+initialized with the same value:\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{x} \PY{o}{=} \PY{n}{y} \PY{o}{=} \PY{n}{z} \PY{o}{=} \PY{l+m+mf}{0.0}
+\PY{k}{print} \PY{l+s}{"}\PY{l+s}{x =}\PY{l+s}{"}\PY{p}{,} \PY{n}{x}
+\PY{k}{print} \PY{l+s}{"}\PY{l+s}{y =}\PY{l+s}{"}\PY{p}{,} \PY{n}{y}
+\PY{k}{print} \PY{l+s}{"}\PY{l+s}{z =}\PY{l+s}{"}\PY{p}{,} \PY{n}{z}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+Output:\\
+
+\begin{ybox}
+\begin{verbatim}
+x = 0.0
+y = 0.0
+z = 0.0
+\end{verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
+Any variable must be defined (have a value assigned) before it can be used.
+If we try to use a variable that the interpreter has not seen before, such
+as {\tt w} in\\
+
+\begin{bbox}
+\begin{verbatim}
+x = w / 2.
+\end{verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+then an error message will follow:\\
+
+\begin{ybox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{Traceback} \PY{p}{(}\PY{n}{most} \PY{n}{recent} \PY{n}{call} \PY{n}{last}\PY{p}{)}\PY{p}{:}
+  \PY{n}{File} \PY{l+s}{"}\PY{l+s}{<nclab>}\PY{l+s}{"}\PY{p}{,} \PY{n}{line} \PY{l+m+mi}{2}\PY{p}{,} \PY{n}{in} \PY{o}{<}\PY{n}{module}\PY{o}{>}
+\PY{n+ne}{NameError}\PY{p}{:} \PY{n}{name} \PY{l+s}{'}\PY{l+s}{w}\PY{l+s}{'} \PY{n}{is} \PY{n}{not} \PY{n}{defined}
+\end{Verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
+Initializing a new variable with existing one(s) is indeed possible:\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{w} \PY{o}{=} \PY{p}{(}\PY{n}{x} \PY{o}{+} \PY{n}{y} \PY{o}{+} \PY{n}{z} \PY{o}{+} \PY{l+m+mi}{1}\PY{p}{)} \PY{o}{/} \PY{l+m+mf}{2.}
+\PY{k}{print} \PY{l+s}{"}\PY{l+s}{w =}\PY{l+s}{"}\PY{p}{,} \PY{n}{w}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+yields\\
+
+\begin{ybox}
+\begin{verbatim}
+w = 0.5
+\end{verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
+
 
 \subsection{Changing values of variables}
 
 The simplest way to increase the value of a numerical variable in Python by a given number 
-is to use the '{\tt +=}' command:
+is to use the '{\tt +=}' command:\\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{v} \PY{o}{=} \PY{l+m+mi}{1}
 \PY{n}{v} \PY{o}{+}\PY{o}{=} \PY{l+m+mi}{3}
 \PY{k}{print} \PY{l+s}{"}\PY{l+s}{v =}\PY{l+s}{"}\PY{p}{,} \PY{n}{v}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{verbatim}
 v = 4
 \end{verbatim}
-We can also subtract a number from a numerical variable:
+\end{ybox}
+\vspace{6mm}
 
+\noindent
+We can also subtract a number from a numerical variable:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{v} \PY{o}{-}\PY{o}{=} \PY{l+m+mi}{1}
 \PY{k}{print} \PY{l+s}{"}\PY{l+s}{New value of v is}\PY{l+s}{"}\PY{p}{,} \PY{n}{v}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{verbatim}
 New value of v is 3
 \end{verbatim}
-We can multiply a numerical variable with a number:
+\end{ybox}
+\vspace{6mm}
 
+\noindent
+We can multiply a numerical variable with a number:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{v} \PY{o}{*}\PY{o}{=} \PY{l+m+mi}{4}
 \PY{k}{print} \PY{l+s}{"}\PY{l+s}{Now v is}\PY{l+s}{"}\PY{p}{,} \PY{n}{v}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{verbatim}
 Now v is 12
 \end{verbatim}
-And finally, we can divide a numerical variable with a number:
+\end{ybox}
+\vspace{6mm}
 
+\noindent
+And finally, we can divide a numerical variable with a number:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{v} \PY{o}{/}\PY{o}{=} \PY{l+m+mi}{6}
 \PY{k}{print} \PY{l+s}{"}\PY{l+s}{Finally, v is}\PY{l+s}{"}\PY{p}{,} \PY{n}{v}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{verbatim}
 Finally, v is 2
 \end{verbatim}
-It is possible to use existing variables to assign a value to a new variable:
+\end{ybox}
+\vspace{6mm}
 
+\noindent
+As we already saw, it is possible to use existing variables to assign a value to a new variable:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{a} \PY{o}{=} \PY{l+m+mi}{1}
 \PY{n}{b} \PY{o}{=} \PY{l+m+mf}{2.5}
@@ -2146,36 +2870,54 @@ It is possible to use existing variables to assign a value to a new variable:
 \PY{n}{d} \PY{o}{=} \PY{p}{(}\PY{n}{a} \PY{o}{+} \PY{n}{b}\PY{p}{)} \PY{o}{/} \PY{n}{c}
 \PY{k}{print} \PY{l+s}{"}\PY{l+s}{d =}\PY{l+s}{"}\PY{p}{,} \PY{n}{d}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{verbatim}
 d = 7.0
 \end{verbatim}
-Of course, apples cannot be mixed with oranges. When we try to 
-add a number to a text string,
+\end{ybox}
+\vspace{6mm}
 
+\noindent
+Of course, apples cannot be mixed with oranges. When we try to 
+add a number to a text string,\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{a} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{My car is a Ferrari.}\PY{l+s}{"}
 \PY{n}{b} \PY{o}{=} \PY{l+m+mf}{3.5}
 
 \PY{n}{c} \PY{o}{=} \PY{n}{a} \PY{o}{+} \PY{n}{b}
 \end{Verbatim}
-then the interpreter rightfully complains:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+then the interpreter rightfully complains:\\
+
+\begin{ybox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{Traceback} \PY{p}{(}\PY{n}{most} \PY{n}{recent} \PY{n}{call} \PY{n}{last}\PY{p}{)}\PY{p}{:}
-  \PY{n}{File} \PY{l+s}{"}\PY{l+s}{<nclab>}\PY{l+s}{"}\PY{p}{,} \PY{n}{line} \PY{l+m+mi}{4}\PY{p}{,} \PY{o+ow}{in} \PY{o}{<}\PY{n}{module}\PY{o}{>}
-\PY{n+ne}{TypeError}\PY{p}{:} \PY{n}{cannot} \PY{n}{concatenate} \PY{l+s}{'}\PY{l+s}{str}\PY{l+s}{'} \PY{o+ow}{and} \PY{l+s}{'}\PY{l+s}{float}\PY{l+s}{'} \PY{n}{objects}
+  \PY{n}{File} \PY{l+s}{"}\PY{l+s}{<nclab>}\PY{l+s}{"}\PY{p}{,} \PY{n}{line} \PY{l+m+mi}{4}\PY{p}{,} \PY{n}{in} \PY{o}{<}\PY{n}{module}\PY{o}{>}
+\PY{n+ne}{TypeError}\PY{p}{:} \PY{n}{cannot} \PY{n}{concatenate} \PY{l+s}{'}\PY{l+s}{str}\PY{l+s}{'} \PY{n}{and} \PY{l+s}{'}\PY{l+s}{float}\PY{l+s}{'} \PY{n}{objects}
 \end{Verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
 
 \subsection{Local and global variables} \label{subsec:pythonlocvar}
 
-As we know from the Karel course, a variable defined 
-inside a function is {\em local} to that function. If we try to access 
-the variable outside the function, even though the function was 
-already called, the variable is  unknown. Look at the following 
-code:
+Variables defined inside a function are {\em local} to that function. If we try to access 
+such a variable outside the function, even though the function was already called, the 
+variable is unknown. Look at the following code:\\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k}{def} \PY{n+nf}{add}\PY{p}{(}\PY{n}{a}\PY{p}{,} \PY{n}{b}\PY{p}{)}\PY{p}{:}
     \PY{n}{c} \PY{o}{=} \PY{n}{a} \PY{o}{+} \PY{n}{b}
@@ -2184,26 +2926,47 @@ code:
 \PY{k}{print} \PY{l+s}{"}\PY{l+s}{Sum of 3 and 4 is}\PY{l+s}{"}\PY{p}{,} \PY{n}{add}\PY{p}{(}\PY{l+m+mi}{3}\PY{p}{,} \PY{l+m+mi}{4}\PY{p}{)}
 \PY{k}{print} \PY{n}{c}
 \end{Verbatim}
-The output is:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+The output is:\\
+
+\begin{ybox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{Sum} \PY{n}{of} \PY{l+m+mi}{3} \PY{l+m+mi}{and} \PY{l+m+mi}{4} \PY{l+m+mi}{is} \PY{l+m+mi}{7}
 \PY{n}{Traceback} \PY{p}{(}\PY{n}{most} \PY{n}{recent} \PY{n}{call} \PY{n}{last}\PY{p}{)}\PY{p}{:}
   \PY{n}{File} \PY{l+s}{"}\PY{l+s}{<nclab>}\PY{l+s}{"}\PY{p}{,} \PY{n}{line} \PY{l+m+mi}{6}\PY{p}{,} \PY{l+m+mi}{in} \PY{o}{<}\PY{n}{module}\PY{o}{>}
 \PY{n+ne}{NameError}\PY{p}{:} \PY{n}{name} \PY{l+s}{'}\PY{l+s}{c}\PY{l+s}{'} \PY{l+m+mi}{is} \PY{l+m+mi}{not} \PY{n}{defined}
 \end{Verbatim}
-In computer programming, {\em we want all our variables to be local}, because 
-this avoids name clashes and minimizes the risk of unwanted side effects.
-Mistakes such as unwanted overwriting of the value stored in a global variable 
-belong to the most difficult ones to find.
+\end{ybox}
+\vspace{6mm}
 
-\subsection{Sure method to spoil your code}
+\noindent
+In summary:\\
+
+\begin{gbox}
+{\bf It is a good programming practice to} 
+\begin{itemize}
+\item {\em Keep variables as local as possible}. 
+Mistakes such as using a variable in one part of the code and unintentionally 
+overwriting it in some other part belong to the most difficult ones 
+to find.
+\item {\em Avoid very long blocks of code}. If a function is longer than a few dozens 
+of lines, probably it is about time to break it down to two or more simpler ones. Keeping 
+functions short limits the space where variables can roam, making code healthier.
+\end{itemize} 
+\end{gbox}
+\vspace{4mm}
+
+\subsection{How to get in trouble}
 
 Once a variable is used in the main program, 
-then it is {\em global}, meaning that you could use it in 
-any function that you define. Like in the following 
-code:
+then it is {\em global}, meaning that you can use it in 
+any function without passing it as an argument. Like 
+in the following code:\\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{val} \PY{o}{=} \PY{l+m+mf}{5.0}
 
@@ -2212,51 +2975,61 @@ code:
 
 \PY{n}{msg}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
-This code is ugly! But it works (unfortunately), see the output:
-
-\begin{verbatim}
-val = 5.0
-\end{verbatim}
-Remember:\\
-
-\begin{center}
-{\color{red}\bf Passing global variables to functions is a bad habit that makes your code\\
-     difficult to understand, prone to mistakes, and extremely difficult to fix.}
-\end{center}
-
-
-\vspace{4mm}
-\noindent
-A function should always
-obtain all the data it needs through its arguments. Imagine that a unit of soldiers 
-would act based not only on orders it receives (that's the argument 
-list), but also based on rumors that some of the soldiers read in a Sunday magazine
-(those are the global variables). 
-That might not work really well!\\
+\end{bbox}
+\vspace{6mm}
 
 \noindent
-A clean version of the above code is
+Yuck! This code is not only ugly but also a source of future problems. Imagine 
+that your programming project grows and the definition of the variable {\tt val}
+is moved to a different module. Then, at  some point you realize that you should 
+get rid of the global variable {\tt val} because using global variables is not 
+a good programming practice. But when you remove it, the function {\tt msg()} 
+stops working! 
 
+On the other hand, it is very easy to write the code in a clean 
+fashion:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
-\PY{k}{def} \PY{n+nf}{msg}\PY{p}{(}\PY{n}{v}\PY{p}{)}\PY{p}{:}
-    \PY{k}{print} \PY{l+s}{"}\PY{l+s}{val =}\PY{l+s}{"}\PY{p}{,} \PY{n}{v}
+\PY{k}{def} \PY{n+nf}{msg}\PY{p}{(}\PY{n}{out}\PY{p}{)}\PY{p}{:}
+    \PY{k}{print} \PY{l+s}{"}\PY{l+s}{val =}\PY{l+s}{"}\PY{p}{,} \PY{n}{out}
 
 \PY{n}{val} \PY{o}{=} \PY{l+m+mf}{5.0}
 
 \PY{n}{msg}\PY{p}{(}\PY{n}{val}\PY{p}{)}
 \end{Verbatim}
-Now the function {\tt msg} is {\em well defined on its own} -- one does not 
-need to look elsewhere in the program to understand what it does. The output is:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Now the function {\tt msg()} is well defined -- one does not need to look 
+elsewhere in the program to understand what it does. The output is:\\
+
+\begin{ybox}
 \begin{verbatim}
 val = 5.0
 \end{verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
+Remember:\\
+
+\begin{gbox}
+{\bf It is a good programming practice to:}
+\begin{itemize}
+\item {\em Avoid global variables in functions}. 
+Any function that operates on some data should always obtain all the data as its parameters. 
+\end{itemize}
+\end{gbox}
 
 \subsection{Variable shadowing}
 
 Sometimes we may end up having two different variables of the same name in the code.
-Look, for example, at this short program:
+Usually this happens in large software projects, but we can only illustrate it on 
+a short program:\\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{c} \PY{o}{=} \PY{l+m+mi}{5}
 
@@ -2268,18 +3041,28 @@ Look, for example, at this short program:
 \PY{n}{add}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{)}
 \PY{k}{print} \PY{l+s}{"}\PY{l+s}{The value of c outside is}\PY{l+s}{"}\PY{p}{,} \PY{n}{c}
 \end{Verbatim}
-The output is
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+The output is\\
+
+\begin{ybox}
 \begin{verbatim}
 The value of c inside is 3
 The value of c outside is 5
 \end{verbatim}
-There is no 
-problem with the last line of the program because the local variable {\tt c}, defined
-inside of the function {\tt add}, is no longer defined there. But inside of the function
-{\tt add}, both the global variable {\tt c} and the local variable {\tt c} are defined at 
-the same time. This is commonly referred to as {\em variable shadowing}, and we need to 
-remember that if this happens, {\bf the local variable is used}.
+\end{ybox}
+\vspace{6mm}
+
+\noindent
+We say that the global variable {\tt c} defined in the first line of the 
+code is in the function {\tt add()} {\em shadowed} by the local variable {\tt c}. 
+Simply said, local variables in functions have priority. What actually happens 
+when the above code is interpreted, is that the interpreter gives to the two 
+{\tt c} variables different names. For the interpreter,
+they are two completely different objects. 
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -2289,66 +3072,112 @@ remember that if this happens, {\bf the local variable is used}.
 
 \begin{itemize}
 \item Review Boolean expressions, operations, and variables.
+\item Learn the Monte Carlo method of scientific computing.
 \end{itemize}
 Logic is always a useful review topic, so let's return to it briefly although logic in Python is 
 virtually the same as in Karel the Robot.
 
-\subsection{Boolean expressions}
+\subsection{{\tt True} and {\tt False}}
 
-Let's begin with creating a variable and printing it:
+Let's begin with creating a variable and printing it:\\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{a} \PY{o}{=} \PY{l+m+mi}{1}
 \PY{k}{print} \PY{n}{a}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{verbatim}
 1
 \end{verbatim}
-Now type
+\end{ybox}
+\vspace{6mm}
 
+\noindent
+Now type\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k}{print} \PY{n}{a} \PY{o}{>} \PY{l+m+mi}{0}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nb+bp}{True}
 \end{Verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
 Although the syntax looks a bit unusual, this is a correct
 Python code -- since {\tt a} is one, the Boolean expression {\tt a > 0}
 is {\tt True}. This is the value that gets printed. We can try it the other 
-way round:
+way round:\\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k}{print} \PY{n}{a} \PY{o}{<} \PY{l+m+mi}{0}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nb+bp}{False}
 \end{Verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
+{\tt True} and {\tt False} are the two possible values of 
+logical (Boolean) expressions. In the next paragraph we will learn 
+to store them in variables, and in Paragraph \ref{subsec:boolop} 
+we will use them with logical operations.
 
 \subsection{Boolean variables}
 
-We can also store the value of the expression {\tt a > 0} in a Boolean variable,
-and print it:
+Boolean values can be stored in variables similarly as numbers or text strings.
+For example:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{b} \PY{o}{=} \PY{n}{a} \PY{o}{<} \PY{l+m+mi}{0}
 \PY{k}{print} \PY{n}{b}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nb+bp}{False}
 \end{Verbatim}
-Boolean expressions involving numbers often contain the following operators:
+\end{ybox}
+\vspace{6mm}
+
+\noindent
+Boolean expressions involving numbers often contain the following operators:\\
 
 \begin{center}
 \begin{tabular}{|c|l|}
 \hline
-\ Symbol & \ Meaning \\
+\ Symbol \ & \ Meaning \\
 \hline
 {\tt >} & \ greater than\\
 {\tt >=} & \ greater than or equal to\\
@@ -2362,54 +3191,307 @@ Boolean expressions involving numbers often contain the following operators:
 \end{tabular}
 \end{center}
 
-\subsection{Boolean operations}
+\subsection{Boolean operations}\label{subsec:boolop}
 
-With Boolean variables we can do {\em logical operations}. The first is 
-logical {\em and}. If A and B are logical expressions, then A {\em and} B
-is True only if A as well as B are True, otherwise it is False:
+When solving real-life problems, our algorithms often 
+contain conditions that include more than one logical 
+expression. For example, consider an algorithm that 
+calculates the area of a triangle with edge
+lengths $a$, $b$ and $c$. These three numbers are provided by 
+the user. Clearly, the result is undefined if any of the three
+numbers is negative or zero. It is also undefined if 
+the three numbers are positive but do not satisfy the 
+triangle inequality (the sum of the lengths of two shorter edges 
+must be greater than the length of the longest edge).
+Hence, before we calculate the area, we need to introduce the 
+following logical variables:\\
 
+\noindent
+$A = a > 0$\\
+$B = b > 0$\\
+$C = c > 0$\\
+$D = a + b > c$\\
+$E = a + c > b$\\
+$F = b + c > a$\\
+
+\noindent
+The numbers $a$, $b$, $c$ form an admissible input if the following 
+Boolean expression is Tue:\\
+
+\noindent
+\begin{center}
+$A$ $and$ $B$ $and$ $C$ $and$ ($D$ $or$ $E$ $or$ $F$) \\
+\end{center}
+
+\noindent
+We can see that logical operations indeed are useful. Now let us revisit them 
+one by one, starting with logical {\em and}:\\
+
+\noindent 
+If $A$ and $B$ are logical expressions, then $A$ {\em and} $B$
+is True only if $A$ as well as $B$ are True, otherwise it is False:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{a} \PY{o}{=} \PY{l+m+mi}{1}
 \PY{n}{v1} \PY{o}{=} \PY{n}{a} \PY{o}{>} \PY{l+m+mi}{0}
 \PY{n}{v2} \PY{o}{=} \PY{n}{a} \PY{o}{<} \PY{l+m+mi}{5}
 \PY{k}{print} \PY{n}{v1} \PY{o+ow}{and} \PY{n}{v2}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nb+bp}{True}
 \end{Verbatim}
-Logical {\em or} of expressions A and B is True if at least one of A, B is True. Otherwise 
-it is False:
+\end{ybox}
+\vspace{6mm}
 
+\noindent
+Logical {\em or} of expressions $A$ and $B$ is True if at least one of $A$, $B$ is True. Otherwise 
+it is False:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{v3} \PY{o}{=} \PY{n}{a} \PY{o}{>} \PY{l+m+mi}{10}
 \PY{k}{print} \PY{n}{v1} \PY{o+ow}{or} \PY{n}{v3}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nb+bp}{True}
 \end{Verbatim}
-Negation is a logical operation that changes the value of expression A to False if A is True, 
-and vice versa:
+\end{ybox}
+\vspace{6mm}
 
+\noindent
+Negation is a logical operation that changes the value of expression $A$ to False if $A$ is True, 
+and vice versa:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{v4} \PY{o}{=} \PY{o+ow}{not} \PY{n}{v1}
 \PY{k}{print} \PY{n}{v4}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nb+bp}{False}
 \end{Verbatim}
-Sometimes logical expressions can be more complicated, but this is no problem
-as we always can use round brackets: 
+\end{ybox}
+\vspace{6mm}
 
+\noindent
+Sometimes logical expressions can be more complicated, but this is no problem
+as we always can use round brackets: \\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{v5} \PY{o}{=} \PY{o+ow}{not} \PY{p}{(}\PY{p}{(}\PY{n}{v1} \PY{o+ow}{and} \PY{n}{v2}\PY{p}{)} \PY{o+ow}{or} \PY{p}{(}\PY{n}{v3} \PY{o+ow}{and} \PY{o+ow}{not} \PY{n}{v4}\PY{p}{)}\PY{p}{)}
 \end{Verbatim}
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+
+\subsection{The Monte Carlo method}
+
+The Monte Carlo method is a popular method of scientific computing 
+that employs random numbers to obtain results that otherwise would 
+be very difficult to calculate. Sounds complicated? On the contrary, 
+Monte Carlo methods are very simple! For demonstration, let us calculate 
+the area of an ellipse. 
+
+An ellipse centered at the origin $(0, 0)$ whose major and minor half-axes
+$a$ and $b$ coincide with the $x$ and $y$ axes is given by the formula 
+$$
+\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1.
+$$
+In other words, all points $(x, y)$ in the plane that satisfy this equation
+form the ellipse. It is also true that all points in the plane that 
+satisfy 
+
+$$
+\frac{x^2}{a^2} + \frac{b^2}{y^2} < 1
+$$
+form the interior of the ellipse. Obviously the ellipse is enclosed 
+in the rectangle $(-a, a)\times(-b, b)$. The idea of the Monte Carlo 
+algorithm is very simple: We will generate $n$ random points inside 
+the rectangle, and count how many of them fall inside the ellipse.
+The latter number will be denoted by $m$. With a sufficiently large 
+$n$, such as $100,000$ or more, the ratio of $m$ and $n$ will
+be close to the ratio of the area of the ellipse $E$ and the 
+area of the rectangle $R = 4ab$. Hence we obtain a simple formula
+
+$$
+\frac{m}{n} \approx \frac{E}{R}
+$$ 
+from which we can express the area of the ellipse as 
+
+$$
+E \approx R\frac{m}{n}.
+$$
+Now we can start coding! 
+
+\subsection*{The program}
+
+First, let us write a Boolean function 
+{\tt \tt is\_inside(x, y, a, b)} that returns {\tt True} if the 
+point $(x, y)$ lies inside the ellipse, and {\tt False} otherwise:\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c}{\PYZsh{} Check whether point (x, y) is }
+\PY{c}{\PYZsh{} inside an ellipse with half-axes}
+\PY{c}{\PYZsh{} a and b:}
+\PY{k}{def} \PY{n+nf}{is\PYZus{}inside}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{n}{a}\PY{p}{,} \PY{n}{b}\PY{p}{)}\PY{p}{:}
+    \PY{c}{\PYZsh{} Avoid eventual problems with }
+    \PY{c}{\PYZsh{} integer-integer division:}
+    \PY{n}{x} \PY{o}{=} \PY{n+nb}{float}\PY{p}{(}\PY{n}{x}\PY{p}{)}
+    \PY{n}{y} \PY{o}{=} \PY{n+nb}{float}\PY{p}{(}\PY{n}{y}\PY{p}{)}
+    \PY{c}{\PYZsh{} Check if point is inside:}
+    \PY{k}{if} \PY{p}{(}\PY{n}{x}\PY{o}{/}\PY{n}{a}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2} \PY{o}{+} \PY{p}{(}\PY{n}{y}\PY{o}{/}\PY{n}{b}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2} \PY{o}{<} \PY{l+m+mi}{1}\PY{p}{:}
+        \PY{k}{return} \PY{n+nb+bp}{True}
+    \PY{k}{else}\PY{p}{:}
+        \PY{k}{return} \PY{n+nb+bp}{False}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+Notice the way we make sure that the divisions $x / a$
+and $y / b$ yield correct results even if all these 
+variables are integers. 
+
+In the next step we import the {\tt random()} function and write the 
+Monte Carlo algorithm. For this, we need to introduce 
+the counting loop in Python. Recall that to make Karel
+the Robot increase the value of the variable {\tt a} by one {\tt n} times,
+we wrote:\\
+
+\begin{bbox}
+\begin{verbatim}
+repeat n
+    a += 1
+\end{verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+Python does not have the {\tt repeat} command but the same can be 
+achieved by
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{n}\PY{p}{)}\PY{p}{:}
+    \PY{n}{a} \PY{o}{+}\PY{o}{=} \PY{l+m+mi}{1}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+The {\tt for} loop in Python is much more powerful than the {\tt repeat} 
+loop in Karel and it will be discussed in detail in Section \ref{sec:forloop}. 
+Now let us return to our Monte Carlo method:\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c}{\PYZsh{} Import libraries:}
+\PY{k+kn}{from} \PY{n+nn}{random} \PY{k+kn}{import} \PY{n}{random}
+
+\PY{c}{\PYZsh{} Monte Carlo algorithm for }
+\PY{c}{\PYZsh{} ellipse area calculation:}
+\PY{k}{def} \PY{n+nf}{area}\PY{p}{(}\PY{n}{a}\PY{p}{,} \PY{n}{b}\PY{p}{,} \PY{n}{n}\PY{p}{)}\PY{p}{:}
+    \PY{c}{\PYZsh{} Initialize m by zero:}
+    \PY{n}{m} \PY{o}{=} \PY{l+m+mi}{0}
+    \PY{c}{\PYZsh{} Repeat n times:}
+    \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{n}\PY{p}{)}\PY{p}{:}
+        \PY{c}{\PYZsh{} Random number between 0 and 1:}
+        \PY{n}{x} \PY{o}{=} \PY{n}{random}\PY{p}{(}\PY{p}{)}
+        \PY{c}{\PYZsh{} Transform it between (-a, a):}
+        \PY{n}{x} \PY{o}{=} \PY{p}{(}\PY{n}{x} \PY{o}{-} \PY{l+m+mf}{0.5}\PY{p}{)} \PY{o}{*} \PY{l+m+mi}{2} \PY{o}{*} \PY{n}{a}
+        \PY{c}{\PYZsh{} Random number between 0 and 1:}
+        \PY{n}{y} \PY{o}{=} \PY{n}{random}\PY{p}{(}\PY{p}{)}
+        \PY{c}{\PYZsh{} Transform it between (-b, b):}
+        \PY{n}{y} \PY{o}{=} \PY{p}{(}\PY{n}{y} \PY{o}{-} \PY{l+m+mf}{0.5}\PY{p}{)} \PY{o}{*} \PY{l+m+mi}{2} \PY{o}{*} \PY{n}{b}
+        \PY{c}{\PYZsh{} If the point (x, y) lies in }
+        \PY{c}{\PYZsh{} ellipse, increase m by one:}
+        \PY{k}{if} \PY{n}{is\PYZus{}inside}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{n}{a}\PY{p}{,} \PY{n}{b}\PY{p}{)}\PY{p}{:}
+            \PY{n}{m} \PY{o}{+}\PY{o}{=} \PY{l+m+mi}{1}
+    \PY{c}{\PYZsh{} Area of rectangle (-a, a)x(-b, b):}
+    \PY{k}{print} \PY{n}{m}
+    \PY{n}{R} \PY{o}{=} \PY{l+m+mf}{4.0} \PY{o}{*} \PY{n}{a} \PY{o}{*} \PY{n}{b}
+    \PY{c}{\PYZsh{} Calculate the approximate area:}
+    \PY{n}{E} \PY{o}{=} \PY{n}{R} \PY{o}{*} \PY{n}{m} \PY{o}{/} \PY{n}{n}
+    \PY{c}{\PYZsh{} Return it:}
+    \PY{k}{return} \PY{n}{E}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+The code is ready and we can test it. Let us do it for $a = 2$, $b = 1$
+and various values of $n$:
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c}{\PYZsh{} Test the code:}
+\PY{n}{a} \PY{o}{=} \PY{l+m+mi}{2}
+\PY{n}{b} \PY{o}{=} \PY{l+m+mi}{1}
+\PY{k}{print} \PY{l+s}{"}\PY{l+s}{a =}\PY{l+s}{"}\PY{p}{,} \PY{n}{a} 
+\PY{k}{print} \PY{l+s}{"}\PY{l+s}{b =}\PY{l+s}{"}\PY{p}{,} \PY{n}{b} 
+\PY{n}{n} \PY{o}{=} \PY{l+m+mi}{10000}
+\PY{n}{A} \PY{o}{=} \PY{n}{area}\PY{p}{(}\PY{n}{a}\PY{p}{,} \PY{n}{b}\PY{p}{,} \PY{n}{n}\PY{p}{)}
+\PY{k}{print} \PY{l+s}{"}\PY{l+s}{For n =}\PY{l+s}{"}\PY{p}{,} \PY{n}{n}\PY{p}{,} \PY{l+s}{"}\PY{l+s}{area =}\PY{l+s}{"}\PY{p}{,} \PY{n}{A}
+\PY{n}{n} \PY{o}{=} \PY{l+m+mi}{100000}
+\PY{n}{A} \PY{o}{=} \PY{n}{area}\PY{p}{(}\PY{n}{a}\PY{p}{,} \PY{n}{b}\PY{p}{,} \PY{n}{n}\PY{p}{)}
+\PY{k}{print} \PY{l+s}{"}\PY{l+s}{For n =}\PY{l+s}{"}\PY{p}{,} \PY{n}{n}\PY{p}{,} \PY{l+s}{"}\PY{l+s}{area =}\PY{l+s}{"}\PY{p}{,} \PY{n}{A}
+\PY{n}{n} \PY{o}{=} \PY{l+m+mi}{1000000}
+\PY{n}{A} \PY{o}{=} \PY{n}{area}\PY{p}{(}\PY{n}{a}\PY{p}{,} \PY{n}{b}\PY{p}{,} \PY{n}{n}\PY{p}{)}
+\PY{k}{print} \PY{l+s}{"}\PY{l+s}{For n =}\PY{l+s}{"}\PY{p}{,} \PY{n}{n}\PY{p}{,} \PY{l+s}{"}\PY{l+s}{area =}\PY{l+s}{"}\PY{p}{,} \PY{n}{A}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+The corresponding output is:\\
+
+\begin{ybox}
+\begin{verbatim}
+a = 2
+b = 1
+7836
+For n = 10000 area = 6.2688
+78473
+For n = 100000 area = 6.27784
+785078
+For n = 1000000 area = 6.280624
+\end{verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
+This is not a bad result, our approximation is accurate 
+to two decimal digits!
+This can be checked using a simple formula for 
+the area of an ellipse, that you can find on Wikipedia.
+Do this as your homework! According to this 
+formula, the exact area of the above ellipse
+is $2\pi = 6.283185307179586$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Conditional Loop} \label{sec:while}

@@ -449,8 +449,9 @@ and object-oriented programming are given in Section \ref{sec:adv}.
 
 In NCLab's Python Worksheet, Python code is typed into one or more code cells. 
 The code is then sent as a text string to a remote server where it is interpreted, and the 
-results are sent back to your computer / laptop / tablet, and displayed in your web 
-browser.
+results are sent back to your web browser. It does not matter if you are using a desktop 
+computer, laptop, netbook, tablet, or any other hardware platform. Your hardware
+is not used for computing, only in a limited fashion for graphics rendering.
 
 
 \subsection{Launching a Python project}
@@ -747,13 +748,15 @@ Output:\\
 \noindent
 By calculating {\tt 1000 - 83 * 12} we obtain {\tt 4} which is the remainder of the 
 integer division. In fact the remainder can be calculated in a simpler way
-using the modulo operator, as will be shown in the next paragraph. But before we 
-move there, let's summarize:\\
+using the modulo operator that will be introduced in the next paragraph.\\
+
+\noindent
+In summary:\\
 
 \begin{gbox}
 \begin{center}
-{Failure to convert at least one operand in division 
-to a real number can be\\ a source of mistakes that are extremely hard to find.}
+Keep in mind that division is a tricky operation. Failure to convert at least one operand 
+to a real number can be a source of mistakes that are very hard to find.
 \end{center}
 \end{gbox}
 
@@ -865,7 +868,8 @@ Output:\\
 \vspace{6mm}
 
 \subsection{Priority of operators}
-Python respects the standard priority of operators:
+Python respects the standard priority of operators that 
+is standard in mathematics:
 
 \begin{itemize} 
 \item Round brackets '{\tt (...)}'have the highest priority,
@@ -876,7 +880,8 @@ Python respects the standard priority of operators:
 Note that no other brackets such as {\tt \{ \}} and {\tt [ ]} are 
 admissible in mathematical expressions. The reason is that they have a different 
 function in the programming language.
-To illustrate the priority of operations, we can try the following:\\
+To illustrate the priority of operations, we evaluate the following 
+expression:\\
 
 \begin{bbox}
 \begin{verbatim}
@@ -896,6 +901,26 @@ Output:\\
 \vspace{6mm}
 
 \noindent
+If we are not sure, it never hurts to use round brackets:\\
+
+\begin{bbox}
+\begin{verbatim}
+(3**4) / 27 * 5 + 3 * 5
+\end{verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+Output:\\
+
+\begin{ybox}
+\begin{verbatim}
+30
+\end{verbatim}
+\end{ybox}
+\vspace{6mm}
+
+
 
 \subsection{Using empty characters makes you code better readable}
 Your code will be much better readable if you use empty
@@ -992,6 +1017,17 @@ them. For example, the absolute value function is imported via {\tt from numpy i
 %}
 \vspace{4mm}
 \noindent
+
+\noindent
+In summary:\\
+
+\begin{gbox}
+\begin{center}
+Python provides many readily available mathematical functions via the Numpy library.
+To use them, import them via the command {\tt from numpy import *}
+\end{center}
+\end{gbox}
+
 
 \subsection{\ \ Fractions}
 
@@ -1250,19 +1286,39 @@ Output:\\
 \subsection{Objectives}
 
 \begin{itemize}
-\item Review and refine your knowledge of custom functions.
+\item Review what we know about functions from Karel the Robot.
+\item Learn that in Python, functions can accept input arguments.
 \item Learn to use default arguments and return multiple values.
 \end{itemize}
-Custom {\em functions} in Python are the same thing as in Karel, 
-but in Python they can moreover accept {\em input arguments}. Recall that 
-functions in Karel were defined to make some functionality easily 
-reusable -- in Python they are defined for the same reason.
 
 \subsection{Defining new functions}
 
-The definition of a new function begins with the keyword {\tt def} as in Karel. In Python,
-we moreover use round brackets for arguments and a colon at the end of the line. 
-For example, the following function adds two numbers
+The purpose of creating custom functions is to make selected functionality 
+easily reusable. In this way we can avoid code duplication, and bring more 
+structure and transparency into our programs. \\
+
+\noindent
+In Karel the Robot, custom functions were similar to commands but 
+additionally, they could return values. For example, a function 
+{\tt turnsouth}, that turns the robot to face South and makes him 
+return his GPS coordinates, looks as follows:\\
+
+\begin{bbox}
+\begin{verbatim}
+def turnsouth
+    while not north 
+        left
+    repeat 2
+        left
+    return [gpsx, gpsy]
+\end{verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+In Python, the definition of a new function also begins with the keyword {\tt def},
+but we moreover have to use round brackets for input arguments and the colon '{\tt :}'
+at the end of the line. For example, the following function adds two numbers
 and returns the result:\\
 
 \begin{bbox}
@@ -1741,7 +1797,7 @@ real numbers between 0 and 1. For the primary colors we have\\
 \begin{center}
 \begin{tabular}{|c||c|c|c|}
 \hline
-Color & R & G & B \\
+\ Color & \ R \ & \ G \ & \ B \ \\
 \hline
 \hline
 Red & 1 & 0 & 0\\
@@ -1752,6 +1808,7 @@ Blue & 0 & 0 & 1\\
 \hline
 \end{tabular}
 \end{center}
+\vspace{4mm}
 These colors are shown in the following Fig. \ref{fig:rgb}.
 
 \begin{figure}[!ht]
@@ -1765,7 +1822,6 @@ These colors are shown in the following Fig. \ref{fig:rgb}.
 \noindent
 When the proportions of all three primary colors are the same, the result is a shade of grey.
 With [0, 0, 0] one obtains black, with [1, 1, 1] white. This is illustrated in Fig. \ref{fig:rgb2}.
-\newpage
 
 \begin{figure}[!ht]
 \begin{center}
@@ -1820,6 +1876,7 @@ example with just five points [0, 0], [1, 2], [2, 0.5], [3, 2.5] and [4, 0]:\\
 The commands {\tt clf()}, {\tt plot()} and {\tt lab.show()} do clear the canvas, 
 plot the graph, and fetch the image from server, respectively.
 The output is shown in Fig. \ref{fig:plot}.
+\newpage
 
 \begin{figure}[!ht]
 \begin{center}
@@ -1839,7 +1896,6 @@ The above plot was done using a default blue color. The color can be
 set by passing an optional parameter {\tt color = [R, G, B]} into the {\tt plot()}
 function. For illustration, changing the fifth line in the last script to {\tt plot(x, y, color = [1, 0, 1])},
 we obtain a pink polyline shown in Fig. \ref{fig:pinkplot}.
-\newpage
 
 \begin{figure}[!ht]
 \begin{center}
@@ -1850,9 +1906,9 @@ we obtain a pink polyline shown in Fig. \ref{fig:pinkplot}.
 \vspace{-2mm}
 \caption{Setting custom color.}
 \label{fig:pinkplot}
-%\vspace{-1cm}
+\vspace{-1cm}
 \end{figure}
-
+\newpage
 
 
 \subsection{Plotting functions of one variable}\label{plotting}
@@ -1926,7 +1982,6 @@ and the line style can be changed. Let us start with adding a label:\\
 
 \noindent
 The output is shown in Fig. \ref{fig:plot2}.
-\newpage
 
 \begin{figure}[!ht]
 \begin{center}
@@ -1952,17 +2007,17 @@ Next let us change the color to red and line style to dashed: \\
 
 \noindent
 The output is shown in Fig. \ref{fig:plot3}.\\[-7mm]
+\newpage
 
 \begin{figure}[!ht]
 \begin{center}
 \includegraphics[width=0.6\textwidth]{img/plot3.png}
 \end{center}
-\vspace{-6mm}
+\vspace{-7mm}
 \caption{Same graph using dashed red line.}
-\vspace{-1cm}
+\vspace{-6mm}
 \label{fig:plot3}
 \end{figure}
-\newpage
 \noindent
 The graph can be plotted using green color and small dots rather than 
 a solid or dashed line:\\
@@ -1978,17 +2033,18 @@ a solid or dashed line:\\
 \vspace{6mm}
 
 \noindent
-The output is shown in Fig. \ref{fig:plot4}.
+The output is shown in Fig. \ref{fig:plot4}.\\[-8mm]
 
 \begin{figure}[!ht]
 \begin{center}
 \includegraphics[width=0.6\textwidth]{img/plot4.png}
 \end{center}
-\vspace{-6mm}
+\vspace{-7mm}
 \caption{Same graph using dotted green line.}
 \label{fig:plot4}
-%\vspace{-1cm}
+\vspace{-1.5cm}
 \end{figure}
+\newpage
 \noindent
 Last let us stay with green color but make the dots larger:\\
 
@@ -2005,7 +2061,6 @@ Last let us stay with green color but make the dots larger:\\
 \noindent
 \noindent
 The output is shown in Fig. \ref{fig:plot5}.
-\newpage
 
 \begin{figure}[!ht]
 \begin{center}
@@ -2045,7 +2100,6 @@ grid can be displayed by using the {\tt grid()} command:\\
 \noindent
 \noindent
 The output is shown in Fig. \ref{fig:plot8}.
-\newpage
 
 \begin{figure}[!ht]
 \begin{center}
@@ -2128,7 +2182,6 @@ in one figure as needed. Let us do three:\\
 \noindent
 \noindent
 The output is shown in Fig. \ref{fig:plot7}.
-\newpage
 
 \begin{figure}[!ht]
 \begin{center}
@@ -2213,14 +2266,7 @@ and where the parameter $t$ lies in the interval $(-2, 2)$.\\
 \PY{c}{\PYZsh{} Setup the 3D plot:}
 \PY{n}{fig} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{p}{)}
 \PY{n}{ax} \PY{o}{=} \PY{n}{fig}\PY{o}{.}\PY{n}{gca}\PY{p}{(}\PY{n}{projection}\PY{o}{=}\PY{l+s}{'}\PY{l+s}{3d}\PY{l+s}{'}\PY{p}{)}
-\end{Verbatim}
-\end{bbox}
-\vspace{6mm}
 
-\noindent
-
-\begin{bbox}
-\begin{Verbatim}[commandchars=\\\{\}]
 \PY{c}{\PYZsh{} Define interval for parameter 't' and its}
 \PY{c}{\PYZsh{} division:}
 \PY{n}{t} \PY{o}{=} \PY{n}{linspace}\PY{p}{(}\PY{o}{-}\PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{100}\PY{p}{)}
@@ -2248,7 +2294,7 @@ The output is shown in Fig. \ref{fig:plot3d-1}.
 \vspace{-4mm}
 \caption{Plotting a parametric 3D curve.}
 \label{fig:plot3d-1}
-\vspace{-1cm}
+%\vspace{-1cm}
 \end{figure}
 \newpage
 
@@ -2273,7 +2319,14 @@ in the square $(-\pi, \pi) \times (-\pi, \pi)$.\\
 \PY{c}{\PYZsh{} Setup the 3D plot:}
 \PY{n}{fig} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{p}{)}
 \PY{n}{ax} \PY{o}{=} \PY{n}{fig}\PY{o}{.}\PY{n}{gca}\PY{p}{(}\PY{n}{projection}\PY{o}{=}\PY{l+s}{'}\PY{l+s}{3d}\PY{l+s}{'}\PY{p}{)}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
 \PY{c}{\PYZsh{} Define intervals on the 'x' and 'y' axes and }
 \PY{c}{\PYZsh{} their divisions:}
 \PY{n}{x} \PY{o}{=} \PY{n}{linspace}\PY{p}{(}\PY{o}{-}\PY{n}{pi}\PY{p}{,} \PY{n}{pi}\PY{p}{,} \PY{l+m+mi}{30}\PY{p}{)}
@@ -2298,7 +2351,6 @@ in the square $(-\pi, \pi) \times (-\pi, \pi)$.\\
 The parameters {\tt rstride} (row stride) and {\tt cstride} (column stride)
 can be used to make the plot coarser when they are set to 2, 3, etc.
 The output is shown in Fig. \ref{fig:plot3d-2}.
-\newpage
 
 \begin{figure}[!ht]
 \begin{center}
@@ -2323,7 +2375,6 @@ The output is shown in Fig. \ref{fig:plot3d-3}.
 \label{fig:plot3d-3}
 %\vspace{-1cm}
 \end{figure}
-\newpage
 
 \noindent
 Contour plot can be obtained by replacing in the above code 
@@ -2350,6 +2401,7 @@ with \\
 \noindent
 where {\tt num\_contours} is the number of contours to be shown.
 The output is shown in Fig. \ref{fig:plot3d-4}.
+\newpage
 
 \begin{figure}[!ht]
 \begin{center}
@@ -2675,18 +2727,21 @@ like this makes Python programming very flezible. However, we should not abuse o
 freedoms unless there is a valid reason for it. \\
 
 \begin{gbox}
+Avoid abuse of dynamic type interpretation. A variable, once
+      created for a purpose, should serve that purpose. If you need another 
+      variable for something else, just create another variable.
+\end{gbox}
+\vspace{4mm}
+
 \noindent
-{\bf It is a good programming practice to}:
-\begin{itemize}
-\item {\em Have names of variables reflect their contents}. 
+Also:\\
+
+\begin{gbox}
+Have names of variables reflect their contents. 
       For example, {\tt phone\_number} is a good name 
       for a variable where phone numbers are stored. Using the name 
       {\tt x17} for such a variable is not against any rules, but your code 
       becomes unreadable.
-\item {\em Avoid abuse of dynamic type interpretation}. A variable, once
-      created for a purpose, should serve that purpose. If you need another 
-      variable for something else, just create another variable.\\
-\end{itemize}
 \end{gbox}
 \vspace{4mm}
 
@@ -2946,7 +3001,6 @@ The output is:\\
 In summary:\\
 
 \begin{gbox}
-{\bf It is a good programming practice to} 
 \begin{itemize}
 \item {\em Keep variables as local as possible}. 
 Mistakes such as using a variable in one part of the code and unintentionally 
@@ -3013,14 +3067,11 @@ val = 5.0
 \vspace{6mm}
 
 \noindent
-Remember:\\
+In summary:\\
 
 \begin{gbox}
-{\bf It is a good programming practice to:}
-\begin{itemize}
-\item {\em Avoid global variables in functions}. 
+Avoid using global variables in functions. 
 Any function that operates on some data should always obtain all the data as its parameters. 
-\end{itemize}
 \end{gbox}
 
 \subsection{Variable shadowing}
@@ -3073,6 +3124,7 @@ they are two completely different objects.
 \begin{itemize}
 \item Review Boolean expressions, operations, and variables.
 \item Learn the Monte Carlo method of scientific computing.
+\item Encounter the {\tt for} loop in Python for the first time.
 \end{itemize}
 Logic is always a useful review topic, so let's return to it briefly although logic in Python is 
 virtually the same as in Karel the Robot.
@@ -3308,7 +3360,7 @@ as we always can use round brackets: \\
 
 \noindent
 
-\subsection{The Monte Carlo method}
+\subsection{The Monte Carlo method}\label{subsec:montecarlo}
 
 The Monte Carlo method is a popular method of scientific computing 
 that employs random numbers to obtain results that otherwise would 
@@ -3330,8 +3382,8 @@ $$
 $$
 form the interior of the ellipse. Obviously the ellipse is enclosed 
 in the rectangle $(-a, a)\times(-b, b)$. The idea of the Monte Carlo 
-algorithm is very simple: We will generate $n$ random points inside 
-the rectangle, and count how many of them fall inside the ellipse.
+algorithm is very simple: We will fill the rectangle with random points, 
+and count how many of them fall into the ellipse.
 The latter number will be denoted by $m$. With a sufficiently large 
 $n$, such as $100,000$ or more, the ratio of $m$ and $n$ will
 be close to the ratio of the area of the ellipse $E$ and the 
@@ -3379,7 +3431,11 @@ variables are integers.
 
 In the next step we import the {\tt random()} function and write the 
 Monte Carlo algorithm. For this, we need to introduce 
-the counting loop in Python. Recall that to make Karel
+the counting loop in Python first.
+
+\subsection*{The {\tt for} loop}
+
+Recall that to make Karel
 the Robot increase the value of the variable {\tt a} by one {\tt n} times,
 we wrote:\\
 
@@ -3393,7 +3449,7 @@ repeat n
 
 \noindent
 Python does not have the {\tt repeat} command but the same can be 
-achieved by
+achieved by\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -3445,7 +3501,7 @@ Now let us return to our Monte Carlo method:\\
 
 \noindent
 The code is ready and we can test it. Let us do it for $a = 2$, $b = 1$
-and various values of $n$:
+and various values of $n$:\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -3496,47 +3552,95 @@ is $2\pi = 6.283185307179586$.
 
 \section{Conditional Loop} \label{sec:while}
 
+
 \subsection{Objectives}
 
 \begin{itemize}
-\item Review your knowledge of conditions and learn about the {\tt elif} statement.
-\item Learn to generate random numbers in Python.
-\item Learn to use the {\tt break} statement to terminate the loop.
-\item Learn to use the {\tt continue} statement to skip the rest of the loop's body.
-\item Use the {\tt while} loop to make your first trip into scientific computing.
+\item Review the difference between counting and conditional loops.
+\item Review what we know about conditions from Karel the Robot.
+\item Learn about the new {\tt elif} statement in Python.
+\item Learn how to terminate a loop with the {\tt break} statement.
+\item Learn to use the {\tt continue} statement to skip the rest of the loop.
+\item Use the {\tt while} loop to make another trip to scientific computing.
 \end{itemize}
-Conditions in Python are almost the same as in Karel the Robot. There is one practical 
-new feature though -- the {\tt elif} statement that simplifies 
-cases with more than two options. If you think that "elif" sounds a lot like "else if" then 
-you are absolutely right! Typing 
 
+\subsection{Counting and conditional loops}
+
+Every procedural programming language has two types of loops 
+that serve different purposes: The {\em counting loop} ({\tt repeat} in Karel, 
+{\tt for} in Python and many other languages) is used when the number of cycles 
+is known in advance. Such as when we need to write the first 10 even integers. 
+
+On the contrary, the {\em conditional loop} ({\tt while} in Karel, Python,
+and many other languages) is used when it is not known how many cycles will be 
+needed. Instead of the number of repetitions, the conditional loop has a condition 
+that must be fulfilled for the loop to go on. It is used, for example, when we 
+need to keep halving a real number while the result is greater than $10^{-5}$. 
+
+We first saw the {\tt for} loop in Paragraph \ref{subsec:montecarlo} about the Monte Carlo method,
+it will be used with text strings in Section \ref{sec:strings}, and additional details 
+will be provided in Section \ref{sec:forloop}. In the following paragraphs of this section 
+we will focus on conditions and the conditional loop.\\
+
+\noindent
+In summary:\\
+
+\begin{gbox}
+Always use the counting loop when you know how many repetitions will be done. Only if you do not know, use 
+the conditional loop.
+\end{gbox}
+
+\subsection{Conditions and the {\tt elif} statement}
+
+Conditions in Python are almost the same as in Karel the Robot. The {\tt if - else} 
+statement has been used in the previous sections, so there is no need to explain it 
+here again. But there is one practical new feature in Python -- the {\tt elif} 
+statement that simplifies cases with more than two options. If you think that "elif" 
+sounds a lot like "else if" then you are absolutely right! In general \\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
-    \PY{k}{if} \PY{n}{logical\PYZus{}expression\PYZus{}1}\PY{p}{:}
-        \PY{n}{do\PYZus{}action\PYZus{}1}
-    \PY{k}{elif} \PY{n}{logical\PYZus{}expression\PYZus{}2}\PY{p}{:}
-        \PY{n}{do\PYZus{}action\PYZus{}2}
-    \PY{k}{else}\PY{p}{:}
-        \PY{n}{do\PYZus{}action\PYZus{}3}
+\PY{k}{if} \PY{n}{<logical\PYZus{}expression\PYZus{}1>}\PY{p}{:}
+    \PY{n}{<do\PYZus{}action\PYZus{}1>}
+\PY{k}{elif} \PY{n}{<logical\PYZus{}expression\PYZus{}2>}\PY{p}{:}
+    \PY{n}{<do\PYZus{}action\PYZus{}2>}
+\PY{k}{else}\PY{p}{:}
+    \PY{n}{<do\PYZus{}action\PYZus{}3>}
 \end{Verbatim}
-means exactly the same as
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+means exactly the same as\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
-    \PY{k}{if} \PY{n}{logical\PYZus{}expression\PYZus{}1}\PY{p}{:}
-        \PY{n}{do\PYZus{}action\PYZus{}1}
+\PY{k}{if} \PY{n}{<logical\PYZus{}expression\PYZus{}1>}\PY{p}{:}
+    \PY{n}{<do\PYZus{}action\PYZus{}1>}
+\PY{k}{else}\PY{p}{:}
+    \PY{k}{if} \PY{n}{<logical\PYZus{}expression\PYZus{}2>}\PY{p}{:}
+        \PY{n}{<do\PYZus{}action\PYZus{}2>}
     \PY{k}{else}\PY{p}{:}
-        \PY{k}{if} \PY{n}{logical\PYZus{}expression\PYZus{}2}\PY{p}{:}
-            \PY{n}{do\PYZus{}action\PYZus{}2}
-        \PY{k}{else}\PY{p}{:}
-            \PY{n}{do\PYZus{}action\PYZus{}3}
+        \PY{n}{<do\PYZus{}action\PYZus{}3>}
 \end{Verbatim}
-Clearly, the latter involves more indentation. Let us now show a concrete example:
+\end{bbox}
+\vspace{6mm}
 
-Imagine that we have five boxes for apples: Box A is for apples that weight under 
+\noindent
+Clearly, the latter involves more indentation. The advantage of the {\tt elif} 
+statement becomes more visible as the number of cases grows. Let us therefore 
+show a concrete example with five cases:
+
+\subsection*{Five boxes of apples}
+
+Imagine that we have five wooden boxes: Box A is for apples that weight under 
 5 ounzes, box B for apples that weight at least five but less than 10 ounzes, 
 box C for apples that weight at least 10 but less than 15 ounzes, etc. Apples weighting 
-20 ounzes or more will all be put into box E. Here is a function that, given 
-a weight of an apple, chooses the correct box for it:
+20 ounzes or more will all be put into box E. We need to write a function 
+{\tt box(weight)} that, given the weight of an apple, chooses the correct box 
+for it and returns the corresponding letter:\\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k}{def} \PY{n+nf}{box}\PY{p}{(}\PY{n}{weight}\PY{p}{)}\PY{p}{:}
     \PY{k}{if} \PY{n}{weight} \PY{o}{<} \PY{l+m+mi}{5}\PY{p}{:}
@@ -3550,13 +3654,14 @@ a weight of an apple, chooses the correct box for it:
     \PY{k}{else}\PY{p}{:}
         \PY{k}{return} \PY{l+s}{"}\PY{l+s}{E}\PY{l+s}{"}
 \end{Verbatim}
-Note the mandatory colon ':' after every {\tt if}, {\tt elif} and {\tt else} statement. Also
-the {\tt while} loop in Python has a mandatory colon, this is virtually the only 
-(and cosmetic) difference between Python and Karel.
+\end{bbox}
+\vspace{6mm}
 
-To make sure that we understand the advantage of the {\tt elif} statement, let us rewrite 
-the function {\tt box(weight)} without it:
+\noindent
+Note the mandatory colon ':' after every {\tt if}, {\tt elif} and {\tt else} statement. 
+Here is how the same code would look like without the {\tt elif} statement:\\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k}{def} \PY{n+nf}{box}\PY{p}{(}\PY{n}{weight}\PY{p}{)}\PY{p}{:}
     \PY{k}{if} \PY{n}{weight} \PY{o}{<} \PY{l+m+mi}{5}\PY{p}{:}
@@ -3573,44 +3678,41 @@ the function {\tt box(weight)} without it:
                 \PY{k}{else}\PY{p}{:}
                     \PY{k}{return} \PY{l+s}{"}\PY{l+s}{E}\PY{l+s}{"}
 \end{Verbatim}
-There is another, even less elegant way:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+\noindent
+In summary:\\
+
+\begin{gbox}
+\begin{center}
+The {\tt elif} statement simplifies conditions with multiple cases.
+\end{center}
+\end{gbox}
+
+\subsection{The {\tt while} loop}
+
+The {\tt while} loop in Python has the following general format:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
-\PY{k}{def} \PY{n+nf}{box}\PY{p}{(}\PY{n}{weight}\PY{p}{)}\PY{p}{:}
-    \PY{k}{if} \PY{n}{weight} \PY{o}{<} \PY{l+m+mi}{5}\PY{p}{:}
-        \PY{k}{return} \PY{l+s}{"}\PY{l+s}{A}\PY{l+s}{"}
-    \PY{k}{if} \PY{n}{weight} \PY{o}{>}\PY{o}{=} \PY{l+m+mi}{5} \PY{o+ow}{and} \PY{n}{weight} \PY{o}{<} \PY{l+m+mi}{10}\PY{p}{:}
-        \PY{k}{return} \PY{l+s}{"}\PY{l+s}{B}\PY{l+s}{"}
-    \PY{k}{if} \PY{n}{weight} \PY{o}{>}\PY{o}{=} \PY{l+m+mi}{10} \PY{o+ow}{and} \PY{n}{weight} \PY{o}{<} \PY{l+m+mi}{15}\PY{p}{:}
-        \PY{k}{return} \PY{l+s}{"}\PY{l+s}{C}\PY{l+s}{"}
-    \PY{k}{if} \PY{n}{weight} \PY{o}{>}\PY{o}{=} \PY{l+m+mi}{15} \PY{o+ow}{and} \PY{n}{weight} \PY{o}{<} \PY{l+m+mi}{20}\PY{p}{:}
-        \PY{k}{return} \PY{l+s}{"}\PY{l+s}{D}\PY{l+s}{"}
-    \PY{k}{if} \PY{n}{weight} \PY{o}{>}\PY{o}{=} \PY{l+m+mi}{20}\PY{p}{:}
-        \PY{k}{return} \PY{l+s}{"}\PY{l+s}{E}\PY{l+s}{"}
+\PY{k}{while} \PY{n}{<logical\_expression>}\PY{p}{:}
+    \PY{n}{<sequence\_of\_commands>}
 \end{Verbatim}
+\end{bbox}
+\vspace{6mm}
 
-\subsection{Generating random numbers in Python}
+\noindent
+There is a mandatory indent for the body of the loop, same as for conditions and 
+functions. Moreover note the mandatory color '{\tt :}' after the Boolean expression.
 
-Same in Karel, Python, and all other programming 
-languages -- the {\tt while} loop is a conditional loop that should be used whenever the number of repetitions 
-is not known a-priori. Let us illustrate this using random numbers -- what can be more uncertain than that?
-Random numbers between 
-zero and one can be generated in Python as follows:
+As a simple example, let us generate and print random numbers between 
+zero and one as long as they are less than 0.75. If a number is greater or 
+equal to 0.75, stop. Since we do not know how many repetitions will 
+be done, the conditional loop is the proper way of handling this task:\\
 
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{k+kn}{from} \PY{n+nn}{random} \PY{k+kn}{import} \PY{o}{*}
-\PY{n}{a} \PY{o}{=} \PY{n}{random}\PY{p}{(}\PY{p}{)}
-\PY{k}{print} \PY{l+s}{"}\PY{l+s}{This is a random number between 0 and 1:}\PY{l+s}{"}\PY{p}{,} \PY{n}{a}
-\end{Verbatim}
-Output:
-
-\begin{verbatim}
-This is a random number between 0 and 1: 0.999415184986
-\end{verbatim}
-As a simple exercise, let us generate and print random numbers between 
-zero and one as long as they are less than 0.75. We certainly do not know 
-how many repetitions will be done!
-
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k+kn}{from} \PY{n+nn}{random} \PY{k+kn}{import} \PY{o}{*}
 \PY{n}{a} \PY{o}{=} \PY{n}{random}\PY{p}{(}\PY{p}{)}
@@ -3618,8 +3720,13 @@ how many repetitions will be done!
     \PY{k}{print} \PY{n}{a}
     \PY{n}{a} \PY{o}{=} \PY{n}{random}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Sample output:\\
+
+\begin{ybox}
 \begin{verbatim}
 0.383771890647
 0.068637471541
@@ -3634,8 +3741,13 @@ Output:
 0.608456569449
 0.591009262698
 \end{verbatim}
-Running the program once more gives another output:
+\end{ybox}
+\vspace{6mm}
 
+\noindent
+Running the program once more gives another output:\\
+
+\begin{ybox}
 \begin{verbatim}
 0.637423013735
 0.533383497321
@@ -3645,15 +3757,29 @@ Running the program once more gives another output:
 0.698931548709
 0.363558456088
 \end{verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
+In summary:\\
+
+\begin{gbox}
+\begin{center}
+The {\tt while} loop should be used only when the number\\ of repetitions is not known 
+in advance.
+\end{center}
+\end{gbox}
+
+
 
 \subsection{The {\tt break} statement}
 
-The last example can be used to 
-introduce the {\tt break} statement. This is a useful way to exit a loop at any time,
-no questions asked.
-If multiple loops are embedded, then the {\tt break} statement only breaks the closest 
-one. We can rewrite the above program as follows: 
+The {\tt break} statement can be used to exit a loop at any time, no questions asked.
+If multiple loops are embedded, then it only exits the closest 
+one that contains it. For illustration, let us rewrite the above program to use the 
+{\tt break} statement:\\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k+kn}{from} \PY{n+nn}{random} \PY{k+kn}{import} \PY{o}{*}
 \PY{k}{while} \PY{n+nb+bp}{True}\PY{p}{:}
@@ -3662,24 +3788,37 @@ one. We can rewrite the above program as follows:
         \PY{k}{break}
     \PY{k}{print} \PY{n}{a}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Sample output:\\
+
+\begin{ybox}
 \begin{verbatim}
 0.486690683395
 0.232518153456
 0.38084453626
 \end{verbatim}
+\end{ybox}
+
+\vspace{6mm}
+\noindent
+The {\tt break} statement can be useful sometimes and we should know about it.
+However, let's keep the following in mind:\\
+
+\begin{gbox}
 Combining {\tt while True:} with the {\tt break} statement in this way is 
-quite popular among Python programmers. The technique should not be overused 
-though since it is not a perfect example of structured programming. It is 
-just a shortcut whose purpose is to save one additional {\tt if - else} statement
-inside the loop's body. Nevertheless, it is good to know that the 
-{\tt break} statement exists and one day you will find use for it.
+quite popular among Python programmers. The technique should not be abused 
+though since it is not a perfect example of structured programming -- it
+is just a shortcut.
+\end{gbox}
+
 
 \subsection{The {\tt continue} statement}
 
-Sometimes it is practical to skip the rest of the loop's body and start over. Python 
-has the {\tt continue} command for this. To illustrate its use, let us write 
+Sometimes we know that finishing all commands in the loop's body is not necessary.
+Python has the {\tt continue} command for this. To illustrate its use, let us write 
 a program that will generate triplets of random numbers between zero and one
 until all three of them are greater than 0.9. We also want to know how many 
 attempts were needed. 
@@ -3688,8 +3827,9 @@ Clearly, after the first number is generated and it is less or equal to 0.9,
 it does not make any sense to generate the other two. That's when 
 we use the {\tt continue} command. If the first number is greater than 0.9 
 but the second one is less or equal to 0.9, it is time to use the {\tt continue} 
-command once again. Here is the code:
+command once again. Here is the code:\\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k+kn}{from} \PY{n+nn}{random} \PY{k+kn}{import} \PY{o}{*}
 \PY{n}{counter} \PY{o}{=} \PY{l+m+mi}{0}
@@ -3698,6 +3838,14 @@ command once again. Here is the code:
     \PY{n}{a1} \PY{o}{=} \PY{n}{random}\PY{p}{(}\PY{p}{)}
     \PY{k}{if} \PY{n}{a1} \PY{o}{<}\PY{o}{=} \PY{l+m+mf}{0.9}\PY{p}{:}
         \PY{k}{continue}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
     \PY{n}{a2} \PY{o}{=} \PY{n}{random}\PY{p}{(}\PY{p}{)}
     \PY{k}{if} \PY{n}{a2} \PY{o}{<}\PY{o}{=} \PY{l+m+mf}{0.9}\PY{p}{:}
         \PY{k}{continue}
@@ -3709,34 +3857,38 @@ command once again. Here is the code:
     \PY{k}{print} \PY{l+s}{"}\PY{l+s}{It took}\PY{l+s}{"}\PY{p}{,} \PY{n}{counter}\PY{p}{,} \PY{l+s}{"}\PY{l+s}{attempts to get it!}\PY{l+s}{"}
     \PY{k}{break}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Sample output:\\
+
+\begin{ybox}
 \begin{verbatim}
 Finally the desired triplet:
 0.921077479893 0.956493808495 0.917136354634
 It took 1168 attempts to get it!
 \end{verbatim}
-Running the program once more:
+\end{ybox}
+\vspace{6mm}
 
-\begin{verbatim}
-Finally the desired triplet:
-0.922450872182 0.964451255861 0.969381004134
-It took 2757 attempts to get it!
-\end{verbatim}
 
-\subsection{A trip into scientific computing}
+\subsection{Another trip into scientific computing}
 
-We have used the {\tt while} loop in Karel a lot,
-but Karel usually did at most few dozens of cycles. In reality, computers can easily 
-do millions or billions of cycles or more. In computing, we call them {\em iterations}.
-Actually, our programming skills are already good enough to tackle an entry-level
-scientific computing problem, so let's give it a try! 
+As our programming skills get stronger, we are able to 
+tackle more difficult problems. Now it is our task to 
+find an angle $x$ that is equal
+to its own cosine. In other words, we need to solve the 
+equation 
+$$
+\cos(x) = x.
+$$
+This equation cannot be solved on paper. But we will see that 
+it can be solved with the help of the computer rather easily.
+As the first step, let us visualize the graphs so that we know 
+where approximately the solution can be expected:\\
 
-We are interested in finding an angle $x$ that is equal
-to its own cosine. Let's our Python plotting skills shine 
-and write a code to plot the graphs of
-the functions $\cos(x)$ and $x$:
-
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k+kn}{from} \PY{n+nn}{numpy} \PY{k+kn}{import} \PY{n}{pi}\PY{p}{,} \PY{n}{cos}
 \PY{k+kn}{from} \PY{n+nn}{pylab} \PY{k+kn}{import} \PY{o}{*}
@@ -3749,7 +3901,12 @@ the functions $\cos(x)$ and $x$:
 \PY{n}{legend}\PY{p}{(}\PY{p}{)}
 \PY{n}{lab}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 The output is shown in Fig. \ref{fig:xcosx}.
+\newpage
 
 \begin{figure}[!ht]
 \begin{center}
@@ -3760,18 +3917,25 @@ The output is shown in Fig. \ref{fig:xcosx}.
 \label{fig:xcosx}
 \end{figure}
 \noindent
-Looking at the graphs, clearly the solution is somewhere 
-between $0.7$ and $0.8$. 
-An engineer would not be extremely happy with such an answer though, 
-so we need to make this guess more accurate. Looking at the graphs again, we can see
-that in order to reach the intersection point, we can depart from zero and make very 
-small steps to the right while the graph of $\cos(x)$ is above the graph of $x$.
-Let's do this, and stop 
-at the first point where $\cos(x)$ will be less than $x$. Our step will be called {\tt dx},
-and our moving point on the $x$-axis will be called simply {\tt x}. We will also count 
-steps via the variable {\tt n}. Choosing {\tt dx = 1e-6} will give us the result accurate 
-to five decimal digits:
+The solution that we are after is the value of $x$ where the two 
+graphs intersect. Looking at the picture, clearly the solution is 
+somewhere between $0.6$ and $0.8$. An engineer would not be extremely 
+happy with such an answer though -- we need to make this guess much more 
+accurate. 
 
+Looking at the graphs again, we can see
+that in order to reach the intersection point, we can depart from zero and march with
+very small steps to the right while the value of $\cos(x)$ is greater than the value of 
+$x$. We stop as soon as $\cos(x)$ becomes less than $x$. 
+Clearly, the {\tt while} loop needs to be used as we do not know exactly how 
+many steps will be taken. 
+
+Let's do this. Our step will be called {\tt dx},
+and our marching point on the $x$-axis will be called simply {\tt x}. We will also count 
+steps via the variable {\tt n}. Choosing {\tt dx = 1e-6} will give us the result accurate 
+to five decimal digits:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k+kn}{from} \PY{n+nn}{numpy} \PY{k+kn}{import} \PY{n}{cos}
 \PY{n}{x} \PY{o}{=} \PY{l+m+mi}{0}
@@ -3783,16 +3947,25 @@ to five decimal digits:
 \PY{k}{print} \PY{l+s}{"}\PY{l+s}{Result is approximately}\PY{l+s}{"}\PY{p}{,} \PY{n}{x}
 \PY{k}{print} \PY{l+s}{"}\PY{l+s}{Steps made:}\PY{l+s}{"}\PY{p}{,} \PY{n}{n}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{verbatim}
 Result is approximately 0.739086
 Steps made: 739086
 \end{verbatim}
-In other words, the {\tt while} loop run 739086 times. Can you 
+\end{ybox}
+\vspace{6mm}
+
+\noindent
+In other words, the {\tt while} loop ran 739086 times! Can you 
 imagine doing this on your pocket calculator?
 
-We should remark that the numerical method that we used was rather 
+It is worth mentioning that the numerical method that we used was rather 
 naive and in fact it took quite a bit of CPU time. Scientific computing
 is an exciting field where researchers develop new methods that 
 can solve problems like this more accurately and using less CPU time. 
@@ -3818,38 +3991,60 @@ By a {\em string} we mean a text surrounded by double or single quotes, such as
 {\tt "this is a string"} or {\tt 'this is a string as well'}.
 Strings are useful to make outputs more informative, but 
 they have many other uses as well. For example, they can represent data 
-in databases such as in a phone book. So we need to understand them well,
+in databases such as in a phone book. We need to understand them well,
 as well as various operations that we can do with them.
 
 \subsection{Using quotes}
 
-Let us first understand how to use quotes in strings. The safest way is to use 
-them with a backslash:
+Since we have already seen usage of simple strings before, let us now 
+understand how to use quotes in strings. The safest way is to use 
+them with a backslash:\\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k}{print} \PY{l+s}{"}\PY{l+s}{I said }\PY{l+s+se}{\PYZbs{}"}\PY{l+s}{yes}\PY{l+s+se}{\PYZbs{}"}\PY{l+s}{.}\PY{l+s}{"}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{l+s}{'}\PY{l+s}{I said }\PY{l+s}{"}\PY{l+s}{yes}\PY{l+s}{"}\PY{l+s}{.}\PY{l+s}{'}
 \end{Verbatim}
-Another example:
+\end{ybox}
+\vspace{6mm}
 
+\noindent
+Another example:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k}{print} \PY{l+s}{"}\PY{l+s}{It doesn}\PY{l+s+se}{\PYZbs{}'}\PY{l+s}{t matter.}\PY{l+s}{"}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{l+s}{"}\PY{l+s}{It doesn}\PY{l+s}{'}\PY{l+s}{t matter.}\PY{l+s}{"}
 \end{Verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
 
 \subsection{Multiline strings and backslashes}
 
 If we want to use multiline strings, the best way is to enclose them 
-in triple quotes: 
+in triple quotes: \\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{edgar} \PY{o}{=} \PY{l+s}{"""}
 \PY{l+s}{Once upon a midnight dreary, while I pondered weak and weary,}
@@ -3861,11 +4056,15 @@ in triple quotes:
 \PY{l+s}{"""}
 \PY{k}{print} \PY{n}{edgar}
 \end{Verbatim}
-\newpage
+\end{bbox}
+\vspace{6mm}
+
 \noindent
 Output:\\
 
+\begin{ybox}
 \begin{Verbatim}[commandchars=\\\{\}]
+
 
 \PY{n}{Once} \PY{n}{upon} \PY{n}{a} \PY{n}{midnight} \PY{n}{dreary}\PY{p}{,} \PY{n}{while} \PY{n}{I} \PY{n}{pondered} \PY{n}{weak} \PY{n}{and} \PY{n}{weary}\PY{p}{,}
 \PY{n}{Over} \PY{n}{many} \PY{n}{a} \PY{n}{quaint} \PY{n}{and} \PY{n}{curious} \PY{n}{volume} \PY{n}{of} \PY{n}{forgotten} \PY{n}{lore}\PY{p}{,}
@@ -3875,86 +4074,140 @@ Output:\\
 \PY{n}{Only} \PY{n}{this}\PY{p}{,} \PY{n}{and} \PY{n}{nothing} \PY{n}{more}\PY{o}{.}\PY{n}{'}
 
 \end{Verbatim}
-\vspace{4mm}
-There is one empty line on top and one on bottom since  
+\end{ybox}
+\vspace{6mm}
+
+\noindent
+Yes, there is one empty line on top and one on bottom. The reason is that 
 Python inserted newline symbols there. If we want to avoid these empty lines, 
 we have to include a backslash after the first triple quote, and also at the 
 end of the last line before the closing triple quote. The backslash prevents 
 Python from inserting a newline symbol into the string. Let us show one more 
-example on backslashes. The string 
+example on backslashes. The string \\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{l+s+sd}{"""\PYZbs{}}
 \PY{l+s+sd}{This is the first line,}
 \PY{l+s+sd}{and this is the second line.\PYZbs{}}
 \PY{l+s+sd}{"""} 
 \end{Verbatim}
-will render as
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+will render as\\
+
+\begin{ybox}
 \begin{verbatim}
 'This is the first line,\nand this is the second line.' 
 \end{verbatim}
-When a backslash is included at the end of the first line of text,
+\end{ybox}
+\vspace{6mm}
 
+\noindent
+When a backslash is included at the end of the first line of text,\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{l+s+sd}{"""\PYZbs{}}
 \PY{l+s+sd}{This is the first line,\PYZbs{}}
 \PY{l+s+sd}{and this is the second line.\PYZbs{}}
 \PY{l+s+sd}{"""} 
 \end{Verbatim}
-we obtain 
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+we obtain \\
+
+\begin{ybox}
 \begin{verbatim}
 'This is the first line,and this is the second line.'
 \end{verbatim}
-As we see, we need to watch for empty characters. Inserting one before the second 
-backslash,
+\end{ybox}
+\vspace{6mm}
 
+\noindent
+As we see, we need to watch for empty characters. Inserting one before the second 
+backslash\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{l+s+sd}{"""\PYZbs{}}
 \PY{l+s+sd}{This is the first line, \PYZbs{}}
 \PY{l+s+sd}{and this is the second line.\PYZbs{}}
 \PY{l+s+sd}{"""} 
 \end{Verbatim}
-we finally obtain what we wanted:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+brings us to the desired outcome:\\
+
+\begin{ybox}
 \begin{verbatim}
 'This is the first line, and this is the second line.'
 \end{verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
 
 
 \subsection{Concatenation and repetition}
 
 Strings can be concatenated (glued together) with the '{\tt +}' operator, and repeated 
-with the '{\tt *}' operator. For example,
+with the '{\tt *}' operator. For example,\\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{word} \PY{o}{=} \PY{l+s}{'}\PY{l+s}{Help}\PY{l+s}{'} \PY{o}{+} \PY{l+s}{'}\PY{l+s}{me!}\PY{l+s}{'}
 \PY{k}{print} \PY{l+s}{"}\PY{l+s}{I yelled}\PY{l+s}{"} \PY{o}{+} \PY{l+m+mi}{3} \PY{o}{*} \PY{n}{word}
 \end{Verbatim}
-yiels
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+yields\\
+
+\begin{ybox}
 \begin{verbatim}
 I yelledHelpme!Helpme!Helpme!
 \end{verbatim}
-Again, empty spaces matter. Let's try again:
+\end{ybox}
+\vspace{6mm}
 
+\noindent
+Again, empty spaces matter. So let's try again:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{word} \PY{o}{=} \PY{l+s}{'}\PY{l+s+se}{\PYZbs{}"}\PY{l+s}{Help}\PY{l+s}{'} \PY{o}{+} \PY{l+s}{'}\PY{l+s}{ me!}\PY{l+s+se}{\PYZbs{}"}\PY{l+s}{ }\PY{l+s}{'}
 \PY{k}{print} \PY{l+s}{"}\PY{l+s}{I yelled }\PY{l+s}{"} \PY{o}{+} \PY{l+m+mi}{3} \PY{o}{*} \PY{n}{word}
 \end{Verbatim}
-will render
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+will render\\
+
+\begin{ybox}
 \begin{verbatim}
 I yelled "Help me!" "Help me!" "Help me!"
 \end{verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
 
 \subsection{Referring to letters by their indices}\label{subsec:ind}
 
 Individual letters forming a string can be accessed via indices. The indices 
 start from zero. It is also handy to use the index {\tt -1} 
-for the last index, {\tt -2} for the one-before-last etc. Typing
+for the last index, {\tt -2} for the one-before-last etc. Typing\\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{word} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{breakfast}\PY{l+s}{"}
 \PY{k}{print} \PY{l+s}{"}\PY{l+s}{First character:}\PY{l+s}{"}\PY{p}{,} \PY{n}{word}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
@@ -3962,43 +4215,88 @@ for the last index, {\tt -2} for the one-before-last etc. Typing
 \PY{k}{print} \PY{l+s}{"}\PY{l+s}{Last character:}\PY{l+s}{"}\PY{p}{,} \PY{n}{word}\PY{p}{[}\PY{o}{-}\PY{l+m+mi}{1}\PY{p}{]}
 \PY{k}{print} \PY{l+s}{"}\PY{l+s}{One-before-last character:}\PY{l+s}{"}\PY{p}{,} \PY{n}{word}\PY{p}{[}\PY{o}{-}\PY{l+m+mi}{2}\PY{p}{]}
 \end{Verbatim}
-produces the following output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+produces the following output:\\
+
+\begin{ybox}
 \begin{verbatim}
 First character: b
 Second character: r
 Last character: t
 One-before-last character: s
 \end{verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
+Before we move on, make sure that you remember that\\
+
+\begin{gbox}
+\begin{center}
+Indices in Python start from zero.
+\end{center}
+\end{gbox}
 
 \subsection{Parsing strings with the {\tt for} loop}\label{subsec:forstr} 
 
 The length of a string is obtained using the function {\tt len()}.
-The code
+For illustration, the code\\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{word} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{breakfast}\PY{l+s}{"}
 \PY{n}{n} \PY{o}{=} \PY{n+nb}{len}\PY{p}{(}\PY{n}{word}\PY{p}{)}
 \PY{k}{print} \PY{l+s}{"}\PY{l+s}{Length of the string:}\PY{l+s}{"}\PY{p}{,} \PY{n}{n}
 \end{Verbatim}
-yields
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+yields\\
+
+\begin{ybox}
 \begin{verbatim}
 Length of the string: 9
 \end{verbatim}
-In order to parse strings, it is practical to introduce the Python counting 
-({\tt for}) loop. We do this ahead of time, more on the {\tt for} loop will 
-be said in Section \ref{sec:forloop}. Let us begin with a code that parses 
-the string {\tt word} letter by letter and prints all the letters:
+\end{ybox}
+\vspace{6mm}
 
+\noindent
+Since every string has a known length, the right loop to parse strings
+is the {\tt for} loop. The following code parses 
+the string {\tt word} letter by letter and prints 
+all the letters:\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{word} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{breakfast}\PY{l+s}{"}
+\PY{k}{for} \PY{n}{c} \PY{o+ow}{in} \PY{n}{word}\PY{p}{:}
+    \PY{k}{print} \PY{n}{c}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+The same can be achieved using the {\tt range()} function 
+that we already know from Paragraph \ref{subsec:montecarlo}:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{word} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{breakfast}\PY{l+s}{"}
 \PY{n}{n} \PY{o}{=} \PY{n+nb}{len}\PY{p}{(}\PY{n}{word}\PY{p}{)}
 \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{n}\PY{p}{)}\PY{p}{:}
     \PY{k}{print} \PY{n}{word}\PY{p}{[}\PY{n}{i}\PY{p}{]}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{verbatim}
 b
 r
@@ -4010,87 +4308,128 @@ a
 s
 t
 \end{verbatim}
-This deserves some explanation. Calling the function {\tt range(n)} generates 
-a sequence of integers that goes from zero to {\tt n-1}. Let's try this:
+\end{ybox}
+\vspace{6mm}
 
+\noindent
+To see that the two above programs are equivalent, we need to 
+understand a bit more about the {\tt for} loop. First, a text 
+string is a sequence of characters. The {\tt for} loop can parse 
+sequences using the general scheme {\tt for <element> in <sequence>}.
+The function {\tt range(n)} creates a sequence of integer numbers 
+{\tt 0}, {\tt 1}, ..., {\tt n-1}. Let's try this with {\tt n = 3}:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k}{print} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{3}\PY{p}{)}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{verbatim}
 [0, 1, 2]
 \end{verbatim}
-Another example:
+\end{ybox}
+\vspace{6mm}
 
+\noindent
+Another example:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k}{print} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{)}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{verbatim}
 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 \end{verbatim}
-When called with two arguments, {\tt range(n1, n2)} will generate 
-a sequence {\tt [n1, n1+1, n1+2, ..., n2-1]}. Example:
+\end{ybox}
+\vspace{6mm}
 
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{k}{print} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{4}\PY{p}{,} \PY{l+m+mi}{10}\PY{p}{)}
-\end{Verbatim}
-Output:
-
-\begin{verbatim}
-[4, 5, 6, 7, 8, 9]
-\end{verbatim}
-The {\tt for} loop goes through the sequence generated by the {\tt range()} function, 
-taking one element per cycle. So in the first cycle, the variable {\tt i}
-has the value {\tt 0}, in the second cycle {\tt i} is {\tt 1}, in the third cycle 
-{\tt i} is {\tt 2} etc., until the end of the sequence is reached. 
-
-Since we know from Subsection \ref{subsec:ind} 
-how to index letters in a string via their indices, now the above 
-code that decomposed the word {\tt breakfast} into individual letters
-makes perfect sense!
+\noindent
+So, {\tt for i in range(n)} goes through integer indices 
+{\tt i = 0}, {\tt 1}, ..., {\tt n-1} and for each one, {\tt word[i]}
+is the next character in the text string. 
 
 \subsection{Slicing strings}
 
-Python makes it easy to access substrings -- this is called {\em slicing}:
+Python makes it easy to access substrings -- this is called {\em slicing}:\\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{w1} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{bicycle}\PY{l+s}{"}
 \PY{n}{w2} \PY{o}{=} \PY{n}{w1}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{:}\PY{l+m+mi}{3}\PY{p}{]}
 \PY{k}{print} \PY{n}{w2}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{verbatim}
 bic
 \end{verbatim}
-Omitting first index in a slice defaults to zero:
+\end{ybox}
+\vspace{6mm}
 
+\noindent
+Omitting the first index in a slice defaults to zero:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{w3} \PY{o}{=} \PY{n}{w1}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{:}\PY{l+m+mi}{2}\PY{p}{]}
 \PY{k}{print} \PY{n}{w3}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{verbatim}
 bi
 \end{verbatim}
-Omitting the second index defaults to the length of the string:
+\end{ybox}
+\vspace{6mm}
 
+\noindent
+Omitting the second index defaults to the length of the string:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{w4} \PY{o}{=} \PY{n}{w1}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{:}\PY{p}{]}
 \PY{k}{print} \PY{n}{w4}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{verbatim}
 cycle
 \end{verbatim}
-This is enough for now, but we will return to strings again later.
-Python provides many built-in operations with text strings that 
-will be shown in Subsection \ref{subsec:textstrclass}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
+This is enough about strings for now, but we will return to them again later.
+In particular, Python provides many useful built-in operations with text strings that 
+will be shown in Paragraph \ref{subsec:textstrclass}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -4104,324 +4443,578 @@ will be shown in Subsection \ref{subsec:textstrclass}
 \item Learn the differences between these data types, and their best use cases.
 \item Learn useful built-in functions to operate with these data structures efficiently. 
 \end{itemize}
-Tuples, lists, and dictionaries belong to the most important data structures in Python, and the 
+Tuples, lists, and dictionaries are the most important data structures in Python, and the 
 language offers a wide range of functionality to work with them efficiently. They become 
-especially useful in combination with the {\tt for}
-loop that was already mentioned in Subsection \ref{subsec:forstr}, and that will be 
-discussed in more detail in Section \ref{sec:forloop}. 
+especially powerful in combination with the {\tt for}
+loop that was already mentioned in Paragraphs \ref{subsec:montecarlo} and 
+ \ref{subsec:forstr}, and that will be discussed in more detail in 
+Section \ref{sec:forloop}. 
 
 \subsection{Tuples}
 
-Let us begin with tuples. Tuples are perfect for sequences 
-of data that does not change in time - such as 
+Tuples are perfect for sequences 
+of data that does not change -- such as 
 the names of weekdays, or names of months. To define a tuple, 
-enclose comma-separated items in round brackets:
+enclose comma-separated items in round brackets:\\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{months} \PY{o}{=} \PY{p}{(}\PY{l+s}{'}\PY{l+s}{January}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{February}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{March}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{April}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{May}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{June}\PY{l+s}{'}\PY{p}{,}\PYZbs{}
-\PY{l+s}{'}\PY{l+s}{July}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{August}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{September}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{October}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{November}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{December}\PY{l+s}{'}\PY{p}{)}
+\PY{n}{months} \PY{o}{=} \PY{p}{(}\PY{l+s}{'}\PY{l+s}{January}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{February}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{March}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{April}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{May}\PY{l+s}{'}\PY{p}{,} \PYZbs{}
+\PY{l+s}{'}\PY{l+s}{June}\PY{l+s}{'}\PY{p}{,}\PY{l+s}{'}\PY{l+s}{July}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{August}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{September}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{October}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{November}\PY{l+s}{'}\PY{p}{,} \PYZbs{}
+\PY{l+s}{'}\PY{l+s}{December}\PY{l+s}{'}\PY{p}{)}
 \end{Verbatim}
-The items in the tuple {\tt months} are all strings, but they do not
-have to be. A tuple can be very heterogeneous -- it can contain strings,
-numbers, other tuples, etc. Although -- in simplicity is beauty, we
-do not have to always take advantage of the extreme possibilities.
-It is important to remember that {\bf a tuple, once defined, cannot 
-be changed} in the sense that no new items can be added and existing 
-items cannot be deleted.
+\end{bbox}
+\vspace{6mm}
 
-Items in a tuple are referenced by indices, in the same way as individual 
-characters are referenced in a text string. Remember that indices always 
-start from zero:
+\noindent
+All items in this tuple are text strings, but a 
+tuple can be heterogeneous -- it can contain text strings,
+integers, real numbers, other tuples, etc. 
 
+Working with tuples is a lot similar to working with text strings.
+To begin with, items in a tuple can be referenced by indices. 
+Remember that indices always start from zero:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k}{print} \PY{l+s}{"}\PY{l+s}{First month:}\PY{l+s}{"}\PY{p}{,} \PY{n}{months}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
 \PY{k}{print} \PY{l+s}{"}\PY{l+s}{Second month:}\PY{l+s}{"}\PY{p}{,} \PY{n}{months}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}
 \PY{k}{print} \PY{l+s}{"}\PY{l+s}{Third month:}\PY{l+s}{"}\PY{p}{,} \PY{n}{months}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{verbatim}
 First month: January
 Second month: February
 Third month: March
 \end{verbatim}
-Index {\tt -1} refers to the last item, {\tt -2} to the one before last, etc.:
+\end{ybox}
+\vspace{6mm}
 
+\noindent
+As in text strings, index {\tt -1} refers to the last item, {\tt -2} to the one before last, etc.:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k}{print} \PY{l+s}{"}\PY{l+s}{One before last month:}\PY{l+s}{"}\PY{p}{,} \PY{n}{months}\PY{p}{[}\PY{o}{-}\PY{l+m+mi}{2}\PY{p}{]}
 \PY{k}{print} \PY{l+s}{"}\PY{l+s}{Last month:}\PY{l+s}{"}\PY{p}{,} \PY{n}{months}\PY{p}{[}\PY{o}{-}\PY{l+m+mi}{1}\PY{p}{]}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{verbatim}
 One before last month: November
 Last month: December
 \end{verbatim}
+\end{ybox}
+\vspace{6mm}
 
 \noindent
-We can {\em slice} tuples similarly to how we sliced strings:
 
+\noindent
+We can {\em slice} tuples same as we sliced text strings:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{months}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{:}\PY{l+m+mi}{5}\PY{p}{]}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{p}{(}\PY{l+s}{'}\PY{l+s}{March}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{April}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{May}\PY{l+s}{'}\PY{p}{)}\PY{l+s}{'}
 \end{Verbatim}
-The length of a tuple is obtained using the function {\tt len()}:
+\end{ybox}
+\vspace{6mm}
 
+\noindent
+As in text strings, the length of a tuple is obtained using the function {\tt len()}:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nb}{len}\PY{p}{(}\PY{n}{months}\PY{p}{)}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{verbatim}
 12
 \end{verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
 
 \subsection{Lists}
 
-We first encountered lists in Level 3 of Karel the Robot. What we
-learned there will hold true in Python without changes, but Python lists have many additional 
-useful functions that we will learn here. Let us start by reviewing the basics.
-  
-Lists are similar to tuples, and all indexing and slicing works in the same way. 
-Empty list {\tt L} is defined as follows:
+Lists are similar to tuples, and all indexing and slicing operations work in the same way.
+The only difference is that we can change a list by adding and deleting entries, 
+we can reorder items in a list, etc. A tuple, once created, cannot be changed. 
 
+A list is created by enclosing its items into square brackets. For example, 
+an empty list {\tt L} is defined as follows:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{L} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+\PY{n}{L1} \PY{o}{=} \PY{p}{[}\PY{p}{]}
 \end{Verbatim}
-The biggest difference between a tuple 
-and a list is that {\bf items in a list can be changed}. So, we use
-lists for items that can change in time. Let's say that there are 
-10 people in a school class {\tt cls}:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+A list {\tt L2} consisting of the first five prime numbers 
+is created as follows:\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{L2} \PY{o}{=} \PY{n}{[2, 3, 5, 7, 11]}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+A list {\tt cls} containing ten students in a class is created via:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{cls} \PY{o}{=} \PY{p}{[}\PY{l+s}{'}\PY{l+s}{John}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Pam}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Emily}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Jessie}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Brian}\PY{l+s}{'}\PY{p}{,} \PYZbs{}
 \PY{l+s}{'}\PY{l+s}{Sam}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Jim}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Tom}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Jerry}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Alex}\PY{l+s}{'}\PY{p}{]}
 \end{Verbatim}
-Then however, Emily moves to a different city:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Let's say that after some time, Emily moves to a different city:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k}{del} \PY{n}{cls}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}
 \PY{k}{print} \PY{n}{cls}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{p}{[}\PY{l+s}{'}\PY{l+s}{John}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Pam}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Jessie}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Brian}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Sam}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Jim}\PY{l+s}{'}\PY{p}{,} 
 \PY{l+s}{'}\PY{l+s}{Tom}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Jerry}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Alex}\PY{l+s}{'}\PY{p}{]}
 \end{Verbatim}
-After some time, a new student Jack moves in:
+\end{ybox}
+\vspace{6mm}
 
+\noindent
+After some time, a new student Jack moves in:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{cls}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s}{'}\PY{l+s}{Jack}\PY{l+s}{'}\PY{p}{)}
 \PY{k}{print} \PY{n}{cls}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{p}{[}\PY{l+s}{'}\PY{l+s}{John}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Pam}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Jessie}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Brian}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Sam}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Jim}\PY{l+s}{'}\PY{p}{,} 
 \PY{l+s}{'}\PY{l+s}{Tom}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Jerry}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Alex}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Jack}\PY{l+s}{'}\PY{p}{]}
 \end{Verbatim}
-Useful can be the function {\tt pop()} that deletes an item and returns it for further
-use (as opposed to {\tt del} which just deletes the item):
+\end{ybox}
+\vspace{6mm}
 
+\noindent
+The function {\tt pop()} deletes an item and returns it for further
+use (as opposed to {\tt del} which just deletes the item):\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{name} \PY{o}{=} \PY{n}{cls}\PY{o}{.}\PY{n}{pop}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{)}
 \PY{k}{print} \PY{n}{name} 
 \PY{k}{print} \PY{n}{cls}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{Jessie}
 \PY{p}{[}\PY{l+s}{'}\PY{l+s}{John}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Pam}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Brian}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Sam}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Jim}\PY{l+s}{'}\PY{p}{,} 
 \PY{l+s}{'}\PY{l+s}{Tom}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Jerry}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Alex}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Jack}\PY{l+s}{'}\PY{p}{]}
 \end{Verbatim}
-New item can be inserted at an arbitrary position using the function {\tt insert()}:
+\end{ybox}
+\vspace{6mm}
 
+\noindent
+New item can be inserted at an arbitrary position using the function {\tt insert()}:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{cls}\PY{o}{.}\PY{n}{insert}\PY{p}{(}\PY{l+m+mi}{3}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Daniel}\PY{l+s}{'}\PY{p}{)}
 \PY{k}{print} \PY{n}{cls}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{p}{[}\PY{l+s}{'}\PY{l+s}{John}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Pam}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Brian}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Daniel}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Sam}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Jim}\PY{l+s}{'}\PY{p}{,} 
 \PY{l+s}{'}\PY{l+s}{Tom}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Jerry}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Alex}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Jack}\PY{l+s}{'}\PY{p}{]}
 \end{Verbatim}
-A list can be sorted via the function {\tt sort()}:
+\end{ybox}
+\vspace{6mm}
 
+\noindent
+A list can be sorted via the function {\tt sort()}:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{cls}\PY{o}{.}\PY{n}{sort}\PY{p}{(}\PY{p}{)}
 \PY{k}{print} \PY{n}{cls}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{p}{[}\PY{l+s}{'}\PY{l+s}{Alex}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Brian}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Daniel}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Jack}\PY{l+s}{'}\PY{p}{,} 
 \PY{l+s}{'}\PY{l+s}{Jerry}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Jim}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{John}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Pam}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Sam}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Tom}\PY{l+s}{'}\PY{p}{]}
 \end{Verbatim}
-The function {\tt reverse()} reverses a list:
+\end{ybox}
+\vspace{6mm}
 
+\noindent
+The function {\tt reverse()} reverses a list:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{cls}\PY{o}{.}\PY{n}{reverse}\PY{p}{(}\PY{p}{)}
 \PY{k}{print} \PY{n}{cls}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{p}{[}\PY{l+s}{'}\PY{l+s}{Tom}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Sam}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Pam}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{John}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Jim}\PY{l+s}{'}\PY{p}{,} 
 \PY{l+s}{'}\PY{l+s}{Jerry}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Jack}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Daniel}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Brian}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Alex}\PY{l+s}{'}\PY{p}{]}
 \end{Verbatim}
-The function {\tt count()} counts the number of occurences of an item
-in the list:
+\end{ybox}
+\vspace{6mm}
 
+\noindent
+The function {\tt count()} counts the number of occurences of an item
+in the list:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{cls}\PY{o}{.}\PY{n}{count}\PY{p}{(}\PY{l+s}{'}\PY{l+s}{Jerry}\PY{l+s}{'}\PY{p}{)}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{verbatim}
 1
 \end{verbatim}
-The function {\tt index()} returns the index of the first occurence 
-of an item. If the item is not found, error is thrown:
+\end{ybox}
+\vspace{6mm}
 
+\noindent
+The function {\tt index()} returns the index of the first occurence 
+of an item:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{cls}\PY{o}{.}\PY{n}{index}\PY{p}{(}\PY{l+s}{'}\PY{l+s}{Jerry}\PY{l+s}{'}\PY{p}{)}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{verbatim}
 5
 \end{verbatim}
-Another useful operation with lists is their {\em zipping}. The {\tt zip} command takes two lists as arguments 
-and creates a new list of pairs. Example:
+\end{ybox}
+\vspace{6mm}
 
+\noindent
+If the item is not found, error is thrown:\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{cls}\PY{o}{.}\PY{n}{index}\PY{p}{(}\PY{l+s}{'}\PY{l+s}{Kevin}\PY{l+s}{'}\PY{p}{)}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+Output:\\
+
+\begin{ybox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{Traceback} \PY{p}{(}\PY{n}{most} \PY{n}{recent} \PY{n}{call} \PY{n}{last}\PY{p}{)}\PY{p}{:}
+  \PY{n}{File} \PY{l+s}{"}\PY{l+s}{<string>}\PY{l+s}{"}\PY{p}{,} \PY{n}{line} \PY{l+m+mi}{2}\PY{p}{,} \PY{n}{in} \PY{o}{<}\PY{n}{module}\PY{o}{>}
+\PY{n+ne}{ValueError}\PY{p}{:} \PY{l+s}{'}\PY{l+s}{Kevin}\PY{l+s}{'} \PY{n}{is} \PY{n}{not} \PY{n}{in} \PY{n}{list}
+\end{Verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
+Another useful operation with lists is their {\em zipping}. The 
+{\tt zip()} function takes two lists as arguments 
+and creates a new list of pairs. Example:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{A} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{]}
 \PY{n}{B} \PY{o}{=} \PY{p}{[}\PY{l+s}{'}\PY{l+s}{x}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{y}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{z}\PY{l+s}{'}\PY{p}{]}
 \PY{k}{print} \PY{n+nb}{zip}\PY{p}{(}\PY{n}{A}\PY{p}{,} \PY{n}{B}\PY{p}{)}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{p}{[}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{x}\PY{l+s}{'}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mi}{2}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{y}\PY{l+s}{'}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mi}{3}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{z}\PY{l+s}{'}\PY{p}{)}\PY{p}{]}
 \end{Verbatim}
-If the lists are not equally-long, the superfluous items in the longer list 
-are skipped:
+\end{ybox}
+\vspace{6mm}
 
+\noindent
+If the lists are not equally-long, the superfluous items in the longer list 
+are skipped:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{A} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{,} \PY{l+m+mi}{4}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{]}
 \PY{n}{B} \PY{o}{=} \PY{p}{[}\PY{l+s}{'}\PY{l+s}{x}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{y}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{z}\PY{l+s}{'}\PY{p}{]}
 \PY{k}{print} \PY{n+nb}{zip}\PY{p}{(}\PY{n}{A}\PY{p}{,} \PY{n}{B}\PY{p}{)}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{p}{[}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{x}\PY{l+s}{'}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mi}{2}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{y}\PY{l+s}{'}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mi}{3}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{z}\PY{l+s}{'}\PY{p}{)}\PY{p}{]}
 \end{Verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
 
 \subsection{Dictionaries}
 
-Sometimes we need to store additional information for 
-people (or general items) in a list. Such information may be  
-their phone number, age, weight, address, family 
-status and/or many other things. In this context, the 
-people's names are said to be {\em keys} and the additional 
-information are the corresponding {\em values}. Of course this 
-is not only about people, we can have a list of cars and the 
-additional information to each car may be its price, mileage, or
-gas consumption. And we should not forget to mention a real 
-dictionary, where the keys can be English words and the values the 
-corresponding Spanish translations.
+Sometimes we want to store information for 
+people. Such information may be their phone number, age, address, 
+hobbies, family 
+status and so on. Python's {\em dictionary} is a perfect tool 
+to do this. The people's names are said to be {\em keys} and the 
+additional information are the corresponding {\em values}. \\
 
-The data structure containing keys and values is called a {\em dictionary}. 
-An empty dictionary {\tt D} is defined as follows:
+\noindent
+Cars in a used car store can serve as another example: For each car,
+the key can be its VIN (or something else that is unique to each car). 
+The corresponding value can be a list containing the price of the car, 
+age, mileage, gas consumption, etc.
 
+An empty dictionary {\tt D} is defined as follows (note the curly brackets):\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{D} \PY{o}{=} \PY{p}{\PYZob{}}\PY{p}{\PYZcb{}}
 \end{Verbatim}
-An example of a phone book would be:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+An example of a phone book could be:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{phonebook} \PY{o}{=} \PY{p}{\PYZob{}}\PY{l+s}{'}\PY{l+s}{Peter Parson}\PY{l+s}{'}\PY{p}{:} \PY{l+m+mi}{8806336}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Emily Everett}\PY{l+s}{'}\PY{p}{:} \PY{l+m+mi}{6784346}\PY{p}{,} \PYZbs{}
 \PY{l+s}{'}\PY{l+s}{Lewis Lame}\PY{l+s}{'}\PY{p}{:} \PY{l+m+mi}{1122345}\PY{p}{\PYZcb{}}
 \end{Verbatim}
-{\bf Note the curly brackets.} 
-Once we have created a new phone book, we may want to add a new person to it:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Once a new phone book was created, we may want to add a new person to it:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{phonebook}\PY{p}{[}\PY{l+s}{'}\PY{l+s}{Silly Sam}\PY{l+s}{'}\PY{p}{]} \PY{o}{=} \PY{l+m+mi}{1234567}
 \PY{k}{print} \PY{n}{phonebook}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{p}{\PYZob{}}\PY{l+s}{'}\PY{l+s}{Peter Parson}\PY{l+s}{'}\PY{p}{:} \PY{l+m+mi}{8806336}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Emily Everett}\PY{l+s}{'}\PY{p}{:} \PY{l+m+mi}{6784346}\PY{p}{,}
 \PY{l+s}{'}\PY{l+s}{Lewis Lame}\PY{l+s}{'}\PY{p}{:} \PY{l+m+mi}{1122345}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Silly Sam}\PY{l+s}{'}\PY{p}{:} \PY{l+m+mi}{1234567}\PY{p}{\PYZcb{}}
 \end{Verbatim}
-And we can also delete a person from the phonebook:
+\end{ybox}
+\vspace{6mm}
 
+\noindent
+We can also delete a person from the phonebook:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k}{del} \PY{n}{phonebook}\PY{p}{[}\PY{l+s}{'}\PY{l+s}{Peter Parson}\PY{l+s}{'}\PY{p}{]}
 \PY{k}{print} \PY{n}{phonebook}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{p}{\PYZob{}}\PY{l+s}{'}\PY{l+s}{Emily Everett}\PY{l+s}{'}\PY{p}{:} \PY{l+m+mi}{6784346}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Lewis Lame}\PY{l+s}{'}\PY{p}{:} \PY{l+m+mi}{1122345}\PY{p}{,} 
 \PY{l+s}{'}\PY{l+s}{Silly Sam}\PY{l+s}{'}\PY{p}{:} \PY{l+m+mi}{1234567}\PY{p}{\PYZcb{}}
 \end{Verbatim}
-We can check if a key is in the dictionary:
+\end{ybox}
+\vspace{6mm}
 
+\noindent
+We can check if a key is in the dictionary:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k}{if} \PY{n}{phonebook}\PY{o}{.}\PY{n}{has\PYZus{}key}\PY{p}{(}\PY{l+s}{'}\PY{l+s}{Silly Sam}\PY{l+s}{'}\PY{p}{)}\PY{p}{:}
     \PY{k}{print} \PY{l+s}{"}\PY{l+s}{Silly Sam}\PY{l+s}{'}\PY{l+s}{s phone number is}\PY{l+s}{"}\PY{p}{,} \PY{n}{phonebook}\PY{p}{[}\PY{l+s}{'}\PY{l+s}{Silly Sam}\PY{l+s}{'}\PY{p}{]}
 \PY{k}{else}\PY{p}{:}
     \PY{k}{print} \PY{l+s}{"}\PY{l+s}{Silly Sam is not in the phonebook.}\PY{l+s}{"}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{verbatim}
 Silly Sam's phone number is 1234567
 \end{verbatim}
-To get the list of all keys, we type:
+\end{ybox}
+\vspace{6mm}
 
+\noindent
+To get the list of all keys, we type:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{phonebook}\PY{o}{.}\PY{n}{keys}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{p}{[}\PY{l+s}{'}\PY{l+s}{Emily Everett}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Lewis Lame}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Silly Sam}\PY{l+s}{'}\PY{p}{]}
 \end{Verbatim}
-Similarly, we can also get the list of all values:
+\end{ybox}
+\vspace{6mm}
 
+\noindent
+Similarly, we can also get the list of all values:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{phonebook}\PY{o}{.}\PY{n}{values}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{p}{[}\PY{l+m+mi}{6784346}\PY{p}{,} \PY{l+m+mi}{1122345}\PY{p}{,} \PY{l+m+mi}{1234567}\PY{p}{]}
 \end{Verbatim}
-It is important to remember that {\bf dictionaries are not ordered} in any 
-special way. While a list can be sorted, a dictionary can not. They are only 
-designed to get you the value for a given key. 
-The length of a dictionary can be obtained using the function {\tt len()}:
+\end{ybox}
+\vspace{6mm}
 
+\noindent
+It is important to realize that {\bf dictionaries are not ordered} in any 
+special way. While a list can be sorted, a dictionary can not. Dictionaries 
+are designed to store keys and values, and to be able to get the value for a 
+given key quickly. 
+The length of a dictionary can be obtained using the function {\tt len()}:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nb}{len}\PY{p}{(}\PY{n}{phonebook}\PY{p}{)}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{verbatim}
 3
 \end{verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
 There are additional functions that one can use with dictionaries. However, 
 what we mentioned so far is enough for an introductory course and we refer 
 to the Python tutorial\footnote{http://docs.python.org/tutorial} for more 
@@ -4434,75 +5027,110 @@ details.
 \subsection{Objectives}
 
 \begin{itemize}
-\item Review the {\tt range()} function and understand that it creates a Python list.
+\item Review the {\tt range()} function.
 \item Understand when the Python {\tt for} loop should be used.
-\item Learn that the {\tt for} loop can go over any list or tuple.
+\item Learn that the {\tt for} loop can go over any list, tuple or dictionary.
 \end{itemize}
-Before we bring up the {\tt for} loop, let us revisit the {\tt range()}
-function that was first mentioned in Section \ref{sec:strings}. After 
+
+\subsection{The {\tt range()} function revisited}
+
+The {\tt range()}
+function was first mentioned in Paragraph \ref{subsec:montecarlo}. After 
 learning about tuples, lists and dictionaries in Section \ref{sec:lists}, the 
 reader will not be surprized when we state that this function produces 
-a Python list of integer numbers. For example:
+a Python list of integers. For example:\\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{)}
 \end{Verbatim}
-produces the following output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+produces the following output:\\
+
+\begin{ybox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{,} \PY{l+m+mi}{4}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{,} \PY{l+m+mi}{6}\PY{p}{,} \PY{l+m+mi}{7}\PY{p}{,} \PY{l+m+mi}{8}\PY{p}{,} \PY{l+m+mi}{9}\PY{p}{]}
 \end{Verbatim}
-It is possible to start from a different number:
+\end{ybox}
+\vspace{6mm}
 
+\noindent
+It is possible to start the list from a nonzero integer:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{3}\PY{p}{,} \PY{l+m+mi}{10}\PY{p}{)}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{p}{[}\PY{l+m+mi}{3}\PY{p}{,} \PY{l+m+mi}{4}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{,} \PY{l+m+mi}{6}\PY{p}{,} \PY{l+m+mi}{7}\PY{p}{,} \PY{l+m+mi}{8}\PY{p}{,} \PY{l+m+mi}{9}\PY{p}{]}
 \end{Verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
 The {\tt for} loop in Python is a {\em counting loop} analogous to the {\tt repeat}
 loop in Karel the Robot. Thus it should be used when we know how many repetitions there 
 will be. However, in Python, the counting loop is not restricted to integer numbers 
 only. It is much more general -- {\em it goes over the items of aa arbitrary list or tuple}. 
 
-\subsection{Combined with the {\tt range()} function}
+\subsection{The {\tt for} loop combined with the {\tt range()} function}
 
 When used in combination with the {\tt range()} function, it goes over integer indices. 
-Example:
+Example:\\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
-\PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{)}\PY{p}{:}
+\PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{5, 10}\PY{p}{)}\PY{p}{:}
     \PY{k}{print} \PY{n}{i}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{verbatim}
-0
-1
-2
-3
-4
 5
 6
 7
 8
 9
 \end{verbatim}
-As usual, note indentation of the body of the loop, which has the same 
-purpose as indentation in the {\tt while} loop. 
+\end{ybox}
+\vspace{6mm}
 
-\subsection{Combined with a general list or tuple}
+\noindent
+As usual, note indentation of the body of the {\tt for} loop, which has the same 
+purpose as indentation in the {\tt while} loop -- tell the interpreter which
+commands should be repeated.
 
-Remember our tuple of months? We can use the {\tt for} loop to print them as well:
+\subsection{The {\tt for} loop combined with a list or tuple}
 
+Remember our tuple of months? We can use the {\tt for} loop to print them:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k}{for} \PY{n}{m} \PY{o+ow}{in} \PY{n}{months}\PY{p}{:}
     \PY{k}{print} \PY{n}{m}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{verbatim}
 January
 February
@@ -4517,16 +5145,21 @@ October
 November
 December
 \end{verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
 The {\tt for} loop works in the same way with lists -- it does not distinguish between these 
 two data types at all.
 
-\subsection{Reverting a dictionary}
+\subsection{The {\tt for} loop combined with a dictionary}
 
 Remember that it is easy to extract keys and values from a dictionary using the 
 {\tt keys()} and {\tt values()} functions? In either case, the result of this operation 
 is a {\em Python list}, which in turn can be used with the {\tt for} loop. That was easy. Let us do something more interesting -- 
-perhaps convert an English-Spanish dictionary into a Spanish-English one? 
+perhaps convert an English-Spanish dictionary into a Spanish-English one: \\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{ES} \PY{o}{=} \PY{p}{\PYZob{}}\PY{l+s}{'}\PY{l+s}{city}\PY{l+s}{'}\PY{p}{:} \PY{l+s}{'}\PY{l+s}{ciudad}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{fire}\PY{l+s}{'}\PY{p}{:} \PY{l+s}{'}\PY{l+s}{fuego}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{sun}\PY{l+s}{'}\PY{p}{:} \PY{l+s}{'}\PY{l+s}{sol}\PY{l+s}{'}\PY{p}{\PYZcb{}}
 \PY{n}{SE} \PY{o}{=} \PY{p}{\PYZob{}}\PY{p}{\PYZcb{}}
@@ -4537,13 +5170,22 @@ perhaps convert an English-Spanish dictionary into a Spanish-English one?
 \PY{k}{print} \PY{l+s}{"}\PY{l+s}{Spanish-English dictionary:}\PY{l+s}{"}
 \PY{k}{print} \PY{n}{SE}
 \end{Verbatim}
-The output of this program is:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+The output of this program is:\\
+
+\begin{ybox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{Spanish}\PY{o}{-}\PY{n}{English} \PY{n}{dictionary}\PY{p}{:}
 \PY{p}{\PYZob{}}\PY{l+s}{'}\PY{l+s}{ciudad}\PY{l+s}{'}\PY{p}{:} \PY{l+s}{'}\PY{l+s}{city}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{sol}\PY{l+s}{'}\PY{p}{:} \PY{l+s}{'}\PY{l+s}{sun}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{fuego}\PY{l+s}{'}\PY{p}{:} \PY{l+s}{'}\PY{l+s}{fire}\PY{l+s}{'}\PY{p}{\PYZcb{}}
 \end{Verbatim}
-Isn't Python beautifully simple?
+\end{ybox}
+\vspace{6mm}
+
+\noindent
+That was easy, wasn't it?
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -4563,71 +5205,75 @@ Imagine that you have to write a Python function to evaluate
 $$
 f(x) = \frac{1}{9 - x^2}.
 $$
-Of course, this is simple!
+Of course, this is simple!\\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k}{def} \PY{n+nf}{f}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{p}{:}
     \PY{k}{return} \PY{l+m+mf}{1.} \PY{o}{/} \PY{p}{(}\PY{l+m+mi}{9} \PY{o}{-} \PY{n}{x}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}
 \end{Verbatim}
-But we can almost guarantee that the first user will call the 
-function with $x = 3$ or $x = -3$. What will happen?
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+But, we can almost guarantee that the first user will call the 
+function with $x = 3$ or $x = -3$. What will happen?\\
+
+\begin{ybox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{Traceback} \PY{p}{(}\PY{n}{most} \PY{n}{recent} \PY{n}{call} \PY{n}{last}\PY{p}{)}\PY{p}{:}
-  \PY{n}{File} \PY{l+s}{"}\PY{l+s}{<nclab>}\PY{l+s}{"}\PY{p}{,} \PY{n}{line} \PY{l+m+mi}{1}\PY{p}{,} \PY{o+ow}{in} \PY{o}{<}\PY{n}{module}\PY{o}{>}
-\PY{n+ne}{ZeroDivisionError}\PY{p}{:} \PY{n+nb}{float} \PY{n}{division} \PY{n}{by} \PY{n}{zero}
+  \PY{n}{File} \PY{l+s}{"}\PY{l+s}{<nclab>}\PY{l+s}{"}\PY{p}{,} \PY{n}{line} \PY{l+m+mi}{1}\PY{p}{,} \PY{n}{in} \PY{o}{<}\PY{n}{module}\PY{o}{>}
+\PY{n+ne}{ZeroDivisionError}\PY{p}{:} \PY{n}{float} \PY{n}{division} \PY{n}{by} \PY{n}{zero}
 \end{Verbatim}
+\end{ybox}
+\vspace{6mm}
 
-\subsection{Never underestimate the user}
+\noindent
+We can prevent the code from crashing in the function {\tt f()} by returning 
+{\tt nan} ("not a number") that can be imported from Numpy:\\
 
-Be very careful with users! If we are not, they always manage
-to crash our code. By always we mean {\em always}. And most often they do even
-if we are as careful as possible. Sometimes they do it for fun, to show us that we are not all that smart.
-But most of the time they do it without bad intentions -- they are just learning to use our
-program, not knowing what they are not supposed to do, stepping over boundaries that we would 
-never cross. For example, the author of the function 
-
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
-\PY{k+kn}{from} \PY{n+nn}{numpy} \PY{k+kn}{import} \PY{n}{sqrt}
-\PY{k}{def} \PY{n+nf}{invsqrt}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{p}{:}
-    \PY{k}{return} \PY{l+m+mf}{1.}\PY{o}{/}\PY{n}{sqrt}\PY{p}{(}\PY{n}{x}\PY{p}{)}
-\end{Verbatim}
-would hardly call it with {\tt x = 0}, or even {\tt x = -1}. {\em The function 
-was not designed for that!} But the user did not know it.
+\PY{k+kn}{from} \PY{n+nn}{numpy} \PY{k+kn}{import} \PY{n}{nan}
 
-Here is an alternative version of the above function {\tt f(x)} that will not crash:
-
-\begin{Verbatim}[commandchars=\\\{\}]
 \PY{k}{def} \PY{n+nf}{f}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{p}{:}
-    \PY{k}{if} \PY{n}{x} \PY{o}{!=} \PY{l+m+mi}{3} \PY{o+ow}{and} \PY{n}{x} \PY{o}{!=} \PY{o}{-}\PY{l+m+mi}{3}\PY{p}{:}
+    \PY{k}{if} \PY{n}{x} \PY{o}{!=} \PY{o}{-}\PY{l+m+mi}{3} \PY{o+ow}{and} \PY{n}{x} \PY{o}{!=} \PY{l+m+mi}{3}\PY{p}{:}
         \PY{k}{return} \PY{l+m+mf}{1.} \PY{o}{/} \PY{p}{(}\PY{l+m+mi}{9} \PY{o}{-} \PY{n}{x}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}
     \PY{k}{else}\PY{p}{:}
-        \PY{k}{print} \PY{l+s}{"}\PY{l+s}{Division by zero detected, returning 0.}\PY{l+s}{"}
-        \PY{k}{return} \PY{l+m+mi}{0}
+        \PY{k}{print} \PY{l+s}{"}\PY{l+s}{Warning: Division by zero detected.}\PY{l+s}{"}
+        \PY{k}{return} \PY{n}{nan}
 \end{Verbatim}
-However, it is useful to slow down here and look at what we have. The fact that
-the warning sentence is printed is not very useful, because it is printed as output for 
-the human eye only. What if there is nobody to read it? Even if division by zero 
-happens, the function returns zero (a valid number) and the program continues on.
-Not good. Fortunately,
-Python (and other languages) have an elegant way to take care of exceptional situations 
-like this. This is called {\em exceptions handling}.
+\end{bbox}
+\vspace{6mm}
 
-\subsection{{\tt ZeroDivisionError} Exception}
+\noindent
+However, this is not a perfect solution either. When called with {\tt 3} or {\tt -3},
+our function will not crash, but a program that uses it will crash some place else.
 
-In contrast 
-to {\em predicting} what possibily could go wrong and including conditions to detect wrong 
-input, we do not check the input and let it simply happen. Does it sound careless? Let us 
-return to the original simple form of the function {\tt f(x)}:
+Situations like this (dividing by zero, taking square root of a negative number 
+etc.) cause {\em runtime exceptions}. An exeption, when not caught and handled, 
+will terminate our program with an error. However, Python offers an elegant way to catch 
+exceptions, that we will explain in the next paragraph. 
 
+\subsection{Exceptions handling}
+
+In contrast to {\em predicting} what possibily could go wrong and including conditions 
+to detect wrong input, in exceptions handling we let it simply happen. Does it sound 
+careless? Let us return to the original simple form of the function {\tt f(x)}:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k}{def} \PY{n+nf}{f}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{p}{:}
     \PY{k}{return} \PY{l+m+mf}{1.} \PY{o}{/} \PY{p}{(}\PY{l+m+mi}{9} \PY{o}{-} \PY{n}{x}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}
 \end{Verbatim}
-This is the function that we will use. However, we will call it in such a way that 
-an exceptional situation (here division by zero) is captured. For this we use the 
-{\tt try} command:
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+This time, we will call it in such a way that an exceptional situation (here 
+division by zero) is captured. For this we use the {\tt try} command:\\
  
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k}{try}\PY{p}{:}
     \PY{n}{result} \PY{o}{=} \PY{n}{f}\PY{p}{(}\PY{n}{a}\PY{p}{)}
@@ -4638,19 +5284,27 @@ an exceptional situation (here division by zero) is captured. For this we use th
     \PY{k}{print} \PY{l+s}{"}\PY{l+s}{Evaluation of f(a) was successful, going on }\PY{l+s+se}{\PYZbs{}}
 \PY{l+s}{    normally.}\PY{l+s}{"}
 \end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+This allows us to perform any emergency scenario {\em outside of the function {\tt f(x)}}, 
+which would not be possible otherwise. 
+
 Before continuing, we recommend that you type this code into the code cell,
 including the definition of the function {\tt f(x)}, and run it with values
-that crash the function {\tt f(x)} and with values that do not. If you are a newcomer to
-exceptions, this is an interesting experience. Feels a bit like letting the
-airplane crash, but save all passengers afterwards.
+that crash the function {\tt f(x)} and with values that do not. If you are 
+a newcomer to exceptions handling, this is an interesting experience. Feels 
+a bit like letting the airplane crash, but save all passengers afterwards.
  
 \subsection{The {\tt assert()} function}
 
 The {\tt assert()} function raises an exception whenever the Boolean 
 statement used as its argument is {\tt False}. This is a powerful tool to raise our own 
 exceptions. These exceptions can be caught using the {\tt try} command 
-as all other exceptions:
+as all other exceptions:\\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k}{def} \PY{n+nf}{f}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{p}{:}
     \PY{k}{assert}\PY{p}{(}\PY{n}{x} \PY{o}{!=} \PY{l+m+mi}{3} \PY{o+ow}{and} \PY{n}{x} \PY{o}{!=} \PY{o}{-}\PY{l+m+mi}{3}\PY{p}{)}
@@ -4663,44 +5317,67 @@ as all other exceptions:
 \PY{k}{else}\PY{p}{:}
     \PY{k}{print} \PY{l+s}{"}\PY{l+s}{Assertion passed, going on normally.}\PY{l+s}{"}
 \end{Verbatim}
-When called with {\tt a} equal to {\tt 1}, this code gives:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+When called with {\tt a} equal to {\tt 1}, this code gives:\\
+
+\begin{ybox}
 \begin{verbatim}
 Assertion passed, going on normally.
 \end{verbatim}
-When called with {\tt a} equal to {\tt 3}, this is what happens:
+\end{ybox}
+\vspace{6mm}
 
+\noindent
+When called with {\tt a} equal to {\tt 3}, this is what happens:\\
+
+\begin{ybox}
 \begin{verbatim}
 Assertion failed, performing emergency scenario!
 \end{verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
 
 \subsection{The {\tt raise} statement}
 
 Python does not have a command to stop program execution. Sometimes this is
-needed though, such as when the user calls our function with incorrect data. 
-To illustrate this, let us return to the function {\tt invsqrt()} that was 
-defined above, but now we include a {\tt raise} command in it:
+useful though, such as when the user calls our function with incorrect data. 
+To illustrate this, let us return to the function {\tt f()} that was 
+defined above, but now we include a {\tt raise} command in it:\\
  
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
-\PY{k+kn}{from} \PY{n+nn}{numpy} \PY{k+kn}{import} \PY{n}{sqrt}
-\PY{k}{def} \PY{n+nf}{invsqrt}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{p}{:}
-    \PY{k}{if} \PY{n}{x} \PY{o}{<}\PY{o}{=} \PY{l+m+mi}{0}\PY{p}{:}
-      \PY{k}{raise} \PY{n+ne}{ValueError}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{Please do not call the invsqrt() }\PY{l+s+se}{\PYZbs{}}
-\PY{l+s}{function when x is zero or negative.}\PY{l+s}{"}\PY{p}{)}
-    \PY{k}{return} \PY{l+m+mf}{1.}\PY{o}{/}\PY{n}{sqrt}\PY{p}{(}\PY{n}{x}\PY{p}{)}
+\PY{k}{def} \PY{n+nf}{f}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{p}{:}
+    \PY{k}{if} \PY{n}{x} \PY{o}{==} \PY{l+m+mi}{3} \PY{o+ow}{or} \PY{n}{x} \PY{o}{==} \PY{o}{-}\PY{l+m+mi}{3}\PY{p}{:}
+        \PY{k}{raise} \PY{n+ne}{ValueError}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{Division by zero detected.}\PY{l+s}{"}\PY{p}{)}
+    \PY{k}{return} \PY{l+m+mf}{1.} \PY{o}{/} \PY{p}{(}\PY{l+m+mi}{9} \PY{o}{-} \PY{n}{x}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}
 \end{Verbatim}
-Now the output of {\tt invsqrt(-5)} is:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+When the function {\tt f(x)} is called with {\tt 3} or {\tt -3},
+the output will be\\
+
+\begin{ybox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{Traceback} \PY{p}{(}\PY{n}{most} \PY{n}{recent} \PY{n}{call} \PY{n}{last}\PY{p}{)}\PY{p}{:}
-  \PY{n}{File} \PY{l+s}{"}\PY{l+s}{<string>}\PY{l+s}{"}\PY{p}{,} \PY{n}{line} \PY{l+m+mi}{1}\PY{p}{,} \PY{n}{in} \PY{o}{<}\PY{n}{module}\PY{o}{>}
-  \PY{n}{File} \PY{l+s}{"}\PY{l+s}{<nclab>}\PY{l+s}{"}\PY{p}{,} \PY{n}{line} \PY{l+m+mi}{4}\PY{p}{,} \PY{n}{in} \PY{n}{invsqrt}
-\PY{n+ne}{ValueError}\PY{p}{:} \PY{n}{Please} \PY{n}{do} \PY{n}{not} \PY{n}{call} \PY{n}{the} \PY{n}{invsqrt}\PY{p}{(}\PY{p}{)} 
-\PY{n}{function} \PY{n}{when} \PY{n}{x} \PY{n}{is} \PY{n}{zero} \PY{n}{or} \PY{n}{negative}\PY{o}{.}
+  \PY{n}{File} \PY{l+s}{"}\PY{l+s}{<string>}\PY{l+s}{"}\PY{p}{,} \PY{n}{line} \PY{l+m+mi}{7}\PY{p}{,} \PY{n}{in} \PY{o}{<}\PY{n}{module}\PY{o}{>}
+  \PY{n}{File} \PY{l+s}{"}\PY{l+s}{<nclab>}\PY{l+s}{"}\PY{p}{,} \PY{n}{line} \PY{l+m+mi}{3}\PY{p}{,} \PY{n}{in} \PY{n}{f}
+\PY{n+ne}{ValueError}\PY{p}{:} \PY{n}{Division} \PY{n}{by} \PY{n}{zero} \PY{n}{detected}\PY{o}{.}
 \end{Verbatim}
-Incorrect values of user input are the most common cause for raising 
-exceptions on our own. Any other exception type can be raised as well
-if needed.
+\end{ybox}
+\vspace{6mm}
+
+\noindent
+Incorrect values of user input are the most common reason to
+raise exceptions on our won. So far we have seen {\tt ZeroDivisionError},
+{\tt AssertionError} and {\tt ValueError}. There are additional types of 
+exceptions in Python -- let us mention the most important ones in the next paragraph.
 
 \subsection{Other types of exceptions}
 
@@ -4715,8 +5392,91 @@ There are many different exceptions including
 \item {\tt UnboundLocalError} (reference is made to a local variable in a function or method, 
       but no value has been bound to that variable),
 \end{itemize}
-and others. All of them can be caught using the {\tt try} command. If you are interested in 
-learning more, visit http://docs.python. org/library/exceptions. html.
+and others. All of them can be caught using the {\tt try} command. 
+
+Let us experiment with {\tt MemoryError} for a moment. The following 
+code will try to allocate in the memory a 2D array of real numbers
+of size {\tt n} $\times$ {\tt n} with {\tt n = 1000000}:\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kn}{from} \PY{n+nn}{numpy} \PY{k+kn}{import} \PY{n}{zeros}
+
+\PY{k}{def} \PY{n+nf}{array}\PY{p}{(}\PY{n}{n}\PY{p}{)}\PY{p}{:}
+    \PY{n}{a} \PY{o}{=} \PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n}{n}\PY{p}{,} \PY{n}{n}\PY{p}{)}\PY{p}{)}     
+    \PY{k}{return} \PY{n}{a}
+  
+\PY{n}{A = array}\PY{p}{(}\PY{l+m+mi}{1000000}\PY{p}{)}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+The size of this array would be around 8 TB (one TeraByte is 1024 GigaBytes),
+which is more runtime memory than all NCLab currently has. Since no exceptions 
+handling is present, Python will throw a {\tt MemoryError} exception and the 
+code will simply crash:\\
+
+\begin{ybox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{Traceback} \PY{p}{(}\PY{n}{most} \PY{n}{recent} \PY{n}{call} \PY{n}{last}\PY{p}{)}\PY{p}{:}
+  \PY{n}{File} \PY{l+s}{"}\PY{l+s}{<string>}\PY{l+s}{"}\PY{p}{,} \PY{n}{line} \PY{l+m+mi}{6}\PY{p}{,} \PY{n}{in} \PY{o}{<}\PY{n}{module}\PY{o}{>}
+  \PY{n}{File} \PY{l+s}{"}\PY{l+s}{<nclab>}\PY{l+s}{"}\PY{p}{,} \PY{n}{line} \PY{l+m+mi}{4}\PY{p}{,} \PY{n}{in} \PY{n}{array}
+\PY{n+ne}{MemoryError}
+\end{Verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
+Can we implement such a program in a smarter way? Of course! 
+The following implementation catches the {\tt MemoryError}
+exception if it happens, and tells the user that 
+so much memory is not available:\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kn}{from} \PY{n+nn}{numpy} \PY{k+kn}{import} \PY{n}{zeros}
+
+\PY{k}{def} \PY{n+nf}{array}\PY{p}{(}\PY{n}{n}\PY{p}{)}\PY{p}{:}
+    \PY{n}{a} \PY{o}{=} \PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n}{n}\PY{p}{,} \PY{n}{n}\PY{p}{)}\PY{p}{)}     
+    \PY{k}{return} \PY{n}{a}
+  
+\PY{k}{try}\PY{p}{:}
+    \PY{n}{A} \PY{o}{=} \PY{n}{array}\PY{p}{(}\PY{l+m+mi}{1000000}\PY{p}{)}
+\PY{k}{except}\PY{p}{:}
+    \PY{k}{print} \PY{l+s}{"}\PY{l+s}{There was not enough memory for array A!}\PY{l+s}{"}
+    \PY{k}{print} \PY{l+s}{"}\PY{l+s}{Please reduce array size and retry.}\PY{l+s}{"}
+\PY{k}{else}\PY{p}{:}
+    \PY{k}{print} \PY{l+s}{"}\PY{l+s}{Array A was created successfully.}\PY{l+s}{"}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+Now the output is:\\
+
+\begin{ybox}
+\begin{verbatim}
+There was not enough memory for array A!
+Please reduce array size and retry.
+\end{verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
+If you are interested in 
+learning more about exceptions, visit http://docs.python. org/ library/exceptions. html.
+Before we move to the next section, let's just remember:\\
+
+\begin{gbox}
+\begin{center}
+Never underestimate the user. Whenever your program accepts user 
+input,\\ make sure that you check its sanity. 
+\end{center}
+\end{gbox}
+\vspace{6mm}
+
+\noindent
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -4726,7 +5486,7 @@ learning more, visit http://docs.python. org/library/exceptions. html.
 
 \begin{itemize}
 \item Understand the philosophy of object-oriented (OO) programming.
-\item Understand the difference between OO programming and procedural programming.
+\item Understand the difference between OO and procedural programming.
 \item Learn basic concepts -- classes, objects, and methods.
 \item Learn the syntax of defining and instantiating classes in Python.
 \end{itemize}
@@ -4738,7 +5498,7 @@ and writing clean, transparent code. This included:
 \item Keeping all variables as local as possible
 \end{itemize}
 Object-oriented programming brings these good programming practices to
-perfection -- it will help us to write crystal clear, elegant, and very safe code.
+perfection: It will help us to write crystal clear, elegant, and very safe code.
 
 \subsection{From procedural to object-oriented programming}
 
@@ -4842,8 +5602,9 @@ the compiler.
 
 \subsection{Defining and using class {\tt circle}} \label{subsec:circle}
 
-This is how the class {\tt circle} is defined in Python:
+This is how the class {\tt circle} is defined in Python:\\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k+kn}{from} \PY{n+nn}{numpy} \PY{k+kn}{import} \PY{n}{pi}\PY{p}{,} \PY{n}{cos}\PY{p}{,} \PY{n}{sin}
 \PY{k+kn}{from} \PY{n+nn}{pylab} \PY{k+kn}{import} \PY{n}{clf}\PY{p}{,} \PY{n}{plot}\PY{p}{,} \PY{n}{legend}\PY{p}{,} \PY{n}{axis}
@@ -4855,6 +5616,14 @@ This is how the class {\tt circle} is defined in Python:
         \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{Cx} \PY{o}{=} \PY{n}{cx}
         \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{Cy} \PY{o}{=} \PY{n}{cy}
         \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{n} \PY{o}{=} \PY{n}{n}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
         \PY{c}{\PYZsh{} And now the points for plotting:}
         \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ptsx} \PY{o}{=} \PY{p}{[}\PY{p}{]}
         \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ptsy} \PY{o}{=} \PY{p}{[}\PY{p}{]}
@@ -4879,11 +5648,16 @@ This is how the class {\tt circle} is defined in Python:
         \PY{n}{plot}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ptsx}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ptsy}\PY{p}{,} \PY{n}{label} \PY{o}{=} \PY{n}{label}\PY{p}{)}
         \PY{n}{legend}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 Notice how the variables owned by the class are always used with the 
 prefix {\tt self}.
-
 With such a nice class in hand, it is easy to draw various circles,
-and calculate their areas and perimeters:
+and calculate their areas and perimeters:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c}{\PYZsh{} Create an instance:}
 \PY{n}{C1} \PY{o}{=} \PY{n}{circle}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{)}
@@ -4895,19 +5669,36 @@ and calculate their areas and perimeters:
 \PY{n}{C3} \PY{o}{=} \PY{n}{circle}\PY{p}{(}\PY{l+m+mf}{0.25}\PY{p}{,} \PY{l+m+mf}{1.5}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{)}
 \PY{k}{print} \PY{l+s}{"}\PY{l+s}{Are and perimeter of circle 3:}\PY{l+s}{"}\PY{p}{,} \PYZbs{}
 \PY{n}{C3}\PY{o}{.}\PY{n}{area}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{C3}\PY{o}{.}\PY{n}{perimeter}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{clf}\PY{p}{(}\PY{p}{)}
 \PY{n}{C1}\PY{o}{.}\PY{n}{draw}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{First circle}\PY{l+s}{"}\PY{p}{)}
 \PY{n}{C2}\PY{o}{.}\PY{n}{draw}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{Second circle}\PY{l+s}{"}\PY{p}{)}
 \PY{n}{C3}\PY{o}{.}\PY{n}{draw}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{Third circle}\PY{l+s}{"}\PY{p}{)}
 \PY{n}{lab}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
-The output (text and Fig. \ref{fig:3circ}) is shown below.
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+The output (text and Fig. \ref{fig:3circ}) is shown below.\\
+
+\begin{ybox}
 \begin{verbatim}
 Area and perimeter of circle 1: 3.14159265359 6.28318530718
 Area and perimeter of circle 2: 0.785398163397 3.14159265359
 Area and perimeter of circle 3: 0.196349540849 1.57079632679
 \end{verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
 
 \begin{figure}[!ht]
 \begin{center}
@@ -4934,16 +5725,28 @@ and if they are used, then without the brackets:\\
 Return a copy of the string with only its first character capitalized.\\
 
 \noindent
-Example:
+Example:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nb}{str} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{sentences should start with a capital letter.}\PY{l+s}{"}
 \PY{k}{print} \PY{n+nb}{str}\PY{o}{.}\PY{n}{capitalize}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{verbatim}
 Sentences should start with a capital letter.
 \end{verbatim}
-\vspace{4mm}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
+
 
 \noindent
 {\bf Method} {\tt count(sub[, start[, end]])}\\
@@ -4953,16 +5756,28 @@ Return the number of occurrences of substring sub in string S[start:end].
 Optional arguments start and end are interpreted as in slice notation.\\
 
 \noindent
-Example:
+Example:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nb}{str} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{John Stevenson, John Lennon, and John Wayne.}\PY{l+s}{"}
 \PY{k}{print} \PY{n+nb}{str}\PY{o}{.}\PY{n}{count}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{John}\PY{l+s}{"}\PY{p}{)}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{verbatim}
 3
 \end{verbatim}
-\vspace{4mm}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
+
 
 \noindent
 {\bf Method} {\tt find(sub[, start[, end]])}\\
@@ -4973,16 +5788,28 @@ sub is contained in the range {\tt [start, end]}. Optional arguments {\tt start}
 are interpreted as in slice notation. Return {\tt -1} if {\tt sub} is not found.\\
 
 \noindent
-Example:
+Example:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nb}{str} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{This happened during the summer.}\PY{l+s}{"}
 \PY{k}{print} \PY{n+nb}{str}\PY{o}{.}\PY{n}{find}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{sum}\PY{l+s}{"}\PY{p}{)}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{verbatim}
 25
 \end{verbatim}
-\vspace{4mm}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
+
 
 \noindent
 {\bf Method} {\tt index(sub[, start[, end]])}\\
@@ -4998,7 +5825,9 @@ Return true if all characters in the string are alphanumeric and
 there is at least one character, false otherwise.\\
 
 \noindent
-Example:
+Example:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{str1} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{mypassword123}\PY{l+s}{"}
 \PY{k}{if} \PY{n}{str1}\PY{o}{.}\PY{n}{isalnum}\PY{p}{(}\PY{p}{)}\PY{p}{:}
@@ -5011,12 +5840,21 @@ Example:
 \PY{k}{else}\PY{p}{:} 
     \PY{k}{print} \PY{n}{str2}\PY{p}{,} \PY{l+s}{"}\PY{l+s}{is not alphanumeric.}\PY{l+s}{"}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{verbatim}
 mypassword123 is alphanumeric.
 mypassword123+ is not alphanumeric.
 \end{verbatim}
-\vspace{4mm}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
 
 \noindent
 {\bf Method} {\tt isalpha()}\\
@@ -5026,7 +5864,9 @@ Return true if all characters in the string are alphabetic and
 there is at least one character, false otherwise.\\
 
 \noindent
-Example:
+Example:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{str1} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{John}\PY{l+s}{"}
 \PY{k}{if} \PY{n}{str1}\PY{o}{.}\PY{n}{isalpha}\PY{p}{(}\PY{p}{)}\PY{p}{:}
@@ -5039,12 +5879,21 @@ Example:
 \PY{k}{else}\PY{p}{:} 
     \PY{k}{print} \PY{n}{str2}\PY{p}{,} \PY{l+s}{"}\PY{l+s}{is not alphabetic.}\PY{l+s}{"}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{verbatim}
 John is alphabetic.
 My name is John is not alphabetic.
 \end{verbatim}
-\vspace{4mm}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
 
 \noindent
 {\bf Method} {\tt isdigit()}\\
@@ -5053,7 +5902,9 @@ My name is John is not alphabetic.
 Return true if all characters in the string are digits and there is at least one character, false otherwise.\\
 
 \noindent
-Example:
+Example:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{str1} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{2012}\PY{l+s}{"}
 \PY{k}{if} \PY{n}{str1}\PY{o}{.}\PY{n}{isdigit}\PY{p}{(}\PY{p}{)}\PY{p}{:}
@@ -5066,12 +5917,21 @@ Example:
 \PY{k}{else}\PY{p}{:} 
     \PY{k}{print} \PY{n}{str2}\PY{p}{,} \PY{l+s}{"}\PY{l+s}{is not a number.}\PY{l+s}{"}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{verbatim}
 2012 is a number.
 Year 2012 is a number.
 \end{verbatim}
-\vspace{4mm}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
 
 \noindent
 {\bf Method} {\tt join(seq)}\\
@@ -5081,7 +5941,9 @@ Return a string which is the concatenation of the strings in the sequence seq. T
 base string (onject whose method is used as separator).\\
 
 \noindent
-Example:
+Example:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nb}{str} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{...}\PY{l+s}{"}
 \PY{n}{str1} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{This}\PY{l+s}{"}
@@ -5090,11 +5952,20 @@ Example:
 \PY{n}{str4} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{movie.}\PY{l+s}{"}
 \PY{k}{print} \PY{n+nb}{str}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{p}{[}\PY{n}{str1}\PY{p}{,} \PY{n}{str2}\PY{p}{,} \PY{n}{str3}\PY{p}{,} \PY{n}{str4}\PY{p}{]}\PY{p}{)}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{verbatim}
 This...is...the...movie.
 \end{verbatim}
-\vspace{4mm}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
 
 \noindent
 {\bf Method} {\tt lower()}\\
@@ -5103,16 +5974,27 @@ This...is...the...movie.
 Return a copy of the string converted to lowercase.\\
 
 \noindent
-Example:
+Example:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nb}{str} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{She lives in New Orleans.}\PY{l+s}{"}
 \PY{k}{print} \PY{n+nb}{str}\PY{o}{.}\PY{n}{lower}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{verbatim}
 she lives in new orleans.
 \end{verbatim}
-\vspace{4mm}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
 
 \noindent
 {\bf Method} {\tt replace(old, new[, count])}\\
@@ -5122,16 +6004,27 @@ Return a copy of the string with all occurrences of substring old replaced by ne
 If the optional argument count is given, only the first count occurrences are replaced.\\
 
 \noindent
-Example:
+Example:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nb}{str} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{First word, second word, and third word.}\PY{l+s}{"}
 \PY{k}{print} \PY{n+nb}{str}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{word}\PY{l+s}{"}\PY{p}{,} \PY{l+s}{"}\PY{l+s}{thing}\PY{l+s}{"}\PY{p}{)}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{verbatim}
 First thing, second thing, and third thing.
 \end{verbatim}
-\vspace{4mm}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
 
 \noindent
 {\bf Method} {\tt swapcase()}\\
@@ -5140,16 +6033,27 @@ First thing, second thing, and third thing.
 Return a copy of the string with uppercase characters converted to lowercase and vice versa.\\
 
 \noindent
-Example:
+Example:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nb}{str} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{The abbreviation is MENSA}\PY{l+s}{"}
 \PY{k}{print} \PY{n+nb}{str}\PY{o}{.}\PY{n}{swapcase}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{verbatim}
 tHE ABBREVIATION IS mensa
 \end{verbatim}
-\vspace{4mm}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
 
 \noindent
 {\bf Method} {\tt title()}\\
@@ -5159,32 +6063,57 @@ Return a titlecased version of the string: Words start with uppercase characters
 all remaining cased characters are lowercase.\\
 
 \noindent
-Example:
+Example:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nb}{str} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{this is the title of my new book}\PY{l+s}{"}
 \PY{k}{print} \PY{n+nb}{str}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{verbatim}
 This Is The Title Of My New Book
 \end{verbatim}
-\vspace{4mm}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
 
 \noindent
 {\bf Method} {\tt upper()}\\
+
+\noindent
 Return a copy of the string converted to uppercase.\\
 
 \noindent
-Example:
+Example:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nb}{str} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{this is the title of my new book}\PY{l+s}{"}
 \PY{k}{print} \PY{n+nb}{str}\PY{o}{.}\PY{n}{upper}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
-Output:
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+Output:\\
+
+\begin{ybox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{THIS IS THE TITLE OF MY NEW BOOK}
 \end{Verbatim}
-\vspace{4mm}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
+
 
 \noindent
 For additional useful text string methods see the Python documentation at 
@@ -5193,7 +6122,7 @@ For additional useful text string methods see the Python documentation at
 \noindent
 Before we
 leave this section, notice that lists, tuples, dictionaries and many other 
-data structures in Python are classes as well.
+data structures in Python are classes as well. 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -5212,7 +6141,7 @@ build a small library of geometrical objects that contains
 triangles, quadrilaterals, rectangles, squares, and circles. 
 We want all 
 these classes to have the same functionality as the class {\tt circle} from 
-Subsection \ref{subsec:circle}. This means, they should be able to:
+Paragraph \ref{subsec:circle}. This means, they should be able to:
 \begin{itemize}
 \item Calculate their area,
 \item calculate their perimeter,
@@ -5227,8 +6156,9 @@ handy.
 \subsection{Creating base class {\tt geometry}}
 
 Instead of repeating the same drawing functionality in all classes, we create 
-a base class {\tt geometry} as follows:
+a base class {\tt geometry} as follows:\\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k+kn}{from} \PY{n+nn}{pylab} \PY{k+kn}{import} \PY{n}{clf}\PY{p}{,} \PY{n}{plot}\PY{p}{,} \PY{n}{legend}\PY{p}{,} \PY{n}{axis}
 
@@ -5245,6 +6175,10 @@ a base class {\tt geometry} as follows:
         \PY{n}{plot}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ptsx}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ptsy}\PY{p}{,} \PY{n}{label} \PY{o}{=} \PY{n}{label}\PY{p}{)}
         \PY{n}{legend}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 This base class really cannot do much, but this is fine. We will use it to 
 derive several new (descendant) classes. The benefit of inheritance is that if 
 we decide in the future to change the plotting mechanism, we will just have to change it at 
@@ -5258,9 +6192,10 @@ can ever do.
 There is more to the story. Triangles, quadrilaterals, rectangles and squares are all 
 {\em polygons}. Hence let us create the class {\tt polygon} to be a descendant 
 of the base class {\tt geometry}. This class will represent general non-convex
-counter-clockwise (CCW) oriented polygons. Notice the syntax of the inheritance -- 
-one types {\tt class polygon( geometry):} instead of just {\tt class polygon}:
+counter-clockwise (CCW) oriented polygons. Notice the syntax of the inheritance:
+one types {\tt class polygon( geometry):} instead of just {\tt class polygon}:\\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c}{\PYZsh{} Class polygon derived from class geometry, }
 \PY{c}{\PYZsh{} represents general, possibly non-convex }
@@ -5303,13 +6238,18 @@ one types {\tt class polygon( geometry):} instead of just {\tt class polygon}:
                  \PY{o}{+} \PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ptsy}\PY{p}{[}\PY{n}{i}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{]} \PY{o}{-} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ptsy}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}
         \PY{k}{return} \PY{n}{l}
 \end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 Notice that we did not have to define the method {\tt draw()} here. 
 
 \subsection{Deriving {\tt circle} from {\tt geometry}}
 
 Next let us derive the class {\tt circle} from the class {\tt geometry}. Obviously it cannot be derived
-from {\tt polygon} because circles are not polygonal geometries:
+from {\tt polygon} because circles are not polygonal geometries:\\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c}{\PYZsh{} Class circle derived from class geometry:}
 \PY{k}{class} \PY{n+nc}{circle}\PY{p}{(}\PY{n}{geometry}\PY{p}{)}\PY{p}{:}
@@ -5338,6 +6278,10 @@ from {\tt polygon} because circles are not polygonal geometries:
     \PY{k}{def} \PY{n+nf}{perimeter}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
         \PY{k}{return} \PY{l+m+mi}{2} \PY{o}{*} \PY{n}{pi} \PY{o}{*} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{R}
 \end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 Again, notice that we did not have to define the method {\tt draw()}.
 
 \subsection{Deriving {\tt triangle} and {\tt quad} from {\tt polygon}}
@@ -5351,8 +6295,9 @@ This class is very simple -- it takes three points as parameters, forms
 a list containing these three points, and then the list is passed into the 
 constructor of the parent class {\tt polygon}. Notice the way the constructor of
 the {\tt polygon} class is called from its descendant {\tt triangle} via 
-{\tt polygon.\_\_init\_\_(self, L)}:
+{\tt polygon.\_\_init\_\_(self, L)}:\\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c}{\PYZsh{} Class triangle derived from class polygon:}
 \PY{k}{class} \PY{n+nc}{triangle}\PY{p}{(}\PY{n}{polygon}\PY{p}{)}\PY{p}{:}
@@ -5361,8 +6306,13 @@ the {\tt polygon} class is called from its descendant {\tt triangle} via
         \PY{n}{L} \PY{o}{=} \PY{p}{[}\PY{n}{a}\PY{p}{,} \PY{n}{b}\PY{p}{,} \PY{n}{c}\PY{p}{]}
         \PY{n}{polygon}\PY{o}{.}\PY{n}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{L}\PY{p}{)}
 \end{Verbatim}
-Class {\tt quad} is created analogously:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+Class {\tt quad} is created analogously:\\
+
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c}{\PYZsh{} Class quad derived from class polygon:}
 \PY{k}{class} \PY{n+nc}{quad}\PY{p}{(}\PY{n}{polygon}\PY{p}{)}\PY{p}{:}
@@ -5372,12 +6322,17 @@ Class {\tt quad} is created analogously:
         \PY{n}{L} \PY{o}{=} \PY{p}{[}\PY{n}{a}\PY{p}{,} \PY{n}{b}\PY{p}{,} \PY{n}{c}\PY{p}{,} \PY{n}{d}\PY{p}{]}
         \PY{n}{polygon}\PY{o}{.}\PY{n}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{L}\PY{p}{)}
 \end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 
 \subsection{Deriving {\tt rectangle} from {\tt quad}}
 
 Next, rectangle is a special case of quad, so let us derive the 
-{\tt rectangle} class from the {\tt quad} class:
+{\tt rectangle} class from the {\tt quad} class:\\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c}{\PYZsh{} Class rectangle derived from class quad.}
 \PY{c}{\PYZsh{} Represents rectangle (0, a) x (0, b):}
@@ -5386,12 +6341,17 @@ Next, rectangle is a special case of quad, so let us derive the
     \PY{k}{def} \PY{n+nf}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{a}\PY{p}{,} \PY{n}{b}\PY{p}{)}\PY{p}{:}
         \PY{n}{quad}\PY{o}{.}\PY{n}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{n}{a}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{n}{a}\PY{p}{,} \PY{n}{b}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{b}\PY{p}{]}\PY{p}{)}
 \end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 
 \subsection{Deriving {\tt square} from {\tt rectangle}}
 
 Taking this one step further, square is a special case of rectangle. Therefore 
-we can derive the {\tt square} class from the {\tt rectangle} class:
+we can derive the {\tt square} class from the {\tt rectangle} class:\\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c}{\PYZsh{} Class square derived from class rectangle.}
 \PY{c}{\PYZsh{} Represents square (0, a) x (0, a):}
@@ -5400,6 +6360,10 @@ we can derive the {\tt square} class from the {\tt rectangle} class:
     \PY{k}{def} \PY{n+nf}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{a}\PY{p}{)}\PY{p}{:}
         \PY{n}{rectangle}\PY{o}{.}\PY{n}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{a}\PY{p}{,} \PY{n}{a}\PY{p}{)}
 \end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 
 \subsection{Diagram of class structure}
 
@@ -5417,8 +6381,9 @@ The inheritance structure of our classes is depicted in Fig. \ref{fig:classes}.
 \subsection{Creating sample instances}
 
 Finally let us create sample instances of the classes defined above, inquire
-about their areas and perimeters, and let them plot themselves:
+about their areas and perimeters, and let them plot themselves:\\
 
+\begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c}{\PYZsh{} Create a triangle:}
 \PY{n}{T} \PY{o}{=} \PY{n}{triangle}\PY{p}{(}\PY{p}{[}\PY{o}{-}\PY{l+m+mi}{2}\PY{p}{,} \PY{o}{-}\PY{l+m+mf}{0.5}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{o}{-}\PY{l+m+mf}{0.5}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{o}{-}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}
@@ -5456,8 +6421,13 @@ about their areas and perimeters, and let them plot themselves:
 \PY{n}{legend}\PY{p}{(}\PY{p}{)}
 \PY{n}{lab}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
-First, here is the textual output:
+\end{bbox}
+\vspace{6mm}
 
+\noindent
+First, here is the textual output:\\
+
+\begin{ybox}
 \begin{verbatim}
 Area and perimeter of the triangle: 2.5 7.38516480713
 Area and perimeter of the quad: 4.0 8.472135955
@@ -5465,6 +6435,10 @@ Area and perimeter of the rectangle: 3.0 8.0
 Area and perimeter of the square: 2.25 6.0
 Area and perimeter of the circle: 19.6349540849 15.7079632679
 \end{verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
 The graphical output is shown in Fig. \ref{fig:classes2}.
 
 \begin{figure}[!ht]
@@ -5476,9 +6450,9 @@ The graphical output is shown in Fig. \ref{fig:classes2}.
 \label{fig:classes2}
 \end{figure}
 
-\noindent
-{\bf B\'ezier curves}: 
+\subsection*{B\'ezier curves}: 
 
+\noindent
 B\'ezier curves are the most widely used approach to define curves in engineering design. 
 Let us begin with the linear case. Linear B\'ezier curve is a straight line that
 connects two control points $P_1$ and $P_2$. All B\'ezier curves are parameterized
@@ -5539,7 +6513,7 @@ can be found on the home page of Matplotlib, {\tt http://matplotlib.sourceforge.
 This page contains an exhaustive overview of plotting-related functionality, many
 examples, gallery, and documentation.
 
-\subsection{Scipy and Numpy}
+\subsection{Scipy, Numpy and Sympy}
 
 Scipy is a general library for scientific computing with 
 Python. Numpy can be viewed as its "heart" containing numerical 
@@ -5549,8 +6523,6 @@ linear algebra, eigenvalue problems, graph theory routines,
 statistics, ordinary and partial differential equations,
 image processing, etc. To learn more, visit 
 {\tt http://www.scipy. org} and {\tt http://numpy.scipy.org/}. 
-
-\subsection{Sympy}
 
 Sympy is an excellent library for symbolic mathematics covering high-school 
 algebra, calculus, matrix algebra and differential equations. To learn more

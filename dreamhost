@@ -1,4 +1,4 @@
-scp python_en.pdf femhub@208.113.201.85:~/femhub.com/public/docs/ 
+scp python_en.pdf femhub@208.113.201.85:~/femhub.com/public/textbook-python/ 
  
 
 

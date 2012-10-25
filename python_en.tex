@@ -877,7 +877,9 @@ is standard in mathematics:
 \item Round brackets '{\tt (...)}'have the highest priority,
 \item then exponentiation '{\tt **}', 
 \item then multiplication '{\tt *}', division '{\tt /}' and modulo '{\tt \%}', 
-\item the lowest priority have addition '{\tt +}' and subtraction '{\tt -}'.
+\item the lowest priority have addition '{\tt +}' and subtraction '{\tt -}',
+\item operations with the same priority are evaluated from left to right -- for
+      example the result of {\tt 20 / 10 * 2} is {\tt 4}. 
 \end{itemize}
 Note that no other brackets such as {\tt \{ \}} and {\tt [ ]} are 
 admissible in mathematical expressions. The reason is that they have a different 

@@ -2725,7 +2725,7 @@ True
 \noindent
 Initially, the type of the variable {\tt a} was an integer, then it was changed 
 to a text string, and finally it became a Boolean variable. Being able to do things 
-like this makes Python programming very flezible. However, we should not abuse our 
+like this makes Python programming very flexible. However, we should not abuse our 
 freedoms unless there is a valid reason for it. \\
 
 \begin{gbox}
@@ -4391,7 +4391,7 @@ Omitting the first index in a slice defaults to zero:\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{w3} \PY{o}{=} \PY{n}{w1}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{:}\PY{l+m+mi}{2}\PY{p}{]}
+\PY{n}{w3} \PY{o}{=} \PY{n}{w1}\PY{l+m+mi}{[:2]}
 \PY{k}{print} \PY{n}{w3}
 \end{Verbatim}
 \end{bbox}
@@ -5165,8 +5165,8 @@ perhaps convert an English-Spanish dictionary into a Spanish-English one: \\
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{ES} \PY{o}{=} \PY{p}{\PYZob{}}\PY{l+s}{'}\PY{l+s}{city}\PY{l+s}{'}\PY{p}{:} \PY{l+s}{'}\PY{l+s}{ciudad}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{fire}\PY{l+s}{'}\PY{p}{:} \PY{l+s}{'}\PY{l+s}{fuego}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{sun}\PY{l+s}{'}\PY{p}{:} \PY{l+s}{'}\PY{l+s}{sol}\PY{l+s}{'}\PY{p}{\PYZcb{}}
 \PY{n}{SE} \PY{o}{=} \PY{p}{\PYZob{}}\PY{p}{\PYZcb{}}
-\PY{k}{for} \PY{n}{english\PYZus{}word} \PY{o+ow}{in} \PY{n}{D}\PY{p}{:}
-    \PY{n}{spanish\PYZus{}word} \PY{o}{=} \PY{n}{D}\PY{p}{[}\PY{n}{english\PYZus{}word}\PY{p}{]}
+\PY{k}{for} \PY{n}{english\PYZus{}word} \PY{o+ow}{in} \PY{n}{ES}\PY{p}{:}
+    \PY{n}{spanish\PYZus{}word} \PY{o}{=} \PY{n}{ES}\PY{p}{[}\PY{n}{english\PYZus{}word}\PY{p}{]}
     \PY{n}{SE}\PY{p}{[}\PY{n}{spanish\PYZus{}word}\PY{p}{]} \PY{o}{=} \PY{n}{english\PYZus{}word}
     
 \PY{k}{print} \PY{l+s}{"}\PY{l+s}{Spanish-English dictionary:}\PY{l+s}{"}
@@ -5377,7 +5377,7 @@ the output will be\\
 
 \noindent
 Incorrect values of user input are the most common reason to
-raise exceptions on our won. So far we have seen {\tt ZeroDivisionError},
+raise exceptions on our own. So far we have seen {\tt ZeroDivisionError},
 {\tt AssertionError} and {\tt ValueError}. There are additional types of 
 exceptions in Python -- let us mention the most important ones in the next paragraph.
 
@@ -5940,7 +5940,7 @@ Year 2012 is a number.
 
 \noindent
 Return a string which is the concatenation of the strings in the sequence seq. The 
-base string (onject whose method is used as separator).\\
+base string (object whose method is used as separator).\\
 
 \noindent
 Example:\\

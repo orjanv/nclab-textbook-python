@@ -1586,7 +1586,7 @@ Fortunately, Python offers a smarter way to do this. We can define a new functio
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
-\PY{k}{def} \PY{n+nf}{enter}\PY{p}{(}\PY{n}{first}\PY{p}{,} \PY{n}{last}\PY{p}{,} \PY{n}{transport} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{bicycle}\PY{l+s}{"}\PY{p}{)}\PY{p}{:}
+\PY{k}{def} \PY{n+nf}{enter}\PY{p}{(}\PY{n}{first}\PY{p}{,} \PY{n}{last}\PY{p}{,} \PY{n}{transport}\PY{o}{=}\PY{l+s}{"}\PY{l+s}{bicycle}\PY{l+s}{"}\PY{p}{)}\PY{p}{:}
     \PY{n}{enter\PYZus{}into\PYZus{}database}\PY{p}{(}\PY{n}{first}\PY{p}{,} \PY{n}{last}\PY{p}{,} \PY{n}{transport}\PY{p}{)}
 \end{Verbatim}
 \end{bbox}
@@ -1623,7 +1623,7 @@ as follows:\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
-\PY{k}{def} \PY{n+nf}{add}\PY{p}{(}\PY{n}{a}\PY{p}{,} \PY{n}{b} \PY{o}{=} \PY{l+m+mi}{10}\PY{p}{)}\PY{p}{:}
+\PY{k}{def} \PY{n+nf}{add}\PY{p}{(}\PY{n}{a}\PY{p}{,} \PY{n}{b}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{)}\PY{p}{:}
     \PY{k}{return} \PY{n}{a} \PY{o}{+} \PY{n}{b}
 \end{Verbatim}
 \end{bbox}
@@ -1679,7 +1679,7 @@ Output:\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
-\PY{k}{def} \PY{n+nf}{add}\PY{p}{(}\PY{n}{a} \PY{o}{=} \PY{l+m+mi}{5}\PY{p}{,} \PY{n}{b}\PY{p}{)}\PY{p}{:}
+\PY{k}{def} \PY{n+nf}{add}\PY{p}{(}\PY{n}{a}\PY{o}{=}\PY{l+m+mi}{5}\PY{p}{,} \PY{n}{b}\PY{p}{)}\PY{p}{:}
     \PY{k}{return} \PY{n}{a} \PY{o}{+} \PY{n}{b}
 \end{Verbatim}
 \end{bbox}
@@ -1704,7 +1704,7 @@ This is the error message:\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
-\PY{k}{def} \PY{n+nf}{add}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{a} \PY{o}{=} \PY{l+m+mi}{2}\PY{p}{,} \PY{n}{b} \PY{o}{=} \PY{l+m+mi}{3}\PY{p}{)}\PY{p}{:}
+\PY{k}{def} \PY{n+nf}{add}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{a}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{,} \PY{n}{b}\PY{o}{=}\PY{l+m+mi}{3}\PY{p}{)}\PY{p}{:}
     \PY{k}{return} \PY{n}{x} \PY{o}{+} \PY{n}{a} \PY{o}{+} \PY{n}{b}
 \end{Verbatim}
 \end{bbox}
@@ -3131,11 +3131,13 @@ they are two completely different objects.
 \item Learn the Monte Carlo method of scientific computing.
 \item Encounter the {\tt for} loop in Python for the first time.
 \end{itemize}
-Logic is always a useful review topic, so let's return to it briefly although logic in Python is 
-virtually the same as in Karel the Robot.
+Logic is always a useful review topic, so let's return to it briefly. Fortunately, logic in Python is 
+virtually the same as it is in Karel the Robot.
 
 \subsection{{\tt True} and {\tt False}}
 
+Python has a built-in data type, {\tt bool}, for expressing True and False values.  This is short for Boolean. Certain expressions in Python, thoses that use {\em comparison operators}, evaluate to {\tt True} or {\tt False}. These expressions are used to determine the relationship between two values.\\
+\\
 Let's begin with creating a variable and printing it:\\
 
 \begin{bbox}
@@ -3177,10 +3179,13 @@ Output:\\
 \vspace{6mm}
 
 \noindent
+In the above example, {\tt >} is a comparison operator. It is used to evaluate whether the value on the left is greater than the value on the right.\\
+\\
 Although the syntax looks a bit unusual, this is a correct
-Python code -- since {\tt a} is one, the Boolean expression {\tt a > 0}
-is {\tt True}. This is the value that gets printed. We can try it the other 
-way round:\\
+Python code -- since {\tt a} is equal to {\tt 1}, the Boolean expression {\tt a > 0}
+is {\tt True}. This is the value that was printed by the interpreter.\\
+\\
+We can try it the other way round:\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -3207,7 +3212,7 @@ we will use them with logical operations.
 
 \subsection{Boolean variables}
 
-Boolean values can be stored in variables similarly as numbers or text strings.
+Similar to numbers and strings, Boolean values can be stored in variables.
 For example:\\
 
 \begin{bbox}
@@ -3248,6 +3253,10 @@ Boolean expressions involving numbers often contain the following operators:\\
 \end{tabular}
 \end{center}
 
+\begin{gbox}
+A common source of confusion for new Python programmers is the difference between the '{\tt ==}' and {\tt '='} operators. The {\em assignment operator}, {\tt '='}, is used to set a variable equal to a value. The {\em comparison operator}, {\tt '=='}, is used to compare two values and determine if they are already equal. Whenever we are working without Boolean expressions, we will want to use the {\tt '=='} operator.
+\end{gbox}
+
 \subsection{Boolean operations}\label{subsec:boolop}
 
 When solving real-life problems, our algorithms often 
@@ -3273,7 +3282,7 @@ $F = b + c > a$\\
 
 \noindent
 The numbers $a$, $b$, $c$ form an admissible input if the following 
-Boolean expression is Tue:\\
+Boolean expression is True:\\
 
 \noindent
 \begin{center}

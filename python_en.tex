@@ -683,12 +683,10 @@ Output:\\
 \vspace{6mm}
 
 \noindent
-This is not correct! But why? The answer is that since the numbers {\tt 33} and {\tt 5}
-are both integers, the result is automatically converted to an integer. This is how it works 
-in all major computer languages including C, C++, Fortran, Python and others. The
-correct way of using division is to represent at least one of the numbers as a real number.
-Adding a decimal point is enough for that. Then the result is automatically converted 
-to a real number:\\
+This doesn't look correct! Why did Python return {\tt 6} and not {\tt 6.6}? The answer is that since the numbers {\tt 33} and {\tt 5}
+are both integers, the '{\tt /}' operator performs {\em integer division}, or {\em floored division}, and returns an integer. This is because like C, C++, and Fortran, Python is {\em strongly-typed}. This means that python will avoid implicitly changing between types of data. In order to perform floating-point division, the type of division that is more common in the sciences, at least one of the numbers must be represented as a real number.\\
+\\
+Adding a decimal point after the number will accomplish this. Now, the result is a real number:\\
 
 \begin{bbox}
 \begin{verbatim}

@@ -3122,6 +3122,43 @@ when the above code is interpreted, is that the interpreter gives to the two
 {\tt c} variables different names. For the interpreter,
 they are two completely different objects. 
 
+\subsection{Overriding constants}
+
+In Python, constants such as {\tt pi} or {\tt e} are in fact just global variables
+and in principle there is no problem redefining their values in our program.
+Of course this is not a good programming practice as our code becomes
+confusing. A variable {\tt pi} should contain the value of $\pi$
+as everyone expects. 
+
+But, mistakes happen. 
+If we define a function where we create a local variable {\tt pi},
+this is in fact another example of variable shadowing and our code 
+will work fine:\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kn}{from} \PY{n+nn}{numpy} \PY{k+kn}{import} \PY{n}{sqrt}\PY{p}{,} \PY{n}{pi}
+\PY{k}{def} \PY{n+nf}{hypotenuse}\PY{p}{(}\PY{n}{x}\PY{px}{,} \PY{n}{y}\PY{p}{)}\PY{p}{:}
+    pi = \PY{n}{sqrt}\PY{p}{(}\PY{n}{x}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2} \PY{o}{+} \PY{n}{y}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}
+    \PY{k}{return} pi
+\PY{k}{print} \PY{n}{hypotenuse}\PY{p}{(}\PY{l+m+mi}{3}\PY{p}{,} \PY{l+m+mi}{4}\PY{p}{)}
+\PY{k}{print} \PY{n}{pi}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+The output is\\
+
+\begin{ybox}
+\begin{verbatim}
+5.0
+3.14159265359
+\end{verbatim}
+\end{ybox}
+\vspace{6mm}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

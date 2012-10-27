@@ -3869,7 +3869,6 @@ though since it is not a perfect example of structured programming -- it
 is just a shortcut.
 \end{gbox}
 
-
 \subsection{The {\tt continue} statement}
 
 Sometimes we know that finishing all commands in the loop's body is not necessary.
@@ -3927,8 +3926,45 @@ It took 1168 attempts to get it!
 \end{ybox}
 \vspace{6mm}
 
+\subsection{Abusing the {\tt while} loop}
 
-\subsection{Another trip into scientific computing}
+The following code has seen the light of the world too many times:\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{counter} \PY{o}{=} \PY{l+m+mi}{0}
+\PY{k}{while} \PY{n}{counter} \PY{o}{<} \PY{l+m+mi}{20}\PY{p}{:}
+    \PY{c}{\PYZsh{} Do something with the counter, here}
+    \PY{c}{\PYZsh{} for simplicity we just print it:}
+    \PY{k}{print} \PY{n}{counter}
+    \PY{c}{\PYZsh{} Increase the counter:}
+    \PY{n}{counter} \PY{o}{+}\PY{o}{=} \PY{l+m+mi}{1}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+Although there is nothing syntactically wrong with this code, and it 
+even produces the desired result, it is an example of bad 
+programming. The person who wrote such a code probably did 
+not understand why programming languages have two types 
+of loops. The code emulates a counting loop and whoever 
+reads it, will be confused. Why was the {\tt while} loop used
+when the number of repetitions was known in advance? The correct 
+code for this situation is:\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{for} \PY{n}{counter} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{20}\PY{p}{)}\PY{p}{:}
+    \PY{k}{print} \PY{n}{counter}
+\end{Verbatim}
+\end{bbox}
+
+
+
+
+
+\subsection{Next trip into scientific computing}
 
 As our programming skills get stronger, we are able to 
 tackle more difficult problems. Now it is our task to 
@@ -3961,7 +3997,6 @@ where approximately the solution can be expected:\\
 
 \noindent
 The output is shown in Fig. \ref{fig:xcosx}.
-\newpage
 
 \begin{figure}[!ht]
 \begin{center}
@@ -3969,8 +4004,10 @@ The output is shown in Fig. \ref{fig:xcosx}.
 \end{center}
 \vspace{-2mm}
 \caption{Graphs of the functions $\cos(x)$ and $x$ in the interval $(0, \pi/2)$.}
+\vspace{-1cm}
 \label{fig:xcosx}
 \end{figure}
+\newpage
 \noindent
 The solution that we are after is the value of $x$ where the two 
 graphs intersect. Looking at the picture, clearly the solution is 
@@ -5077,7 +5114,7 @@ details.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Counting Loop} \label{sec:forloop}
+\section{More on Counting Loop} \label{sec:forloop}
 
 \subsection{Objectives}
 
@@ -5671,14 +5708,6 @@ This is how the class {\tt circle} is defined in Python:\\
         \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{Cx} \PY{o}{=} \PY{n}{cx}
         \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{Cy} \PY{o}{=} \PY{n}{cy}
         \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{n} \PY{o}{=} \PY{n}{n}
-\end{Verbatim}
-\end{bbox}
-\vspace{6mm}
-
-\noindent
-
-\begin{bbox}
-\begin{Verbatim}[commandchars=\\\{\}]
         \PY{c}{\PYZsh{} And now the points for plotting:}
         \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ptsx} \PY{o}{=} \PY{p}{[}\PY{p}{]}
         \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ptsy} \PY{o}{=} \PY{p}{[}\PY{p}{]}
@@ -5696,7 +5725,14 @@ This is how the class {\tt circle} is defined in Python:\\
     \PY{c}{\PYZsh{} Method to return perimeter:}
     \PY{k}{def} \PY{n+nf}{perimeter}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
         \PY{k}{return} \PY{l+m+mi}{2} \PY{o}{*} \PY{n}{pi} \PY{o}{*} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{R}
-      
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]      
     \PY{c}{\PYZsh{} Method to plot the circle:}
     \PY{k}{def} \PY{n+nf}{draw}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{label}\PY{p}{)}\PY{p}{:}
         \PY{n}{axis}\PY{p}{(}\PY{l+s}{'}\PY{l+s}{equal}\PY{l+s}{'}\PY{p}{)}
@@ -5754,6 +5790,7 @@ Area and perimeter of circle 3: 0.196349540849 1.57079632679
 \vspace{6mm}
 
 \noindent
+\newpage
 
 \begin{figure}[!ht]
 \begin{center}
@@ -6267,7 +6304,14 @@ one types {\tt class polygon( geometry):} instead of just {\tt class polygon}:\\
         \PY{c}{\PYZsh{} To close the loop in plotting:}
         \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ptsx}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{L}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
         \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ptsy}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{L}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
-         
+      \end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]   
     \PY{c}{\PYZsh{} Method to calculate area of a general }
     \PY{c}{\PYZsh{} oriented polygon:}
     \PY{k}{def} \PY{n+nf}{area}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}

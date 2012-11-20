@@ -1472,13 +1472,13 @@ example with just five points [0, 0], [1, 2], [2, 0.5], [3, 2.5] and [4, 0]:\\
 \PY{n}{y} \PY{o}{=} \PY{p}{[}\PY{l+m+mf}{0.0}\PY{p}{,} \PY{l+m+mf}{2.0}\PY{p}{,} \PY{l+m+mf}{0.5}\PY{p}{,} \PY{l+m+mf}{2.5}\PY{p}{,} \PY{l+m+mi}{0.0}\PY{p}{]}
 \PY{n}{clf}\PY{p}{(}\PY{p}{)}
 \PY{n}{plot}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{y}\PY{p}{)}
-\PY{n}{lab}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\PY{n}{show}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
 \end{bbox}
 \vspace{6mm}
 
 \noindent
-The commands {\tt clf()}, {\tt plot()} and {\tt lab.show()} do clear the canvas, 
+The commands {\tt clf()}, {\tt plot()} and {\tt show()} do clear the canvas, 
 plot the graph, and fetch the image from server, respectively.
 The output is shown in Fig. \ref{fig:plot}.
 \newpage
@@ -1551,7 +1551,7 @@ The last part we already know:\\
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{clf}\PY{p}{(}\PY{p}{)}
 \PY{n}{plot}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{y}\PY{p}{)}
-\PY{n}{lab}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\PY{n}{show}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
 \end{bbox}
 \vspace{6mm}
@@ -1580,7 +1580,7 @@ and the line style can be changed. Let us start with adding a label:\\
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{plot}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{b-}\PY{l+s}{'}\PY{p}{,} \PY{n}{label} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{Solid blue line}\PY{l+s}{"}\PY{p}{)}
 \PY{n}{legend}\PY{p}{(}\PY{p}{)}
-\PY{n}{lab}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\PY{n}{show}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
 \end{bbox}
 \vspace{6mm}
@@ -1605,7 +1605,7 @@ Next let us change the color to red and line style to dashed: \\
 \PY{n}{clf}\PY{p}{(}\PY{p}{)}
 \PY{n}{plot}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{r--}\PY{l+s}{'}\PY{p}{,} \PY{n}{label} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{Dashed red line}\PY{l+s}{"}\PY{p}{)}
 \PY{n}{legend}\PY{p}{(}\PY{p}{)}
-\PY{n}{lab}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\PY{n}{show}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
 \end{bbox}
 \vspace{6mm}
@@ -1632,7 +1632,7 @@ a solid or dashed line:\\
 \PY{n}{clf}\PY{p}{(}\PY{p}{)}
 \PY{n}{plot}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{g.}\PY{l+s}{'}\PY{p}{,} \PY{n}{label} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{Dotted green line}\PY{l+s}{"}\PY{p}{)}
 \PY{n}{legend}\PY{p}{(}\PY{p}{)}
-\PY{n}{lab}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\PY{n}{show}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
 \end{bbox}
 \vspace{6mm}
@@ -1658,7 +1658,7 @@ Last let us stay with green color but make the dots larger:\\
 \PY{n}{clf}\PY{p}{(}\PY{p}{)}
 \PY{n}{plot}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{go}\PY{l+s}{'}\PY{p}{,} \PY{n}{label} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{Bigger green dots}\PY{l+s}{"}\PY{p}{)}
 \PY{n}{legend}\PY{p}{(}\PY{p}{)}
-\PY{n}{lab}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\PY{n}{show}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
 \end{bbox}
 \vspace{6mm}
@@ -1697,7 +1697,7 @@ grid can be displayed by using the {\tt grid()} command:\\
 \PY{n}{axis}\PY{p}{(}\PY{l+s}{'}\PY{l+s}{equal}\PY{l+s}{'}\PY{p}{)}
 \PY{n}{grid}\PY{p}{(}\PY{p}{)}
 \PY{n}{legend}\PY{p}{(}\PY{p}{)}
-\PY{n}{lab}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\PY{n}{show}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
 \end{bbox}
 \vspace{6mm}
@@ -1738,7 +1738,7 @@ canvas as follows:\\
 \PY{n}{axis}\PY{p}{(}\PY{l+s}{'}\PY{l+s}{equal}\PY{l+s}{'}\PY{p}{)}
 \PY{n}{grid}\PY{p}{(}\PY{p}{)}
 \PY{n}{legend}\PY{p}{(}\PY{p}{)}
-\PY{n}{lab}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\PY{n}{show}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
 \end{bbox}
 \vspace{6mm}
@@ -1779,7 +1779,7 @@ in one figure as needed. Let us do three:\\
 \PY{n}{plot}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{y2}\PY{p}{,} \PY{n}{label}\PY{o}{=}\PY{l+s}{"}\PY{l+s}{y2}\PY{l+s}{"}\PY{p}{)}
 \PY{n}{plot}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{y3}\PY{p}{,} \PY{n}{label}\PY{o}{=}\PY{l+s}{"}\PY{l+s}{y3}\PY{l+s}{"}\PY{p}{)}
 \PY{n}{legend}\PY{p}{(}\PY{p}{)}
-\PY{n}{lab}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\PY{n}{show}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
 \end{bbox}
 \vspace{6mm}
@@ -1824,7 +1824,7 @@ in the interval $(0, 10)$ for $t$. The complete code is\\
 \PY{n}{y} \PY{o}{=} \PY{n}{t}\PY{o}{*}\PY{n}{sin}\PY{p}{(}\PY{n}{t}\PY{p}{)}
 \PY{n}{clf}\PY{p}{(}\PY{p}{)}
 \PY{n}{plot}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{y}\PY{p}{)}
-\PY{n}{lab}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\PY{n}{show}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
 \end{bbox}
 \vspace{6mm}
@@ -1884,7 +1884,7 @@ and where the parameter $t$ lies in the interval $(-2, 2)$.\\
 \PY{c}{\PYZsh{} Plot the curve and show the plot:}
 \PY{n}{ax}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{n}{z}\PY{p}{,} \PY{n}{label}\PY{o}{=}\PY{l+s}{'}\PY{l+s}{Parametric 3D curve}\PY{l+s}{'}\PY{p}{)}
 \PY{n}{ax}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{)}
-\PY{n}{lab}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\PY{n}{show}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
 \end{bbox}
 \vspace{6mm}
@@ -1947,7 +1947,7 @@ in the square $(-\pi, \pi) \times (-\pi, \pi)$.\\
 \PY{n}{ax}\PY{o}{.}\PY{n}{plot\PYZus{}wireframe}\PY{p}{(}\PY{n}{X}\PY{p}{,} \PY{n}{Y}\PY{p}{,} \PY{n}{Z}\PY{p}{,} \PY{n}{rstride}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{cstride}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
 
 \PY{c}{\PYZsh{} Show the plot:}
-\PY{n}{lab}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\PY{n}{show}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
 \end{bbox}
 \vspace{6mm}
@@ -2084,7 +2084,7 @@ The simplest example of a pie chart involves seven lines of code:\\
 \PY{n}{clf}\PY{p}{(}\PY{p}{)}
 \PY{n}{axis}\PY{p}{(}\PY{l+s}{'}\PY{l+s}{equal}\PY{l+s}{'}\PY{p}{)}
 \PY{n}{pie}\PY{p}{(}\PY{n}{data}\PY{p}{,} \PY{n}{labels}\PY{o}{=}\PY{n}{labels}\PY{p}{)}
-\PY{n}{lab}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\PY{n}{show}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
 \end{bbox}
 \vspace{6mm}
@@ -2136,7 +2136,7 @@ comments and additional details are explained under the code.\\
       \PY{n}{bbox}\PY{o}{=}\PY{p}{\PYZob{}}\PY{l+s}{'}\PY{l+s}{facecolor}\PY{l+s}{'}\PY{p}{:} \PY{n}{color}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{pad}\PY{l+s}{'}\PY{p}{:} \PY{l+m+mi}{20}\PY{p}{\PYZcb{}}\PY{p}{)}
 
 \PY{c}{\PYZsh{} Fetch the plot from the server:}
-\PY{n}{lab}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\PY{n}{show}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
 \noindent
 \end{bbox}
@@ -2176,7 +2176,7 @@ in the state, etc. The simplest bar chart involves 5 lines of code:\\
 \PY{n}{data} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{450}\PY{p}{,} \PY{l+m+mi}{550}\PY{p}{,} \PY{l+m+mi}{300}\PY{p}{]}
 \PY{n}{clf}\PY{p}{(}\PY{p}{)}
 \PY{n}{bar}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{]}\PY{p}{,} \PY{n}{data}\PY{p}{)}
-\PY{n}{lab}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\PY{n}{show}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
 \end{bbox}
 \vspace{6mm}
@@ -2249,7 +2249,7 @@ employees and the yearly increments.\\
 \PY{n}{autolabel}\PY{p}{(}\PY{n}{rects2}\PY{p}{)}
 
 \PY{c}{\PYZsh{} Fetch image from server:}
-\PY{n}{lab}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\PY{n}{show}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
 \end{bbox}
 \vspace{6mm}
@@ -3590,7 +3590,7 @@ where approximately the solution can be expected:\\
 \PY{n}{plot}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{n}{label}\PY{o}{=}\PY{l+s}{"}\PY{l+s}{cos(x)}\PY{l+s}{"}\PY{p}{)}
 \PY{n}{plot}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{z}\PY{p}{,} \PY{n}{label}\PY{o}{=}\PY{l+s}{"}\PY{l+s}{x}\PY{l+s}{"}\PY{p}{)}
 \PY{n}{legend}\PY{p}{(}\PY{p}{)}
-\PY{n}{lab}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\PY{n}{show}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
 \end{bbox}
 \vspace{6mm}
@@ -5372,7 +5372,7 @@ and calculate their areas and perimeters:\\
 \PY{n}{C1}\PY{o}{.}\PY{n}{draw}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{First circle}\PY{l+s}{"}\PY{p}{)}
 \PY{n}{C2}\PY{o}{.}\PY{n}{draw}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{Second circle}\PY{l+s}{"}\PY{p}{)}
 \PY{n}{C3}\PY{o}{.}\PY{n}{draw}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{Third circle}\PY{l+s}{"}\PY{p}{)}
-\PY{n}{lab}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\PY{n}{show}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
 \end{bbox}
 \vspace{6mm}
@@ -6118,7 +6118,7 @@ about their areas and perimeters, and let them plot themselves:\\
 \PY{n}{C}\PY{o}{.}\PY{n}{draw}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{Circle}\PY{l+s}{"}\PY{p}{)}
 \PY{n}{ylim}\PY{p}{(}\PY{o}{-}\PY{l+m+mi}{3}\PY{p}{,} \PY{l+m+mi}{4}\PY{p}{)}
 \PY{n}{legend}\PY{p}{(}\PY{p}{)}
-\PY{n}{lab}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\PY{n}{show}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
 \end{bbox}
 \vspace{6mm}

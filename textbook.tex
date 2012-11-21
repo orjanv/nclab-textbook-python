@@ -1008,53 +1008,7 @@ Output:\\
 \vspace{6mm}
 
 \noindent
-This makes Python very intuitive and easy to use compared to other languages. 
-For example, to do the same as above, in C/C++ we would have to introduce different functions 
-for real numbers, for complex numbers, for strings, and any other data 
-types. They would look as follows:\\
-
-\begin{bbox}
-\begin{verbatim}
-double add(double a, double b)
-{
-  return a + b;
-}
-\end{verbatim}
-\end{bbox}
-\vspace{6mm}
-
-\noindent
-and\\
-
-\begin{bbox}
-\begin{verbatim}
-# include <complex.h>
-complex add(complex a, complex b)
-{
-  return a + b;
-}
-\end{verbatim}
-\end{bbox}
-\vspace{6mm}
-
-\noindent
-and \\
-
-\begin{bbox}
-\begin{verbatim}
-void add(const char* a_in, const char* b_in, char* c_out)
-{
-  strcpy(c_out, a_in);
-  strcat(c_out, b_in);
-  return;
-}
-\end{verbatim}
-\end{bbox}
-\vspace{6mm}
-
-\noindent
-etc. While C++ is a great language, technical details like this 
-make it more difficult for beginners.
+This makes Python very intuitive and easy to use.
 
 \subsection{Returning multiple values}
 
@@ -1397,7 +1351,7 @@ every color can be obtained by mixing the shades of Red, Green and Blue. These a
 called {\em additive primary colors} or just {\em primary colors}. The resulting color depends on the proportions of the 
 primary colors in the mix. It is customary to define these proportions by a number 
 between 0 and 1 for each primary color. So, the resulting color is a triplet of 
-real numbers between 0 and 1. For the primary colors we have\\
+real numbers between 0 and 1. For the primary colors we have\\[-4mm]
 
 \begin{center}
 \begin{tabular}{|c||c|c|c|}
@@ -1413,8 +1367,8 @@ Blue & 0 & 0 & 1\\
 \hline
 \end{tabular}
 \end{center}
-\vspace{4mm}
-These colors are shown in the following Fig. \ref{fig:rgb}.
+\vspace{0mm}
+These colors are shown in the following Fig. \ref{fig:rgb}.\\[-7mm]
 
 \begin{figure}[!ht]
 \begin{center}
@@ -1426,18 +1380,17 @@ These colors are shown in the following Fig. \ref{fig:rgb}.
 \end{figure}
 \noindent
 When the proportions of all three primary colors are the same, the result is a shade of grey.
-With [0, 0, 0] one obtains black, with [1, 1, 1] white. This is illustrated in Fig. \ref{fig:rgb2}.
-
+With [0, 0, 0] one obtains black, with [1, 1, 1] white. This is illustrated in Fig. \ref{fig:rgb2}.\\[-7mm]
 \begin{figure}[!ht]
 \begin{center}
 \includegraphics[width=0.7\textwidth]{img/rgb2.png}
 \end{center}
 \vspace{-2mm}
 \caption{Left: black color [0, 0, 0]. Middle: dark grey color [0.5, 0.5, 0.5]. Right; light grey color [0.9, 0.9, 0.9].}
-%\vspace{-1cm}
+\vspace{-1cm}
 \label{fig:rgb2}
 \end{figure}
-\noindent
+\newpage
 \noindent
 Guessing RGB codes is not easy. If you need to find the numbers representing your favorite color, 
 the best way is to Google for "rgb color palette". You will find many pages that translate

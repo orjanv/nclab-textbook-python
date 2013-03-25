@@ -55,30 +55,36 @@ and object-oriented programming are given in Section \ref{sec:adv}.
 
 \subsection{Python programming in NCLab}
 
-In NCLab's Python Worksheet, Python code is typed into one or more {\em code cells}. 
+In NCLab's Python module, Python code is typed into one or more {\em code cells}. 
 The code is then sent as a text string to a remote server where it is interpreted, and the 
 results are sent back to your web browser. It does not matter if you are using a desktop 
 computer, laptop, netbook, tablet, or any other hardware platform. Your hardware
 is not used for computing, only in a limited way for graphics rendering.
 
+\subsection{Downloading Python programs from NCLab's database}
 
-\subsection{Launching a Python project}
+NCLab's public database can be accessed from the File manager's File 
+menu or from the File menu of the Python module. In the Search box 
+that appears, enter the keywords that best match what you are looking 
+for. For example, typing "textbook python" will find exercises that 
+belong to the Python textbook. Any project that you find you can download
+into your account, modify, and use in any way you wish.
 
+\subsection{Launching the Python module}
 
-There are multiple ways to launch a Python project. First, it is 
-possible to clone and experiment with many existing displayed Python 
-projects via File Manager $\rightarrow$ 
-Project $\rightarrow$ Clone. 
+The Python module can be launched via 
+the Programming icon on Desktop or via File manager's File menu. Initially,
+the module will contain a {\em demo program} -- Python program that can be 
+run instantly by pressing the green arrow button. The demo program is not 
+necessarily the simplest possible Python program. Its purpose is to illustrate 
+the usage of the Python module and yield interesting graphics. The output 
+of the present demo program is the so-called {\em Dragon fractal},
+as shown in Fig. \ref{fig:python}.
 
-New Python worksheet can be launched via 
-the Programming module on Desktop or via File Manager $\rightarrow$ 
-Project $\rightarrow$ New $\rightarrow$ Python. Python worksheet
-launched in this way will contain a {\em welcome script} -- simple Python 
-program that can be run instantly by pressing the blue arrow button. 
-The welcome script is meant to get you started quickly, and it can 
-be turned off in Setting. Once turned off, next time you launch the 
-Python worksheet, it will be empty. An empty Python worksheet
-is shown in Fig. \ref{fig:python}.
+After you do  not need the demo program anymore, you can turn it off in 
+Settings. Next time you launch the Python module, it will not contain any 
+code.
+\newpage
 
 \begin{figure}[!ht]
 \begin{center}
@@ -88,26 +94,6 @@ is shown in Fig. \ref{fig:python}.
 \caption{Launching a new Python project.}
 \label{fig:python}
 \end{figure}
-
-
-\subsection{Hello, World!}
-
-Click into the code cell and type {\tt print "Hello, World!"}.
-Then click on the green arrow under the cell, and the text 
-"Hello, World!" will be displayed 
-in a new yellow {\em output cell} as shown in Fig. \ref{fig:python-2}.
-\newpage
-\begin{figure}[!ht]
-\begin{center}
-\includegraphics[width=0.9\textwidth]{img/python-2.png}
-\end{center}
-\vspace{-2mm}
-\caption{Response received from the cloud is shown in a yellow output cell.}
-\label{fig:python-2}
-\end{figure}
-\noindent
-The blue and red labels on the left-hand side of cells can be turned
-off in Settings, allowing a bit more space for editing.
 
 \subsection{Code, output, and descriptive cells}
 

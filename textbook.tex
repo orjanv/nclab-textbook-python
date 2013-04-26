@@ -1335,9 +1335,9 @@ Now {\tt x} is {\tt 1}, {\tt a} has the default value {\tt 2} and the result is 
 According to the {\em additive color model} which is based on the human perception of colors,
 every color can be obtained by mixing the shades of Red, Green and Blue. These are 
 called {\em additive primary colors} or just {\em primary colors}. The resulting color depends on the proportions of the 
-primary colors in the mix. It is customary to define these proportions by a number 
-between 0 and 1 for each primary color. So, the resulting color is a triplet of 
-real numbers between 0 and 1. For the primary colors we have\\[-4mm]
+primary colors in the mix. It is customary to define these proportions by an integer number 
+between 0 and 255 for each primary color. So, the resulting color is a triplet of 
+integers between 0 and 255. For the primary colors we have\\[-4mm]
 
 \begin{center}
 \begin{tabular}{|c||c|c|c|}
@@ -1345,11 +1345,11 @@ real numbers between 0 and 1. For the primary colors we have\\[-4mm]
 \ Color & \ R \ & \ G \ & \ B \ \\
 \hline
 \hline
-Red & 1 & 0 & 0\\
+Red & 255 & 0 & 0\\
 \hline
-Green & 0 & 1 & 0\\
+Green & 0 & 255 & 0\\
 \hline
-Blue & 0 & 0 & 1\\
+Blue & 0 & 0 & 255\\
 \hline
 \end{tabular}
 \end{center}
@@ -1361,18 +1361,18 @@ These colors are shown in the following Fig. \ref{fig:rgb}.\\[-7mm]
 \includegraphics[width=0.7\textwidth]{img/rgb.png}
 \end{center}
 \vspace{-2mm}
-\caption{Left: pure red color [1, 0, 0]. Middle: pure green color [0, 1, 0]. Right; pure blue color [0, 0, 1].}
+\caption{Left: pure red color [255, 0, 0]. Middle: pure green color [0, 255, 0]. Right; pure blue color [0, 0, 255].}
 \label{fig:rgb}
 \end{figure}
 \noindent
 When the proportions of all three primary colors are the same, the result is a shade of grey.
-With [0, 0, 0] one obtains black, with [1, 1, 1] white. This is illustrated in Fig. \ref{fig:rgb2}.\\[-7mm]
+With [0, 0, 0] one obtains black, with [255, 255, 255] white. This is illustrated in Fig. \ref{fig:rgb2}.\\[-7mm]
 \begin{figure}[!ht]
 \begin{center}
 \includegraphics[width=0.7\textwidth]{img/rgb2.png}
 \end{center}
 \vspace{-2mm}
-\caption{Left: black color [0, 0, 0]. Middle: dark grey color [0.5, 0.5, 0.5]. Right; light grey color [0.9, 0.9, 0.9].}
+\caption{Left: black color [0, 0, 0]. Middle: dark grey color [128, 128, 128]. Right; light grey color [220, 220, 220].}
 \vspace{-1cm}
 \label{fig:rgb2}
 \end{figure}
@@ -1380,10 +1380,7 @@ With [0, 0, 0] one obtains black, with [1, 1, 1] white. This is illustrated in F
 \noindent
 Guessing RGB codes is not easy. If you need to find the numbers representing your favorite color, 
 the best way is to Google for "rgb color palette". You will find many pages that translate
-colors into RGB codes. Most of them will have the colors represented by integer numbers 
-between 0 and 255 (as opposed to the 0 to 1 scale). This is because these integers are easier 
-to represent using bits and Bytes. However, it is sufficient to divide all three numbers by 255
-to translate the color into the original unit scale. Fig. \ref{fig:rgb3} shows three "easy" colors
+colors into RGB codes. Fig. \ref{fig:rgb3} shows three "simple" colors
 cyan, pink and yellow along with their RGB codes.
 
 \begin{figure}[!ht]
@@ -1391,7 +1388,7 @@ cyan, pink and yellow along with their RGB codes.
 \includegraphics[width=0.7\textwidth]{img/rgb3.png}
 \end{center}
 \vspace{-2mm}
-\caption{Left: cyan color [0, 1, 1]. Middle: pink color [1, 0, 1]. Right; yellow color [1, 1, 0].}
+\caption{Left: cyan color [0, 255, 255]. Middle: pink color [255, 0, 255]. Right; yellow color [255, 255, 0].}
 \label{fig:rgb3}
 \end{figure}
 
@@ -1438,7 +1435,7 @@ If the first and last points were the same,
 then the polyline would form a closed loop and one would obtain a polygon.
 The above plot was done using a default blue color. The color can be 
 set by passing an optional parameter {\tt color = [R, G, B]} into the {\tt plot()}
-function. For illustration, changing the fifth line in the last script to {\tt plot(x, y, color = [1, 0, 1])},
+function. For illustration, changing the fifth line in the last script to {\tt plot(x, y, color = [255, 0, 255])},
 we obtain a pink polyline shown in Fig. \ref{fig:pinkplot}.
 
 \begin{figure}[!ht]
@@ -2070,7 +2067,7 @@ comments and additional details are explained under the code.\\
     \PY{n}{autopct}\PY{o}{=}\PY{l+s}{'}\PY{l+s+si}{\PYZpc{}1.1f}\PY{l+s+si}{\PYZpc{}\PYZpc{}}\PY{l+s}{'}\PY{p}{,} \PY{n}{shadow} \PY{o}{=} \PY{n+nb+bp}{True}\PY{p}{)}
 
 \PY{c}{\PYZsh{} Create title:}
-\PY{n}{color} \PY{o}{=} \PY{p}{[}\PY{l+m+mf}{0.9}\PY{p}{,} \PY{l+m+mf}{0.9}\PY{p}{,} \PY{l+m+mf}{0.9}\PY{p}{]}  \PY{c}{\PYZsh{} This is light-grey color.}
+\PY{n}{color} \PY{o}{=} \PY{p}{[}\PY{l+m+mf}{220}\PY{p}{,} \PY{l+m+mf}{220}\PY{p}{,} \PY{l+m+mf}{220}\PY{p}{]}  \PY{c}{\PYZsh{} This is light-grey color.}
 \PY{n}{title}\PY{p}{(}\PY{l+s}{'}\PY{l+s}{Company}\PY{l+s+se}{\PYZbs{}'}\PY{l+s}{s last year production}\PY{l+s}{'}\PY{p}{,} \PYZbs{}
       \PY{n}{bbox}\PY{o}{=}\PY{p}{\PYZob{}}\PY{l+s}{'}\PY{l+s}{facecolor}\PY{l+s}{'}\PY{p}{:} \PY{n}{color}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{pad}\PY{l+s}{'}\PY{p}{:} \PY{l+m+mi}{20}\PY{p}{\PYZcb{}}\PY{p}{)}
 
@@ -2100,7 +2097,7 @@ that one decimal digit will be present after the decimal point ({\tt 1.2} would 
 with two digits after the decimal point, etc.). The parameter {\tt shadow} indicates whether 
 a shadow will be used. Iy can be set to True or False. 
 The {\tt color} parameter in {\tt title} defines a color using its RGB components 
-which are between 0 (darkest) and 1 (lightest). The parameter {\tt pad} defines padding.
+which are between 0 (darkest) and 255 (lightest). The parameter {\tt pad} defines padding.
 
 \subsection[\ \ Plotting bar charts]{Plotting bar charts}
 
@@ -3299,7 +3296,7 @@ The {\tt while} loop in Python has the following general format:\\
 
 \noindent
 There is a mandatory indent for the body of the loop, same as for conditions and 
-functions. Moreover note the mandatory color '{\tt :}' after the Boolean expression.
+functions. Moreover note the mandatory colon '{\tt :}' after the Boolean expression.
 
 As a simple example, let us generate and print random numbers between 
 zero and one as long as they are less than 0.75. If a number is greater or 
